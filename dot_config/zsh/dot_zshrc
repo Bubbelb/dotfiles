@@ -1,0 +1,42 @@
+#Basic start vars
+export ZSH_APPDIR="${HOME}/.local/share/zsh"
+mkdir -p "${ZSH_APPDIR}"
+
+#Update path with user bindir
+typeset -U path
+[[ -d "${HOME}/.local/bin" ]] && path+=("${HOME}/.local/bin")
+export PATH
+
+#At first check for config updates
+export DF_RESULTFILE="${ZSH_APPDIR}/dfsync-result"
+alias dotf_upload='~/.config/zsh/console-updater.sh dotf_upload'
+alias dotf_forcesync='~/.config/zsh/console-updater.sh dotf_forcesync'
+
+#Launch tmux, if not run already as parent and if session is interactive
+case $- in
+  *i*)
+    if [[ -z "${SSH_TTY}" ]] ; then
+        ~/.config/zsh/console-updater.sh
+    elif [[ -z "${TMUX}" ]] ; then
+        exec tmux new-session -A -D \; new-window -dbn 'Updater' '~/.config/zsh/console-updater.sh tmux_init'
+    fi
+  ;;
+esac
+
+#History
+HISTFILE="${ZSH_APPDIR}/histfile"
+HISTSIZE=5000
+SAVEHIST=${HISTSIZE}
+
+for SRCFILE (   "misc.zsh" \
+                "prompt.zsh" \
+                "theme.zsh" \
+                "aliases.zsh" \
+                "lfcd.zsh" \
+                "view-edit-search.zsh" \
+                "packagemgr.zsh" \
+                "trash.zsh" ) {
+    [[ -f "${ZDOTDIR}/${SRCFILE}" ]] && source "${ZDOTDIR}/${SRCFILE}"
+}
+
+[[ -f "${ZDOTDIR}/hosts/${HOST}.zsh" ]] && source "${ZDOTDIR}/hosts/${HOST}.zsh"

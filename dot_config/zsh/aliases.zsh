@@ -1,0 +1,53 @@
+# CD Commands
+alias -- -='cd -'
+alias ...=../..
+alias ....=../../..
+alias .....=../../../..
+alias ......=../../../../..
+alias 1='cd -1'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+
+#ls enhancements
+if [[ -x /usr/bin/exa ]] ; then
+  alias la='exa --long --group --all'
+  alias ll='exa --long --group'
+  alias ls='exa'
+  alias la.s='exa --long --group --all --sort size'
+  alias la.t='exa --long --group --all --sort time'
+  alias la.d='exa --long --group --all --only-dirs'
+else
+  alias la='ls -la'
+  alias ll='ls -l'
+  alias la.s='ls -larS'
+  alias la.t='ls -lart'
+  alias la.d='ls -lad'
+fi
+
+#Misc
+alias _='sudo '
+alias mkdir='mkdir -pv'
+alias which-command=whence
+
+#normalize batcat and fd on debian systems (e.g. alias to 'bat')
+[[ -x /usr/bin/batcat ]] && alias bat='batcat'
+[[ -x /usr/bin/fdfind ]] && alias fd='fdfind'
+
+#Shell Proxy Host
+alias jssh='ssh -J bubbel.org'
+
+[[ -r ~/.local/bin/lvim ]] && alias nvim="${HOME}/.local/bin/lvim" || (alias | grep -q '^nvim=' && unalias nvim)
+
+if ( whence python > /dev/null || whence python3 > /dev/null ) ; then
+    alias urldecode='python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
+    alias urlencode='python3 -c "import sys, urllib.parse as ul; print (ul.quote_plus(sys.argv[1]))"'
+fi
+
+[[ -f /usr/bin/fdfind ]] && alias fd='fdfind'
+[[ -f /usr/bin/batcat ]] && alias bat='batcat'

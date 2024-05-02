@@ -1,0 +1,3856 @@
++ stat /run/host/etc/shadow
++ stat -c '%u' /run/host/etc/shadow
++ '[' 65534 '=' 0 ]
++ '[' -n  ]
++ printf 'distrobox: Installing basic packages...\n'
+distrobox: Installing basic packages...
++ basename zsh
++ shell_pkg=zsh
++ '[' zsh '=' ash ]
++ missing_packages=0
++ dependencies='
+	bc
+	bzip2
+	chpasswd
+	curl
+	diff
+	find
+	findmnt
+	gpg
+	hostname
+	less
+	lsof
+	man
+	mount
+	passwd
+	pigz
+	pinentry
+	ping
+	ps
+	rsync
+	script
+	ssh
+	sudo
+	time
+	tree
+	umount
+	unzip
+	useradd
+	wc
+	wget
+	xauth
+	zip
+	zsh
+'
++ command -v bc
++ command -v bzip2
++ command -v chpasswd
++ command -v curl
++ missing_packages=1
++ break
++ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/bin:/sbin:/usr/bin:/usr/sbin
++ '[' 0 -ne 0 ]
++ '[' 1 -ne 0 ]
++ command -v apk
+/sbin/apk
++ '[' 0 -ne 0 ]
++ apk add zsh
+OK: 468 MiB in 147 packages
++ apk add wolfi-base
+ERROR: unable to select packages:
+  wolfi-base (no such package):
+    required by: world[wolfi-base]
++ apk add alpine-base
+(1/11) Installing ifupdown-ng (0.12.1-r4)
+(2/11) Installing openrc (0.52.1-r2)
+Executing openrc-0.52.1-r2.post-install
+(3/11) Installing mdev-conf (4.6-r0)
+(4/11) Installing busybox-mdev-openrc (1.36.1-r15)
+(5/11) Installing alpine-conf (3.17.2-r0)
+(6/11) Installing alpine-release (3.19.1-r0)
+(7/11) Installing busybox-openrc (1.36.1-r15)
+(8/11) Installing busybox-suid (1.36.1-r15)
+(9/11) Installing alpine-base (3.19.1-r0)
+(10/11) Installing rsync-openrc (3.2.7-r4)
+(11/11) Installing openrc-zsh-completion (0.52.1-r2)
+Executing busybox-1.36.1-r15.trigger
+OK: 470 MiB in 158 packages
++ apk search -q mesa-dri
++ apk search -q mesa-vulkan
++ deps='
+				bash-completion
+				docs
+				gcompat
+				libc-utils
+				lsof
+				man-pages
+				mandoc
+				musl-utils
+				openssh-client-default
+				pinentry
+				sudo
+				tar
+				vte3
+				which
+				mesa-dri-gallium
+				mesa-vulkan-ati
+mesa-vulkan-intel
+mesa-vulkan-layers
+mesa-vulkan-swrast
+			'
++ apk search -qe procps
++ deps='
+				bash-completion
+				docs
+				gcompat
+				libc-utils
+				lsof
+				man-pages
+				mandoc
+				musl-utils
+				openssh-client-default
+				pinentry
+				sudo
+				tar
+				vte3
+				which
+				mesa-dri-gallium
+				mesa-vulkan-ati
+mesa-vulkan-intel
+mesa-vulkan-layers
+mesa-vulkan-swrast
+			
+			zsh
+			bash
+			bc
+			bzip2
+			coreutils
+			curl
+			diffutils
+			findmnt
+			findutils
+			gnupg
+			gpg
+			iproute2
+			iputils
+			keyutils
+			less
+			libcap
+			mount
+			ncurses
+			ncurses-terminfo
+			net-tools
+			pigz
+			rsync
+			shadow
+			su-exec
+			tcpdump
+			tree
+			tzdata
+			umount
+			unzip
+			util-linux
+			util-linux-login
+			util-linux-misc
+			vulkan-loader
+			wget
+			xauth
+			xz
+			zip
+			procps-ng
+		'
++ apk search -qe bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip util-linux util-linux-login util-linux-misc vulkan-loader wget xauth xz zip procps-ng
++ tr '\n' ' '
++ found_deps='bash bash-completion bc bzip2 coreutils curl diffutils docs findmnt findutils gcompat gnupg gpg iproute2 iputils keyutils less libc-utils libcap lsof man-pages mandoc mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast mount musl-utils ncurses ncurses-terminfo net-tools openssh-client-default pigz pinentry procps-ng rsync shadow su-exec sudo tar tcpdump tree tzdata umount unzip util-linux util-linux-login util-linux-misc vte3 vulkan-loader wget which xauth xz zip zsh '
++ install_pkg=
++ install_pkg=' bash-completion'
++ install_pkg=' bash-completion docs'
++ install_pkg=' bash-completion docs gcompat'
++ install_pkg=' bash-completion docs gcompat libc-utils'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip util-linux'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip util-linux util-linux-login'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip util-linux util-linux-login util-linux-misc'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip util-linux util-linux-login util-linux-misc vulkan-loader'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip util-linux util-linux-login util-linux-misc vulkan-loader wget'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip util-linux util-linux-login util-linux-misc vulkan-loader wget xauth'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip util-linux util-linux-login util-linux-misc vulkan-loader wget xauth xz'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip util-linux util-linux-login util-linux-misc vulkan-loader wget xauth xz zip'
++ install_pkg=' bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip util-linux util-linux-login util-linux-misc vulkan-loader wget xauth xz zip procps-ng'
++ apk add --force-overwrite bash-completion docs gcompat libc-utils lsof man-pages mandoc musl-utils openssh-client-default pinentry sudo tar vte3 which mesa-dri-gallium mesa-vulkan-ati mesa-vulkan-intel mesa-vulkan-layers mesa-vulkan-swrast zsh bash bc bzip2 coreutils curl diffutils findmnt findutils gnupg gpg iproute2 iputils keyutils less libcap mount ncurses ncurses-terminfo net-tools pigz rsync shadow su-exec tcpdump tree tzdata umount unzip util-linux util-linux-login util-linux-misc vulkan-loader wget xauth xz zip procps-ng
+(1/336) Installing bash-completion (2.11-r6)
+(2/336) Installing openrc-bash-completion (0.52.1-r2)
+(3/336) Installing bat-bash-completion (0.24.0-r0)
+(4/336) Installing bc (1.07.1-r4)
+(5/336) Installing bzip2 (1.0.8-r6)
+(6/336) Installing chezmoi-bash-completion (2.42.2-r2)
+(7/336) Installing coreutils-env (9.4-r2)
+(8/336) Installing coreutils-fmt (9.4-r2)
+(9/336) Installing coreutils-sha512sum (9.4-r2)
+(10/336) Installing libattr (2.5.1-r5)
+(11/336) Installing skalibs (2.14.0.1-r0)
+(12/336) Installing utmps-libs (0.1.2.2-r0)
+(13/336) Installing coreutils (9.4-r2)
+(14/336) Installing cosign-bash-completion (2.2.1-r2)
+(15/336) Installing curl (8.5.0-r0)
+(16/336) Installing diffutils (3.10-r0)
+(17/336) Installing mandoc (1.14.6-r12)
+(18/336) Installing mandoc-doc (1.14.6-r12)
+(19/336) Installing man-pages (6.05.01-r0)
+(20/336) Installing docs (0.2-r6)
+(21/336) Installing less-doc (643-r2)
+(22/336) Installing busybox-doc (1.36.1-r15)
+(23/336) Installing bash-completion-doc (2.11-r6)
+(24/336) Installing apk-tools-doc (2.14.4-r0)
+(25/336) Installing ca-certificates-doc (20240226-r0)
+(26/336) Installing openrc-doc (0.52.1-r2)
+(27/336) Installing bc-doc (1.07.1-r4)
+(28/336) Installing pcre2-doc (10.42-r2)
+(29/336) Installing coreutils-doc (9.4-r2)
+(30/336) Installing ifupdown-ng-doc (0.12.1-r4)
+(31/336) Installing clipboard-doc (0.9.0-r0)
+(32/336) Installing bat-doc (0.24.0-r0)
+(33/336) Installing libssh2-doc (1.11.0-r1)
+(34/336) Installing diffutils-doc (3.10-r0)
+(35/336) Installing skalibs-doc (2.14.0.1-r0)
+(36/336) Installing libidn2-doc (2.3.4-r4)
+(37/336) Installing zlib-doc (1.3.1-r0)
+(38/336) Installing readline-doc (8.2.1-r2)
+(39/336) Installing curl-doc (8.5.0-r0)
+(40/336) Installing bzip2-doc (1.0.8-r6)
+(41/336) Installing c-ares-doc (1.27.0-r0)
+(42/336) Installing libunistring-doc (1.1-r2)
+(43/336) Installing bash-doc (5.2.21-r0)
+(44/336) Installing eza-doc (0.16.2-r0)
+(45/336) Installing eza-bash-completion (0.16.2-r0)
+(46/336) Installing fd-doc (8.7.1-r0)
+(47/336) Installing fd-bash-completion (8.7.1-r0)
+(48/336) Installing findmnt (2.39.3-r0)
+(49/336) Installing findutils (4.9.0-r5)
+(50/336) Installing findutils-doc (4.9.0-r5)
+(51/336) Installing fzf-doc (0.44.1-r2)
+(52/336) Installing perl-doc (5.38.2-r0)
+(53/336) Installing tmux-doc (3.3a_git20230428-r0)
+(54/336) Installing binutils-doc (2.41-r0)
+(55/336) Installing gmp-doc (6.3.0-r0)
+(56/336) Installing mpfr4-doc (4.2.1-r0)
+(57/336) Installing mpc1-doc (1.3.1-r1)
+(58/336) Installing gcc-doc (13.2.1_git20231014-r0)
+(59/336) Installing musl-obstack (1.2.3-r2)
+(60/336) Installing libucontext (1.2-r2)
+(61/336) Installing libucontext-doc (1.2-r2)
+(62/336) Installing gcompat (1.1.0-r4)
+(63/336) Installing git-bash-completion (2.43.0-r0)
+(64/336) Installing git-doc (2.43.0-r0)
+(65/336) Installing perl-error-doc (0.17029-r2)
+(66/336) Installing github-cli-bash-completion (2.39.2-r2)
+(67/336) Installing github-cli-doc (2.39.2-r2)
+(68/336) Installing libgpg-error (1.47-r2)
+(69/336) Installing libgpg-error-doc (1.47-r2)
+(70/336) Installing libassuan (2.5.6-r1)
+(71/336) Installing libassuan-doc (2.5.6-r1)
+(72/336) Installing pinentry (1.2.1-r1)
+Executing pinentry-1.2.1-r1.post-install
+(73/336) Installing pinentry-doc (1.2.1-r1)
+(74/336) Installing libgcrypt (1.10.3-r0)
+(75/336) Installing libgcrypt-doc (1.10.3-r0)
+(76/336) Installing gnupg-gpgconf (2.4.4-r0)
+(77/336) Installing nettle (3.9.1-r0)
+(78/336) Installing libffi-doc (3.4.4-r3)
+(79/336) Installing libtasn1 (4.19.0-r2)
+(80/336) Installing libtasn1-doc (4.19.0-r2)
+(81/336) Installing p11-kit (0.25.3-r0)
+(82/336) Installing p11-kit-doc (0.25.3-r0)
+(83/336) Installing gnutls (3.8.4-r0)
+(84/336) Installing gnutls-doc (3.8.4-r0)
+(85/336) Installing libksba (1.6.5-r0)
+(86/336) Installing libksba-doc (1.6.5-r0)
+(87/336) Installing gdbm-doc (1.23-r1)
+(88/336) Installing libsasl (2.1.28-r5)
+(89/336) Installing libldap (2.6.6-r1)
+(90/336) Installing npth (1.6-r4)
+(91/336) Installing gnupg-dirmngr (2.4.4-r0)
+(92/336) Installing gnupg-keyboxd (2.4.4-r0)
+(93/336) Installing gpg (2.4.4-r0)
+(94/336) Installing gpg-agent (2.4.4-r0)
+(95/336) Installing gpg-wks-server (2.4.4-r0)
+(96/336) Installing gpgsm (2.4.4-r0)
+(97/336) Installing gpgv (2.4.4-r0)
+(98/336) Installing gnupg-utils (2.4.4-r0)
+(99/336) Installing gnupg-wks-client (2.4.4-r0)
+(100/336) Installing gnupg (2.4.4-r0)
+(101/336) Installing gnupg-doc (2.4.4-r0)
+(102/336) Installing libelf (0.190-r1)
+(103/336) Installing libmnl (1.0.5-r2)
+(104/336) Installing iproute2-minimal (6.6.0-r0)
+(105/336) Installing ifupdown-ng-iproute2 (0.12.1-r4)
+(106/336) Installing libxtables (1.8.10-r3)
+(107/336) Installing iproute2-tc (6.6.0-r0)
+(108/336) Installing iproute2-ss (6.6.0-r0)
+(109/336) Installing iproute2 (6.6.0-r0)
+Executing iproute2-6.6.0-r0.post-install
+(110/336) Installing iproute2-doc (6.6.0-r0)
+(111/336) Installing iproute2-bash-completion (6.6.0-r0)
+(112/336) Installing iputils-arping (20221126-r2)
+(113/336) Installing iputils-clockdiff (20221126-r2)
+(114/336) Installing iputils-ping (20221126-r2)
+(115/336) Installing iputils-tracepath (20221126-r2)
+(116/336) Installing iputils (20221126-r2)
+(117/336) Installing keyutils-libs (1.6.3-r3)
+(118/336) Installing keyutils (1.6.3-r3)
+(119/336) Installing keyutils-doc (1.6.3-r3)
+(120/336) Installing lf-bash-completion (31-r3)
+(121/336) Installing lf-doc (31-r3)
+(122/336) Installing libcap-getcap (2.69-r1)
+(123/336) Installing libcap-setcap (2.69-r1)
+(124/336) Installing libcap-utils (2.69-r1)
+(125/336) Installing libcap (2.69-r1)
+(126/336) Installing libcap-doc (2.69-r1)
+(127/336) Installing lsof (4.99.0-r0)
+(128/336) Installing lsof-doc (4.99.0-r0)
+(129/336) Installing mesa (23.3.6-r0)
+(130/336) Installing libxml2 (2.11.7-r0)
+(131/336) Installing libxml2-doc (2.11.7-r0)
+(132/336) Installing llvm17-libs (17.0.5-r0)
+(133/336) Installing hwdata-pci (0.377.2-r0)
+(134/336) Installing libpciaccess (0.17-r2)
+(135/336) Installing libpciaccess-doc (0.17-r2)
+(136/336) Installing libdrm (2.4.118-r0)
+(137/336) Installing mesa-glapi (23.3.6-r0)
+(138/336) Installing libxau (1.0.11-r3)
+(139/336) Installing libxau-doc (1.0.11-r3)
+(140/336) Installing libmd (1.1.0-r0)
+(141/336) Installing libmd-doc (1.1.0-r0)
+(142/336) Installing libbsd (0.11.7-r3)
+(143/336) Installing libbsd-doc (0.11.7-r3)
+(144/336) Installing libxdmcp (1.1.4-r3)
+(145/336) Installing libxdmcp-doc (1.1.4-r3)
+(146/336) Installing libxcb (1.16-r0)
+(147/336) Installing libxcb-doc (1.16-r0)
+(148/336) Installing mesa-dri-gallium (23.3.6-r0)
+(149/336) Installing libx11 (1.8.7-r0)
+(150/336) Installing libx11-doc (1.8.7-r0)
+(151/336) Installing clipboard-x11 (0.9.0-r0)
+(152/336) Installing eudev-libs (3.2.14-r0)
+(153/336) Installing libxshmfence (1.3.2-r5)
+(154/336) Installing mesa-vulkan-ati (23.3.6-r0)
+(155/336) Installing mesa-vulkan-intel (23.3.6-r0)
+(156/336) Installing mpdecimal-doc (2.5.1-r2)
+(157/336) Installing python3-doc (3.11.9-r0)
+(158/336) Installing mesa-vulkan-layers (23.3.6-r0)
+(159/336) Installing mesa-vulkan-swrast (23.3.6-r0)
+(160/336) Installing mount (2.39.3-r0)
+(161/336) Installing ncdu-doc (1.19-r0)
+(162/336) Installing ncurses-doc (6.4_p20231125-r0)
+(163/336) Installing ncurses-terminfo (6.4_p20231125-r0)
+(164/336) Installing neofetch-doc (7.1.0-r1)
+(165/336) Installing luajit-doc (2.1_p20230410-r3)
+(166/336) Installing unibilium-doc (2.1.1-r0)
+(167/336) Installing libtermkey-doc (0.22-r1)
+(168/336) Installing neovim-doc (0.9.4-r0)
+(169/336) Installing mii-tool (2.10-r3)
+(170/336) Installing net-tools (2.10-r3)
+(171/336) Installing net-tools-doc (2.10-r3)
+(172/336) Installing openssh-keygen (9.6_p1-r0)
+(173/336) Installing libedit (20230828.3.1-r3)
+(174/336) Installing libedit-doc (20230828.3.1-r3)
+(175/336) Installing openssh-client-common (9.6_p1-r0)
+(176/336) Installing openssh-client-default (9.6_p1-r0)
+(177/336) Installing pigz (2.8-r0)
+(178/336) Installing pigz-doc (2.8-r0)
+(179/336) Installing liburing-doc (2.5-r1)
+(180/336) Installing plocate-doc (1.1.19-r4)
+(181/336) Installing libproc2 (4.0.4-r0)
+(182/336) Installing procps-ng (4.0.4-r0)
+(183/336) Installing procps-ng-doc (4.0.4-r0)
+(184/336) Installing ripgrep-bash-completion (14.0.3-r0)
+(185/336) Installing ripgrep-doc (14.0.3-r0)
+(186/336) Installing popt-doc (1.19-r3)
+(187/336) Installing rsync-doc (3.2.7-r4)
+(188/336) Installing linux-pam (1.5.3-r7)
+(189/336) Installing linux-pam-doc (1.5.3-r7)
+(190/336) Installing shadow (4.14.2-r0)
+(191/336) Installing shadow-doc (4.14.2-r0)
+(192/336) Installing su-exec (0.2-r3)
+(193/336) Installing sudo (1.9.15_p2-r0)
+(194/336) Installing sudo-doc (1.9.15_p2-r0)
+(195/336) Installing tar (1.35-r2)
+(196/336) Installing tar-doc (1.35-r2)
+(197/336) Installing libpcap (1.10.4-r1)
+(198/336) Installing libpcap-doc (1.10.4-r1)
+(199/336) Installing tcpdump (4.99.4-r1)
+(200/336) Installing tcpdump-doc (4.99.4-r1)
+(201/336) Installing trash-cli-doc (0.23.9.23-r0)
+(202/336) Installing tree (2.1.1-r0)
+(203/336) Installing tree-doc (2.1.1-r0)
+(204/336) Installing tzdata (2024a-r0)
+(205/336) Installing tzdata-doc (2024a-r0)
+(206/336) Installing umount (2.39.3-r0)
+(207/336) Installing unzip (6.0-r14)
+(208/336) Installing unzip-doc (6.0-r14)
+(209/336) Installing util-linux (2.39.3-r0)
+(210/336) Installing libeconf (0.5.2-r2)
+(211/336) Installing libeconf-doc (0.5.2-r2)
+(212/336) Installing runuser (2.39.3-r0)
+(213/336) Installing losetup (2.39.3-r0)
+(214/336) Installing hexdump (2.39.3-r0)
+(215/336) Installing uuidgen (2.39.3-r0)
+(216/336) Installing blkid (2.39.3-r0)
+(217/336) Installing sfdisk (2.39.3-r0)
+(218/336) Installing mcookie (2.39.3-r0)
+(219/336) Installing agetty (2.39.3-r0)
+(220/336) Installing agetty-openrc (0.52.1-r2)
+(221/336) Installing wipefs (2.39.3-r0)
+(222/336) Installing cfdisk (2.39.3-r0)
+(223/336) Installing util-linux-doc (2.39.3-r0)
+(224/336) Installing util-linux-openrc (2.39.3-r0)
+(225/336) Installing flock (2.39.3-r0)
+(226/336) Installing lsblk (2.39.3-r0)
+(227/336) Installing libcap-ng (0.8.3-r4)
+(228/336) Installing libcap-ng-doc (0.8.3-r4)
+(229/336) Installing setpriv (2.39.3-r0)
+(230/336) Installing logger (2.39.3-r0)
+(231/336) Installing partx (2.39.3-r0)
+(232/336) Installing fstrim (2.39.3-r0)
+(233/336) Installing util-linux-bash-completion (2.39.3-r0)
+(234/336) Installing util-linux-login (2.39.3-r0)
+(235/336) Installing util-linux-login-doc (2.39.3-r0)
+(236/336) Installing glib (2.78.4-r0)
+(237/336) Installing glib-bash-completion (2.78.4-r0)
+(238/336) Installing glib-doc (2.78.4-r0)
+(239/336) Installing libatk-1.0 (2.50.1-r0)
+(240/336) Installing libxext (1.3.5-r3)
+(241/336) Installing libxext-doc (1.3.5-r3)
+(242/336) Installing libxrender (0.9.11-r4)
+(243/336) Installing libxrender-doc (0.9.11-r4)
+(244/336) Installing libpng (1.6.40-r0)
+(245/336) Installing libpng-doc (1.6.40-r0)
+(246/336) Installing freetype (2.13.2-r0)
+(247/336) Installing freetype-doc (2.13.2-r0)
+(248/336) Installing fontconfig (2.14.2-r4)
+(249/336) Installing fontconfig-doc (2.14.2-r4)
+(250/336) Installing pixman (0.42.2-r2)
+(251/336) Installing cairo (1.18.0-r0)
+(252/336) Installing cairo-doc (1.18.0-r0)
+(253/336) Installing cairo-gobject (1.18.0-r0)
+(254/336) Installing fribidi (1.0.13-r0)
+(255/336) Installing fribidi-doc (1.0.13-r0)
+(256/336) Installing pkgconf (2.1.0-r0)
+(257/336) Installing pkgconf-doc (2.1.0-r0)
+(258/336) Installing shared-mime-info (2.4-r0)
+(259/336) Installing shared-mime-info-doc (2.4-r0)
+(260/336) Installing hicolor-icon-theme (0.17-r2)
+(261/336) Installing libjpeg-turbo (3.0.1-r0)
+(262/336) Installing libjpeg-turbo-doc (3.0.1-r0)
+(263/336) Installing libsharpyuv (1.3.2-r0)
+(264/336) Installing libwebp (1.3.2-r0)
+(265/336) Installing libwebp-doc (1.3.2-r0)
+(266/336) Installing tiff (4.6.0-r0)
+(267/336) Installing tiff-doc (4.6.0-r0)
+(268/336) Installing gdk-pixbuf (2.42.10-r6)
+(269/336) Installing gdk-pixbuf-doc (2.42.10-r6)
+(270/336) Installing gtk-update-icon-cache (3.24.41-r0)
+(271/336) Installing libxcomposite (0.4.6-r4)
+(272/336) Installing libxcomposite-doc (0.4.6-r4)
+(273/336) Installing libxfixes (6.0.1-r3)
+(274/336) Installing libxfixes-doc (6.0.1-r3)
+(275/336) Installing libxcursor (1.2.1-r3)
+(276/336) Installing libxcursor-doc (1.2.1-r3)
+(277/336) Installing libxdamage (1.1.6-r4)
+(278/336) Installing libxi (1.8.1-r2)
+(279/336) Installing libxi-doc (1.8.1-r2)
+(280/336) Installing libxinerama (1.1.5-r3)
+(281/336) Installing libxinerama-doc (1.1.5-r3)
+(282/336) Installing libxrandr (1.5.4-r0)
+(283/336) Installing libxrandr-doc (1.5.4-r0)
+(284/336) Installing libxtst (1.2.4-r4)
+(285/336) Installing libxtst-doc (1.2.4-r4)
+(286/336) Installing dbus-libs (1.14.10-r0)
+(287/336) Installing at-spi2-core (2.50.1-r0)
+(288/336) Installing libatk-bridge-2.0 (2.50.1-r0)
+(289/336) Installing avahi-libs (0.8-r16)
+(290/336) Installing cups-libs (2.4.7-r0)
+(291/336) Installing libepoxy (1.5.10-r1)
+(292/336) Installing graphite2 (1.3.14-r6)
+(293/336) Installing harfbuzz (8.3.0-r0)
+(294/336) Installing harfbuzz-doc (8.3.0-r0)
+(295/336) Installing libxft (2.3.8-r2)
+(296/336) Installing libxft-doc (2.3.8-r2)
+(297/336) Installing pango (1.51.0-r0)
+(298/336) Installing pango-doc (1.51.0-r0)
+(299/336) Installing wayland-libs-cursor (1.22.0-r4)
+(300/336) Installing wayland-libs-egl (1.22.0-r4)
+(301/336) Installing xkeyboard-config (2.40-r0)
+(302/336) Installing xkeyboard-config-doc (2.40-r0)
+(303/336) Installing libxkbcommon (1.6.0-r0)
+(304/336) Installing xkbcli-doc (1.6.0-r0)
+(305/336) Installing gtk+3.0 (3.24.41-r0)
+(306/336) Installing gtk+3.0-doc (3.24.41-r0)
+(307/336) Installing icu-data-en (74.1-r0)
+Executing icu-data-en-74.1-r0.post-install
+*
+* If you need ICU with non-English locales and legacy charset support, install
+* package icu-data-full.
+*
+(308/336) Installing icu-libs (74.1-r0)
+(309/336) Installing vte3 (0.74.2-r0)
+(310/336) Installing vulkan-loader (1.3.261.1-r0)
+(311/336) Installing wget (1.21.4-r0)
+(312/336) Installing wget-doc (1.21.4-r0)
+(313/336) Installing which (2.21-r4)
+(314/336) Installing which-doc (2.21-r4)
+(315/336) Installing wl-clipboard-bash-completion (2.2.0-r1)
+(316/336) Installing wl-clipboard-doc (2.2.0-r1)
+(317/336) Installing libice (1.1.1-r5)
+(318/336) Installing libice-doc (1.1.1-r5)
+(319/336) Installing libsm (1.2.4-r3)
+(320/336) Installing libsm-doc (1.2.4-r3)
+(321/336) Installing libxt (1.3.0-r4)
+(322/336) Installing libxt-doc (1.3.0-r4)
+(323/336) Installing libxmu (1.1.4-r2)
+(324/336) Installing libxmu-doc (1.1.4-r2)
+(325/336) Installing xauth (1.1.2-r1)
+(326/336) Installing xauth-doc (1.1.2-r1)
+(327/336) Installing xz (5.4.5-r0)
+(328/336) Installing xz-doc (5.4.5-r0)
+(329/336) Installing zip (3.0-r12)
+(330/336) Installing zip-doc (3.0-r12)
+(331/336) Installing zsh-doc (5.9-r2)
+(332/336) Installing curl-zsh-completion (8.5.0-r0)
+(333/336) Installing sqlite-doc (3.44.2-r0)
+(334/336) Installing pcre-doc (8.45-r3)
+(335/336) Installing zsh-syntax-highlighting-doc (0.7.1_git20220514-r0)
+(336/336) Installing zstd-doc (1.5.5-r8)
+Executing busybox-1.36.1-r15.trigger
+Executing glib-2.78.4-r0.trigger
+Executing shared-mime-info-2.4-r0.trigger
+Executing gdk-pixbuf-2.42.10-r6.trigger
+Executing gtk-update-icon-cache-3.24.41-r0.trigger
+Executing gtk+3.0-3.24.41-r0.trigger
+OK: 912 MiB in 494 packages
++ '[' '!' -e /usr/share/zoneinfo/UTC ]
++ '[' -n  ]
++ '[' -e /sbin/su-exec ]
++ chmod u+s /sbin/su-exec
++ '[' '!' -e /usr/bin/sudo ]
++ touch /.containersetupdone
++ command -v zsh
++ SHELL=/bin/zsh
++ /usr/bin/distrobox-host-exec -Y test
++ :
++ command -v xdg-open
++ mkdir -p /usr/local/bin/
++ ln -sf /usr/bin/distrobox-host-exec /usr/local/bin/xdg-open
++ su --help
++ grep -q pty
++ printf 'distrobox: Setting up devpts mounts...\n'
+distrobox: Setting up devpts mounts...
++ grep -q tty /etc/group
++ mount -t devpts devpts -o 'noexec,nosuid,newinstance,ptmxmode=0666,mode=0620,gid=tty' /dev/pts/
++ mount --bind /dev/pts/ptmx /dev/ptmx
++ mount --make-rshared /
++ printf 'distrobox: Setting up read-only mounts...\n'
+distrobox: Setting up read-only mounts...
++ HOST_MOUNTS_RO='
+	/etc/localtime
+	/var/lib/systemd/coredump
+	/var/log/journal'
++ get_locked_mount_flags /run/host/etc/localtime
++ src=/run/host/etc/localtime
++ prev=
++ locked_flags=
++ ls /run/host/etc/localtime
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/etc/localtime
++ flags='rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ '[' -n 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr' ]
++ break
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q nodev
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q noexec
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/etc/localtime /etc/localtime ro
++ source_dir=/run/host/etc/localtime
++ target_dir=/etc/localtime
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/etc/localtime ]
++ init_readlink /run/host/etc/localtime
++ ls -l /run/host/etc/localtime
++ grep -Eo '\->.*'
++ cut '-d ' -f2-
++ sed 's|\.\./|/|g'
++ source_dir=/usr/share/zoneinfo/Europe/Amsterdam
++ printf '%s' /usr/share/zoneinfo/Europe/Amsterdam
++ grep -q /run/host
++ source_dir=/run/host/usr/share/zoneinfo/Europe/Amsterdam
++ '[' '!' -d /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' '!' -f /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' -e /etc/localtime ]
++ '[' -L /etc/localtime ]
++ '[' -d /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' -f /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ dirname /etc/localtime
++ '[' '!' -d /etc ]
++ touch /etc/localtime
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
++ return 0
++ get_locked_mount_flags /run/host/var/lib/systemd/coredump
++ src=/run/host/var/lib/systemd/coredump
++ prev=
++ locked_flags=
++ ls /run/host/var/lib/systemd/coredump
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/var/lib/systemd/coredump
++ flags='rw,relatime,errors=remount-ro'
++ '[' -n 'rw,relatime,errors=remount-ro' ]
++ break
++ grep -q nodev
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q noexec
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/var/lib/systemd/coredump /var/lib/systemd/coredump ro
++ source_dir=/run/host/var/lib/systemd/coredump
++ target_dir=/var/lib/systemd/coredump
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/var/lib/systemd/coredump ]
++ '[' '!' -d /run/host/var/lib/systemd/coredump ]
++ '[' -e /var/lib/systemd/coredump ]
++ '[' -L /var/lib/systemd/coredump ]
++ '[' -d /run/host/var/lib/systemd/coredump ]
++ mkdir -p /var/lib/systemd/coredump
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/var/lib/systemd/coredump /var/lib/systemd/coredump
++ return 0
++ get_locked_mount_flags /run/host/var/log/journal
++ src=/run/host/var/log/journal
++ prev=
++ locked_flags=
++ ls /run/host/var/log/journal
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/var/log/journal
++ flags='rw,relatime,errors=remount-ro'
++ '[' -n 'rw,relatime,errors=remount-ro' ]
++ break
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nodev
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q noexec
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/var/log/journal /var/log/journal ro
++ source_dir=/run/host/var/log/journal
++ target_dir=/var/log/journal
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/var/log/journal ]
++ '[' '!' -d /run/host/var/log/journal ]
++ '[' -e /var/log/journal ]
++ findmnt /var/log/journal
++ umount /var/log/journal
++ '[' -L /var/log/journal ]
++ '[' -d /run/host/var/log/journal ]
++ mkdir -p /var/log/journal
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/var/log/journal /var/log/journal
++ return 0
++ printf 'distrobox: Setting up read-write mounts...\n'
+distrobox: Setting up read-write mounts...
++ '[' -e /var/home/bbl ]
++ HOST_MOUNTS='
+	/etc/host.conf
+	/etc/machine-id
+	/media
+	/mnt
+	/run/libvirt
+	/run/media
+	/run/netconfig/
+	/run/systemd/journal
+	/run/systemd/resolve/
+	/run/systemd/seats
+	/run/systemd/sessions
+	/run/systemd/users
+	/run/udev
+	/var/lib/libvirt
+	/var/mnt'
++ mount_bind /run/host/etc/host.conf /etc/host.conf
++ source_dir=/run/host/etc/host.conf
++ target_dir=/etc/host.conf
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/etc/host.conf ]
++ '[' '!' -d /run/host/etc/host.conf ]
++ '[' '!' -f /run/host/etc/host.conf ]
++ '[' -e /etc/host.conf ]
++ '[' -L /etc/host.conf ]
++ '[' -d /run/host/etc/host.conf ]
++ '[' -f /run/host/etc/host.conf ]
++ dirname /etc/host.conf
++ '[' '!' -d /etc ]
++ touch /etc/host.conf
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/etc/host.conf /etc/host.conf
++ return 0
++ mount_bind /run/host/etc/machine-id /etc/machine-id
++ source_dir=/run/host/etc/machine-id
++ target_dir=/etc/machine-id
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/etc/machine-id ]
++ '[' '!' -d /run/host/etc/machine-id ]
++ '[' '!' -f /run/host/etc/machine-id ]
++ '[' -e /etc/machine-id ]
++ '[' -L /etc/machine-id ]
++ '[' -d /run/host/etc/machine-id ]
++ '[' -f /run/host/etc/machine-id ]
++ dirname /etc/machine-id
++ '[' '!' -d /etc ]
++ touch /etc/machine-id
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/etc/machine-id /etc/machine-id
++ return 0
++ mount_bind /run/host/media /media
++ source_dir=/run/host/media
++ target_dir=/media
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/media ]
++ '[' '!' -d /run/host/media ]
++ '[' -e /media ]
++ findmnt /media
++ '[' -L /media ]
++ '[' -d /run/host/media ]
++ mkdir -p /media
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/media /media
++ return 0
++ mount_bind /run/host/mnt /mnt
++ source_dir=/run/host/mnt
++ target_dir=/mnt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/mnt ]
++ '[' '!' -d /run/host/mnt ]
++ '[' -e /mnt ]
++ findmnt /mnt
++ '[' -L /mnt ]
++ '[' -d /run/host/mnt ]
++ mkdir -p /mnt
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/mnt /mnt
++ return 0
++ mount_bind /run/host/run/libvirt /run/libvirt
++ source_dir=/run/host/run/libvirt
++ target_dir=/run/libvirt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/libvirt ]
++ '[' '!' -d /run/host/run/libvirt ]
++ '[' '!' -f /run/host/run/libvirt ]
++ return 0
++ mount_bind /run/host/run/media /run/media
++ source_dir=/run/host/run/media
++ target_dir=/run/media
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/media ]
++ '[' '!' -d /run/host/run/media ]
++ '[' '!' -f /run/host/run/media ]
++ return 0
++ mount_bind /run/host/run/netconfig/ /run/netconfig/
++ source_dir=/run/host/run/netconfig/
++ target_dir=/run/netconfig/
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/netconfig/ ]
++ '[' '!' -d /run/host/run/netconfig/ ]
++ '[' '!' -f /run/host/run/netconfig/ ]
++ return 0
++ mount_bind /run/host/run/systemd/journal /run/systemd/journal
++ source_dir=/run/host/run/systemd/journal
++ target_dir=/run/systemd/journal
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/journal ]
++ '[' '!' -d /run/host/run/systemd/journal ]
++ '[' -e /run/systemd/journal ]
++ '[' -L /run/systemd/journal ]
++ '[' -d /run/host/run/systemd/journal ]
++ mkdir -p /run/systemd/journal
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/journal /run/systemd/journal
++ return 0
++ mount_bind /run/host/run/systemd/resolve/ /run/systemd/resolve/
++ source_dir=/run/host/run/systemd/resolve/
++ target_dir=/run/systemd/resolve/
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/resolve/ ]
++ '[' '!' -d /run/host/run/systemd/resolve/ ]
++ '[' '!' -f /run/host/run/systemd/resolve/ ]
++ return 0
++ mount_bind /run/host/run/systemd/seats /run/systemd/seats
++ source_dir=/run/host/run/systemd/seats
++ target_dir=/run/systemd/seats
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/seats ]
++ '[' '!' -d /run/host/run/systemd/seats ]
++ '[' -e /run/systemd/seats ]
++ '[' -L /run/systemd/seats ]
++ '[' -d /run/host/run/systemd/seats ]
++ mkdir -p /run/systemd/seats
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/seats /run/systemd/seats
++ return 0
++ mount_bind /run/host/run/systemd/sessions /run/systemd/sessions
++ source_dir=/run/host/run/systemd/sessions
++ target_dir=/run/systemd/sessions
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/sessions ]
++ '[' '!' -d /run/host/run/systemd/sessions ]
++ '[' -e /run/systemd/sessions ]
++ '[' -L /run/systemd/sessions ]
++ '[' -d /run/host/run/systemd/sessions ]
++ mkdir -p /run/systemd/sessions
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/sessions /run/systemd/sessions
++ return 0
++ mount_bind /run/host/run/systemd/users /run/systemd/users
++ source_dir=/run/host/run/systemd/users
++ target_dir=/run/systemd/users
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/users ]
++ '[' '!' -d /run/host/run/systemd/users ]
++ '[' -e /run/systemd/users ]
++ '[' -L /run/systemd/users ]
++ '[' -d /run/host/run/systemd/users ]
++ mkdir -p /run/systemd/users
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/users /run/systemd/users
++ return 0
++ mount_bind /run/host/run/udev /run/udev
++ source_dir=/run/host/run/udev
++ target_dir=/run/udev
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/udev ]
++ '[' '!' -d /run/host/run/udev ]
++ '[' -e /run/udev ]
++ '[' -L /run/udev ]
++ '[' -d /run/host/run/udev ]
++ mkdir -p /run/udev
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/udev /run/udev
++ return 0
++ mount_bind /run/host/var/lib/libvirt /var/lib/libvirt
++ source_dir=/run/host/var/lib/libvirt
++ target_dir=/var/lib/libvirt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/var/lib/libvirt ]
++ '[' '!' -d /run/host/var/lib/libvirt ]
++ '[' '!' -f /run/host/var/lib/libvirt ]
++ return 0
++ mount_bind /run/host/var/mnt /var/mnt
++ source_dir=/run/host/var/mnt
++ target_dir=/var/mnt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/var/mnt ]
++ '[' '!' -d /run/host/var/mnt ]
++ '[' '!' -f /run/host/var/mnt ]
++ return 0
++ printf 'distrobox: Setting up host'"'"'s sockets integration...\n'
+distrobox: Setting up host's sockets integration...
++ find /run/host/run -path /run/host/run/media -prune -o -path /run/host/run/timeshift -prune -o -name user -prune -o -name bees -prune -o -name nscd -prune -o -name system_bus_socket -prune -o -type s -print
++ :
++ host_sockets='/run/host/run/udev/control
+/run/host/run/systemd/inaccessible/sock
+/run/host/run/systemd/notify
+/run/host/run/systemd/private
+/run/host/run/systemd/userdb/io.systemd.DynamicUser
+/run/host/run/systemd/io.systemd.ManagedOOM
+/run/host/run/systemd/fsck.progress
+/run/host/run/systemd/journal/dev-log
+/run/host/run/systemd/journal/socket
+/run/host/run/systemd/journal/stdout
+/run/host/run/systemd/journal/io.systemd.journal
+/run/host/run/systemd/io.systemd.sysext
+/run/host/run/avahi-daemon/socket
+/run/host/run/cups/cups.sock
+/run/host/run/vmware/usbarbitrator-socket
+/run/host/run/synaptic.socket'
++ printf '%s' /run/host/run/udev/control
++ sed 's|/run/host||g'
++ container_socket=/run/udev/control
++ '[' '!' -S /run/udev/control ]
++ printf '%s' /run/host/run/systemd/inaccessible/sock
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/inaccessible/sock
++ '[' '!' -S /run/systemd/inaccessible/sock ]
++ '[' '!' -L /run/systemd/inaccessible/sock ]
++ rm -f /run/systemd/inaccessible/sock
++ dirname /run/systemd/inaccessible/sock
++ mkdir -p /run/systemd/inaccessible
++ ln -s /run/host/run/systemd/inaccessible/sock /run/systemd/inaccessible/sock
++ printf '%s' /run/host/run/systemd/notify
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/notify
++ '[' '!' -S /run/systemd/notify ]
++ '[' '!' -L /run/systemd/notify ]
++ rm -f /run/systemd/notify
++ dirname /run/systemd/notify
++ mkdir -p /run/systemd
++ ln -s /run/host/run/systemd/notify /run/systemd/notify
++ printf '%s' /run/host/run/systemd/private
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/private
++ '[' '!' -S /run/systemd/private ]
++ '[' '!' -L /run/systemd/private ]
++ rm -f /run/systemd/private
++ dirname /run/systemd/private
++ mkdir -p /run/systemd
++ ln -s /run/host/run/systemd/private /run/systemd/private
++ printf '%s' /run/host/run/systemd/userdb/io.systemd.DynamicUser
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/userdb/io.systemd.DynamicUser
++ '[' '!' -S /run/systemd/userdb/io.systemd.DynamicUser ]
++ '[' '!' -L /run/systemd/userdb/io.systemd.DynamicUser ]
++ rm -f /run/systemd/userdb/io.systemd.DynamicUser
++ dirname /run/systemd/userdb/io.systemd.DynamicUser
++ mkdir -p /run/systemd/userdb
++ ln -s /run/host/run/systemd/userdb/io.systemd.DynamicUser /run/systemd/userdb/io.systemd.DynamicUser
++ printf '%s' /run/host/run/systemd/io.systemd.ManagedOOM
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/io.systemd.ManagedOOM
++ '[' '!' -S /run/systemd/io.systemd.ManagedOOM ]
++ '[' '!' -L /run/systemd/io.systemd.ManagedOOM ]
++ rm -f /run/systemd/io.systemd.ManagedOOM
++ dirname /run/systemd/io.systemd.ManagedOOM
++ mkdir -p /run/systemd
++ ln -s /run/host/run/systemd/io.systemd.ManagedOOM /run/systemd/io.systemd.ManagedOOM
++ printf '%s' /run/host/run/systemd/fsck.progress
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/fsck.progress
++ '[' '!' -S /run/systemd/fsck.progress ]
++ '[' '!' -L /run/systemd/fsck.progress ]
++ rm -f /run/systemd/fsck.progress
++ dirname /run/systemd/fsck.progress
++ mkdir -p /run/systemd
++ ln -s /run/host/run/systemd/fsck.progress /run/systemd/fsck.progress
++ printf '%s' /run/host/run/systemd/journal/dev-log
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/dev-log
++ '[' '!' -S /run/systemd/journal/dev-log ]
++ printf '%s' /run/host/run/systemd/journal/socket
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/socket
++ '[' '!' -S /run/systemd/journal/socket ]
++ printf '%s' /run/host/run/systemd/journal/stdout
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/stdout
++ '[' '!' -S /run/systemd/journal/stdout ]
++ printf '%s' /run/host/run/systemd/journal/io.systemd.journal
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/io.systemd.journal
++ '[' '!' -S /run/systemd/journal/io.systemd.journal ]
++ printf '%s' /run/host/run/systemd/io.systemd.sysext
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/io.systemd.sysext
++ '[' '!' -S /run/systemd/io.systemd.sysext ]
++ '[' '!' -L /run/systemd/io.systemd.sysext ]
++ rm -f /run/systemd/io.systemd.sysext
++ dirname /run/systemd/io.systemd.sysext
++ mkdir -p /run/systemd
++ ln -s /run/host/run/systemd/io.systemd.sysext /run/systemd/io.systemd.sysext
++ printf '%s' /run/host/run/avahi-daemon/socket
++ sed 's|/run/host||g'
++ container_socket=/run/avahi-daemon/socket
++ '[' '!' -S /run/avahi-daemon/socket ]
++ '[' '!' -L /run/avahi-daemon/socket ]
++ rm -f /run/avahi-daemon/socket
++ dirname /run/avahi-daemon/socket
++ mkdir -p /run/avahi-daemon
++ ln -s /run/host/run/avahi-daemon/socket /run/avahi-daemon/socket
++ printf '%s' /run/host/run/cups/cups.sock
++ sed 's|/run/host||g'
++ container_socket=/run/cups/cups.sock
++ '[' '!' -S /run/cups/cups.sock ]
++ '[' '!' -L /run/cups/cups.sock ]
++ rm -f /run/cups/cups.sock
++ dirname /run/cups/cups.sock
++ mkdir -p /run/cups
++ ln -s /run/host/run/cups/cups.sock /run/cups/cups.sock
++ printf '%s' /run/host/run/vmware/usbarbitrator-socket
++ sed 's|/run/host||g'
++ container_socket=/run/vmware/usbarbitrator-socket
++ '[' '!' -S /run/vmware/usbarbitrator-socket ]
++ '[' '!' -L /run/vmware/usbarbitrator-socket ]
++ rm -f /run/vmware/usbarbitrator-socket
++ dirname /run/vmware/usbarbitrator-socket
++ mkdir -p /run/vmware
++ ln -s /run/host/run/vmware/usbarbitrator-socket /run/vmware/usbarbitrator-socket
++ printf '%s' /run/host/run/synaptic.socket
++ sed 's|/run/host||g'
++ container_socket=/run/synaptic.socket
++ '[' '!' -S /run/synaptic.socket ]
++ '[' '!' -L /run/synaptic.socket ]
++ rm -f /run/synaptic.socket
++ dirname /run/synaptic.socket
++ mkdir -p /run
++ ln -s /run/host/run/synaptic.socket /run/synaptic.socket
++ '[' 0 -eq 1 ]
++ printf 'distrobox: Integrating host'"'"'s themes, icons, fonts...\n'
+distrobox: Integrating host's themes, icons, fonts...
++ mount_bind /run/host/usr/share/themes /usr/local/share/themes
++ source_dir=/run/host/usr/share/themes
++ target_dir=/usr/local/share/themes
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/themes ]
++ '[' '!' -d /run/host/usr/share/themes ]
++ '[' -e /usr/local/share/themes ]
++ '[' -L /usr/local/share/themes ]
++ '[' -d /run/host/usr/share/themes ]
++ mkdir -p /usr/local/share/themes
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/themes /usr/local/share/themes
++ return 0
++ mount_bind /run/host/usr/share/icons /usr/local/share/icons
++ source_dir=/run/host/usr/share/icons
++ target_dir=/usr/local/share/icons
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/icons ]
++ '[' '!' -d /run/host/usr/share/icons ]
++ '[' -e /usr/local/share/icons ]
++ '[' -L /usr/local/share/icons ]
++ '[' -d /run/host/usr/share/icons ]
++ mkdir -p /usr/local/share/icons
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/icons /usr/local/share/icons
++ return 0
++ mount_bind /run/host/usr/share/fonts /usr/local/share/fonts
++ source_dir=/run/host/usr/share/fonts
++ target_dir=/usr/local/share/fonts
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/fonts ]
++ '[' '!' -d /run/host/usr/share/fonts ]
++ '[' -e /usr/local/share/fonts ]
++ '[' -L /usr/local/share/fonts ]
++ '[' -d /run/host/usr/share/fonts ]
++ mkdir -p /usr/local/share/fonts
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/fonts /usr/local/share/fonts
++ return 0
++ '[' 0 -eq 0 ]
++ printf 'distrobox: Setting up package manager exceptions...\n'
+distrobox: Setting up package manager exceptions...
++ '[' -d /usr/lib/rpm/macros.d/ ]
++ '[' -d /etc/dpkg/dpkg.cfg.d/ ]
++ '[' -d /usr/share/libalpm/scripts ]
++ '[' -d /etc/dpkg/dpkg.cfg.d/ ]
++ '[' -d /usr/share/libalpm/scripts ]
++ printf 'distrobox: Setting up distrobox profile...\n'
+distrobox: Setting up distrobox profile...
++ touch /run/.toolboxenv
++ mkdir -p /etc/profile.d
++ cat
++ '[' -e /etc/fish/config.fish ]
++ printf 'distrobox: Setting up sudo...\n'
+distrobox: Setting up sudo...
++ mkdir -p /etc/sudoers.d
++ '[' -e /etc/sudoers ]
++ sed -i 's|^Defaults targetpw.*||g' /etc/sudoers
++ cat
++ '[' '!' -e /etc/pam.d/su ]
++ grep -q pam_systemd.so /etc/pam.d/su
++ printf '%s' '-session   optional   pam_systemd.so'
++ '[' 1001 -ne 0 ]
++ '[' 0 -eq 0 ]
++ printf '"%s" ALL = (root) NOPASSWD:ALL\n' bbl
++ printf 'distrobox: Setting up user groups...\n'
+distrobox: Setting up user groups...
++ grep -q ^bbl: /etc/group
++ printf 'distrobox: Setting up kerberos integration...\n'
+distrobox: Setting up kerberos integration...
++ '[' -d /run/host/var/kerberos ]
++ printf 'distrobox: Setting up user'"'"'s group list...\n'
+distrobox: Setting up user's group list...
++ additional_groups=
++ grep -q ^sudo /etc/group
++ grep -q ^wheel /etc/group
++ additional_groups=wheel
++ '[' 0 -eq 1 ]
++ printf '%s' bbl
++ tr '\\' .
++ grep -q ^bbl: /etc/passwd
++ '[' '!' -e /etc/passwd.done ]
++ printf '%s' bbl
++ tr '\\' .
++ grep -q ^bbl: /etc/passwd
++ printf 'distrobox: Setting up existing user...\n'
+distrobox: Setting up existing user...
++ usermod --home /home/bbl --shell /bin/zsh --groups wheel --uid 1001 --gid 1001 --login bbl bbl
++ printf 'distrobox: Setting up user home...\n'
+distrobox: Setting up user home...
++ getent passwd bbl
++ cut -d: -f6
++ '[' /home/bbl '!=' /home/bbl ]
++ printf 'distrobox: Ensuring user'"'"'s access...\n'
+distrobox: Ensuring user's access...
++ '[' '!' -e /etc/passwd.done ]
++ md5sum
++ cut '-d ' -f1
++ temporary_password=8693e280f5d206ebb7bd15362bf639a9
++ printf '%s:%s' bbl 8693e280f5d206ebb7bd15362bf639a9
++ chpasswd -e
++ printf '%s:' bbl
++ chpasswd -e
++ '[' 0 -eq 0 ]
++ passwd_cmd=passwd
++ passwd --help
++ grep -q -- --stdin
++ printf '%s\n%s\n' 8693e280f5d206ebb7bd15362bf639a9 8693e280f5d206ebb7bd15362bf639a9
++ passwd root
+New password: Retype new password: passwd: password updated successfully
++ printf '%s:' root
++ chpasswd -e
++ '[' 0 -eq 1 ]
++ touch /etc/passwd.done
++ '[' -n  ]
++ '[' -n  ]
++ '[' 0 -eq 0 ]
++ printf 'container_setup_done\n'
+container_setup_done
++ HOST_WATCH='
+		/etc/hosts
+		/etc/localtime
+		/etc/resolv.conf
+	'
++ hostname
++ id=bbsh.bblaptop
++ '[' -e /run/.containerenv ]
++ . /run/.containerenv
++ engine=podman-4.9.3
++ name=bbsh
++ id=af096a9479b914be06ccc9605a4ce6d76d8dad40f44705504aba8e94a63248ae
++ image=ghcr.io/bubbelb/bbsh:latest
++ imageid=573cc4835f538f332fd5fd53d612adbc539ea6c290ff523c4ada290ece9f7d33
++ rootless=1
++ graphRootMounted=1
++ set +x
++ stat /run/host/etc/shadow
++ stat -c '%u' /run/host/etc/shadow
++ '[' 65534 '=' 0 ]
++ '[' -n  ]
++ printf 'distrobox: Installing basic packages...\n'
+distrobox: Installing basic packages...
++ basename zsh
++ shell_pkg=zsh
++ '[' zsh '=' ash ]
++ missing_packages=0
++ dependencies='
+	bc
+	bzip2
+	chpasswd
+	curl
+	diff
+	find
+	findmnt
+	gpg
+	hostname
+	less
+	lsof
+	man
+	mount
+	passwd
+	pigz
+	pinentry
+	ping
+	ps
+	rsync
+	script
+	ssh
+	sudo
+	time
+	tree
+	umount
+	unzip
+	useradd
+	wc
+	wget
+	xauth
+	zip
+	zsh
+'
++ command -v bc
++ command -v bzip2
++ command -v chpasswd
++ command -v curl
++ command -v diff
++ command -v find
++ command -v findmnt
++ command -v gpg
++ command -v hostname
++ command -v less
++ command -v lsof
++ command -v man
++ command -v mount
++ command -v passwd
++ command -v pigz
++ command -v pinentry
++ command -v ping
++ command -v ps
++ command -v rsync
++ command -v script
++ command -v ssh
++ command -v sudo
++ command -v time
++ command -v tree
++ command -v umount
++ command -v unzip
++ command -v useradd
++ command -v wc
++ command -v wget
++ command -v xauth
++ command -v zip
++ command -v zsh
++ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/bin:/sbin:/usr/bin:/usr/sbin
++ '[' 0 -ne 0 ]
++ '[' 0 -ne 0 ]
++ '[' -n  ]
++ command -v zsh
++ SHELL=/bin/zsh
++ /usr/bin/distrobox-host-exec -Y test
++ :
++ command -v xdg-open
+/usr/local/bin/xdg-open
++ su --help
++ grep -q pty
++ printf 'distrobox: Setting up devpts mounts...\n'
+distrobox: Setting up devpts mounts...
++ grep -q tty /etc/group
++ mount -t devpts devpts -o 'noexec,nosuid,newinstance,ptmxmode=0666,mode=0620,gid=tty' /dev/pts/
++ mount --bind /dev/pts/ptmx /dev/ptmx
++ mount --make-rshared /
++ printf 'distrobox: Setting up read-only mounts...\n'
+distrobox: Setting up read-only mounts...
++ HOST_MOUNTS_RO='
+	/etc/localtime
+	/var/lib/systemd/coredump
+	/var/log/journal'
++ get_locked_mount_flags /run/host/etc/localtime
++ src=/run/host/etc/localtime
++ prev=
++ locked_flags=
++ ls /run/host/etc/localtime
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/etc/localtime
++ flags='rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ '[' -n 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr' ]
++ break
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q nodev
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q noexec
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/etc/localtime /etc/localtime ro
++ source_dir=/run/host/etc/localtime
++ target_dir=/etc/localtime
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/etc/localtime ]
++ init_readlink /run/host/etc/localtime
++ ls -l /run/host/etc/localtime
++ grep -Eo '\->.*'
++ cut '-d ' -f2-
++ sed 's|\.\./|/|g'
++ source_dir=/usr/share/zoneinfo/Europe/Amsterdam
++ printf '%s' /usr/share/zoneinfo/Europe/Amsterdam
++ grep -q /run/host
++ source_dir=/run/host/usr/share/zoneinfo/Europe/Amsterdam
++ '[' '!' -d /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' '!' -f /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' -e /etc/localtime ]
++ findmnt /etc/localtime
++ '[' -L /etc/localtime ]
++ '[' -d /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' -f /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ dirname /etc/localtime
++ '[' '!' -d /etc ]
++ touch /etc/localtime
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
++ return 0
++ get_locked_mount_flags /run/host/var/lib/systemd/coredump
++ src=/run/host/var/lib/systemd/coredump
++ prev=
++ locked_flags=
++ ls /run/host/var/lib/systemd/coredump
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/var/lib/systemd/coredump
++ flags='rw,relatime,errors=remount-ro'
++ '[' -n 'rw,relatime,errors=remount-ro' ]
++ break
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nodev
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q noexec
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/var/lib/systemd/coredump /var/lib/systemd/coredump ro
++ source_dir=/run/host/var/lib/systemd/coredump
++ target_dir=/var/lib/systemd/coredump
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/var/lib/systemd/coredump ]
++ '[' '!' -d /run/host/var/lib/systemd/coredump ]
++ '[' -e /var/lib/systemd/coredump ]
++ findmnt /var/lib/systemd/coredump
++ '[' -L /var/lib/systemd/coredump ]
++ '[' -d /run/host/var/lib/systemd/coredump ]
++ mkdir -p /var/lib/systemd/coredump
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/var/lib/systemd/coredump /var/lib/systemd/coredump
++ return 0
++ get_locked_mount_flags /run/host/var/log/journal
++ src=/run/host/var/log/journal
++ prev=
++ locked_flags=
++ ls /run/host/var/log/journal
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/var/log/journal
++ flags='rw,relatime,errors=remount-ro'
++ '[' -n 'rw,relatime,errors=remount-ro' ]
++ break
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nodev
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q noexec
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/var/log/journal /var/log/journal ro
++ source_dir=/run/host/var/log/journal
++ target_dir=/var/log/journal
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/var/log/journal ]
++ '[' '!' -d /run/host/var/log/journal ]
++ '[' -e /var/log/journal ]
++ findmnt /var/log/journal
++ umount /var/log/journal
++ '[' -L /var/log/journal ]
++ '[' -d /run/host/var/log/journal ]
++ mkdir -p /var/log/journal
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/var/log/journal /var/log/journal
++ return 0
++ printf 'distrobox: Setting up read-write mounts...\n'
+distrobox: Setting up read-write mounts...
++ '[' -e /var/home/bbl ]
++ HOST_MOUNTS='
+	/etc/host.conf
+	/etc/machine-id
+	/media
+	/mnt
+	/run/libvirt
+	/run/media
+	/run/netconfig/
+	/run/systemd/journal
+	/run/systemd/resolve/
+	/run/systemd/seats
+	/run/systemd/sessions
+	/run/systemd/users
+	/run/udev
+	/var/lib/libvirt
+	/var/mnt'
++ mount_bind /run/host/etc/host.conf /etc/host.conf
++ source_dir=/run/host/etc/host.conf
++ target_dir=/etc/host.conf
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/etc/host.conf ]
++ '[' '!' -d /run/host/etc/host.conf ]
++ '[' '!' -f /run/host/etc/host.conf ]
++ '[' -e /etc/host.conf ]
++ findmnt /etc/host.conf
++ '[' -L /etc/host.conf ]
++ '[' -d /run/host/etc/host.conf ]
++ '[' -f /run/host/etc/host.conf ]
++ dirname /etc/host.conf
++ '[' '!' -d /etc ]
++ touch /etc/host.conf
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/etc/host.conf /etc/host.conf
++ return 0
++ mount_bind /run/host/etc/machine-id /etc/machine-id
++ source_dir=/run/host/etc/machine-id
++ target_dir=/etc/machine-id
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/etc/machine-id ]
++ '[' '!' -d /run/host/etc/machine-id ]
++ '[' '!' -f /run/host/etc/machine-id ]
++ '[' -e /etc/machine-id ]
++ findmnt /etc/machine-id
++ '[' -L /etc/machine-id ]
++ '[' -d /run/host/etc/machine-id ]
++ '[' -f /run/host/etc/machine-id ]
++ dirname /etc/machine-id
++ '[' '!' -d /etc ]
++ touch /etc/machine-id
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/etc/machine-id /etc/machine-id
++ return 0
++ mount_bind /run/host/media /media
++ source_dir=/run/host/media
++ target_dir=/media
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/media ]
++ '[' '!' -d /run/host/media ]
++ '[' -e /media ]
++ findmnt /media
++ '[' -L /media ]
++ '[' -d /run/host/media ]
++ mkdir -p /media
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/media /media
++ return 0
++ mount_bind /run/host/mnt /mnt
++ source_dir=/run/host/mnt
++ target_dir=/mnt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/mnt ]
++ '[' '!' -d /run/host/mnt ]
++ '[' -e /mnt ]
++ findmnt /mnt
++ '[' -L /mnt ]
++ '[' -d /run/host/mnt ]
++ mkdir -p /mnt
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/mnt /mnt
++ return 0
++ mount_bind /run/host/run/libvirt /run/libvirt
++ source_dir=/run/host/run/libvirt
++ target_dir=/run/libvirt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/libvirt ]
++ '[' '!' -d /run/host/run/libvirt ]
++ '[' '!' -f /run/host/run/libvirt ]
++ return 0
++ mount_bind /run/host/run/media /run/media
++ source_dir=/run/host/run/media
++ target_dir=/run/media
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/media ]
++ '[' '!' -d /run/host/run/media ]
++ '[' '!' -f /run/host/run/media ]
++ return 0
++ mount_bind /run/host/run/netconfig/ /run/netconfig/
++ source_dir=/run/host/run/netconfig/
++ target_dir=/run/netconfig/
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/netconfig/ ]
++ '[' '!' -d /run/host/run/netconfig/ ]
++ '[' '!' -f /run/host/run/netconfig/ ]
++ return 0
++ mount_bind /run/host/run/systemd/journal /run/systemd/journal
++ source_dir=/run/host/run/systemd/journal
++ target_dir=/run/systemd/journal
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/journal ]
++ '[' '!' -d /run/host/run/systemd/journal ]
++ '[' -e /run/systemd/journal ]
++ findmnt /run/systemd/journal
++ '[' -L /run/systemd/journal ]
++ '[' -d /run/host/run/systemd/journal ]
++ mkdir -p /run/systemd/journal
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/journal /run/systemd/journal
++ return 0
++ mount_bind /run/host/run/systemd/resolve/ /run/systemd/resolve/
++ source_dir=/run/host/run/systemd/resolve/
++ target_dir=/run/systemd/resolve/
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/resolve/ ]
++ '[' '!' -d /run/host/run/systemd/resolve/ ]
++ '[' '!' -f /run/host/run/systemd/resolve/ ]
++ return 0
++ mount_bind /run/host/run/systemd/seats /run/systemd/seats
++ source_dir=/run/host/run/systemd/seats
++ target_dir=/run/systemd/seats
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/seats ]
++ '[' '!' -d /run/host/run/systemd/seats ]
++ '[' -e /run/systemd/seats ]
++ findmnt /run/systemd/seats
++ '[' -L /run/systemd/seats ]
++ '[' -d /run/host/run/systemd/seats ]
++ mkdir -p /run/systemd/seats
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/seats /run/systemd/seats
++ return 0
++ mount_bind /run/host/run/systemd/sessions /run/systemd/sessions
++ source_dir=/run/host/run/systemd/sessions
++ target_dir=/run/systemd/sessions
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/sessions ]
++ '[' '!' -d /run/host/run/systemd/sessions ]
++ '[' -e /run/systemd/sessions ]
++ findmnt /run/systemd/sessions
++ '[' -L /run/systemd/sessions ]
++ '[' -d /run/host/run/systemd/sessions ]
++ mkdir -p /run/systemd/sessions
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/sessions /run/systemd/sessions
++ return 0
++ mount_bind /run/host/run/systemd/users /run/systemd/users
++ source_dir=/run/host/run/systemd/users
++ target_dir=/run/systemd/users
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/users ]
++ '[' '!' -d /run/host/run/systemd/users ]
++ '[' -e /run/systemd/users ]
++ findmnt /run/systemd/users
++ '[' -L /run/systemd/users ]
++ '[' -d /run/host/run/systemd/users ]
++ mkdir -p /run/systemd/users
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/users /run/systemd/users
++ return 0
++ mount_bind /run/host/run/udev /run/udev
++ source_dir=/run/host/run/udev
++ target_dir=/run/udev
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/udev ]
++ '[' '!' -d /run/host/run/udev ]
++ '[' -e /run/udev ]
++ findmnt /run/udev
++ '[' -L /run/udev ]
++ '[' -d /run/host/run/udev ]
++ mkdir -p /run/udev
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/udev /run/udev
++ return 0
++ mount_bind /run/host/var/lib/libvirt /var/lib/libvirt
++ source_dir=/run/host/var/lib/libvirt
++ target_dir=/var/lib/libvirt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/var/lib/libvirt ]
++ '[' '!' -d /run/host/var/lib/libvirt ]
++ '[' '!' -f /run/host/var/lib/libvirt ]
++ return 0
++ mount_bind /run/host/var/mnt /var/mnt
++ source_dir=/run/host/var/mnt
++ target_dir=/var/mnt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/var/mnt ]
++ '[' '!' -d /run/host/var/mnt ]
++ '[' '!' -f /run/host/var/mnt ]
++ return 0
++ printf 'distrobox: Setting up host'"'"'s sockets integration...\n'
+distrobox: Setting up host's sockets integration...
++ find /run/host/run -path /run/host/run/media -prune -o -path /run/host/run/timeshift -prune -o -name user -prune -o -name bees -prune -o -name nscd -prune -o -name system_bus_socket -prune -o -type s -print
++ :
++ host_sockets='/run/host/run/udev/control
+/run/host/run/systemd/inaccessible/sock
+/run/host/run/systemd/notify
+/run/host/run/systemd/private
+/run/host/run/systemd/userdb/io.systemd.DynamicUser
+/run/host/run/systemd/io.systemd.ManagedOOM
+/run/host/run/systemd/fsck.progress
+/run/host/run/systemd/journal/dev-log
+/run/host/run/systemd/journal/socket
+/run/host/run/systemd/journal/stdout
+/run/host/run/systemd/journal/io.systemd.journal
+/run/host/run/systemd/io.systemd.sysext
+/run/host/run/avahi-daemon/socket
+/run/host/run/cups/cups.sock
+/run/host/run/vmware/usbarbitrator-socket
+/run/host/run/synaptic.socket'
++ printf '%s' /run/host/run/udev/control
++ sed 's|/run/host||g'
++ container_socket=/run/udev/control
++ '[' '!' -S /run/udev/control ]
++ printf '%s' /run/host/run/systemd/inaccessible/sock
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/inaccessible/sock
++ '[' '!' -S /run/systemd/inaccessible/sock ]
++ printf '%s' /run/host/run/systemd/notify
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/notify
++ '[' '!' -S /run/systemd/notify ]
++ printf '%s' /run/host/run/systemd/private
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/private
++ '[' '!' -S /run/systemd/private ]
++ printf '%s' /run/host/run/systemd/userdb/io.systemd.DynamicUser
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/userdb/io.systemd.DynamicUser
++ '[' '!' -S /run/systemd/userdb/io.systemd.DynamicUser ]
++ printf '%s' /run/host/run/systemd/io.systemd.ManagedOOM
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/io.systemd.ManagedOOM
++ '[' '!' -S /run/systemd/io.systemd.ManagedOOM ]
++ printf '%s' /run/host/run/systemd/fsck.progress
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/fsck.progress
++ '[' '!' -S /run/systemd/fsck.progress ]
++ printf '%s' /run/host/run/systemd/journal/dev-log
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/dev-log
++ '[' '!' -S /run/systemd/journal/dev-log ]
++ printf '%s' /run/host/run/systemd/journal/socket
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/socket
++ '[' '!' -S /run/systemd/journal/socket ]
++ printf '%s' /run/host/run/systemd/journal/stdout
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/stdout
++ '[' '!' -S /run/systemd/journal/stdout ]
++ printf '%s' /run/host/run/systemd/journal/io.systemd.journal
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/io.systemd.journal
++ '[' '!' -S /run/systemd/journal/io.systemd.journal ]
++ printf '%s' /run/host/run/systemd/io.systemd.sysext
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/io.systemd.sysext
++ '[' '!' -S /run/systemd/io.systemd.sysext ]
++ printf '%s' /run/host/run/avahi-daemon/socket
++ sed 's|/run/host||g'
++ container_socket=/run/avahi-daemon/socket
++ '[' '!' -S /run/avahi-daemon/socket ]
++ printf '%s' /run/host/run/cups/cups.sock
++ sed 's|/run/host||g'
++ container_socket=/run/cups/cups.sock
++ '[' '!' -S /run/cups/cups.sock ]
++ printf '%s' /run/host/run/vmware/usbarbitrator-socket
++ sed 's|/run/host||g'
++ container_socket=/run/vmware/usbarbitrator-socket
++ '[' '!' -S /run/vmware/usbarbitrator-socket ]
++ printf '%s' /run/host/run/synaptic.socket
++ sed 's|/run/host||g'
++ container_socket=/run/synaptic.socket
++ '[' '!' -S /run/synaptic.socket ]
++ '[' 0 -eq 1 ]
++ printf 'distrobox: Integrating host'"'"'s themes, icons, fonts...\n'
+distrobox: Integrating host's themes, icons, fonts...
++ mount_bind /run/host/usr/share/themes /usr/local/share/themes
++ source_dir=/run/host/usr/share/themes
++ target_dir=/usr/local/share/themes
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/themes ]
++ '[' '!' -d /run/host/usr/share/themes ]
++ '[' -e /usr/local/share/themes ]
++ findmnt /usr/local/share/themes
++ '[' -L /usr/local/share/themes ]
++ '[' -d /run/host/usr/share/themes ]
++ mkdir -p /usr/local/share/themes
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/themes /usr/local/share/themes
++ return 0
++ mount_bind /run/host/usr/share/icons /usr/local/share/icons
++ source_dir=/run/host/usr/share/icons
++ target_dir=/usr/local/share/icons
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/icons ]
++ '[' '!' -d /run/host/usr/share/icons ]
++ '[' -e /usr/local/share/icons ]
++ findmnt /usr/local/share/icons
++ '[' -L /usr/local/share/icons ]
++ '[' -d /run/host/usr/share/icons ]
++ mkdir -p /usr/local/share/icons
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/icons /usr/local/share/icons
++ return 0
++ mount_bind /run/host/usr/share/fonts /usr/local/share/fonts
++ source_dir=/run/host/usr/share/fonts
++ target_dir=/usr/local/share/fonts
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/fonts ]
++ '[' '!' -d /run/host/usr/share/fonts ]
++ '[' -e /usr/local/share/fonts ]
++ findmnt /usr/local/share/fonts
++ '[' -L /usr/local/share/fonts ]
++ '[' -d /run/host/usr/share/fonts ]
++ mkdir -p /usr/local/share/fonts
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/fonts /usr/local/share/fonts
++ return 0
++ '[' 0 -eq 0 ]
++ printf 'distrobox: Setting up package manager exceptions...\n'
+distrobox: Setting up package manager exceptions...
++ '[' -d /usr/lib/rpm/macros.d/ ]
++ '[' -d /etc/dpkg/dpkg.cfg.d/ ]
++ '[' -d /usr/share/libalpm/scripts ]
++ '[' -d /etc/dpkg/dpkg.cfg.d/ ]
++ '[' -d /usr/share/libalpm/scripts ]
++ printf 'distrobox: Setting up distrobox profile...\n'
+distrobox: Setting up distrobox profile...
++ touch /run/.toolboxenv
++ mkdir -p /etc/profile.d
++ cat
++ '[' -e /etc/fish/config.fish ]
++ printf 'distrobox: Setting up sudo...\n'
+distrobox: Setting up sudo...
++ mkdir -p /etc/sudoers.d
++ '[' -e /etc/sudoers ]
++ sed -i 's|^Defaults targetpw.*||g' /etc/sudoers
++ cat
++ '[' '!' -e /etc/pam.d/su ]
++ grep -q pam_systemd.so /etc/pam.d/su
++ '[' 1001 -ne 0 ]
++ '[' 0 -eq 0 ]
++ printf '"%s" ALL = (root) NOPASSWD:ALL\n' bbl
++ printf 'distrobox: Setting up user groups...\n'
+distrobox: Setting up user groups...
++ grep -q ^bbl: /etc/group
++ printf 'distrobox: Setting up kerberos integration...\n'
+distrobox: Setting up kerberos integration...
++ '[' -d /run/host/var/kerberos ]
++ printf 'distrobox: Setting up user'"'"'s group list...\n'
+distrobox: Setting up user's group list...
++ additional_groups=
++ grep -q ^sudo /etc/group
++ grep -q ^wheel /etc/group
++ additional_groups=wheel
++ '[' 0 -eq 1 ]
++ printf '%s' bbl
++ tr '\\' .
++ grep -q ^bbl: /etc/passwd
++ '[' '!' -e /etc/passwd.done ]
++ printf 'distrobox: Setting up user home...\n'
+distrobox: Setting up user home...
++ getent passwd bbl
++ cut -d: -f6
++ '[' /home/bbl '!=' /home/bbl ]
++ printf 'distrobox: Ensuring user'"'"'s access...\n'
+distrobox: Ensuring user's access...
++ '[' '!' -e /etc/passwd.done ]
++ '[' 0 -eq 1 ]
++ touch /etc/passwd.done
++ '[' -n  ]
++ '[' -n  ]
++ '[' 0 -eq 0 ]
++ printf 'container_setup_done\n'
+container_setup_done
++ HOST_WATCH='
+		/etc/hosts
+		/etc/localtime
+		/etc/resolv.conf
+	'
++ hostname
++ id=bbsh.bblaptop
++ '[' -e /run/.containerenv ]
++ . /run/.containerenv
++ engine=podman-4.9.3
++ name=bbsh
++ id=af096a9479b914be06ccc9605a4ce6d76d8dad40f44705504aba8e94a63248ae
++ image=ghcr.io/bubbelb/bbsh:latest
++ imageid=573cc4835f538f332fd5fd53d612adbc539ea6c290ff523c4ada290ece9f7d33
++ rootless=1
++ graphRootMounted=1
++ set +x
++ stat /run/host/etc/shadow
++ stat -c '%u' /run/host/etc/shadow
++ '[' 65534 '=' 0 ]
++ '[' -n  ]
++ printf 'distrobox: Installing basic packages...\n'
+distrobox: Installing basic packages...
++ basename zsh
++ shell_pkg=zsh
++ '[' zsh '=' ash ]
++ missing_packages=0
++ dependencies='
+	bc
+	bzip2
+	chpasswd
+	curl
+	diff
+	find
+	findmnt
+	gpg
+	hostname
+	less
+	lsof
+	man
+	mount
+	passwd
+	pigz
+	pinentry
+	ping
+	ps
+	rsync
+	script
+	ssh
+	sudo
+	time
+	tree
+	umount
+	unzip
+	useradd
+	wc
+	wget
+	xauth
+	zip
+	zsh
+'
++ command -v bc
++ command -v bzip2
++ command -v chpasswd
++ command -v curl
++ command -v diff
++ command -v find
++ command -v findmnt
++ command -v gpg
++ command -v hostname
++ command -v less
++ command -v lsof
++ command -v man
++ command -v mount
++ command -v passwd
++ command -v pigz
++ command -v pinentry
++ command -v ping
++ command -v ps
++ command -v rsync
++ command -v script
++ command -v ssh
++ command -v sudo
++ command -v time
++ command -v tree
++ command -v umount
++ command -v unzip
++ command -v useradd
++ command -v wc
++ command -v wget
++ command -v xauth
++ command -v zip
++ command -v zsh
++ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/bin:/sbin:/usr/bin:/usr/sbin
++ '[' 0 -ne 0 ]
++ '[' 0 -ne 0 ]
++ '[' -n  ]
++ command -v zsh
++ SHELL=/bin/zsh
++ /usr/bin/distrobox-host-exec -Y test
++ :
++ command -v xdg-open
+/usr/local/bin/xdg-open
++ su --help
++ grep -q pty
++ printf 'distrobox: Setting up devpts mounts...\n'
+distrobox: Setting up devpts mounts...
++ grep -q tty /etc/group
++ mount -t devpts devpts -o 'noexec,nosuid,newinstance,ptmxmode=0666,mode=0620,gid=tty' /dev/pts/
++ mount --bind /dev/pts/ptmx /dev/ptmx
++ mount --make-rshared /
++ printf 'distrobox: Setting up read-only mounts...\n'
+distrobox: Setting up read-only mounts...
++ HOST_MOUNTS_RO='
+	/etc/localtime
+	/var/lib/systemd/coredump
+	/var/log/journal'
++ get_locked_mount_flags /run/host/etc/localtime
++ src=/run/host/etc/localtime
++ prev=
++ locked_flags=
++ ls /run/host/etc/localtime
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/etc/localtime
++ flags='rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ '[' -n 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr' ]
++ break
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q nodev
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q noexec
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/etc/localtime /etc/localtime ro
++ source_dir=/run/host/etc/localtime
++ target_dir=/etc/localtime
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/etc/localtime ]
++ init_readlink /run/host/etc/localtime
++ ls -l /run/host/etc/localtime
++ grep -Eo '\->.*'
++ cut '-d ' -f2-
++ sed 's|\.\./|/|g'
++ source_dir=/usr/share/zoneinfo/Europe/Amsterdam
++ printf '%s' /usr/share/zoneinfo/Europe/Amsterdam
++ grep -q /run/host
++ source_dir=/run/host/usr/share/zoneinfo/Europe/Amsterdam
++ '[' '!' -d /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' '!' -f /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' -e /etc/localtime ]
++ findmnt /etc/localtime
++ '[' -L /etc/localtime ]
++ '[' -d /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' -f /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ dirname /etc/localtime
++ '[' '!' -d /etc ]
++ touch /etc/localtime
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
++ return 0
++ get_locked_mount_flags /run/host/var/lib/systemd/coredump
++ src=/run/host/var/lib/systemd/coredump
++ prev=
++ locked_flags=
++ ls /run/host/var/lib/systemd/coredump
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/var/lib/systemd/coredump
++ flags='rw,relatime,errors=remount-ro'
++ '[' -n 'rw,relatime,errors=remount-ro' ]
++ break
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nodev
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q noexec
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/var/lib/systemd/coredump /var/lib/systemd/coredump ro
++ source_dir=/run/host/var/lib/systemd/coredump
++ target_dir=/var/lib/systemd/coredump
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/var/lib/systemd/coredump ]
++ '[' '!' -d /run/host/var/lib/systemd/coredump ]
++ '[' -e /var/lib/systemd/coredump ]
++ findmnt /var/lib/systemd/coredump
++ '[' -L /var/lib/systemd/coredump ]
++ '[' -d /run/host/var/lib/systemd/coredump ]
++ mkdir -p /var/lib/systemd/coredump
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/var/lib/systemd/coredump /var/lib/systemd/coredump
++ return 0
++ get_locked_mount_flags /run/host/var/log/journal
++ src=/run/host/var/log/journal
++ prev=
++ locked_flags=
++ ls /run/host/var/log/journal
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/var/log/journal
++ flags='rw,relatime,errors=remount-ro'
++ '[' -n 'rw,relatime,errors=remount-ro' ]
++ break
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nodev
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q noexec
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/var/log/journal /var/log/journal ro
++ source_dir=/run/host/var/log/journal
++ target_dir=/var/log/journal
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/var/log/journal ]
++ '[' '!' -d /run/host/var/log/journal ]
++ '[' -e /var/log/journal ]
++ findmnt /var/log/journal
++ umount /var/log/journal
++ '[' -L /var/log/journal ]
++ '[' -d /run/host/var/log/journal ]
++ mkdir -p /var/log/journal
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/var/log/journal /var/log/journal
++ return 0
++ printf 'distrobox: Setting up read-write mounts...\n'
+distrobox: Setting up read-write mounts...
++ '[' -e /var/home/bbl ]
++ HOST_MOUNTS='
+	/etc/host.conf
+	/etc/machine-id
+	/media
+	/mnt
+	/run/libvirt
+	/run/media
+	/run/netconfig/
+	/run/systemd/journal
+	/run/systemd/resolve/
+	/run/systemd/seats
+	/run/systemd/sessions
+	/run/systemd/users
+	/run/udev
+	/var/lib/libvirt
+	/var/mnt'
++ mount_bind /run/host/etc/host.conf /etc/host.conf
++ source_dir=/run/host/etc/host.conf
++ target_dir=/etc/host.conf
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/etc/host.conf ]
++ '[' '!' -d /run/host/etc/host.conf ]
++ '[' '!' -f /run/host/etc/host.conf ]
++ '[' -e /etc/host.conf ]
++ findmnt /etc/host.conf
++ '[' -L /etc/host.conf ]
++ '[' -d /run/host/etc/host.conf ]
++ '[' -f /run/host/etc/host.conf ]
++ dirname /etc/host.conf
++ '[' '!' -d /etc ]
++ touch /etc/host.conf
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/etc/host.conf /etc/host.conf
++ return 0
++ mount_bind /run/host/etc/machine-id /etc/machine-id
++ source_dir=/run/host/etc/machine-id
++ target_dir=/etc/machine-id
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/etc/machine-id ]
++ '[' '!' -d /run/host/etc/machine-id ]
++ '[' '!' -f /run/host/etc/machine-id ]
++ '[' -e /etc/machine-id ]
++ findmnt /etc/machine-id
++ '[' -L /etc/machine-id ]
++ '[' -d /run/host/etc/machine-id ]
++ '[' -f /run/host/etc/machine-id ]
++ dirname /etc/machine-id
++ '[' '!' -d /etc ]
++ touch /etc/machine-id
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/etc/machine-id /etc/machine-id
++ return 0
++ mount_bind /run/host/media /media
++ source_dir=/run/host/media
++ target_dir=/media
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/media ]
++ '[' '!' -d /run/host/media ]
++ '[' -e /media ]
++ findmnt /media
++ '[' -L /media ]
++ '[' -d /run/host/media ]
++ mkdir -p /media
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/media /media
++ return 0
++ mount_bind /run/host/mnt /mnt
++ source_dir=/run/host/mnt
++ target_dir=/mnt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/mnt ]
++ '[' '!' -d /run/host/mnt ]
++ '[' -e /mnt ]
++ findmnt /mnt
++ '[' -L /mnt ]
++ '[' -d /run/host/mnt ]
++ mkdir -p /mnt
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/mnt /mnt
++ return 0
++ mount_bind /run/host/run/libvirt /run/libvirt
++ source_dir=/run/host/run/libvirt
++ target_dir=/run/libvirt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/libvirt ]
++ '[' '!' -d /run/host/run/libvirt ]
++ '[' '!' -f /run/host/run/libvirt ]
++ return 0
++ mount_bind /run/host/run/media /run/media
++ source_dir=/run/host/run/media
++ target_dir=/run/media
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/media ]
++ '[' '!' -d /run/host/run/media ]
++ '[' '!' -f /run/host/run/media ]
++ return 0
++ mount_bind /run/host/run/netconfig/ /run/netconfig/
++ source_dir=/run/host/run/netconfig/
++ target_dir=/run/netconfig/
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/netconfig/ ]
++ '[' '!' -d /run/host/run/netconfig/ ]
++ '[' '!' -f /run/host/run/netconfig/ ]
++ return 0
++ mount_bind /run/host/run/systemd/journal /run/systemd/journal
++ source_dir=/run/host/run/systemd/journal
++ target_dir=/run/systemd/journal
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/journal ]
++ '[' '!' -d /run/host/run/systemd/journal ]
++ '[' -e /run/systemd/journal ]
++ findmnt /run/systemd/journal
++ '[' -L /run/systemd/journal ]
++ '[' -d /run/host/run/systemd/journal ]
++ mkdir -p /run/systemd/journal
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/journal /run/systemd/journal
++ return 0
++ mount_bind /run/host/run/systemd/resolve/ /run/systemd/resolve/
++ source_dir=/run/host/run/systemd/resolve/
++ target_dir=/run/systemd/resolve/
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/resolve/ ]
++ '[' '!' -d /run/host/run/systemd/resolve/ ]
++ '[' '!' -f /run/host/run/systemd/resolve/ ]
++ return 0
++ mount_bind /run/host/run/systemd/seats /run/systemd/seats
++ source_dir=/run/host/run/systemd/seats
++ target_dir=/run/systemd/seats
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/seats ]
++ '[' '!' -d /run/host/run/systemd/seats ]
++ '[' -e /run/systemd/seats ]
++ findmnt /run/systemd/seats
++ '[' -L /run/systemd/seats ]
++ '[' -d /run/host/run/systemd/seats ]
++ mkdir -p /run/systemd/seats
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/seats /run/systemd/seats
++ return 0
++ mount_bind /run/host/run/systemd/sessions /run/systemd/sessions
++ source_dir=/run/host/run/systemd/sessions
++ target_dir=/run/systemd/sessions
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/sessions ]
++ '[' '!' -d /run/host/run/systemd/sessions ]
++ '[' -e /run/systemd/sessions ]
++ findmnt /run/systemd/sessions
++ '[' -L /run/systemd/sessions ]
++ '[' -d /run/host/run/systemd/sessions ]
++ mkdir -p /run/systemd/sessions
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/sessions /run/systemd/sessions
++ return 0
++ mount_bind /run/host/run/systemd/users /run/systemd/users
++ source_dir=/run/host/run/systemd/users
++ target_dir=/run/systemd/users
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/users ]
++ '[' '!' -d /run/host/run/systemd/users ]
++ '[' -e /run/systemd/users ]
++ findmnt /run/systemd/users
++ '[' -L /run/systemd/users ]
++ '[' -d /run/host/run/systemd/users ]
++ mkdir -p /run/systemd/users
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/users /run/systemd/users
++ return 0
++ mount_bind /run/host/run/udev /run/udev
++ source_dir=/run/host/run/udev
++ target_dir=/run/udev
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/udev ]
++ '[' '!' -d /run/host/run/udev ]
++ '[' -e /run/udev ]
++ findmnt /run/udev
++ '[' -L /run/udev ]
++ '[' -d /run/host/run/udev ]
++ mkdir -p /run/udev
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/udev /run/udev
++ return 0
++ mount_bind /run/host/var/lib/libvirt /var/lib/libvirt
++ source_dir=/run/host/var/lib/libvirt
++ target_dir=/var/lib/libvirt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/var/lib/libvirt ]
++ '[' '!' -d /run/host/var/lib/libvirt ]
++ '[' '!' -f /run/host/var/lib/libvirt ]
++ return 0
++ mount_bind /run/host/var/mnt /var/mnt
++ source_dir=/run/host/var/mnt
++ target_dir=/var/mnt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/var/mnt ]
++ '[' '!' -d /run/host/var/mnt ]
++ '[' '!' -f /run/host/var/mnt ]
++ return 0
++ printf 'distrobox: Setting up host'"'"'s sockets integration...\n'
+distrobox: Setting up host's sockets integration...
++ find /run/host/run -path /run/host/run/media -prune -o -path /run/host/run/timeshift -prune -o -name user -prune -o -name bees -prune -o -name nscd -prune -o -name system_bus_socket -prune -o -type s -print
++ :
++ host_sockets='/run/host/run/udev/control
+/run/host/run/systemd/inaccessible/sock
+/run/host/run/systemd/notify
+/run/host/run/systemd/private
+/run/host/run/systemd/userdb/io.systemd.DynamicUser
+/run/host/run/systemd/io.systemd.ManagedOOM
+/run/host/run/systemd/fsck.progress
+/run/host/run/systemd/journal/dev-log
+/run/host/run/systemd/journal/socket
+/run/host/run/systemd/journal/stdout
+/run/host/run/systemd/journal/io.systemd.journal
+/run/host/run/systemd/io.systemd.sysext
+/run/host/run/avahi-daemon/socket
+/run/host/run/cups/cups.sock
+/run/host/run/wpa_supplicant/wlp0s20f3
+/run/host/run/wpa_supplicant/p2p-dev-wlp0s20
+/run/host/run/vmware/usbarbitrator-socket
+/run/host/run/synaptic.socket'
++ printf '%s' /run/host/run/udev/control
++ sed 's|/run/host||g'
++ container_socket=/run/udev/control
++ '[' '!' -S /run/udev/control ]
++ printf '%s' /run/host/run/systemd/inaccessible/sock
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/inaccessible/sock
++ '[' '!' -S /run/systemd/inaccessible/sock ]
++ printf '%s' /run/host/run/systemd/notify
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/notify
++ '[' '!' -S /run/systemd/notify ]
++ printf '%s' /run/host/run/systemd/private
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/private
++ '[' '!' -S /run/systemd/private ]
++ sed 's|/run/host||g'
++ printf '%s' /run/host/run/systemd/userdb/io.systemd.DynamicUser
++ container_socket=/run/systemd/userdb/io.systemd.DynamicUser
++ '[' '!' -S /run/systemd/userdb/io.systemd.DynamicUser ]
++ printf '%s' /run/host/run/systemd/io.systemd.ManagedOOM
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/io.systemd.ManagedOOM
++ '[' '!' -S /run/systemd/io.systemd.ManagedOOM ]
++ printf '%s' /run/host/run/systemd/fsck.progress
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/fsck.progress
++ '[' '!' -S /run/systemd/fsck.progress ]
++ printf '%s' /run/host/run/systemd/journal/dev-log
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/dev-log
++ '[' '!' -S /run/systemd/journal/dev-log ]
++ printf '%s' /run/host/run/systemd/journal/socket
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/socket
++ '[' '!' -S /run/systemd/journal/socket ]
++ printf '%s' /run/host/run/systemd/journal/stdout
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/stdout
++ '[' '!' -S /run/systemd/journal/stdout ]
++ printf '%s' /run/host/run/systemd/journal/io.systemd.journal
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/io.systemd.journal
++ '[' '!' -S /run/systemd/journal/io.systemd.journal ]
++ printf '%s' /run/host/run/systemd/io.systemd.sysext
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/io.systemd.sysext
++ '[' '!' -S /run/systemd/io.systemd.sysext ]
++ printf '%s' /run/host/run/avahi-daemon/socket
++ sed 's|/run/host||g'
++ container_socket=/run/avahi-daemon/socket
++ '[' '!' -S /run/avahi-daemon/socket ]
++ printf '%s' /run/host/run/cups/cups.sock
++ sed 's|/run/host||g'
++ container_socket=/run/cups/cups.sock
++ '[' '!' -S /run/cups/cups.sock ]
++ printf '%s' /run/host/run/wpa_supplicant/wlp0s20f3
++ sed 's|/run/host||g'
++ container_socket=/run/wpa_supplicant/wlp0s20f3
++ '[' '!' -S /run/wpa_supplicant/wlp0s20f3 ]
++ '[' '!' -L /run/wpa_supplicant/wlp0s20f3 ]
++ rm -f /run/wpa_supplicant/wlp0s20f3
++ dirname /run/wpa_supplicant/wlp0s20f3
++ mkdir -p /run/wpa_supplicant
++ ln -s /run/host/run/wpa_supplicant/wlp0s20f3 /run/wpa_supplicant/wlp0s20f3
++ printf '%s' /run/host/run/wpa_supplicant/p2p-dev-wlp0s20
++ sed 's|/run/host||g'
++ container_socket=/run/wpa_supplicant/p2p-dev-wlp0s20
++ '[' '!' -S /run/wpa_supplicant/p2p-dev-wlp0s20 ]
++ '[' '!' -L /run/wpa_supplicant/p2p-dev-wlp0s20 ]
++ rm -f /run/wpa_supplicant/p2p-dev-wlp0s20
++ dirname /run/wpa_supplicant/p2p-dev-wlp0s20
++ mkdir -p /run/wpa_supplicant
++ ln -s /run/host/run/wpa_supplicant/p2p-dev-wlp0s20 /run/wpa_supplicant/p2p-dev-wlp0s20
++ printf '%s' /run/host/run/vmware/usbarbitrator-socket
++ sed 's|/run/host||g'
++ container_socket=/run/vmware/usbarbitrator-socket
++ '[' '!' -S /run/vmware/usbarbitrator-socket ]
++ printf '%s' /run/host/run/synaptic.socket
++ sed 's|/run/host||g'
++ container_socket=/run/synaptic.socket
++ '[' '!' -S /run/synaptic.socket ]
++ '[' 0 -eq 1 ]
++ printf 'distrobox: Integrating host'"'"'s themes, icons, fonts...\n'
+distrobox: Integrating host's themes, icons, fonts...
++ mount_bind /run/host/usr/share/themes /usr/local/share/themes
++ source_dir=/run/host/usr/share/themes
++ target_dir=/usr/local/share/themes
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/themes ]
++ '[' '!' -d /run/host/usr/share/themes ]
++ '[' -e /usr/local/share/themes ]
++ findmnt /usr/local/share/themes
++ '[' -L /usr/local/share/themes ]
++ '[' -d /run/host/usr/share/themes ]
++ mkdir -p /usr/local/share/themes
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/themes /usr/local/share/themes
++ return 0
++ mount_bind /run/host/usr/share/icons /usr/local/share/icons
++ source_dir=/run/host/usr/share/icons
++ target_dir=/usr/local/share/icons
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/icons ]
++ '[' '!' -d /run/host/usr/share/icons ]
++ '[' -e /usr/local/share/icons ]
++ findmnt /usr/local/share/icons
++ '[' -L /usr/local/share/icons ]
++ '[' -d /run/host/usr/share/icons ]
++ mkdir -p /usr/local/share/icons
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/icons /usr/local/share/icons
++ return 0
++ mount_bind /run/host/usr/share/fonts /usr/local/share/fonts
++ source_dir=/run/host/usr/share/fonts
++ target_dir=/usr/local/share/fonts
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/fonts ]
++ '[' '!' -d /run/host/usr/share/fonts ]
++ '[' -e /usr/local/share/fonts ]
++ findmnt /usr/local/share/fonts
++ '[' -L /usr/local/share/fonts ]
++ '[' -d /run/host/usr/share/fonts ]
++ mkdir -p /usr/local/share/fonts
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/fonts /usr/local/share/fonts
++ return 0
++ '[' 0 -eq 0 ]
++ printf 'distrobox: Setting up package manager exceptions...\n'
+distrobox: Setting up package manager exceptions...
++ '[' -d /usr/lib/rpm/macros.d/ ]
++ '[' -d /etc/dpkg/dpkg.cfg.d/ ]
++ '[' -d /usr/share/libalpm/scripts ]
++ '[' -d /etc/dpkg/dpkg.cfg.d/ ]
++ '[' -d /usr/share/libalpm/scripts ]
++ printf 'distrobox: Setting up distrobox profile...\n'
+distrobox: Setting up distrobox profile...
++ touch /run/.toolboxenv
++ mkdir -p /etc/profile.d
++ cat
++ '[' -e /etc/fish/config.fish ]
++ printf 'distrobox: Setting up sudo...\n'
+distrobox: Setting up sudo...
++ mkdir -p /etc/sudoers.d
++ '[' -e /etc/sudoers ]
++ sed -i 's|^Defaults targetpw.*||g' /etc/sudoers
++ cat
++ '[' '!' -e /etc/pam.d/su ]
++ grep -q pam_systemd.so /etc/pam.d/su
++ '[' 1001 -ne 0 ]
++ '[' 0 -eq 0 ]
++ printf '"%s" ALL = (root) NOPASSWD:ALL\n' bbl
++ printf 'distrobox: Setting up user groups...\n'
+distrobox: Setting up user groups...
++ grep -q ^bbl: /etc/group
++ printf 'distrobox: Setting up kerberos integration...\n'
+distrobox: Setting up kerberos integration...
++ '[' -d /run/host/var/kerberos ]
++ printf 'distrobox: Setting up user'"'"'s group list...\n'
+distrobox: Setting up user's group list...
++ additional_groups=
++ grep -q ^sudo /etc/group
++ grep -q ^wheel /etc/group
++ additional_groups=wheel
++ '[' 0 -eq 1 ]
++ printf '%s' bbl
++ tr '\\' .
++ grep -q ^bbl: /etc/passwd
++ '[' '!' -e /etc/passwd.done ]
++ printf 'distrobox: Setting up user home...\n'
+distrobox: Setting up user home...
++ getent passwd bbl
++ cut -d: -f6
++ '[' /home/bbl '!=' /home/bbl ]
++ printf 'distrobox: Ensuring user'"'"'s access...\n'
+distrobox: Ensuring user's access...
++ '[' '!' -e /etc/passwd.done ]
++ '[' 0 -eq 1 ]
++ touch /etc/passwd.done
++ '[' -n  ]
++ '[' -n  ]
++ '[' 0 -eq 0 ]
++ printf 'container_setup_done\n'
+container_setup_done
++ HOST_WATCH='
+		/etc/hosts
+		/etc/localtime
+		/etc/resolv.conf
+	'
++ hostname
++ id=bbsh.bblaptop
++ '[' -e /run/.containerenv ]
++ . /run/.containerenv
++ engine=podman-4.9.3
++ name=bbsh
++ id=af096a9479b914be06ccc9605a4ce6d76d8dad40f44705504aba8e94a63248ae
++ image=ghcr.io/bubbelb/bbsh:latest
++ imageid=573cc4835f538f332fd5fd53d612adbc539ea6c290ff523c4ada290ece9f7d33
++ rootless=1
++ graphRootMounted=1
++ set +x
++ stat /run/host/etc/shadow
++ stat -c '%u' /run/host/etc/shadow
++ '[' 65534 '=' 0 ]
++ '[' -n  ]
++ printf 'distrobox: Installing basic packages...\n'
+distrobox: Installing basic packages...
++ basename zsh
++ shell_pkg=zsh
++ '[' zsh '=' ash ]
++ missing_packages=0
++ dependencies='
+	bc
+	bzip2
+	chpasswd
+	curl
+	diff
+	find
+	findmnt
+	gpg
+	hostname
+	less
+	lsof
+	man
+	mount
+	passwd
+	pigz
+	pinentry
+	ping
+	ps
+	rsync
+	script
+	ssh
+	sudo
+	time
+	tree
+	umount
+	unzip
+	useradd
+	wc
+	wget
+	xauth
+	zip
+	zsh
+'
++ command -v bc
++ command -v bzip2
++ command -v chpasswd
++ command -v curl
++ command -v diff
++ command -v find
++ command -v findmnt
++ command -v gpg
++ command -v hostname
++ command -v less
++ command -v lsof
++ command -v man
++ command -v mount
++ command -v passwd
++ command -v pigz
++ command -v pinentry
++ command -v ping
++ command -v ps
++ command -v rsync
++ command -v script
++ command -v ssh
++ command -v sudo
++ command -v time
++ command -v tree
++ command -v umount
++ command -v unzip
++ command -v useradd
++ command -v wc
++ command -v wget
++ command -v xauth
++ command -v zip
++ command -v zsh
++ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/bin:/sbin:/usr/bin:/usr/sbin
++ '[' 0 -ne 0 ]
++ '[' 0 -ne 0 ]
++ '[' -n  ]
++ command -v zsh
++ SHELL=/bin/zsh
++ /usr/bin/distrobox-host-exec -Y test
++ :
++ command -v xdg-open
+/usr/local/bin/xdg-open
++ su --help
++ grep -q pty
++ printf 'distrobox: Setting up devpts mounts...\n'
+distrobox: Setting up devpts mounts...
++ grep -q tty /etc/group
++ mount -t devpts devpts -o 'noexec,nosuid,newinstance,ptmxmode=0666,mode=0620,gid=tty' /dev/pts/
++ mount --bind /dev/pts/ptmx /dev/ptmx
++ mount --make-rshared /
++ printf 'distrobox: Setting up read-only mounts...\n'
+distrobox: Setting up read-only mounts...
++ HOST_MOUNTS_RO='
+	/etc/localtime
+	/var/lib/systemd/coredump
+	/var/log/journal'
++ get_locked_mount_flags /run/host/etc/localtime
++ src=/run/host/etc/localtime
++ prev=
++ locked_flags=
++ ls /run/host/etc/localtime
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/etc/localtime
++ flags='rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ '[' -n 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr' ]
++ break
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q nodev
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q noexec
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/etc/localtime /etc/localtime ro
++ source_dir=/run/host/etc/localtime
++ target_dir=/etc/localtime
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/etc/localtime ]
++ init_readlink /run/host/etc/localtime
++ ls -l /run/host/etc/localtime
++ grep -Eo '\->.*'
++ cut '-d ' -f2-
++ sed 's|\.\./|/|g'
++ source_dir=/usr/share/zoneinfo/Europe/Amsterdam
++ printf '%s' /usr/share/zoneinfo/Europe/Amsterdam
++ grep -q /run/host
++ source_dir=/run/host/usr/share/zoneinfo/Europe/Amsterdam
++ '[' '!' -d /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' '!' -f /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' -e /etc/localtime ]
++ findmnt /etc/localtime
++ '[' -L /etc/localtime ]
++ '[' -d /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' -f /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ dirname /etc/localtime
++ '[' '!' -d /etc ]
++ touch /etc/localtime
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
++ return 0
++ get_locked_mount_flags /run/host/var/lib/systemd/coredump
++ src=/run/host/var/lib/systemd/coredump
++ prev=
++ locked_flags=
++ ls /run/host/var/lib/systemd/coredump
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/var/lib/systemd/coredump
++ flags='rw,relatime,errors=remount-ro'
++ '[' -n 'rw,relatime,errors=remount-ro' ]
++ break
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nodev
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q noexec
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/var/lib/systemd/coredump /var/lib/systemd/coredump ro
++ source_dir=/run/host/var/lib/systemd/coredump
++ target_dir=/var/lib/systemd/coredump
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/var/lib/systemd/coredump ]
++ '[' '!' -d /run/host/var/lib/systemd/coredump ]
++ '[' -e /var/lib/systemd/coredump ]
++ findmnt /var/lib/systemd/coredump
++ '[' -L /var/lib/systemd/coredump ]
++ '[' -d /run/host/var/lib/systemd/coredump ]
++ mkdir -p /var/lib/systemd/coredump
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/var/lib/systemd/coredump /var/lib/systemd/coredump
++ return 0
++ get_locked_mount_flags /run/host/var/log/journal
++ src=/run/host/var/log/journal
++ prev=
++ locked_flags=
++ ls /run/host/var/log/journal
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/var/log/journal
++ flags='rw,relatime,errors=remount-ro'
++ '[' -n 'rw,relatime,errors=remount-ro' ]
++ break
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nodev
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q noexec
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/var/log/journal /var/log/journal ro
++ source_dir=/run/host/var/log/journal
++ target_dir=/var/log/journal
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/var/log/journal ]
++ '[' '!' -d /run/host/var/log/journal ]
++ '[' -e /var/log/journal ]
++ findmnt /var/log/journal
++ umount /var/log/journal
++ '[' -L /var/log/journal ]
++ '[' -d /run/host/var/log/journal ]
++ mkdir -p /var/log/journal
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/var/log/journal /var/log/journal
++ return 0
++ printf 'distrobox: Setting up read-write mounts...\n'
+distrobox: Setting up read-write mounts...
++ '[' -e /var/home/bbl ]
++ HOST_MOUNTS='
+	/etc/host.conf
+	/etc/machine-id
+	/media
+	/mnt
+	/run/libvirt
+	/run/media
+	/run/netconfig/
+	/run/systemd/journal
+	/run/systemd/resolve/
+	/run/systemd/seats
+	/run/systemd/sessions
+	/run/systemd/users
+	/run/udev
+	/var/lib/libvirt
+	/var/mnt'
++ mount_bind /run/host/etc/host.conf /etc/host.conf
++ source_dir=/run/host/etc/host.conf
++ target_dir=/etc/host.conf
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/etc/host.conf ]
++ '[' '!' -d /run/host/etc/host.conf ]
++ '[' '!' -f /run/host/etc/host.conf ]
++ '[' -e /etc/host.conf ]
++ findmnt /etc/host.conf
++ '[' -L /etc/host.conf ]
++ '[' -d /run/host/etc/host.conf ]
++ '[' -f /run/host/etc/host.conf ]
++ dirname /etc/host.conf
++ '[' '!' -d /etc ]
++ touch /etc/host.conf
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/etc/host.conf /etc/host.conf
++ return 0
++ mount_bind /run/host/etc/machine-id /etc/machine-id
++ source_dir=/run/host/etc/machine-id
++ target_dir=/etc/machine-id
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/etc/machine-id ]
++ '[' '!' -d /run/host/etc/machine-id ]
++ '[' '!' -f /run/host/etc/machine-id ]
++ '[' -e /etc/machine-id ]
++ findmnt /etc/machine-id
++ '[' -L /etc/machine-id ]
++ '[' -d /run/host/etc/machine-id ]
++ '[' -f /run/host/etc/machine-id ]
++ dirname /etc/machine-id
++ '[' '!' -d /etc ]
++ touch /etc/machine-id
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/etc/machine-id /etc/machine-id
++ return 0
++ mount_bind /run/host/media /media
++ source_dir=/run/host/media
++ target_dir=/media
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/media ]
++ '[' '!' -d /run/host/media ]
++ '[' -e /media ]
++ findmnt /media
++ '[' -L /media ]
++ '[' -d /run/host/media ]
++ mkdir -p /media
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/media /media
++ return 0
++ mount_bind /run/host/mnt /mnt
++ source_dir=/run/host/mnt
++ target_dir=/mnt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/mnt ]
++ '[' '!' -d /run/host/mnt ]
++ '[' -e /mnt ]
++ findmnt /mnt
++ '[' -L /mnt ]
++ '[' -d /run/host/mnt ]
++ mkdir -p /mnt
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/mnt /mnt
++ return 0
++ mount_bind /run/host/run/libvirt /run/libvirt
++ source_dir=/run/host/run/libvirt
++ target_dir=/run/libvirt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/libvirt ]
++ '[' '!' -d /run/host/run/libvirt ]
++ '[' '!' -f /run/host/run/libvirt ]
++ return 0
++ mount_bind /run/host/run/media /run/media
++ source_dir=/run/host/run/media
++ target_dir=/run/media
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/media ]
++ '[' '!' -d /run/host/run/media ]
++ '[' '!' -f /run/host/run/media ]
++ return 0
++ mount_bind /run/host/run/netconfig/ /run/netconfig/
++ source_dir=/run/host/run/netconfig/
++ target_dir=/run/netconfig/
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/netconfig/ ]
++ '[' '!' -d /run/host/run/netconfig/ ]
++ '[' '!' -f /run/host/run/netconfig/ ]
++ return 0
++ mount_bind /run/host/run/systemd/journal /run/systemd/journal
++ source_dir=/run/host/run/systemd/journal
++ target_dir=/run/systemd/journal
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/journal ]
++ '[' '!' -d /run/host/run/systemd/journal ]
++ '[' -e /run/systemd/journal ]
++ findmnt /run/systemd/journal
++ '[' -L /run/systemd/journal ]
++ '[' -d /run/host/run/systemd/journal ]
++ mkdir -p /run/systemd/journal
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/journal /run/systemd/journal
++ return 0
++ mount_bind /run/host/run/systemd/resolve/ /run/systemd/resolve/
++ source_dir=/run/host/run/systemd/resolve/
++ target_dir=/run/systemd/resolve/
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/resolve/ ]
++ '[' '!' -d /run/host/run/systemd/resolve/ ]
++ '[' '!' -f /run/host/run/systemd/resolve/ ]
++ return 0
++ mount_bind /run/host/run/systemd/seats /run/systemd/seats
++ source_dir=/run/host/run/systemd/seats
++ target_dir=/run/systemd/seats
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/seats ]
++ '[' '!' -d /run/host/run/systemd/seats ]
++ '[' -e /run/systemd/seats ]
++ findmnt /run/systemd/seats
++ '[' -L /run/systemd/seats ]
++ '[' -d /run/host/run/systemd/seats ]
++ mkdir -p /run/systemd/seats
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/seats /run/systemd/seats
++ return 0
++ mount_bind /run/host/run/systemd/sessions /run/systemd/sessions
++ source_dir=/run/host/run/systemd/sessions
++ target_dir=/run/systemd/sessions
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/sessions ]
++ '[' '!' -d /run/host/run/systemd/sessions ]
++ '[' -e /run/systemd/sessions ]
++ findmnt /run/systemd/sessions
++ '[' -L /run/systemd/sessions ]
++ '[' -d /run/host/run/systemd/sessions ]
++ mkdir -p /run/systemd/sessions
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/sessions /run/systemd/sessions
++ return 0
++ mount_bind /run/host/run/systemd/users /run/systemd/users
++ source_dir=/run/host/run/systemd/users
++ target_dir=/run/systemd/users
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/users ]
++ '[' '!' -d /run/host/run/systemd/users ]
++ '[' -e /run/systemd/users ]
++ findmnt /run/systemd/users
++ '[' -L /run/systemd/users ]
++ '[' -d /run/host/run/systemd/users ]
++ mkdir -p /run/systemd/users
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/users /run/systemd/users
++ return 0
++ mount_bind /run/host/run/udev /run/udev
++ source_dir=/run/host/run/udev
++ target_dir=/run/udev
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/udev ]
++ '[' '!' -d /run/host/run/udev ]
++ '[' -e /run/udev ]
++ findmnt /run/udev
++ '[' -L /run/udev ]
++ '[' -d /run/host/run/udev ]
++ mkdir -p /run/udev
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/udev /run/udev
++ return 0
++ mount_bind /run/host/var/lib/libvirt /var/lib/libvirt
++ source_dir=/run/host/var/lib/libvirt
++ target_dir=/var/lib/libvirt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/var/lib/libvirt ]
++ '[' '!' -d /run/host/var/lib/libvirt ]
++ '[' '!' -f /run/host/var/lib/libvirt ]
++ return 0
++ mount_bind /run/host/var/mnt /var/mnt
++ source_dir=/run/host/var/mnt
++ target_dir=/var/mnt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/var/mnt ]
++ '[' '!' -d /run/host/var/mnt ]
++ '[' '!' -f /run/host/var/mnt ]
++ return 0
++ printf 'distrobox: Setting up host'"'"'s sockets integration...\n'
+distrobox: Setting up host's sockets integration...
++ find /run/host/run -path /run/host/run/media -prune -o -path /run/host/run/timeshift -prune -o -name user -prune -o -name bees -prune -o -name nscd -prune -o -name system_bus_socket -prune -o -type s -print
++ :
++ host_sockets='/run/host/run/udev/control
+/run/host/run/systemd/inaccessible/sock
+/run/host/run/systemd/notify
+/run/host/run/systemd/private
+/run/host/run/systemd/userdb/io.systemd.DynamicUser
+/run/host/run/systemd/io.systemd.ManagedOOM
+/run/host/run/systemd/fsck.progress
+/run/host/run/systemd/journal/dev-log
+/run/host/run/systemd/journal/socket
+/run/host/run/systemd/journal/stdout
+/run/host/run/systemd/journal/io.systemd.journal
+/run/host/run/systemd/io.systemd.sysext
+/run/host/run/avahi-daemon/socket
+/run/host/run/cups/cups.sock
+/run/host/run/wpa_supplicant/wlp0s20f3
+/run/host/run/wpa_supplicant/p2p-dev-wlp0s20
+/run/host/run/vmware/usbarbitrator-socket
+/run/host/run/synaptic.socket'
++ printf '%s' /run/host/run/udev/control
++ sed 's|/run/host||g'
++ container_socket=/run/udev/control
++ '[' '!' -S /run/udev/control ]
++ printf '%s' /run/host/run/systemd/inaccessible/sock
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/inaccessible/sock
++ '[' '!' -S /run/systemd/inaccessible/sock ]
++ printf '%s' /run/host/run/systemd/notify
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/notify
++ '[' '!' -S /run/systemd/notify ]
++ printf '%s' /run/host/run/systemd/private
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/private
++ '[' '!' -S /run/systemd/private ]
++ printf '%s' /run/host/run/systemd/userdb/io.systemd.DynamicUser
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/userdb/io.systemd.DynamicUser
++ '[' '!' -S /run/systemd/userdb/io.systemd.DynamicUser ]
++ printf '%s' /run/host/run/systemd/io.systemd.ManagedOOM
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/io.systemd.ManagedOOM
++ '[' '!' -S /run/systemd/io.systemd.ManagedOOM ]
++ printf '%s' /run/host/run/systemd/fsck.progress
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/fsck.progress
++ '[' '!' -S /run/systemd/fsck.progress ]
++ printf '%s' /run/host/run/systemd/journal/dev-log
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/dev-log
++ '[' '!' -S /run/systemd/journal/dev-log ]
++ printf '%s' /run/host/run/systemd/journal/socket
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/socket
++ '[' '!' -S /run/systemd/journal/socket ]
++ printf '%s' /run/host/run/systemd/journal/stdout
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/stdout
++ '[' '!' -S /run/systemd/journal/stdout ]
++ printf '%s' /run/host/run/systemd/journal/io.systemd.journal
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/io.systemd.journal
++ '[' '!' -S /run/systemd/journal/io.systemd.journal ]
++ printf '%s' /run/host/run/systemd/io.systemd.sysext
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/io.systemd.sysext
++ '[' '!' -S /run/systemd/io.systemd.sysext ]
++ printf '%s' /run/host/run/avahi-daemon/socket
++ sed 's|/run/host||g'
++ container_socket=/run/avahi-daemon/socket
++ '[' '!' -S /run/avahi-daemon/socket ]
++ printf '%s' /run/host/run/cups/cups.sock
++ sed 's|/run/host||g'
++ container_socket=/run/cups/cups.sock
++ '[' '!' -S /run/cups/cups.sock ]
++ printf '%s' /run/host/run/wpa_supplicant/wlp0s20f3
++ sed 's|/run/host||g'
++ container_socket=/run/wpa_supplicant/wlp0s20f3
++ '[' '!' -S /run/wpa_supplicant/wlp0s20f3 ]
++ printf '%s' /run/host/run/wpa_supplicant/p2p-dev-wlp0s20
++ sed 's|/run/host||g'
++ container_socket=/run/wpa_supplicant/p2p-dev-wlp0s20
++ '[' '!' -S /run/wpa_supplicant/p2p-dev-wlp0s20 ]
++ printf '%s' /run/host/run/vmware/usbarbitrator-socket
++ sed 's|/run/host||g'
++ container_socket=/run/vmware/usbarbitrator-socket
++ '[' '!' -S /run/vmware/usbarbitrator-socket ]
++ printf '%s' /run/host/run/synaptic.socket
++ sed 's|/run/host||g'
++ container_socket=/run/synaptic.socket
++ '[' '!' -S /run/synaptic.socket ]
++ '[' 0 -eq 1 ]
++ printf 'distrobox: Integrating host'"'"'s themes, icons, fonts...\n'
+distrobox: Integrating host's themes, icons, fonts...
++ mount_bind /run/host/usr/share/themes /usr/local/share/themes
++ source_dir=/run/host/usr/share/themes
++ target_dir=/usr/local/share/themes
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/themes ]
++ '[' '!' -d /run/host/usr/share/themes ]
++ '[' -e /usr/local/share/themes ]
++ findmnt /usr/local/share/themes
++ '[' -L /usr/local/share/themes ]
++ '[' -d /run/host/usr/share/themes ]
++ mkdir -p /usr/local/share/themes
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/themes /usr/local/share/themes
++ return 0
++ mount_bind /run/host/usr/share/icons /usr/local/share/icons
++ source_dir=/run/host/usr/share/icons
++ target_dir=/usr/local/share/icons
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/icons ]
++ '[' '!' -d /run/host/usr/share/icons ]
++ '[' -e /usr/local/share/icons ]
++ findmnt /usr/local/share/icons
++ '[' -L /usr/local/share/icons ]
++ '[' -d /run/host/usr/share/icons ]
++ mkdir -p /usr/local/share/icons
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/icons /usr/local/share/icons
++ return 0
++ mount_bind /run/host/usr/share/fonts /usr/local/share/fonts
++ source_dir=/run/host/usr/share/fonts
++ target_dir=/usr/local/share/fonts
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/fonts ]
++ '[' '!' -d /run/host/usr/share/fonts ]
++ '[' -e /usr/local/share/fonts ]
++ findmnt /usr/local/share/fonts
++ '[' -L /usr/local/share/fonts ]
++ '[' -d /run/host/usr/share/fonts ]
++ mkdir -p /usr/local/share/fonts
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/fonts /usr/local/share/fonts
++ return 0
++ '[' 0 -eq 0 ]
++ printf 'distrobox: Setting up package manager exceptions...\n'
+distrobox: Setting up package manager exceptions...
++ '[' -d /usr/lib/rpm/macros.d/ ]
++ '[' -d /etc/dpkg/dpkg.cfg.d/ ]
++ '[' -d /usr/share/libalpm/scripts ]
++ '[' -d /etc/dpkg/dpkg.cfg.d/ ]
++ '[' -d /usr/share/libalpm/scripts ]
++ printf 'distrobox: Setting up distrobox profile...\n'
+distrobox: Setting up distrobox profile...
++ touch /run/.toolboxenv
++ mkdir -p /etc/profile.d
++ cat
++ '[' -e /etc/fish/config.fish ]
++ printf 'distrobox: Setting up sudo...\n'
+distrobox: Setting up sudo...
++ mkdir -p /etc/sudoers.d
++ '[' -e /etc/sudoers ]
++ sed -i 's|^Defaults targetpw.*||g' /etc/sudoers
++ cat
++ '[' '!' -e /etc/pam.d/su ]
++ grep -q pam_systemd.so /etc/pam.d/su
++ '[' 1001 -ne 0 ]
++ '[' 0 -eq 0 ]
++ printf '"%s" ALL = (root) NOPASSWD:ALL\n' bbl
++ printf 'distrobox: Setting up user groups...\n'
+distrobox: Setting up user groups...
++ grep -q ^bbl: /etc/group
++ printf 'distrobox: Setting up kerberos integration...\n'
+distrobox: Setting up kerberos integration...
++ '[' -d /run/host/var/kerberos ]
++ printf 'distrobox: Setting up user'"'"'s group list...\n'
+distrobox: Setting up user's group list...
++ additional_groups=
++ grep -q ^sudo /etc/group
++ grep -q ^wheel /etc/group
++ additional_groups=wheel
++ '[' 0 -eq 1 ]
++ printf '%s' bbl
++ tr '\\' .
++ grep -q ^bbl: /etc/passwd
++ '[' '!' -e /etc/passwd.done ]
++ printf 'distrobox: Setting up user home...\n'
+distrobox: Setting up user home...
++ getent passwd bbl
++ cut -d: -f6
++ '[' /home/bbl '!=' /home/bbl ]
++ printf 'distrobox: Ensuring user'"'"'s access...\n'
+distrobox: Ensuring user's access...
++ '[' '!' -e /etc/passwd.done ]
++ '[' 0 -eq 1 ]
++ touch /etc/passwd.done
++ '[' -n  ]
++ '[' -n  ]
++ '[' 0 -eq 0 ]
++ printf 'container_setup_done\n'
+container_setup_done
++ HOST_WATCH='
+		/etc/hosts
+		/etc/localtime
+		/etc/resolv.conf
+	'
++ hostname
++ id=bbsh.bblaptop
++ '[' -e /run/.containerenv ]
++ . /run/.containerenv
++ engine=podman-4.9.3
++ name=bbsh
++ id=af096a9479b914be06ccc9605a4ce6d76d8dad40f44705504aba8e94a63248ae
++ image=ghcr.io/bubbelb/bbsh:latest
++ imageid=573cc4835f538f332fd5fd53d612adbc539ea6c290ff523c4ada290ece9f7d33
++ rootless=1
++ graphRootMounted=1
++ set +x
++ stat /run/host/etc/shadow
++ stat -c '%u' /run/host/etc/shadow
++ '[' 65534 '=' 0 ]
++ '[' -n  ]
++ printf 'distrobox: Installing basic packages...\n'
+distrobox: Installing basic packages...
++ basename zsh
++ shell_pkg=zsh
++ '[' zsh '=' ash ]
++ missing_packages=0
++ dependencies='
+	bc
+	bzip2
+	chpasswd
+	curl
+	diff
+	find
+	findmnt
+	gpg
+	hostname
+	less
+	lsof
+	man
+	mount
+	passwd
+	pigz
+	pinentry
+	ping
+	ps
+	rsync
+	script
+	ssh
+	sudo
+	time
+	tree
+	umount
+	unzip
+	useradd
+	wc
+	wget
+	xauth
+	zip
+	zsh
+'
++ command -v bc
++ command -v bzip2
++ command -v chpasswd
++ command -v curl
++ command -v diff
++ command -v find
++ command -v findmnt
++ command -v gpg
++ command -v hostname
++ command -v less
++ command -v lsof
++ command -v man
++ command -v mount
++ command -v passwd
++ command -v pigz
++ command -v pinentry
++ command -v ping
++ command -v ps
++ command -v rsync
++ command -v script
++ command -v ssh
++ command -v sudo
++ command -v time
++ command -v tree
++ command -v umount
++ command -v unzip
++ command -v useradd
++ command -v wc
++ command -v wget
++ command -v xauth
++ command -v zip
++ command -v zsh
++ PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/bin:/sbin:/usr/bin:/usr/sbin
++ '[' 0 -ne 0 ]
++ '[' 0 -ne 0 ]
++ '[' -n  ]
++ command -v zsh
++ SHELL=/bin/zsh
++ /usr/bin/distrobox-host-exec -Y test
++ :
++ command -v xdg-open
+/usr/local/bin/xdg-open
++ su --help
++ grep -q pty
++ printf 'distrobox: Setting up devpts mounts...\n'
+distrobox: Setting up devpts mounts...
++ grep -q tty /etc/group
++ mount -t devpts devpts -o 'noexec,nosuid,newinstance,ptmxmode=0666,mode=0620,gid=tty' /dev/pts/
++ mount --bind /dev/pts/ptmx /dev/ptmx
++ mount --make-rshared /
++ printf 'distrobox: Setting up read-only mounts...\n'
+distrobox: Setting up read-only mounts...
++ HOST_MOUNTS_RO='
+	/etc/localtime
+	/var/lib/systemd/coredump
+	/var/log/journal'
++ get_locked_mount_flags /run/host/etc/localtime
++ src=/run/host/etc/localtime
++ prev=
++ locked_flags=
++ ls /run/host/etc/localtime
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/etc/localtime
++ flags='rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ '[' -n 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr' ]
++ break
++ + grep -qprintf nodev
+ '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q noexec
++ printf '%s' 'rw,relatime,lowerdir=/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL:/home/bbl/.local/share/containers/storage/overlay/l/U4KZ5LEXH7NZBBRFRUCSI3JXQL/../diff1:/home/bbl/.local/share/containers/storage/overlay/l/NDJJ34F5U36WPO23JXDKEQDSVW:/home/bbl/.local/share/containers/storage/overlay/l/UKHOLUXLTQMUSERSFGI45YR2PC,upperdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/diff,workdir=/home/bbl/.local/share/containers/storage/overlay/5abc79b7957026656c26b73eeb650c668b72a466f71dda62fe64bfec777f0303/work,redirect_dir=nofollow,userxattr'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/etc/localtime /etc/localtime ro
++ source_dir=/run/host/etc/localtime
++ target_dir=/etc/localtime
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/etc/localtime ]
++ init_readlink /run/host/etc/localtime
++ ls -l /run/host/etc/localtime
++ grep -Eo '\->.*'
++ cut '-d ' -f2-
++ sed 's|\.\./|/|g'
++ source_dir=/usr/share/zoneinfo/Europe/Amsterdam
++ printf '%s' /usr/share/zoneinfo/Europe/Amsterdam
++ grep -q /run/host
++ source_dir=/run/host/usr/share/zoneinfo/Europe/Amsterdam
++ '[' '!' -d /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' '!' -f /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' -e /etc/localtime ]
++ findmnt /etc/localtime
++ '[' -L /etc/localtime ]
++ '[' -d /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ '[' -f /run/host/usr/share/zoneinfo/Europe/Amsterdam ]
++ dirname /etc/localtime
++ '[' '!' -d /etc ]
++ touch /etc/localtime
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/usr/share/zoneinfo/Europe/Amsterdam /etc/localtime
++ return 0
++ get_locked_mount_flags /run/host/var/lib/systemd/coredump
++ src=/run/host/var/lib/systemd/coredump
++ prev=
++ locked_flags=
++ ls /run/host/var/lib/systemd/coredump
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/var/lib/systemd/coredump
++ flags='rw,relatime,errors=remount-ro'
++ '[' -n 'rw,relatime,errors=remount-ro' ]
++ break
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nodev
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q noexec
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/var/lib/systemd/coredump /var/lib/systemd/coredump ro
++ source_dir=/run/host/var/lib/systemd/coredump
++ target_dir=/var/lib/systemd/coredump
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/var/lib/systemd/coredump ]
++ '[' '!' -d /run/host/var/lib/systemd/coredump ]
++ '[' -e /var/lib/systemd/coredump ]
++ findmnt /var/lib/systemd/coredump
++ '[' -L /var/lib/systemd/coredump ]
++ '[' -d /run/host/var/lib/systemd/coredump ]
++ mkdir -p /var/lib/systemd/coredump
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/var/lib/systemd/coredump /var/lib/systemd/coredump
++ return 0
++ get_locked_mount_flags /run/host/var/log/journal
++ src=/run/host/var/log/journal
++ prev=
++ locked_flags=
++ ls /run/host/var/log/journal
++ true
++ findmnt --noheadings --output OPTIONS --target /run/host/var/log/journal
++ flags='rw,relatime,errors=remount-ro'
++ '[' -n 'rw,relatime,errors=remount-ro' ]
++ break
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nodev
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q noexec
++ printf '%s' 'rw,relatime,errors=remount-ro'
++ grep -q nosuid
++ printf '%s' 
++ locked_flags=
++ mount_bind /run/host/var/log/journal /var/log/journal ro
++ source_dir=/run/host/var/log/journal
++ target_dir=/var/log/journal
++ mount_flags=
++ '[' 3 -gt 2 ]
++ mount_flags=ro
++ '[' -L /run/host/var/log/journal ]
++ '[' '!' -d /run/host/var/log/journal ]
++ '[' -e /var/log/journal ]
++ findmnt /var/log/journal
++ umount /var/log/journal
++ '[' -L /var/log/journal ]
++ '[' -d /run/host/var/log/journal ]
++ mkdir -p /var/log/journal
++ '[' ro '='  ]
++ mount --rbind -o ro /run/host/var/log/journal /var/log/journal
++ return 0
++ printf 'distrobox: Setting up read-write mounts...\n'
+distrobox: Setting up read-write mounts...
++ '[' -e /var/home/bbl ]
++ HOST_MOUNTS='
+	/etc/host.conf
+	/etc/machine-id
+	/media
+	/mnt
+	/run/libvirt
+	/run/media
+	/run/netconfig/
+	/run/systemd/journal
+	/run/systemd/resolve/
+	/run/systemd/seats
+	/run/systemd/sessions
+	/run/systemd/users
+	/run/udev
+	/var/lib/libvirt
+	/var/mnt'
++ mount_bind /run/host/etc/host.conf /etc/host.conf
++ source_dir=/run/host/etc/host.conf
++ target_dir=/etc/host.conf
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/etc/host.conf ]
++ '[' '!' -d /run/host/etc/host.conf ]
++ '[' '!' -f /run/host/etc/host.conf ]
++ '[' -e /etc/host.conf ]
++ findmnt /etc/host.conf
++ '[' -L /etc/host.conf ]
++ '[' -d /run/host/etc/host.conf ]
++ '[' -f /run/host/etc/host.conf ]
++ dirname /etc/host.conf
++ '[' '!' -d /etc ]
++ touch /etc/host.conf
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/etc/host.conf /etc/host.conf
++ return 0
++ mount_bind /run/host/etc/machine-id /etc/machine-id
++ source_dir=/run/host/etc/machine-id
++ target_dir=/etc/machine-id
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/etc/machine-id ]
++ '[' '!' -d /run/host/etc/machine-id ]
++ '[' '!' -f /run/host/etc/machine-id ]
++ '[' -e /etc/machine-id ]
++ findmnt /etc/machine-id
++ '[' -L /etc/machine-id ]
++ '[' -d /run/host/etc/machine-id ]
++ '[' -f /run/host/etc/machine-id ]
++ dirname /etc/machine-id
++ '[' '!' -d /etc ]
++ touch /etc/machine-id
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/etc/machine-id /etc/machine-id
++ return 0
++ mount_bind /run/host/media /media
++ source_dir=/run/host/media
++ target_dir=/media
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/media ]
++ '[' '!' -d /run/host/media ]
++ '[' -e /media ]
++ findmnt /media
++ '[' -L /media ]
++ '[' -d /run/host/media ]
++ mkdir -p /media
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/media /media
++ return 0
++ mount_bind /run/host/mnt /mnt
++ source_dir=/run/host/mnt
++ target_dir=/mnt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/mnt ]
++ '[' '!' -d /run/host/mnt ]
++ '[' -e /mnt ]
++ findmnt /mnt
++ '[' -L /mnt ]
++ '[' -d /run/host/mnt ]
++ mkdir -p /mnt
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/mnt /mnt
++ return 0
++ mount_bind /run/host/run/libvirt /run/libvirt
++ source_dir=/run/host/run/libvirt
++ target_dir=/run/libvirt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/libvirt ]
++ '[' '!' -d /run/host/run/libvirt ]
++ '[' '!' -f /run/host/run/libvirt ]
++ return 0
++ mount_bind /run/host/run/media /run/media
++ source_dir=/run/host/run/media
++ target_dir=/run/media
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/media ]
++ '[' '!' -d /run/host/run/media ]
++ '[' '!' -f /run/host/run/media ]
++ return 0
++ mount_bind /run/host/run/netconfig/ /run/netconfig/
++ source_dir=/run/host/run/netconfig/
++ target_dir=/run/netconfig/
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/netconfig/ ]
++ '[' '!' -d /run/host/run/netconfig/ ]
++ '[' '!' -f /run/host/run/netconfig/ ]
++ return 0
++ mount_bind /run/host/run/systemd/journal /run/systemd/journal
++ source_dir=/run/host/run/systemd/journal
++ target_dir=/run/systemd/journal
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/journal ]
++ '[' '!' -d /run/host/run/systemd/journal ]
++ '[' -e /run/systemd/journal ]
++ findmnt /run/systemd/journal
++ '[' -L /run/systemd/journal ]
++ '[' -d /run/host/run/systemd/journal ]
++ mkdir -p /run/systemd/journal
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/journal /run/systemd/journal
++ return 0
++ mount_bind /run/host/run/systemd/resolve/ /run/systemd/resolve/
++ source_dir=/run/host/run/systemd/resolve/
++ target_dir=/run/systemd/resolve/
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/resolve/ ]
++ '[' '!' -d /run/host/run/systemd/resolve/ ]
++ '[' '!' -f /run/host/run/systemd/resolve/ ]
++ return 0
++ mount_bind /run/host/run/systemd/seats /run/systemd/seats
++ source_dir=/run/host/run/systemd/seats
++ target_dir=/run/systemd/seats
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/seats ]
++ '[' '!' -d /run/host/run/systemd/seats ]
++ '[' -e /run/systemd/seats ]
++ findmnt /run/systemd/seats
++ '[' -L /run/systemd/seats ]
++ '[' -d /run/host/run/systemd/seats ]
++ mkdir -p /run/systemd/seats
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/seats /run/systemd/seats
++ return 0
++ mount_bind /run/host/run/systemd/sessions /run/systemd/sessions
++ source_dir=/run/host/run/systemd/sessions
++ target_dir=/run/systemd/sessions
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/sessions ]
++ '[' '!' -d /run/host/run/systemd/sessions ]
++ '[' -e /run/systemd/sessions ]
++ findmnt /run/systemd/sessions
++ '[' -L /run/systemd/sessions ]
++ '[' -d /run/host/run/systemd/sessions ]
++ mkdir -p /run/systemd/sessions
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/sessions /run/systemd/sessions
++ return 0
++ mount_bind /run/host/run/systemd/users /run/systemd/users
++ source_dir=/run/host/run/systemd/users
++ target_dir=/run/systemd/users
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/systemd/users ]
++ '[' '!' -d /run/host/run/systemd/users ]
++ '[' -e /run/systemd/users ]
++ findmnt /run/systemd/users
++ '[' -L /run/systemd/users ]
++ '[' -d /run/host/run/systemd/users ]
++ mkdir -p /run/systemd/users
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/systemd/users /run/systemd/users
++ return 0
++ mount_bind /run/host/run/udev /run/udev
++ source_dir=/run/host/run/udev
++ target_dir=/run/udev
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/run/udev ]
++ '[' '!' -d /run/host/run/udev ]
++ '[' -e /run/udev ]
++ findmnt /run/udev
++ '[' -L /run/udev ]
++ '[' -d /run/host/run/udev ]
++ mkdir -p /run/udev
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/run/udev /run/udev
++ return 0
++ mount_bind /run/host/var/lib/libvirt /var/lib/libvirt
++ source_dir=/run/host/var/lib/libvirt
++ target_dir=/var/lib/libvirt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/var/lib/libvirt ]
++ '[' '!' -d /run/host/var/lib/libvirt ]
++ '[' '!' -f /run/host/var/lib/libvirt ]
++ return 0
++ mount_bind /run/host/var/mnt /var/mnt
++ source_dir=/run/host/var/mnt
++ target_dir=/var/mnt
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/var/mnt ]
++ '[' '!' -d /run/host/var/mnt ]
++ '[' '!' -f /run/host/var/mnt ]
++ return 0
++ printf 'distrobox: Setting up host'"'"'s sockets integration...\n'
+distrobox: Setting up host's sockets integration...
++ find /run/host/run -path /run/host/run/media -prune -o -path /run/host/run/timeshift -prune -o -name user -prune -o -name bees -prune -o -name nscd -prune -o -name system_bus_socket -prune -o -type s -print
++ :
++ host_sockets='/run/host/run/udev/control
+/run/host/run/systemd/inaccessible/sock
+/run/host/run/systemd/notify
+/run/host/run/systemd/private
+/run/host/run/systemd/userdb/io.systemd.DynamicUser
+/run/host/run/systemd/io.systemd.ManagedOOM
+/run/host/run/systemd/fsck.progress
+/run/host/run/systemd/journal/dev-log
+/run/host/run/systemd/journal/socket
+/run/host/run/systemd/journal/stdout
+/run/host/run/systemd/journal/io.systemd.journal
+/run/host/run/systemd/io.systemd.sysext
+/run/host/run/avahi-daemon/socket
+/run/host/run/cups/cups.sock
+/run/host/run/wpa_supplicant/wlp0s20f3
+/run/host/run/wpa_supplicant/p2p-dev-wlp0s20
+/run/host/run/vmware/usbarbitrator-socket
+/run/host/run/synaptic.socket'
++ printf '%s' /run/host/run/udev/control
++ sed 's|/run/host||g'
++ container_socket=/run/udev/control
++ '[' '!' -S /run/udev/control ]
++ printf '%s' /run/host/run/systemd/inaccessible/sock
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/inaccessible/sock
++ '[' '!' -S /run/systemd/inaccessible/sock ]
++ printf '%s' /run/host/run/systemd/notify
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/notify
++ '[' '!' -S /run/systemd/notify ]
++ printf '%s' /run/host/run/systemd/private
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/private
++ '[' '!' -S /run/systemd/private ]
++ printf '%s' /run/host/run/systemd/userdb/io.systemd.DynamicUser
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/userdb/io.systemd.DynamicUser
++ '[' '!' -S /run/systemd/userdb/io.systemd.DynamicUser ]
++ printf '%s' /run/host/run/systemd/io.systemd.ManagedOOM
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/io.systemd.ManagedOOM
++ '[' '!' -S /run/systemd/io.systemd.ManagedOOM ]
++ printf '%s' /run/host/run/systemd/fsck.progress
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/fsck.progress
++ '[' '!' -S /run/systemd/fsck.progress ]
++ printf '%s' /run/host/run/systemd/journal/dev-log
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/dev-log
++ '[' '!' -S /run/systemd/journal/dev-log ]
++ printf '%s' /run/host/run/systemd/journal/socket
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/socket
++ '[' '!' -S /run/systemd/journal/socket ]
++ printf '%s' /run/host/run/systemd/journal/stdout
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/stdout
++ '[' '!' -S /run/systemd/journal/stdout ]
++ printf '%s' /run/host/run/systemd/journal/io.systemd.journal
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/journal/io.systemd.journal
++ '[' '!' -S /run/systemd/journal/io.systemd.journal ]
++ printf '%s' /run/host/run/systemd/io.systemd.sysext
++ sed 's|/run/host||g'
++ container_socket=/run/systemd/io.systemd.sysext
++ '[' '!' -S /run/systemd/io.systemd.sysext ]
++ printf '%s' /run/host/run/avahi-daemon/socket
++ sed 's|/run/host||g'
++ container_socket=/run/avahi-daemon/socket
++ '[' '!' -S /run/avahi-daemon/socket ]
++ printf '%s' /run/host/run/cups/cups.sock
++ sed 's|/run/host||g'
++ container_socket=/run/cups/cups.sock
++ '[' '!' -S /run/cups/cups.sock ]
++ printf '%s' /run/host/run/wpa_supplicant/wlp0s20f3
++ sed 's|/run/host||g'
++ container_socket=/run/wpa_supplicant/wlp0s20f3
++ '[' '!' -S /run/wpa_supplicant/wlp0s20f3 ]
++ printf '%s' /run/host/run/wpa_supplicant/p2p-dev-wlp0s20
++ sed 's|/run/host||g'
++ container_socket=/run/wpa_supplicant/p2p-dev-wlp0s20
++ '[' '!' -S /run/wpa_supplicant/p2p-dev-wlp0s20 ]
++ printf '%s' /run/host/run/vmware/usbarbitrator-socket
++ sed 's|/run/host||g'
++ container_socket=/run/vmware/usbarbitrator-socket
++ '[' '!' -S /run/vmware/usbarbitrator-socket ]
++ printf '%s' /run/host/run/synaptic.socket
++ sed 's|/run/host||g'
++ container_socket=/run/synaptic.socket
++ '[' '!' -S /run/synaptic.socket ]
++ '[' 0 -eq 1 ]
++ printf 'distrobox: Integrating host'"'"'s themes, icons, fonts...\n'
+distrobox: Integrating host's themes, icons, fonts...
++ mount_bind /run/host/usr/share/themes /usr/local/share/themes
++ source_dir=/run/host/usr/share/themes
++ target_dir=/usr/local/share/themes
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/themes ]
++ '[' '!' -d /run/host/usr/share/themes ]
++ '[' -e /usr/local/share/themes ]
++ findmnt /usr/local/share/themes
++ '[' -L /usr/local/share/themes ]
++ '[' -d /run/host/usr/share/themes ]
++ mkdir -p /usr/local/share/themes
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/themes /usr/local/share/themes
++ return 0
++ mount_bind /run/host/usr/share/icons /usr/local/share/icons
++ source_dir=/run/host/usr/share/icons
++ target_dir=/usr/local/share/icons
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/icons ]
++ '[' '!' -d /run/host/usr/share/icons ]
++ '[' -e /usr/local/share/icons ]
++ findmnt /usr/local/share/icons
++ '[' -L /usr/local/share/icons ]
++ '[' -d /run/host/usr/share/icons ]
++ mkdir -p /usr/local/share/icons
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/icons /usr/local/share/icons
++ return 0
++ mount_bind /run/host/usr/share/fonts /usr/local/share/fonts
++ source_dir=/run/host/usr/share/fonts
++ target_dir=/usr/local/share/fonts
++ mount_flags=
++ '[' 2 -gt 2 ]
++ '[' -L /run/host/usr/share/fonts ]
++ '[' '!' -d /run/host/usr/share/fonts ]
++ '[' -e /usr/local/share/fonts ]
++ findmnt /usr/local/share/fonts
++ '[' -L /usr/local/share/fonts ]
++ '[' -d /run/host/usr/share/fonts ]
++ mkdir -p /usr/local/share/fonts
++ '['  '='  ]
++ mount_flags=rslave
++ mount --rbind -o rslave /run/host/usr/share/fonts /usr/local/share/fonts
++ return 0
++ '[' 0 -eq 0 ]
++ printf 'distrobox: Setting up package manager exceptions...\n'
+distrobox: Setting up package manager exceptions...
++ '[' -d /usr/lib/rpm/macros.d/ ]
++ '[' -d /etc/dpkg/dpkg.cfg.d/ ]
++ '[' -d /usr/share/libalpm/scripts ]
++ '[' -d /etc/dpkg/dpkg.cfg.d/ ]
++ '[' -d /usr/share/libalpm/scripts ]
++ printf 'distrobox: Setting up distrobox profile...\n'
+distrobox: Setting up distrobox profile...
++ touch /run/.toolboxenv
++ mkdir -p /etc/profile.d
++ cat
++ '[' -e /etc/fish/config.fish ]
++ printf 'distrobox: Setting up sudo...\n'
+distrobox: Setting up sudo...
++ mkdir -p /etc/sudoers.d
++ '[' -e /etc/sudoers ]
++ sed -i 's|^Defaults targetpw.*||g' /etc/sudoers
++ cat
++ '[' '!' -e /etc/pam.d/su ]
++ grep -q pam_systemd.so /etc/pam.d/su
++ '[' 1001 -ne 0 ]
++ '[' 0 -eq 0 ]
++ printf '"%s" ALL = (root) NOPASSWD:ALL\n' bbl
++ printf 'distrobox: Setting up user groups...\n'
+distrobox: Setting up user groups...
++ grep -q ^bbl: /etc/group
++ printf 'distrobox: Setting up kerberos integration...\n'
+distrobox: Setting up kerberos integration...
++ '[' -d /run/host/var/kerberos ]
++ printf 'distrobox: Setting up user'"'"'s group list...\n'
+distrobox: Setting up user's group list...
++ additional_groups=
++ grep -q ^sudo /etc/group
++ grep -q ^wheel /etc/group
++ additional_groups=wheel
++ '[' 0 -eq 1 ]
++ printf '%s' bbl
++ tr '\\' .
++ grep -q ^bbl: /etc/passwd
++ '[' '!' -e /etc/passwd.done ]
++ printf 'distrobox: Setting up user home...\n'
+distrobox: Setting up user home...
++ getent passwd bbl
++ cut -d: -f6
++ '[' /home/bbl '!=' /home/bbl ]
++ printf 'distrobox: Ensuring user'"'"'s access...\n'
+distrobox: Ensuring user's access...
++ '[' '!' -e /etc/passwd.done ]
++ '[' 0 -eq 1 ]
++ touch /etc/passwd.done
++ '[' -n  ]
++ '[' -n  ]
++ '[' 0 -eq 0 ]
++ printf 'container_setup_done\n'
+container_setup_done
++ HOST_WATCH='
+		/etc/hosts
+		/etc/localtime
+		/etc/resolv.conf
+	'
++ hostname
++ id=bbsh.bblaptop
++ '[' -e /run/.containerenv ]
++ . /run/.containerenv
++ engine=podman-4.9.3
++ name=bbsh
++ id=af096a9479b914be06ccc9605a4ce6d76d8dad40f44705504aba8e94a63248ae
++ image=ghcr.io/bubbelb/bbsh:latest
++ imageid=573cc4835f538f332fd5fd53d612adbc539ea6c290ff523c4ada290ece9f7d33
++ rootless=1
++ graphRootMounted=1
++ set +x
