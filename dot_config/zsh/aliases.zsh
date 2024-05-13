@@ -16,12 +16,12 @@ alias 9='cd -9'
 
 #ls enhancements
 if [[ -x /usr/bin/exa ]] ; then
-  alias la='exa --long --group --all'
-  alias ll='exa --long --group'
-  alias ls='exa'
-  alias la.s='exa --long --group --all --sort size'
-  alias la.t='exa --long --group --all --sort time'
-  alias la.d='exa --long --group --all --only-dirs'
+  alias la='eza --long --group --all'
+  alias ll='eza --long --group'
+  alias ls='eza'
+  alias la.s='eza --long --group --all --sort size'
+  alias la.t='eza --long --group --all --sort time'
+  alias la.d='eza --long --group --all --only-dirs'
 else
   alias la='ls -la'
   alias ll='ls -l'
@@ -31,7 +31,6 @@ else
 fi
 
 #Misc
-alias _='sudo '
 alias mkdir='mkdir -pv'
 alias which-command=whence
 
@@ -42,12 +41,8 @@ alias which-command=whence
 #Shell Proxy Host
 alias jssh='ssh -J bubbel.org'
 
-[[ -r ~/.local/bin/lvim ]] && alias nvim="${HOME}/.local/bin/lvim" || (alias | grep -q '^nvim=' && unalias nvim)
-
 if ( whence python > /dev/null || whence python3 > /dev/null ) ; then
     alias urldecode='python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
     alias urlencode='python3 -c "import sys, urllib.parse as ul; print (ul.quote_plus(sys.argv[1]))"'
 fi
 
-[[ -f /usr/bin/fdfind ]] && alias fd='fdfind'
-[[ -f /usr/bin/batcat ]] && alias bat='batcat'
