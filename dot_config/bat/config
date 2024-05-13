@@ -1,0 +1,4 @@
+--theme="ansi"
+--italic-text=always
+#--pager="less --RAW-CONTROL-CHARS --quit-if-one-screen --mouse"
+--style="header-filename"
