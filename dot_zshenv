@@ -1,1 +1,2 @@
+[[ -f /etc/profile ]] && source /etc/profile
 export ZDOTDIR="${HOME}/.config/zsh"
