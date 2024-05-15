@@ -3,24 +3,17 @@
 -- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 return {
   { 'nvim-lua/plenary.nvim' },
-  { 'nvim-telescope/telescope-fzy-native.nvim' },
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' },
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'nvim-telescope/telescope-fzy-native.nvim',
-    },
-    opts = {
-      extensions = {
-        fzy_native = {
-          override_generic_sorter = false,
-          override_file_sorter = true,
-        },
-      },
+      'nvim-telescope/telescope-fzf-native.nvim',
     },
     config = function()
       require("telescope").setup()
-      require("telescope").load_extension("fzy_native")
+      require('telescope').load_extension('fzf')
+
     end
   },
   {
