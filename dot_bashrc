@@ -1,0 +1,92 @@
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+HISTCONTROL=ignoreboth
+HISTSIZE=1000
+HISTFILESIZE=2000
+shopt -s histappend
+
+shopt -s checkwinsize
+shopt -s globstar
+
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+
+if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-not-found ]; then
+	function command_not_found_handle {
+	        # check because c-n-f could've been removed in the meantime
+                if [ -x /usr/lib/command-not-found ]; then
+		   /usr/lib/command-not-found -- "$1"
+                   return $?
+                elif [ -x /usr/share/command-not-found/command-not-found ]; then
+		   /usr/share/command-not-found/command-not-found -- "$1"
+                   return $?
+		else
+		   printf "%s: command not found\n" "$1" >&2
+		   return 127
+		fi
+	}
+fi
+
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+if [ -n "${SUDO_USER}" ] ; then
+    sudo_state='\033[97;1;101mS\033[m'
+else
+    sudo_state=''
+fi
+
+if [ "$(id -u)" -eq 0 ] ; then
+    user_state='\033[91;1m\u\033[m' # Root Colour (uid = 0)
+elif [ "$(id -u)" -lt 1000 ] ; then
+    user_state='\033[97;1;101m\u\033[m' # System Account Colour (0 < uid < 1000)
+else
+    user_state='\033[49;1m\u\033[m' # Normal User Colour
+fi
+
+if echo "${HOSTNAME}" | grep -q '^bbsh\.' ; then
+    host_state="\033[97;1;44m${HOSTNAME#*.}\033[m"
+    phost_state='\033[m📦'
+else
+    host_state="\033[m${HOSTNAME}\033[m"
+    phost_state=''
+fi
+
+PS1="${phost_state}${sudo_state}${user_state}@${host_state} [\033[01;34m\]\w\[\033[00m]\$ "
+
+unset phost_state sudo_state user_state host_state
+
+case "$TERM" in
+xterm*|rxvt*)
+    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+    ;;
+*)
+    ;;
+esac
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -l'
+alias la='ls -A'
+alias l='ls -CF'
+
+# colored GCC warnings and errors
+export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+
