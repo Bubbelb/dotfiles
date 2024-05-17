@@ -60,11 +60,11 @@ else
 fi
 
 if [ -f "/run/host/etc/hostname" ] ; then # when this file exists, distrobox is used
-▎   host_state="\033[97;1;44m$(cat /run/host/etc/hostname)\033[m"
-▎   phost_state='\033[m📦'
+    host_state="\033[97;1;44m$(cat /run/host/etc/hostname)\033[m"
+    phost_state='\033[m📦'
 else
-▎   host_state="\033[m\h\033[m"
-▎   phost_state=''
+    host_state="\033[m\h\033[m"
+    phost_state=''
 fi
 
 PS1="${phost_state}${sudo_state}${user_state}@${host_state} [\033[01;34m\]\w\[\033[00m]\$ "
