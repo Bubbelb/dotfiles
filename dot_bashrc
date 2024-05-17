@@ -4,6 +4,51 @@ case $- in
       *) return;;
 esac
 
+# Change default shell, if we're running distrobox
+if [ -f "/run/host/etc/hostname" ] && [ "${HOSTNAME}" == "bbsh" ] && [ ! -f ~/.distrobox_retain_shell ] ; then
+    ANS_ASK=true
+    while ${ANS_ASK} ; do
+        echo "Change default shell in bbsh? Options:"
+        echo "  O - Change once, just for this session. Login again and you will get this dialog again. (Default)"
+        echo "  A - Change always in this bbsh container."
+        echo "  K - Keep bash for now for now. Ask me again at next login."
+        echo "  B - Keep bash and never ask me again."
+        echo ""
+        echo "Option 'O' is the default, will be set on a enter given (empty answer), or timeout of 3 minutes is reached."
+        echo ""
+        read "Change Shell to zsh (O/A/N/E)? " -s -N 1 -T 180 RD_ANSWER
+        if [ "$?" -gt 128 ] || [ "${RD_ANSWER}" == $'\n' ] ; then
+            RD_ANSWER='O'
+        fi
+        case "${RD_ANSWER}" in
+            'O')
+                echo "O - Change once."
+                exec /bin/zsh -l
+                ;;
+            'A')
+                echo "A - Change Always."
+                chsh -s /bin/zsh
+                exec /bin/zsh -l
+                ;;
+            'K')
+                echo "K - Keep Bash for now."
+                ANS_ASK=false
+                ;;
+            'B')
+                echo "B - Always use bash."
+                echo "TIP: remove ~/.distrobox_retain_shell to reset."
+                touch ~/.distrobox_retain_shell
+                ANS_ASK=false
+                ;;
+            *)
+                echo ""
+                echo "Wrong answer. Supply O, A, K, B, or Enter."
+                echo ""
+                ;;
+        esac
+    done
+fi
+
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
