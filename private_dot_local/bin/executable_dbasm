@@ -1,0 +1,64 @@
+#!/bin/sh
+
+INI_PATH="${HOME}/.config/distrobox/bbsh.ini"
+INI_URL='https://raw.githubusercontent.com/Bubbelb/dotfiles/main/dot_config/distrobox/bbsh.ini'
+DB_INSTALL_URL='https://raw.githubusercontent.com/89luca89/distrobox/main/install'
+
+# Check if we're not running inside Distrobox.
+if [[ -f /run/host/etc/passwd ]] ; then
+    echo "This can only run outside distrobox."
+    exit 1
+fi
+
+# Check, and optionally install Distrobox.
+if ! which distrobox > /dev/null 2>&1 ; then
+    read -p "Distrobox not installed. Install (Y/N)? " -N 1 -T 20
+    if [[ "${REPLY}" == 'Y' ]] || [[ "${REPLY}" == 'y' ]] ; then
+        if which curl > /dev/null 2>&1 ; then
+            curl -s "${DB_INSTALL_URL}" | sh -s -- --prefix ~/.local
+        elif which wget > /dev/null 2>&1 ; then
+            wget -qO- "${DB_INSTALL_URL}" | sh -s -- --prefix ~/.local
+        else [[ -f "${INI_PATH}" ]] ; then
+            echo "No wget or curl. Unable to download distrobox."
+            exit 2
+        fi
+    else
+        echo "Not installing distrobox."
+        exit 3
+    fi
+fi
+
+# Try to download bbsh.ini
+if which curl > /dev/null 2>&1 ; then
+    curl -so "${INI_PATH}.new" "${INI_URL}"
+elif which wget > /dev/null 2>&1 ; then
+    wget -qo "${INI_PATH}.new" "${INI_URL}"
+elif [[ -f "${INI_PATH}" ]] ; then
+    echo "No wget or curl. Using existing file ${INI_PATH}"
+else
+    echo "File ${INI_PATH} missing and no wget or curl. Cannot download."
+    echo "File: ${INI_PATH}"
+    echo "URL : ${INI_URL}"
+    exit 1
+fi
+
+# check validity of bbsh.ini
+if [[ -f "${INI_PATH}.new" ]] ; then
+    if [[ $(stat -c '%s' "${INI_PATH}.new") -gt 0 ]] ; then
+        [[ -f "${INI_PATH}.bk" ]] && rm -f "${INI_PATH}.bk"
+        [[ -f "${INI_PATH}" ]] && mv "${INI_PATH}" "${INI_PATH}.bk"
+        mv "${INI_PATH}.new" "${INI_PATH}"
+    else
+        echo "Download failed (zero-sized file)."
+        rm -f "${INI_PATH}.new"
+    fi
+fi
+
+# And GO!
+if [[ -f "${INI_PATH}" ]] ; then
+    distrobox assemble -f "${INI_PATH}"
+else
+    echo "No ini file found, ${INI_PATH}. Cannot continue."
+    exit 4
+fi
+
