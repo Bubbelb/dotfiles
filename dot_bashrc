@@ -5,7 +5,7 @@ case $- in
 esac
 
 # Change default shell, if we're running distrobox
-if [ -f "/run/host/etc/hostname" ] && [ "${HOSTNAME}" == "bbsh" ] && [ ! -f ~/.distrobox_retain_shell ] ; then
+if [ -f "/run/host/etc/hostname" ] && [ -f "/etc/bbsh" ] && [ ! -f ~/.distrobox_retain_shell ] ; then
     ANS_ASK=true
     while ${ANS_ASK} ; do
         echo "Change default shell in bbsh? Options:"
@@ -16,7 +16,7 @@ if [ -f "/run/host/etc/hostname" ] && [ "${HOSTNAME}" == "bbsh" ] && [ ! -f ~/.d
         echo ""
         echo "Option 'O' is the default, will be set on a enter given (empty answer), or timeout of 3 minutes is reached."
         echo ""
-        read "Change Shell to zsh (O/A/N/E)? " -s -N 1 -T 180 RD_ANSWER
+        read -p "Change Shell to zsh (O/A/N/E)? " -s -N 1 -T 180 RD_ANSWER
         if [ "$?" -gt 128 ] || [ "${RD_ANSWER}" == $'\n' ] ; then
             RD_ANSWER='O'
         fi
