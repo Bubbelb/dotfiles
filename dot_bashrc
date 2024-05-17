@@ -16,7 +16,7 @@ if [ -f "/run/host/etc/hostname" ] && [ -f "/etc/bbsh" ] && [ ! -f ~/.distrobox_
         echo ""
         echo "Option 'O' is the default, will be set on a enter given (empty answer), or timeout of 3 minutes is reached."
         echo ""
-        read -p "Change Shell to zsh (O/A/N/E)? " -s -N 1 -T 180 RD_ANSWER
+        read -p "Change Shell to zsh (O/A/N/E)? " -s -N 1 -t 180 RD_ANSWER
         if [ "$?" -gt 128 ] || [ "${RD_ANSWER}" == $'\n' ] ; then
             RD_ANSWER='O'
         fi
