@@ -52,12 +52,12 @@ else
     user_state='\033[49;1m\u\033[m' # Normal User Colour
 fi
 
-if echo "${HOSTNAME}" | grep -q '^bbsh\.' ; then
-    host_state="\033[97;1;44m${HOSTNAME#*.}\033[m"
-    phost_state='\033[m📦'
+if [ -f "/run/host/etc/hostname" ] ; then # when this file exists, distrobox is used
+▎   host_state="\033[97;1;44m$(cat /run/host/etc/hostname)\033[m"
+▎   phost_state='\033[m📦'
 else
-    host_state="\033[m${HOSTNAME}\033[m"
-    phost_state=''
+▎   host_state="\033[m\h\033[m"
+▎   phost_state=''
 fi
 
 PS1="${phost_state}${sudo_state}${user_state}@${host_state} [\033[01;34m\]\w\[\033[00m]\$ "
