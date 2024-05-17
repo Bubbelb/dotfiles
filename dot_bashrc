@@ -1,4 +1,5 @@
 # If not running interactively, don't do anything
+# vim: set ft=bash:
 case $- in
     *i*) ;;
       *) return;;
