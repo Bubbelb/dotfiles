@@ -5,48 +5,10 @@ case $- in
 esac
 
 # Change default shell, if we're running distrobox
-if [ -f "/run/host/etc/hostname" ] && [ -f "/etc/bbsh" ] && [ ! -f ~/.distrobox_retain_shell ] ; then
-    ANS_ASK=true
-    while ${ANS_ASK} ; do
-        echo "Change default shell in bbsh? Options:"
-        echo "  O - Change once, just for this session. Login again and you will get this dialog again. (Default)"
-        echo "  A - Change always in this bbsh container."
-        echo "  K - Keep bash for now for now. Ask me again at next login."
-        echo "  B - Keep bash and never ask me again."
-        echo ""
-        echo "Option 'O' is the default, will be set on a enter given (empty answer), or timeout of 3 minutes is reached."
-        echo ""
-        read -p "Change Shell to zsh (O/A/N/E)? " -s -N 1 -t 180 RD_ANSWER
-        if [ "$?" -gt 128 ] || [ "${RD_ANSWER}" == $'\n' ] ; then
-            RD_ANSWER='O'
-        fi
-        case "${RD_ANSWER}" in
-            'O')
-                echo "O - Change once."
-                exec /bin/zsh -l
-                ;;
-            'A')
-                echo "A - Change Always."
-                chsh -s /bin/zsh
-                exec /bin/zsh -l
-                ;;
-            'K')
-                echo "K - Keep Bash for now."
-                ANS_ASK=false
-                ;;
-            'B')
-                echo "B - Always use bash."
-                echo "TIP: remove ~/.distrobox_retain_shell to reset."
-                touch ~/.distrobox_retain_shell
-                ANS_ASK=false
-                ;;
-            *)
-                echo ""
-                echo "Wrong answer. Supply O, A, K, B, or Enter."
-                echo ""
-                ;;
-        esac
-    done
+if [ -f "/run/host/etc/hostname" ] && [ -f "/etc/bbsh" ] ; then
+    read -p "Bash shell started as login shell inside bbsh. Will change zo zsh." -t 3 -N 1 -s
+    chsh -s /bin/zsh
+    exec /bin/zsh -l
 fi
 
 HISTCONTROL=ignoreboth
@@ -67,8 +29,8 @@ fi
 
 if [ -x /usr/lib/command-not-found -o -x /usr/share/command-not-found/command-not-found ]; then
 	function command_not_found_handle {
-	        # check because c-n-f could've been removed in the meantime
-                if [ -x /usr/lib/command-not-found ]; then
+        # check because c-n-f could've been removed in the meantime
+        if [ -x /usr/lib/command-not-found ]; then
 		   /usr/lib/command-not-found -- "$1"
                    return $?
                 elif [ -x /usr/share/command-not-found/command-not-found ]; then
