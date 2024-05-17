@@ -5,7 +5,7 @@ case $- in
 esac
 
 # Change default shell, if we're running distrobox
-if [ -f "/run/host/etc/hostname" ] && [ -f "/etc/bbsh" ] ; then
+if [ -f "/run/host/etc/hostname" ] && [ -f "/etc/bbsh" ] && shopt -q login_shell ; then
     read -p "Bash shell started as login shell inside bbsh. Will change zo zsh." -t 3 -N 1 -s
     chsh -s /bin/zsh
     exec /bin/zsh -l
