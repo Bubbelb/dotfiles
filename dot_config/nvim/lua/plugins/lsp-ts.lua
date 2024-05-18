@@ -167,10 +167,10 @@ return {
 -- Comment plugin
   {
     'numToStr/Comment.nvim',
---    lazy = false,
---    config = function()
---        require('Comment').setup()
---    end,
+    lazy = false,
+    config = function()
+        require('Comment').setup()
+    end,
   },
 --  {
 --    'pearofducks/ansible-vim',
