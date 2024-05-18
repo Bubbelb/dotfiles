@@ -56,7 +56,7 @@ fi
 
 # And GO!
 if [ -f "${INI_PATH}" ] ; then
-    distrobox assemble create --file "${INI_PATH}"
+    ( cd "$(dirname "${INI_PATH}")" ; distrobox assemble create --file "$(basename "${INI_PATH}")" )
 else
     echo "No ini file found, ${INI_PATH}. Cannot continue."
     exit 4
