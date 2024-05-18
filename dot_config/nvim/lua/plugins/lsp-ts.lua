@@ -172,13 +172,20 @@ return {
         require('Comment').setup()
     end,
   },
+-- ==============================================================
+-- Add LSP extra's
+-- ==============================================================
+  {
+    'nvimdev/lspsaga.nvim',
+    config = function()
+        require('lspsaga').setup({})
+    end,
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter', -- optional
+        'nvim-tree/nvim-web-devicons',     -- optional
+    }
+  },
+-- ==============================================================
+-- ==============================================================
 }
--- New LSP client LSPsaga
--- use({
---     "glepnir/lspsaga.nvim",
---     branch = "main",
---     config = function()
---         require('lspsaga').setup({})
---     end,
--- })
 
