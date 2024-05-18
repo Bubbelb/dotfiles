@@ -33,6 +33,11 @@ elif [[ -f /usr/bin/batcat ]] ; then
   alias -g -- --help='--help 2>&1 | batcat --language=help --style=plain'
 fi
 
+# override the above, when using nvim.
+if [[ -f /etc/bbsh ]] ; then
+  export MANPAGER="sh -c 'col -bx | nvim +Man!'"
+fi
+
 #Completion
 autoload -Uz compinit
 compinit -d "${ZSH_APPDIR}/zcompdump"
