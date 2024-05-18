@@ -1,0 +1,9 @@
+#!/bin/sh
+if [ -f '/etc/bbsh' ] ; then
+    echo "ERROR: Already in bbsh!" >&2
+elif [ -f '/run/host/etc/passwd' ] ; then
+    echo "ERROR: Already in a distrobox container!"
+else
+    distrobox enter bbsh
+    echo "...Back in host..."
+fi
