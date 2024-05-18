@@ -38,9 +38,12 @@ export LESS_TERMCAP_us=$'\e[1;4;31m'
 
 
 #Diff and Grep
-alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-alias egrep='grep -E --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-alias fgrep='grep -F --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
-alias diff='diff --color'
+# Ignore this if busybox grep is used.
+if [[ "$(readlink $(which grep 2>/dev/null) | sed 's_.*/__')" != 'busybox' ]] ; then
+    alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+    alias egrep='grep -E --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+    alias fgrep='grep -F --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn,.idea,.tox}'
+fi
+readlink diff >/dev/null 2>&1 && alias diff='diff --color'
 
 
