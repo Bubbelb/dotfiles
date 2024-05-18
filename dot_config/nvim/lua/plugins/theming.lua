@@ -44,13 +44,13 @@ return {
 -- ==============================================================
 -- Highlight indent levels
 -- ==============================================================
---  { "lukas-reineke/indent-blankline.nvim",
---    main = 'ibl',
---    opts = {},
---    dependencies = {
---      'nvim-treesitter/nvim-treesitter',
---    },
---  },
+  { "lukas-reineke/indent-blankline.nvim",
+    main = 'ibl',
+    opts = {},
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+    },
+  },
 -- ==============================================================
 -- Configure tab and statusline
 -- ==============================================================
