@@ -124,19 +124,13 @@ return {
     },
   },
 -- ==============================================================
--- Add a floating terminal
--- ==============================================================
-  {
-    'nvimdev/lspsaga.nvim',
-    config = function()
-        require('lspsaga').setup({})
-    end,
-    dependencies = {
-        'nvim-treesitter/nvim-treesitter', -- optional
-        'nvim-tree/nvim-web-devicons',     -- optional
-    }
-  },
+-- Place indent guides on the left
 -- ==============================================================
 { 'yuntan/neovim-indent-guides' },
+-- ==============================================================
+-- Manipulate surroinding quotes, brackets, etc.
+-- ==============================================================
 { 'tpope/vim-surround' },
+-- ==============================================================
+-- ==============================================================
 }
