@@ -54,18 +54,18 @@ else
 fi
 
 if [ "$(id -u)" -eq 0 ] ; then
-    user_state='\033[91;1m\u\033[m' # Root Colour (uid = 0)
+    user_state='\033[91;100;1m\u\033[0m' # Root Colour (uid = 0)
 elif [ "$(id -u)" -lt 1000 ] ; then
-    user_state='\033[97;1;101m\u\033[m' # System Account Colour (0 < uid < 1000)
+    user_state='\033[92;100;1m\u\033[0m' # System Account Colour (0 < uid < 1000)
 else
-    user_state='\033[49;1m\u\033[m' # Normal User Colour
+    user_state='\033[92;100;1m\u\033[0m' # Normal User Colour
 fi
 
 if [ -f "/run/host/etc/hostname" ] ; then # when this file exists, distrobox is used
-    host_state="\033[97;1;44m$(cat /run/host/etc/hostname)\033[m"
-    phost_state='\033[m📦'
+    host_state="\033[97;1;44m$(cat /run/host/etc/hostname)\033[0m"
+    phost_state='\033[0m📦'
 else
-    host_state="\033[m\h\033[m"
+    host_state="\033[97;44m\h\033[0m"
     phost_state=''
 fi
 
