@@ -33,10 +33,10 @@ return {
     },
     dependencies = {
       {
-        'ellisonleao/gruvbox.nvim', -- Gruvbox theme set
+        'folke/tokyonight.nvim', -- Gruvbox theme set
         lazy = false,
         config = function()
-          vim.cmd([[colorscheme gruvbox]])
+          vim.cmd([[colorscheme tokyonight]])
         end,
       },
     },
@@ -62,7 +62,7 @@ return {
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'gruvbox',
+        theme = 'tokyonight',
         component_separators = { left = '', right = ''},
         section_separators = { left = '', right = ''},
         disabled_filetypes = {}
