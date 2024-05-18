@@ -29,10 +29,11 @@ prompt_status () {
         esac
         rm -f "${DF_RESULTFILE}"
     fi
-	[[ $RETVAL -ne 0 ]] && symbols+="%{%F{1}%}\uf7d3"
-	[[ $UID -eq 0 ]] && symbols+="%{%F{3}%}\ufaf5"
+    [[ -f '/run/host/etc/passwd' ]] && symbols+='📦'
+    [[ $RETVAL -ne 0 ]] && symbols+="%{%F{1}%}💔"
+	[[ $UID -eq 0 ]] && symbols+="%{%F{3}%}\u🤖"
 	[[ $(jobs -l | wc -l) -gt 0 ]] && symbols+="%{%F{6}%}\uf7d0"
-	[[ -n "$symbols" ]] && prompt_segment 166 7 "$symbols"
+	[[ -n "$symbols" ]] && prompt_segment 165 7 "$symbols"
 }
 
 prompt_virtualenv () {
