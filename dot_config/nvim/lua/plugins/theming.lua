@@ -127,11 +127,14 @@ return {
 -- Add a floating terminal
 -- ==============================================================
   {
-    'nvimdev/indentmini.nvim',
-    event = 'BufEnter',
+    'nvimdev/lspsaga.nvim',
     config = function()
-        require('indentmini').setup()
+        require('lspsaga').setup({})
     end,
+    dependencies = {
+        'nvim-treesitter/nvim-treesitter', -- optional
+        'nvim-tree/nvim-web-devicons',     -- optional
+    }
   },
 -- ==============================================================
 }
