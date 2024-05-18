@@ -7,9 +7,6 @@ typeset -U path
 [[ -d "${HOME}/.local/bin" ]] && path+=("${HOME}/.local/bin")
 export PATH
 
-#Basics sync and distrobox
-alias dbe='distrobox enter bbsh'
-
 #Launch tmux, if not run already as parent and if session is interactive
 case $- in
   *i*)
