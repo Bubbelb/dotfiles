@@ -44,13 +44,13 @@ return {
 -- ==============================================================
 -- Highlight indent levels
 -- ==============================================================
-  { "lukas-reineke/indent-blankline.nvim",
-    main = 'ibl',
-    opts = {},
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-    },
-  },
+--  { "lukas-reineke/indent-blankline.nvim",
+--    main = 'ibl',
+--    opts = {},
+--    dependencies = {
+--      'nvim-treesitter/nvim-treesitter',
+--    },
+--  },
 -- ==============================================================
 -- Configure tab and statusline
 -- ==============================================================
@@ -123,5 +123,15 @@ return {
       extensions = {}
     },
   },
-
+-- ==============================================================
+-- Add a floating terminal
+-- ==============================================================
+  {
+    'nvimdev/indentmini.nvim',
+    event = 'BufEnter',
+    config = function()
+        require('indentmini').setup()
+    end,
+  },
+-- ==============================================================
 }
