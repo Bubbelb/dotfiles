@@ -7,10 +7,8 @@ typeset -U path
 [[ -d "${HOME}/.local/bin" ]] && path+=("${HOME}/.local/bin")
 export PATH
 
-#At first check for config updates
-export DF_RESULTFILE="${ZSH_APPDIR}/dfsync-result"
-alias dotf_upload='~/.config/zsh/console-updater.sh dotf_upload'
-alias dotf_forcesync='~/.config/zsh/console-updater.sh dotf_forcesync'
+#Basics sync and distrobox
+alias dbe='distrobox enter bbsh'
 
 #Launch tmux, if not run already as parent and if session is interactive
 case $- in
@@ -40,3 +38,4 @@ for SRCFILE (   "misc.zsh" \
 }
 
 [[ -f "${ZDOTDIR}/hosts/${HOST}.zsh" ]] && source "${ZDOTDIR}/hosts/${HOST}.zsh"
+sleep 0
