@@ -172,10 +172,6 @@ return {
         require('Comment').setup()
     end,
   },
---  {
---    'pearofducks/ansible-vim',
---    lazy = false,
---  },
 }
 -- New LSP client LSPsaga
 -- use({
