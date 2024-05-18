@@ -46,3 +46,13 @@ if ( whence python > /dev/null || whence python3 > /dev/null ) ; then
     alias urlencode='python3 -c "import sys, urllib.parse as ul; print (ul.quote_plus(sys.argv[1]))"'
 fi
 
+if [[ -f /etc/bbsh ]] ; then
+    alias hsudo='distrobox-host-exec sudo'
+    alias hbash='distrobox-host-exec bash'
+    alias hapt='distrobox-host-exec apt'
+    alias hapt-get='distrobox-host-exec apt-get'
+    alias hsapt='distrobox-host-exec sudo apt'
+    alias hsapt-get='distrobox-host-exec sudo apt-get'
+    alias hpacman='distrobox-host-exec pacman'
+    alias hspacman='distrobox-host-exec sudo pacman'
+fi
