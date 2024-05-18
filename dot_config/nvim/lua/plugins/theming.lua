@@ -33,10 +33,10 @@ return {
     },
     dependencies = {
       {
-        'luisiacc/gruvbox-baby', -- Gruvbox theme set
+        'ellisonleao/gruvbox.nvim', -- Gruvbox theme set
         lazy = false,
         config = function()
-          vim.cmd([[colorscheme gruvbox-baby]])
+          vim.cmd([[colorscheme gruvbox]])
         end,
       },
     },
