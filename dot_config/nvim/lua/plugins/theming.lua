@@ -138,4 +138,5 @@ return {
   },
 -- ==============================================================
 { 'yuntan/neovim-indent-guides' },
+{ 'tpope/vim-surround' },
 }
