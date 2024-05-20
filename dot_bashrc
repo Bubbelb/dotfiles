@@ -13,6 +13,10 @@ if [ -f "/run/host/etc/hostname" ] && [ -f "/etc/bbsh" ] && shopt -q login_shell
     exec /bin/zsh -l
 fi
 
+# Set vi/vim keybindings
+set -o vi
+bind '"\e."':yank-last-arg
+
 HISTCONTROL=ignoreboth
 HISTSIZE=1000
 HISTFILESIZE=2000
@@ -20,6 +24,21 @@ shopt -s histappend
 
 shopt -s checkwinsize
 shopt -s globstar
+
+### Display error exit codes
+ EC() { echo -e '\e[1;33m'code $?'\e[m\n'; }
+ trap EC ERR
+
+### check the window size after each command and, if necessary,
+ shopt -s checkwinsize
+
+### Search History
+ bind '"\e[A": history-search-backward'
+ bind '"\e[B": history-search-forward'
+
+### Set Word Forward/Backward as [ctrl][left]/[ctrl][right]
+ bind '"\e[1;5C": forward-word'
+ bind '"\e[1;5D": backward-word'
 
 if ! shopt -oq posix; then
   if [ -f /usr/share/bash-completion/bash_completion ]; then
