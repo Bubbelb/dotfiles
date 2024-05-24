@@ -10,5 +10,9 @@ return {
     },
     {
         'nat-418/scamp.nvim',
+        config = function(_, opts)
+            require("scamp").setup(opts)
+        end,
+        lazy = false,
     },
 }
