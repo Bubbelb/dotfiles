@@ -46,7 +46,7 @@ return {
               lualine_bold = false, -- When `true`, section headers in the lualine theme will be bold
           },
         config = function()
-          vimx.cmd([[colorscheme tokyonight]])
+          vim.cmd([[colorscheme tokyonight]])
         end,
       },
     },
@@ -106,7 +106,7 @@ return {
                     -- 3: Shows buffer number
                     -- 4: Shows buffer name + buffer number
 
-            max_length = vimx.o.columns * 4 / 5, -- Maximum width of buffers component,
+            max_length = vim.o.columns * 4 / 5, -- Maximum width of buffers component,
                                                 -- it can also be a function that returns
                                                 -- the value of `max_length` dynamically.
             filetype_names = {
