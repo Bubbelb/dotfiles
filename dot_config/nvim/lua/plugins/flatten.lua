@@ -11,6 +11,12 @@ return {
     {
         'chentoast/marks.nvim',
         lazy = false,
+	opts = {
+          default_mappings = true,
+          signs = true,
+          mappings = {},
+	  builtin_marks = { "'", "<", ">", "." },
+        },
     },
 
 }
