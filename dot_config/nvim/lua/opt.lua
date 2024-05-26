@@ -1,30 +1,30 @@
     -- Basic options
 
-vim.opt.hlsearch = true
-vim.opt.langremap = false
-vim.opt.shada = "'50,/200,:200,<500,s500,:200,h"
-vim.opt.mouse = 'a'
-vim.opt.undofile = true
-vim.opt.softtabstop = 4
-vim.opt.expandtab = true
-vim.opt.smarttab = true
-vim.opt.smartindent = true
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.termguicolors = true
-vim.opt.modeline = true
-vim.opt.undofile = true       -- keep an undo file (undo changes after closing)
-vim.opt.wrap = false         -- don't automatically wrap on load
-vim.opt.showmode = true    -- do not show default mode message (Use airline for this)
-vim.opt.clipboard = 'unnamedplus' -- Use system clipboard
-vim.opt.sessionoptions = {'blank', 'buffers', 'curdir', 'folds', 'help', 'tabpages', 'winsize', 'winpos', 'terminal'}
-vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
-vim.opt.shortmess = vim.opt.shortmess + { c = true }
+vimx.opt.hlsearch = true
+vimx.opt.langremap = false
+vimx.opt.shada = "'50,/200,:200,<500,s500,:200,h"
+vimx.opt.mouse = 'a'
+vimx.opt.undofile = true
+vimx.opt.softtabstop = 4
+vimx.opt.expandtab = true
+vimx.opt.smarttab = true
+vimx.opt.smartindent = true
+vimx.opt.tabstop = 4
+vimx.opt.shiftwidth = 4
+vimx.opt.termguicolors = true
+vimx.opt.modeline = true
+vimx.opt.undofile = true       -- keep an undo file (undo changes after closing)
+vimx.opt.wrap = false         -- don't automatically wrap on load
+vimx.opt.showmode = true    -- do not show default mode message (Use airline for this)
+vimx.opt.clipboard = 'unnamedplus' -- Use system clipboard
+vimx.opt.sessionoptions = {'blank', 'buffers', 'curdir', 'folds', 'help', 'tabpages', 'winsize', 'winpos', 'terminal'}
+vimx.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
+vimx.opt.shortmess = vimx.opt.shortmess + { c = true }
 
-vim.g.completion_enable_auto_popup = 0
+vimx.g.completion_enable_auto_popup = 0
 
 -- Remove trailing whitespaces upon save
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+vimx.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = '%s/\\s\\+$//e',
 })
@@ -33,5 +33,5 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
-    vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
+    vimx.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
 end

@@ -18,8 +18,8 @@ require('mason-lspconfig').setup({
   }
 })
 -- Signs (of errors/warnings) to the gutter
-vim.fn.sign_define("LspDiagnosticsSignError", {text="🔴", texthl="LspDiagnosticsError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning", {text="🟠", texthl="LspDiagnosticsWarning"})
-vim.fn.sign_define("LspDiagnosticsSignInformation", {text="🔵", texthl="LspDiagnosticsInformation"})
-vim.fn.sign_define("LspDiagnosticsSignHint", {text="🟢", texthl="LspDiagnosticsHint"})
+vimx.fn.sign_define("LspDiagnosticsSignError", {text="🔴", texthl="LspDiagnosticsError"})
+vimx.fn.sign_define("LspDiagnosticsSignWarning", {text="🟠", texthl="LspDiagnosticsWarning"})
+vimx.fn.sign_define("LspDiagnosticsSignInformation", {text="🔵", texthl="LspDiagnosticsInformation"})
+vimx.fn.sign_define("LspDiagnosticsSignHint", {text="🟢", texthl="LspDiagnosticsHint"})
 
