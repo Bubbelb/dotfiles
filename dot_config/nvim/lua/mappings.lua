@@ -16,7 +16,7 @@ vim.api.nvim_set_keymap('n', 'gd',          [[<cmd>lua vim.lsp.buf.definition()<
 vim.api.nvim_set_keymap('n', 'gi',          [[<cmd>lua vim.lsp.buf.implementation()<CR>]], {noremap = true, silent = true, desc="Go to Implementation"})
 vim.api.nvim_set_keymap('n', 'gr',          [[<cmd>lua vim.lsp.buf.references()<CR>]], {noremap = true, silent = true, desc="Go to Reference"})
 vim.api.nvim_set_keymap('n', 'gD',          [[<cmd>lua vim.lsp.buf.declaration()<CR>]], {noremap = true, silent = true, desc="go to Declaration"})
-vim.api.nvim_set_keymap('n', 'ge',          [[<cmd>lua vim.lsp.diagnostic.setloclist()<CR>]], {noremap = true, silent = true, dexc="Show QuickFix"})
+vim.api.nvim_set_keymap('n', 'ge',          [[<cmd>lua vim.lsp.diagnostic.setloclist()<CR>]], {noremap = true, silent = true, desc="Show QuickFix"})
 vim.api.nvim_set_keymap('n', 'K',           [[<cmd>lua vim.lsp.buf.hover()<CR>]], {noremap = true, silent = true, desc="Keyword Help"})
 vim.api.nvim_set_keymap('nv', '<Leader>F',   [[<cmd>lua vim.lsp.buf.format {async = true}<CR>]], {noremap = true, silent = true, desc="Reformat"})
 vim.api.nvim_set_keymap('n', '<Leader>rn',  [[<cmd>lua vim.lsp.buf.rename()<CR>]], {noremap = true, silent = true, desc="Rename definition"})
