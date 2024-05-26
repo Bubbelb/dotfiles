@@ -9,13 +9,13 @@ local disabled_built_ins = {
 }
 
 for _, plugin in pairs(disabled_built_ins) do
-    vimx.g["loaded_" .. plugin] = 1
+    vim.g["loaded_" .. plugin] = 1
 end
 
 -- Bbootstrap Lazy package manager
-local lazypath = vimx.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vimx.loop.fs_stat(lazypath) then
-  vimx.fn.system({
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
     "git",
     "clone",
     "--filter=blob:none",
@@ -24,7 +24,7 @@ if not vimx.loop.fs_stat(lazypath) then
     lazypath,
   })
 end
-vimx.opt.rtp:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 -- Start Lazy Package manager
 -- vim.g.mapleader = " "
