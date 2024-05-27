@@ -1,0 +1,2 @@
+*/15 * * * * ~/.local/bin/update-neovim.sh
+@daily chezmoi update
