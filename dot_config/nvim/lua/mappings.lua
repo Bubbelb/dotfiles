@@ -10,6 +10,7 @@ vim.api.nvim_set_keymap('n', '<Leader>Q', ':qa<CR>', {noremap = true, silent = t
 vim.api.nvim_set_keymap('n', '<Leader>x', ':x<CR>', {noremap = true, silent = true, desc="Quit & Save current buffer"})
 vim.api.nvim_set_keymap('n', '<Leader>X', ':xa<CR>', {noremap = true, silent = true, desc="Quit & Save all buffers"})
 vim.api.nvim_set_keymap('n', '<Leader>H', ':noh<CR>', {noremap = true, silent = true, desc="Turn off Search highlight"})
+vim.api.nvim_set_keymap('n', '<Leader>N', ':set number<CR>', {noremap = true, silent = true, desc="Toggle line numbers"})
 
 -- LSP Client mappings
 vim.api.nvim_set_keymap('n', 'gd',          [[<cmd>lua vim.lsp.buf.definition()<CR>]], {noremap = true, silent = true, desc="Go to Definition"})
