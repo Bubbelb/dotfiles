@@ -24,18 +24,26 @@ setopt autopushd              # Automatically push old $PWD on dir stack
 
 #Enable bat as manpager, when installed
 if [[ -f /usr/bin/bat ]] ; then
-  export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=ansi'"
+  if [[ -f /usr/bin/col ]] ; then
+      export MANPAGER="sh -c 'col -bx | bat -l man -p --theme=ansi'"
+  else
+      export MANPAGER='bat -l man -p --theme=ansi'
+  fi
   export MANROFFOPT="-c"
   alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
 elif [[ -f /usr/bin/batcat ]] ; then
-  export MANPAGER="sh -c 'col -bx | batcat -l man -p --theme=ansi'"
+  if [[ -f /usr/bin/col ]] ; then
+      export MANPAGER="sh -c 'col -bx | batcat -l man -p --theme=ansi'"
+  else
+      export MANPAGER='batcat -l man -p --theme=ansi'
+  fi
   export MANROFFOPT="-c"
   alias -g -- --help='--help 2>&1 | batcat --language=help --style=plain'
 fi
 
 # override the above, when using nvim.
 if [[ -f /etc/bbsh ]] ; then
-  export MANPAGER="sh -c 'col -bx | nvim +Man!'"
+  export MANPAGER='nvim +Man!'
 fi
 
 #Completion
