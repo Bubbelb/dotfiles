@@ -50,9 +50,11 @@ vim.keymap.set('n', '<leader>ft', require('telescope-tabs').list_tabs, { desc = 
 function toggle_number()
     -- sort of a "ternary" operator in lua
     vim.o.number = not vim.o.number
+    vim.o.relativenumber = false
 end
 
 function toggle_relative()
     -- sort of a "ternary" operator in lua
     vim.o.relativenumber = not vim.o.relativenumber
+    vim.o.number = false
 end
