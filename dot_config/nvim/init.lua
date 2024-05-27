@@ -41,6 +41,7 @@ require("lazy").setup("plugins", opts)
 require('opt')
 require('mappings')
 require('lsp')
+require('nvim-cmp')
 
 -- For LSP to work (with LSP installer run:
 -- pacman -S unzip python-pip npm yarn
