@@ -132,10 +132,16 @@ return {
     -- ==============================================================
     -- Place indent guides on the left
     -- ==============================================================
-    {
-        'yuntan/neovim-indent-guides',
-        ft = '!man',
-        lazy = false,
+    { "lukas-reineke/indent-blankline.nvim",
+        config = function()
+            local ftman = vim.bo.filetype == 'man'
+            if not ftman then
+              require("ibl").setup()
+          end
+        end,
+        main = "ibl",
+        opts = {},
+        -- ft = '!man',
     },
     -- ==============================================================
     -- Manipulate surrounding quotes, brackets, etc.
