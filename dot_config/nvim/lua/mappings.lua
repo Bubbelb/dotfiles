@@ -9,11 +9,11 @@ vim.api.nvim_set_keymap('n', '<Leader>q', ':q<CR>', { noremap = true, silent = t
 vim.api.nvim_set_keymap('n', '<Leader>Q', ':qa<CR>', { noremap = true, silent = true, desc = "Quit all buffers" })
 vim.api.nvim_set_keymap('n', '<Leader>x', ':x<CR>', { noremap = true, silent = true, desc = "Quit & Save current buffer" })
 vim.api.nvim_set_keymap('n', '<Leader>X', ':xa<CR>', { noremap = true, silent = true, desc = "Quit & Save all buffers" })
-vim.api.nvim_set_keymap('n', '<Leader>H', ':noh<CR>', { noremap = true, silent = true, desc = "Turn off Search highlight" })
-vim.api.nvim_set_keymap('n', '<Leader>Nn', ':lua toggle_number()<CR>',
-    { noremap = true, silent = true, desc = "Toggle line numbers" })
-vim.api.nvim_set_keymap('n', '<Leader>Nr', ':lua toggle_relative()<CR>',
-    { noremap = true, silent = true, desc = "Toggle line numbers" })
+vim.api.nvim_set_keymap('n', '<Leader>sh', ':lua toggle_hlsearch()<CR>', { noremap = true, silent = true, desc = "Turn off Search highlight" })
+vim.api.nvim_set_keymap('n', '<Leader>sn', ':lua toggle_number()<CR>',
+    { noremap = true, silent = true, desc = "Show/Hide Line Numbers" })
+vim.api.nvim_set_keymap('n', '<Leader>sr', ':lua toggle_relativenumber()<CR>',
+    { noremap = true, silent = true, desc = "Show/Hide Relative Line Numbers" })
 
 -- LSP Client mappings
 vim.api.nvim_set_keymap('n', 'gd', [[<cmd>lua vim.lsp.buf.definition()<CR>]],
@@ -48,13 +48,15 @@ vim.keymap.set('n', '<leader>ft', require('telescope-tabs').list_tabs, { desc = 
 
 -- Toggle functions (between on/off)
 function toggle_number()
-    -- sort of a "ternary" operator in lua
     vim.o.number = not vim.o.number
     vim.o.relativenumber = false
 end
 
-function toggle_relative()
-    -- sort of a "ternary" operator in lua
+function toggle_relativenumber()
     vim.o.relativenumber = not vim.o.relativenumber
     vim.o.number = false
+end
+
+function toggle_hlsearch()
+    vim.o.hlsearch = not vim.o.hlsearch
 end
