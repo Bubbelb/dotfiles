@@ -2,6 +2,15 @@
 export ZSH_APPDIR="${HOME}/.local/share/zsh"
 mkdir -p "${ZSH_APPDIR}"
 
+# If inside bbsh distrobox, start cron
+if [[ -f /etc/bbsh ]] && \
+    [[ -x /usr/bin/supercronic ]] && \
+    [[ -f "${HOME}/.config/crontab" ]] &&
+    ! pgrep -U ${UID} supercronic >/dev/null
+then
+    ( exec /bin/zsh -c '/usr/bin/supercronic -quiet '"${HOME}/.config/crontab"' & disown' )
+fi
+
 #Update path with user bindir
 typeset -U path
 [[ -d "${HOME}/.local/bin" ]] && path+=("${HOME}/.local/bin")
