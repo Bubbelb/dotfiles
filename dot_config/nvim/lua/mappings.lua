@@ -55,5 +55,4 @@ end
 function toggle_relative()
     -- sort of a "ternary" operator in lua
     vim.o.relativenumber = not vim.o.relativenumber
-    vim.o.number = true
 end
