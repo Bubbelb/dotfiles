@@ -1,0 +1,93 @@
+#!/bin/sh
+# Usage: check-interval -n name [-i <interval>] [-r]
+#
+# Checks if the interval between now and the number of hours since <interval> is passed,
+# and if so, updates the interval time to now and exits with 0. When the interval number is
+# not reached, exit with 1.
+#
+# When -r is used, the interval is reset. (removed)
+#
+# Example 1: Check if interval of 2 hours is passed and do the update, if so.
+#   check-interval -n update-me -i 2 && do-update-command.sh
+#
+# Example 2: Check if interval of 2 hours is passed and do the update, if so. But when
+#            the update fails, reset the interval, thus retry at next run.
+#   check-interval -n update-me -i 2 && do-update-command.sh || check-interval -n update-me -r
+#
+# This script is used as an extra layer to bog-standard cron, a-la anacron. Use case ditstrobox
+# with an Alpine container and supercronic as cron.
+# So run above in a contab, with 15 minute interval, or so.
+
+# State file to check when the latest interval is run
+CI_STATEFILE="${CI_STATEFILE:-"${HOME}/.local/share/check-interval.state"}"
+[ -f "${CI_STATEFILE}" ] || touch "${CI_STATEFILE}"
+
+CI_REMOVE=false
+CI_INT='WRONG'
+CI_NAME=""
+PARAMETERS=$(getopt -q -- n:i:r "$@")
+eval set -- "${PARAMETERS}"
+if [ ! -z "${PARAMETERS}" ] ; then
+    while [ "${1}" != '--' ] ; do
+        case "${1}" in
+            -n )
+                CI_NAME="${2}"
+                shift 2 ;;
+            -i )
+                CI_INT="${2}"
+                shift 2 ;;
+            -r )
+                CI_REMOVE=true
+                shift ;;
+        esac
+    done
+fi
+
+# Sanity Checks
+if [ "${CI_REMOVE}" == true ] && [ "${CI_INT}" != 'WRONG' ] ; then
+    echo "Error: Parameters -i and -r given. Choose one, not both." 1>&2
+    exit 255
+fi
+
+if [ -z "${CI_NAME}" ] ; then
+    echo "Error: Parameter -n not specified. Is mandatory (with name)." 1>&2
+    exit 255
+fi
+
+# Remove line, if requested
+if [ "${CI_REMOVE}" == true ] ; then
+    sed -i '/^[0-9]\+;'"${CI_NAME}"'$/d' "${CI_STATEFILE}"
+    exit
+else
+# Otherwise check if data is complete
+    if [ "${CI_INT}" == 'WRONG' ] ; then
+        echo "Error: None of parameters -i and -r given. Choose one." 1>&2
+        exit 255
+    elif echo "${CI_INT}" | grep -q '^[0-9]\+$' ; then
+        if [ ${CI_INT} -lt 1 ] ; then
+            echo "Error: Interval needs to be greater than 0." 1>&2
+            exit 255
+        fi
+    else
+        echo "Error: Interval needs to be an integer." 1>&2
+        exit 255
+    fi
+fi
+
+
+# The interval checker
+CI_LINE="$(grep '^[0-9]\+;'"${CI_NAME}"'$' "${CI_STATEFILE}")"
+if [ -z "${CI_LINE}" ] ; then
+    CI_DATE=0
+else
+    CI_DATE="${CI_LINE%%;*}"
+fi
+CI_NOW="$(date '+%s')"
+
+if [ "$(( ${CI_NOW} - ${CI_DATE} ))" -ge "$(( ${CI_INT} * 3600 ))" ] ; then
+    sed -i '/^[0-9]\+;'"${CI_NAME}"'$/d' "${CI_STATEFILE}"
+    echo "${CI_NOW};${CI_NAME}" >> "${CI_STATEFILE}"
+    exit 0
+else
+    exit 1
+fi
