@@ -65,3 +65,6 @@ vim.fn.sign_define("LspDiagnosticsSignError", { text = "🔴", texthl = "LspDiag
 vim.fn.sign_define("LspDiagnosticsSignWarning", { text = "🟠", texthl = "LspDiagnosticsWarning" })
 vim.fn.sign_define("LspDiagnosticsSignInformation", { text = "🔵", texthl = "LspDiagnosticsInformation" })
 vim.fn.sign_define("LspDiagnosticsSignHint", { text = "🟢", texthl = "LspDiagnosticsHint" })
+
+-- LuaSnip Friendly Snippet support
+require("luasnip.loaders.from_vscode").lazy_load()
