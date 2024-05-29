@@ -1,2 +1,2 @@
-*/15 * * * * /bin/zsh -c 'check-interval -n neovim-update -i 168 && nvim --headless "+Lazy! sync" +qa && nvim --headless "+MasonUpdate" +qa && nvim --headless "+TSUpdateSync" +qa'
-*/5 * * * * /bin/zsh -c 'check-interval -n chezmoi-update -i 1 && chezmoi update'
+*/15 * * * * /bin/zsh -c 'check-interval -n neovim-update -i 168 && nvim --headless "+Lazy! sync" +qa && nvim --headless "+MasonUpdate" +qa && nvim --headless "+TSUpdateSync" +qa || true'
+*/5 * * * * /bin/zsh -c 'check-interval -n chezmoi-update -i 1 && chezmoi update || true'
