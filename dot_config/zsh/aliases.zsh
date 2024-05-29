@@ -33,6 +33,7 @@ fi
 #Misc
 alias mkdir='mkdir -pv'
 alias which-command=whence
+alias ip='ip -c=auto'
 
 #normalize batcat and fd on debian systems (e.g. alias to 'bat')
 [[ -x /usr/bin/batcat ]] && alias bat='batcat'
@@ -56,3 +57,4 @@ if [[ -f /etc/bbsh ]] ; then
     alias hpacman='distrobox-host-exec pacman'
     alias hspacman='distrobox-host-exec sudo pacman'
 fi
+
