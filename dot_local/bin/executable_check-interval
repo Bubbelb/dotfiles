@@ -1,5 +1,5 @@
 #!/bin/sh
-# Usage: check-interval -n name [-i <interval>] [-r] -c "command"
+# Usage: check-interval [-h|--help] -n name [-i <interval>] [-r] -c "command"
 #
 # Checks if the interval between now and the number of hours since <interval> is passed,
 # and if so, updates the interval time to now and runs the specified command through /bin/sh -c
@@ -23,7 +23,7 @@ CI_INT='WRONG'
 CI_NAME=""
 CI_COMMAND=""
 
-PARAMETERS=$(getopt -l "help" -n "$(basename "${0}")" -s sh -o 'n:i:c:r' -- "$@")
+PARAMETERS=$(getopt -l "help" -n "$(basename "${0}")" -s sh -o 'n:i:c:rh' -- "$@")
 eval set -- "${PARAMETERS}"
 if [ -z "${PARAMETERS}" ] ; then
     echo "Error in parameter processing." 1>&2
@@ -56,7 +56,7 @@ if [ "${CI_REMOVE}" == true ] && [ "${CI_INT}" != 'WRONG' ] ; then
     exit 255
 fi
 
-if [ -z "${CI_COMMAND}" ] ; then
+if [ "${CI_INT}" != 'WRONG' ] && [ -z "${CI_COMMAND}" ] ; then
     echo "Error: Parameters -c missing. Add it, with command to execute." 1>&2
     exit 255
 fi
