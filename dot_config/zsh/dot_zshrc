@@ -16,17 +16,6 @@ typeset -U path
 [[ -d "${HOME}/.local/bin" ]] && path+=("${HOME}/.local/bin")
 export PATH
 
-#Launch tmux, if not run already as parent and if session is interactive
-case $- in
-  *i*)
-    if [[ -z "${SSH_TTY}" ]] ; then
-        ~/.config/zsh/console-updater.sh
-    elif [[ -z "${TMUX}" ]] ; then
-        exec tmux new-session -A -D \; new-window -dbn 'Updater' '~/.config/zsh/console-updater.sh tmux_init'
-    fi
-  ;;
-esac
-
 #History
 HISTFILE="${ZSH_APPDIR}/histfile"
 HISTSIZE=5000
