@@ -2,21 +2,17 @@
 # Usage: check-interval -n name [-i <interval>] [-r] -c "command"
 #
 # Checks if the interval between now and the number of hours since <interval> is passed,
-# and if so, updates the interval time to now and exits with 0. When the interval number is
-# not reached, exit with 1.
+# and if so, updates the interval time to now and runs the specified command through /bin/sh -c
 #
-# When -r is used, the interval is reset. (removed)
+# When -r is used, the interval is reset. (removed) No command will be run
 #
-# Example 1: Check if interval of 2 hours is passed and do the update, if so.
-#   check-interval -n update-me -i 2 && do-update-command.sh
-#
-# Example 2: Check if interval of 2 hours is passed and do the update, if so. But when
-#            the update fails, reset the interval, thus retry at next run.
-#   check-interval -n update-me -i 2 && do-update-command.sh || check-interval -n update-me -r
+# Example: Check if interval of 2 hours is passed and do the update, if so.
+#   check-interval -n update-me -i 2 -c "do-update-command.sh --quiet"
 #
 # This script is used as an extra layer to bog-standard cron, a-la anacron. Use case ditstrobox
 # with an Alpine container and supercronic as cron.
 # So run above in a contab, with 15 minute interval, or so.
+###
 
 # State file to check when the latest interval is run
 CI_STATEFILE="${CI_STATEFILE:-"${HOME}/.local/share/check-interval.state"}"
@@ -27,7 +23,7 @@ CI_INT='WRONG'
 CI_NAME=""
 CI_COMMAND=""
 
-PARAMETERS=$(getopt -n "$(basename "${0}")" -s sh -o 'n:i:c:r' -- "$@")
+PARAMETERS=$(getopt -l "help" -n "$(basename "${0}")" -s sh -o 'n:i:c:r' -- "$@")
 eval set -- "${PARAMETERS}"
 if [ -z "${PARAMETERS}" ] ; then
     echo "Error in parameter processing." 1>&2
@@ -48,6 +44,9 @@ while [ "${1}" != '--' ] ; do
 	    -r )
 		CI_REMOVE=true
 		shift ;;
+	    -h|--help )
+		sed -e '/^###$/,$d' -e '1d' -e 's/^#//' "${0}"
+		exit 0 ;;
 	esac
 done
 
