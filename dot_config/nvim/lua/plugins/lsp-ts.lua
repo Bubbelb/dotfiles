@@ -9,7 +9,14 @@ return {
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
-    { 'L3MON4D3/LuaSnip' },
+    {
+        'L3MON4D3/LuaSnip',
+        dependencies = { "rafamadriz/friendly-snippets" },
+    },
+    { 'hrsh7th/cmp-buffer' },
+    { 'hrsh7th/cmp-path' },
+    { 'saadparwaiz1/cmp_luasnip' },
+    { 'rafamadriz/friendly-snippets' },
     {
         'petertriho/cmp-git',
         dependencies = { 'nvim-lua/plenary.nvim' },
@@ -43,7 +50,7 @@ return {
     },
     { 'nvim-treesitter/nvim-treesitter-refactor' }, -- Refactor (Highlighting, smart rename, navigation)
     {
-        'HiPhish/rainbow-delimiters.nvim',        -- Highlight paranthesis pairs in their own colour.
+        'HiPhish/rainbow-delimiters.nvim',          -- Highlight paranthesis pairs in their own colour.
     },
     {
         'cuducos/yaml.nvim',
@@ -76,7 +83,7 @@ return {
         end,
         dependencies = {
             'nvim-treesitter/nvim-treesitter', -- optional
-            'nvim-tree/nvim-web-devicons', -- optional
+            'nvim-tree/nvim-web-devicons',     -- optional
         }
     },
     -- ==============================================================
