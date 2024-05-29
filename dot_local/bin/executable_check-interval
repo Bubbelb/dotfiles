@@ -1,10 +1,11 @@
 #!/bin/sh
-# Usage: check-interval [-h|--help] -n name [-i <interval>] [-r] -c "command"
+# Usage: check-interval [-h|--help] -n name [-i <interval> -c "command"] [-r] [-z]
 #
 # Checks if the interval between now and the number of hours since <interval> is passed,
 # and if so, updates the interval time to now and runs the specified command through /bin/sh -c
 #
-# When -r is used, the interval is reset. (removed) No command will be run
+# When -r is used, the interval is reset. (removed) No command will be run.
+# The -z parameter always ensures an exit code of 0 (all ok).
 #
 # Example: Check if interval of 2 hours is passed and do the update, if so.
 #   check-interval -n update-me -i 2 -c "do-update-command.sh --quiet"
@@ -22,8 +23,9 @@ CI_REMOVE=false
 CI_INT='WRONG'
 CI_NAME=""
 CI_COMMAND=""
+CI_ZERO_EXIT=false
 
-PARAMETERS=$(getopt -l "help" -n "$(basename "${0}")" -s sh -o 'n:i:c:rh' -- "$@")
+PARAMETERS=$(getopt -l "help" -n "$(basename "${0}")" -s sh -o 'n:i:c:rhz' -- "$@")
 eval set -- "${PARAMETERS}"
 if [ -z "${PARAMETERS}" ] ; then
     echo "Error in parameter processing." 1>&2
@@ -43,6 +45,9 @@ while [ "${1}" != '--' ] ; do
 		shift 2 ;;
 	    -r )
 		CI_REMOVE=true
+		shift ;;
+	    -z )
+		CI_ZERO_EXIT=true
 		shift ;;
 	    -h|--help )
 		sed -e '/^###$/,$d' -e '1d' -e 's/^#//' "${0}"
@@ -101,3 +106,5 @@ if [ "$(( ${CI_NOW} - ${CI_DATE} ))" -ge "$(( ${CI_INT} * 3600 ))" ] ; then
     echo "${CI_NOW};${CI_NAME}" >> "${CI_STATEFILE}"
     /bin/sh -c "${CI_COMMAND}"
 fi
+
+[ "${CI_ZERO_EXIT}" == true ] && exit 0
