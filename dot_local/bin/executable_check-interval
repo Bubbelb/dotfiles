@@ -1,5 +1,5 @@
 #!/bin/sh
-# Usage: check-interval -n name [-i <interval>] [-r]
+# Usage: check-interval -n name [-i <interval>] [-r] -c "command"
 #
 # Checks if the interval between now and the number of hours since <interval> is passed,
 # and if so, updates the interval time to now and exits with 0. When the interval number is
@@ -25,27 +25,40 @@ CI_STATEFILE="${CI_STATEFILE:-"${HOME}/.local/share/check-interval.state"}"
 CI_REMOVE=false
 CI_INT='WRONG'
 CI_NAME=""
-PARAMETERS=$(getopt -q -- n:i:r "$@")
+CI_COMMAND=""
+
+PARAMETERS=$(getopt -n "$(basename "${0}")" -s sh -o 'n:i:c:r' -- "$@")
 eval set -- "${PARAMETERS}"
-if [ ! -z "${PARAMETERS}" ] ; then
-    while [ "${1}" != '--' ] ; do
-        case "${1}" in
-            -n )
-                CI_NAME="${2}"
-                shift 2 ;;
-            -i )
-                CI_INT="${2}"
-                shift 2 ;;
-            -r )
-                CI_REMOVE=true
-                shift ;;
-        esac
-    done
+if [ -z "${PARAMETERS}" ] ; then
+    echo "Error in parameter processing." 1>&2
+    exit 10
 fi
+
+while [ "${1}" != '--' ] ; do
+	case "${1}" in
+	    -n )
+		CI_NAME="${2}"
+		shift 2 ;;
+	    -c )
+		CI_COMMAND="${2}"
+		shift 2 ;;
+	    -i )
+		CI_INT="${2}"
+		shift 2 ;;
+	    -r )
+		CI_REMOVE=true
+		shift ;;
+	esac
+done
 
 # Sanity Checks
 if [ "${CI_REMOVE}" == true ] && [ "${CI_INT}" != 'WRONG' ] ; then
     echo "Error: Parameters -i and -r given. Choose one, not both." 1>&2
+    exit 255
+fi
+
+if [ -z "${CI_COMMAND}" ] ; then
+    echo "Error: Parameters -c missing. Add it, with command to execute." 1>&2
     exit 255
 fi
 
@@ -87,7 +100,5 @@ CI_NOW="$(date '+%s')"
 if [ "$(( ${CI_NOW} - ${CI_DATE} ))" -ge "$(( ${CI_INT} * 3600 ))" ] ; then
     sed -i '/^[0-9]\+;'"${CI_NAME}"'$/d' "${CI_STATEFILE}"
     echo "${CI_NOW};${CI_NAME}" >> "${CI_STATEFILE}"
-    exit 0
-else
-    exit 1
+    /bin/sh -c "${CI_COMMAND}"
 fi
