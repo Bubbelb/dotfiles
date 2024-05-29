@@ -11,12 +11,19 @@ return {
     {
         'chentoast/marks.nvim',
         lazy = false,
-	opts = {
-          default_mappings = true,
-          signs = true,
-          mappings = {},
-	  builtin_marks = { "'", "<", ">", "." },
+        opts = {
+            default_mappings = true,
+            signs = true,
+            mappings = {},
+            builtin_marks = { "'", "<", ">", "." },
         },
     },
-
+    {
+        'gorbit99/codewindow.nvim',
+        config = function()
+            local codewindow = require('codewindow')
+            codewindow.setup()
+            codewindow.apply_default_keybinds()
+        end,
+    },
 }
