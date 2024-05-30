@@ -26,10 +26,10 @@ return {
         lazy = false,
         priority = 1000,
         opts = {
-            latitude = 52.3673,  -- north is positive, south is negative
-            longitude = 4.8998,  -- east is positive, west is negative
-            sunrise_offset = 10, -- offset the sunrise by this many seconds
-            sunset_offset = -10, -- offset the sunset by this many seconds
+            latitude = 52.54258,  -- north is positive, south is negative
+            longitude = 4.66164,  -- east is positive, west is negative
+            sunrise_offset = 20, -- offset the sunrise by this many seconds
+            sunset_offset = -20, -- offset the sunset by this many seconds
             day_callback = function()
                 vim.o.background = 'light'
                 require('NeoSolarized').setup({ style = 'light', transparent = false, terminal_colors = true })
