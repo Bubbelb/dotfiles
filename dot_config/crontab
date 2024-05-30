@@ -1,3 +1,3 @@
-*/15 * * * * check-interval -z -n neovim-update -i 168 -c 'nvim --headless "+Lazy! sync" +qa && nvim --headless "+MasonUpdate" +qa && nvim --headless "+TSUpdateSync" +qa'
-*/5 * * * * check-interval -z -n chezmoi-update -i 12 -c 'chezmoi update'
+2/5 * * * * check-interval -z -n chezmoi-update -i 12 -c 'chezmoi update'
+3/15 * * * * check-interval -z -n neovim-update -i 168 -c 'nvim --headless "+Lazy! sync" +qa && nvim --headless "+MasonUpdate" +qa && nvim --headless "+TSUpdateSync" +qa'
 */15 * * * * check-interval -z -n distrobox-update -i 168 -c 'curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local'
