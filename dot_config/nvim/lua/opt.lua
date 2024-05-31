@@ -13,8 +13,8 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.termguicolors = true
 vim.opt.modeline = true
-vim.opt.undofile = true       -- keep an undo file (undo changes after closing)
-vim.opt.wrap = false         -- don't automatically wrap on load
+vim.opt.undofile = true
+vim.opt.wrap = false
 vim.opt.showmode = true    -- do not show default mode message (Use airline for this)
 vim.opt.clipboard = 'unnamedplus' -- Use system clipboard
 vim.opt.sessionoptions = {'blank', 'buffers', 'curdir', 'folds', 'help', 'tabpages', 'winsize', 'winpos', 'terminal'}
@@ -30,7 +30,7 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 })
 
 -- Diagnostics signs
-local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+local signs = { Error = "❌ ", Warn = "⚠️ ", Hint = "💡 ", Info = " " }
 for type, icon in pairs(signs) do
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
