@@ -23,6 +23,11 @@ return {
 			{ "nvim-telescope/telescope.nvim", tag = "0.1.4" },
 			{ "Shatur/neovim-session-manager" },
 		},
+        config = function( _opts )
+            require('neovim-project').setup( _opts )
+            require('telescope').
+            require'telescope'.extensions.projects.projects{}
+        end,
 		lazy = false,
 		priority = 100,
 	},
