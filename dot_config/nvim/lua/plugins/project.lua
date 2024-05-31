@@ -26,7 +26,6 @@ return {
         config = function()
             require('neovim-project').setup( opts )
             require('telescope').load_extension('projects')
-            require'telescope'.extensions.projects.projects{}
         end,
 		lazy = false,
 		priority = 100,
