@@ -20,12 +20,13 @@ return {
 		end,
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
-			{ "nvim-telescope/telescope.nvim", tag = "0.1.4" },
+			{ "nvim-telescope/telescope.nvim" },
 			{ "Shatur/neovim-session-manager" },
 		},
         config = function()
             require('neovim-project').setup( opts )
             require('telescope').load_extension('projects')
+            require'telescope'.extensions.projects.projects{}
         end,
 		lazy = false,
 		priority = 100,
