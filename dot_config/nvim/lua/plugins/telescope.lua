@@ -14,8 +14,8 @@ return {
 		config = function()
 			require("telescope").setup()
 			require('telescope').load_extension('fzf')
-			require('telescope').load_extension('projects')
-			require'telescope'.extensions.projects.projects{}
+			require('telescope').load_extension('neovim-projects')
+			-- require'telescope'.extensions.projects.projects{}
 		end
 	},
 	{
