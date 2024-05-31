@@ -1,5 +1,6 @@
     -- Basic options
 
+vim.opt.cursorline = true
 vim.opt.hlsearch = true
 vim.opt.langremap = false
 vim.opt.shada = "'50,/200,:200,<500,s500,:200,h"
