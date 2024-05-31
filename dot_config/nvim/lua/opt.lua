@@ -1,4 +1,4 @@
-    -- Basic options
+-- Basic options
 
 vim.opt.cursorline = true
 vim.opt.hlsearch = true
