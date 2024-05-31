@@ -28,37 +28,29 @@ if ! which distrobox > /dev/null 2>&1 ; then
     fi
 fi
 
-# Try to download bbsh.ini
-if which curl > /dev/null 2>&1 ; then
-    curl -so "${INI_PATH}.new" "${INI_URL}"
-elif which wget > /dev/null 2>&1 ; then
-    wget -qo "${INI_PATH}.new" "${INI_URL}"
-elif [ -f "${INI_PATH}" ] ; then
-    echo "No wget or curl. Using existing file ${INI_PATH}"
+if [ -f "${INI_PATH}" ] then
+    ACTIVE_INI="${INI_PATH}"
+    USING_TEMP=false
 else
-    echo "File ${INI_PATH} missing and no wget or curl. Cannot download."
-    echo "File: ${INI_PATH}"
-    echo "URL : ${INI_URL}"
-    exit 1
-fi
-
-# check validity of bbsh.ini
-if [ -f "${INI_PATH}.new" ] ; then
-    if [ $(stat -c '%s' "${INI_PATH}.new") -gt 0 ] ; then
-        [ -f "${INI_PATH}.bk" ] && rm -f "${INI_PATH}.bk"
-        [ -f "${INI_PATH}" ] && mv "${INI_PATH}" "${INI_PATH}.bk"
-        mv "${INI_PATH}.new" "${INI_PATH}"
+    ACTIVE_INI="$( mktemp -td dbasmXXXXX)/bbsh.ini"
+    USING_TEMP=true
+    if which curl > /dev/null 2>&1 ; then
+        curl -so "${ACTIVE_INI}" "${INI_URL}"
+    elif which wget > /dev/null 2>&1 ; then
+        wget -qo "${ACTIVE_INI}" "${INI_URL}"
     else
-        echo "Download failed (zero-sized file)."
-        rm -f "${INI_PATH}.new"
+        echo "File ${INI_PATH} missing and no wget or curl. Cannot download."
+        exit 1
+    fi
+
+    # check validity of bbsh.ini
+    if ! [ -f "${ACTIVE_INI}" ] || [ $(stat -c '%s' "${ACTIVE_INI}") -eq 0 ] ; then
+        echo "Download failed (No, or zero-sized file)."
+        rm -rf "$(dirname "${ACTIVE_INI}")"
+        exit 4
     fi
 fi
 
 # And GO!
-if [ -f "${INI_PATH}" ] ; then
-    ( cd "$(dirname "${INI_PATH}")" ; distrobox assemble create --file "$(basename "${INI_PATH}")" )
-else
-    echo "No ini file found, ${INI_PATH}. Cannot continue."
-    exit 4
-fi
-
+( cd "$(dirname "${ACTIVE_INI}")" ; distrobox assemble create --file "$(basename "${ACTIVE_INI}")" )
+[ "${USING_TEMP}" == true ] && rm -rf "${ACTIVE_INI}"
