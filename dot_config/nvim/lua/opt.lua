@@ -35,8 +35,8 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 --     local hl = "DiagnosticSign" .. type
 --     vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
 -- end
-vim.fn.sign_define('Error', { text = '⛔ ', texthl= 'Error' , numhl = 'Error" })
-vim.fn.sign_define('Warn', { text = '⚠️ ', texthl= 'Warn' , numhl = 'Warn" })
-vim.fn.sign_define('Hint', { text = '🔔 ', texthl= 'Hint' , numhl = 'Hint" })
-vim.fn.sign_define('Info', { text = ' ', texthl= 'Info' , numhl = 'Info" })
+vim.fn.sign_define('Error', { text = '⛔ ', texthl= 'Error' , numhl = 'Error' })
+vim.fn.sign_define('Warn', { text = '⚠️ ', texthl= 'Warn' , numhl = 'Warn' })
+vim.fn.sign_define('Hint', { text = '🔔 ', texthl= 'Hint' , numhl = 'Hint' })
+vim.fn.sign_define('Info', { text = ' ', texthl= 'Info' , numhl = 'Info' })
 
