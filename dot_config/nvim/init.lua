@@ -27,7 +27,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- Start Lazy Package manager
-vim.g.mapleader = "\"
+vim.g.mapleader = "\\"
 opts = {
     checker = {
     -- automatically check for plugin updates
