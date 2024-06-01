@@ -28,7 +28,7 @@ if ! which distrobox > /dev/null 2>&1 ; then
     fi
 fi
 
-if [ -f "${INI_PATH}" ] then
+if [ -f "${INI_PATH}" ] ; then
     ACTIVE_INI="${INI_PATH}"
     USING_TEMP=false
 else
