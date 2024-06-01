@@ -53,4 +53,6 @@ fi
 
 # And GO!
 ( cd "$(dirname "${ACTIVE_INI}")" ; distrobox assemble create --file "$(basename "${ACTIVE_INI}")" )
-[ "${USING_TEMP}" == true ] && rm -rf "${ACTIVE_INI}"
+if [ "${USING_TEMP}" == true ] ; then
+    rm -rf "${ACTIVE_INI}"
+fi
