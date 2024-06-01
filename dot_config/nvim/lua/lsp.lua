@@ -68,3 +68,12 @@ vim.fn.sign_define("LspDiagnosticsSignHint", { text = "🟢", texthl = "LspDiagn
 
 -- LuaSnip Friendly Snippet support
 require("luasnip.loaders.from_vscode").lazy_load()
+require('lspconfig').lua_ls.setup({
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = {'vim'}
+      }
+    }
+  }
+})
