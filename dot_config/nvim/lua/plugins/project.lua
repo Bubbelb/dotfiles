@@ -5,7 +5,8 @@ return {
             projects = { -- define project roots
                 "~/Projects.priv/*",
                 "~/Projects.umcu/*",
-            },
+           },
+        dashboard_mode = true,
         },
         keys = {
             { "<Leader>pd", "<cmd>Telescope neovim-project discover<cr>", desc = "Project Discover (Find)" },
