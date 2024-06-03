@@ -135,13 +135,13 @@ return {
     { "lukas-reineke/indent-blankline.nvim",
         config = function()
             local ftman = vim.bo.filetype == 'man'
-            if not ftman then
+            local ftdash = vim.bo.filetype == 'dashboard'
+            if not ftman and not ftdash then
               require("ibl").setup()
           end
         end,
         main = "ibl",
         opts = {},
-        -- ft = '!man',
     },
     -- ==============================================================
     -- Manipulate surrounding quotes, brackets, etc.
