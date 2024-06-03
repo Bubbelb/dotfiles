@@ -5,15 +5,14 @@ return {
     {
       'nvim-neo-tree/neo-tree.nvim',
       keys = {
-        {
-          "<Leader>e",
-          "<cmd>Neotree toggle<cr>",
-          desc = "NeoTree"
-        },
+        { "<Leader>e", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
       },
-      config = function()
-        require("neo-tree").setup()
-      end,
+      opts = {
+          close_if_last_window = true,
+          filesystem = {
+              follow_current_file = { enabled = true },
+          },
+      },
       dependencies = {
         'nvim-tree/nvim-web-devicons',
         "nvim-lua/plenary.nvim",
