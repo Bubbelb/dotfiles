@@ -22,11 +22,8 @@ return {
         --         -- config
         --     }
         -- end,
-      keys = {
-        {
-          "<Leader>d",
-          "<cmd>dashboard<cr>",
-          desc = "Show Dashboard"
+        keys = {
+            { "<Leader>d", "<cmd>dashboard<cr>", desc = "Show Dashboard" },
         },
         dependencies = { { 'nvim-tree/nvim-web-devicons' } }
     },
