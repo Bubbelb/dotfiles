@@ -26,8 +26,8 @@ return {
         lazy = false,
         priority = 1000,
         opts = {
-            latitude = 52.54258,  -- north is positive, south is negative
-            longitude = 4.66164,  -- east is positive, west is negative
+            latitude = 52.54258,   -- north is positive, south is negative
+            longitude = 4.66164,   -- east is positive, west is negative
             sunrise_offset = 1200, -- offset the sunrise by this many seconds
             sunset_offset = -1200, -- offset the sunset by this many seconds
             day_callback = function()
@@ -132,13 +132,37 @@ return {
     -- ==============================================================
     -- Place indent guides on the left
     -- ==============================================================
-    { "lukas-reineke/indent-blankline.nvim",
+    {
+        "lukas-reineke/indent-blankline.nvim",
         config = function()
             local ftman = vim.bo.filetype == 'man'
             local ftdash = vim.bo.filetype == 'dashboard'
-            if not ftman and not ftdash then
-              require("ibl").setup()
-          end
+            if not ftdash and not ftman then
+                local highlight = {
+                    "RainbowRed",
+                    "RainbowYellow",
+                    "RainbowBlue",
+                    "RainbowOrange",
+                    "RainbowGreen",
+                    "RainbowViolet",
+                    "RainbowCyan",
+                }
+
+                local hooks = require "ibl.hooks"
+                -- create the highlight groups in the highlight setup hook, so they are reset
+                -- every time the colorscheme changes
+                hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+                    vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+                    vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+                    vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+                    vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+                    vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+                    vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+                    vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+                end)
+
+                require("ibl").setup { indent = { highlight = highlight } }
+            end
         end,
         main = "ibl",
         opts = {},
