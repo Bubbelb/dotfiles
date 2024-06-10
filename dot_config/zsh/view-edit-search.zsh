@@ -19,13 +19,7 @@ if which nvim > /dev/null ; then
     alias nvimdiff='/usr/bin/nvim -d'
 fi
 
-# Less Highlight/lesspipe
-if which lesspipe.sh > /dev/null ; then
-    lesspipe.sh|source /dev/stdin
-elif which source-highlight-esc.sh > /dev/null ; then
-    export LESSOPEN="| $(which source-highlight-esc.sh) %s"
-    export LESS=' -R '
-fi
+export LESS=' -R '
 
 # Man highlighting with color
 export LESS_TERMCAP_mb=$'\e[1;32m'

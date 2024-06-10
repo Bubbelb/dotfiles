@@ -79,36 +79,6 @@ autoload -Uz copy-earlier-word
 zle -N copy-earlier-word
 bindkey "^[m" copy-earlier-word
 
-# Setting the prompt
-#case $USER in
-#    bbadmin)
-#        UCOLOR="%k%F{magenta}"
-#        ;;
-#    root)
-#        UCOLOR="%k%B%S%F{red}"
-#        ;;
-#    *)
-#        UCOLOR="%F{blue}"
-#        ;;
-#esac
-#case $HOST in
-#    lhost|boss)
-#        HCOLOR="%B%S%F{red}"
-#        ;;
-#    ansboss|bosmang)
-#        HCOLOR="%B%S%F{cyan}"
-#        ;;
-#    morg)
-#        HCOLOR="%B%S%F{magenta}"
-#        ;;
-#    *)
-#        HCOLOR="%F{blue}"
-#        ;;
-#esac
-#
-#PS1="%B${UCOLOR}%n%f%s%b@%B${HCOLOR}%m%f%s%b%(?..%F{red}%B [%?]%f%b):%~%$((COLUMNS-12))(l.%}. )%# %b%f%k"
-#PS2="%B%F{blue}[%_]> %f%b"
-
 # Set Terminal Emulator title
 case $TERM in
   (*xterm* | rxvt)
@@ -143,18 +113,6 @@ function _ssh {
 }
 
 compdef _ssh ssh
-#
-# Setup FZF support
-# [[ -f /usr/share/fzf/completion.zsh ]] && source /usr/share/fzf/completion.zsh
-# [[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
-#if [[ -x /usr/bin/fzf ]] ; then
-#    export FZF_COMPLETION_TRIGGER=''
-#    bindkey '^T' fzf-completion
-#    bindkey '^I' $fzf_default_completion
-#fi
-
-# Use ~~ as the trigger sequence instead of the default **
-#export FZF_COMPLETION_TRIGGER='~~'
 
 # Options to fzf command
 export FZF_COMPLETION_OPTS=''
@@ -206,8 +164,6 @@ if [[ -x /usr/bin/batcat ]] ; then
 else
     zstyle ':completion::*:ls::*' fzf-completion-opts --preview='eval bat --color=always -n {1}'
 fi
-#FZF_COMPLETION_AUTO_COMMON_PREFIX=true
-#FZF_COMPLETION_AUTO_COMMON_PREFIX_PART=true
 
 #OS Data
 bindkey -s '^S' '~/.config/zsh/os_data.zsh\n'
