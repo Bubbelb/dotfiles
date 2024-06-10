@@ -17,8 +17,8 @@ local black=1d2021
 local white=f9f5d7
 
 # Set default foreground / background colors for terminals that support it.
-printf "\e]10;#$white"
-printf "\e]11;#$black"
+#printf "\e]10;#$white"
+#printf "\e]11;#$black"
 
 # Set terminal colors.
 set_color  0 $black # black

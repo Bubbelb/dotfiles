@@ -18,17 +18,7 @@ setopt prompt_subst
 
 prompt_status () {
 	local -a symbols
-    if [[ -f "${DF_RESULTFILE}" ]] ; then
-        case "$(cat ${DF_RESULTFILE})" in
-            OK)
-                symbols+="%{%F{6}%}O"
-                ;;
-            ERROR)
-                symbols+="%{%F{1}%}E"
-                ;;
-        esac
-        rm -f "${DF_RESULTFILE}"
-    fi
+
     [[ -f '/run/host/etc/passwd' ]] && symbols+='📦'
     [[ $RETVAL -ne 0 ]] && symbols+="%{%F{1}%}💔"
 	[[ $UID -eq 0 ]] && symbols+="%{%F{3}%}\u🤖"
@@ -105,5 +95,4 @@ function zle-line-init zle-keymap-select {
 }
 zle -N zle-line-init
 zle -N zle-keymap-select
-
 
