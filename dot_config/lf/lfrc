@@ -25,6 +25,7 @@ cmd mkdir %{{
 map C push :mkdir<space>
 
 set hidden true
+map H set hidden!
 
 set icons
 # leave some space at the top and the bottom of the screen
