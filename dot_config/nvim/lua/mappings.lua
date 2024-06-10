@@ -46,6 +46,8 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Show/Search in Buff
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = "Show/Search in Help Tags" })
 vim.keymap.set('n', '<leader>ft', require('telescope-tabs').list_tabs, { desc = "Show/Search in Tabs" })
 
+vim.keymap.set('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { desc = "Toggle Terminal Window" })
+
 -- Toggle functions (between on/off)
 function toggle_number()
     vim.o.number = not vim.o.number
