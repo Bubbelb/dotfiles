@@ -27,7 +27,6 @@ if ! which distrobox > /dev/null 2>&1 ; then
         exit 3
     fi
 fi
-
 if [ -f "${INI_PATH}" ] ; then
     ACTIVE_INI="${INI_PATH}"
     USING_TEMP=false
@@ -52,7 +51,14 @@ else
 fi
 
 # And GO!
-( cd "$(dirname "${ACTIVE_INI}")" ; distrobox assemble create --file "$(basename "${ACTIVE_INI}")" )
-if [ "${USING_TEMP}" == true ] ; then
-    rm -rf "${ACTIVE_INI}"
-fi
+CURRENT_WD="${PWD}"
+cd "$(dirname "${ACTIVE_INI}")"
+distrobox assemble create --file "$(basename "${ACTIVE_INI}")"
+cd "${CURRENT_WD}"
+
+# Do some cleanup
+case "${USING_TEMP}" in
+	true )
+	    rm -rf "${ACTIVE_INI}"
+	    ;;
+esac
