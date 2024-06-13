@@ -48,6 +48,8 @@ vim.keymap.set('n', '<leader>ft', require('telescope-tabs').list_tabs, { desc = 
 
 vim.keymap.set('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { desc = "Toggle Terminal Window" })
 
+vim.keymap.set('v', '<leader>t', "<CMD>!column -t -s '|' -o '|'<CR>", { desc = "Toggle Terminal Window", ft="md" })
+
 -- Toggle functions (between on/off)
 function toggle_number()
     vim.o.number = not vim.o.number
