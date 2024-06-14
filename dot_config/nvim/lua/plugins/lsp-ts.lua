@@ -108,13 +108,7 @@ return {
             },
         },
         config = function(_, opts)
-            local lint = require("lint")
-
-            local linters = {
-                markdownlint = {
-                    args = { "--disable", "MD013", "--" },
-                    },
-                },
+            local lint = require("lint").setup(opts)
 
             lint.linters_by_ft = {
                 javascript = { "eslint_d" },
