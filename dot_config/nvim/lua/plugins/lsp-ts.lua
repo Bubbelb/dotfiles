@@ -4,7 +4,11 @@
 return {
     -- LSP, DAP installer
     { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
-    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason.nvim',
+      dependencies = {
+        'WhoIsSethDaniel/mason-tool-installer.nvim',
+    },
+},
     { 'williamboman/mason-lspconfig.nvim' },
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
@@ -101,13 +105,6 @@ return {
         },
     },
 
-    -- ==============================================================
-    -- Mason Auto installer
-    -- ==============================================================
-    {
-        'WhoIsSethDaniel/mason-tool-installer.nvim',
-        lazy = false,
-    },
     -- ==============================================================
     -- ==============================================================
 }
