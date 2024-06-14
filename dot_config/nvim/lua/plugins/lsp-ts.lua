@@ -108,7 +108,8 @@ return {
             },
         },
         config = function(_, opts)
-            local lint = require("lint").setup(opts)
+            require("lint").setup(opts)
+            local lint = require("lint")
 
             lint.linters_by_ft = {
                 javascript = { "eslint_d" },
