@@ -48,7 +48,7 @@ vim.keymap.set('n', '<leader>ft', require('telescope-tabs').list_tabs, { desc = 
 
 vim.keymap.set('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>', { desc = "Toggle Terminal Window" })
 
-vim.keymap.set('v', '<leader>t', "<CMD>!column -t -s '|' -o '|'<CR>", { desc = "Toggle Terminal Window" })
+vim.keymap.set('v', '<leader>t', "<CMD>!column -t -s '|' -o '|'<CR>", { desc = "Make table of selection" })
 
 -- Spell checker
 vim.keymap.set('n', '<leader>sG', ':set spelllang=en_gb<cr>', { desc = 'Set Spell Checker Language to en-GB' })
