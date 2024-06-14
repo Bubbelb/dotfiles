@@ -79,7 +79,7 @@ return {
         end,
     },
     -- ==============================================================
-    -- Add LSP extra's
+    -- Add LSP Saga
     -- ==============================================================
     {
         'nvimdev/lspsaga.nvim',
@@ -92,7 +92,7 @@ return {
         }
     },
     -- ==============================================================
-    -- Add LSP extra's
+    -- Add Linter
     -- ==============================================================
     {
         "mfussenegger/nvim-lint",
@@ -128,6 +128,13 @@ return {
                 lint.try_lint()
             end, { desc = "Trigger linting for current file" })
         end,
+        opts = {
+            linters = {
+                markdownlint = {
+                    args = { "--disable", "MD013", "--" },
+                },
+            },
+        },
         dependencies = {
             "rshkarin/mason-nvim-lint",
         },
