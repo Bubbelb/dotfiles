@@ -107,7 +107,9 @@ return {
                 },
             },
         },
-        config = function()
+        config = function(_,opts)
+            require("nvim-lint").setup(opts)
+
             local lint = require("lint")
 
             lint.linters_by_ft = {
