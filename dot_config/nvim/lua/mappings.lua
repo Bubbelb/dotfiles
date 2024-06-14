@@ -50,6 +50,13 @@ vim.keymap.set('t', '<C-t>', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>'
 
 vim.keymap.set('v', '<leader>t', "<CMD>!column -t -s '|' -o '|'<CR>", { desc = "Toggle Terminal Window" })
 
+-- Spell checker
+vim.keymap.set('n', '<leader>sG', ':set spelllang=en_gb<cr>', { desc = 'Set Spell Checker Language to en-GB' })
+vim.keymap.set('n', '<leader>sN', ':set spelllang=nl_nl<cr>', { desc = 'Set Spell Checker Language to nl-NL' })
+vim.keymap.set('n', '<leader>sU', ':set spelllang=en_us<cr>', { desc = 'Set Spell Checker Language to en-US' })
+vim.keymap.set('n', '<leader>sX', ':set spell!<cr>', { desc = 'Set Spell Checker Language to en-GB' })
+
+
 -- Toggle functions (between on/off)
 function toggle_number()
     vim.o.number = not vim.o.number
