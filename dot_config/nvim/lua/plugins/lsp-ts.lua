@@ -91,9 +91,14 @@ return {
     -- Add LSP extra's
     -- ==============================================================
     {
-    "williamboman/mason.nvim",
-    "mfussenegger/nvim-lint",
-    "rshkarin/mason-nvim-lint",
+        "mfussenegger/nvim-lint",
+        event = {
+            "BufReadPre",
+            "BufNewFile",
+        },
+        dependencies = {
+            "rshkarin/mason-nvim-lint",
+        },
     },
     -- ==============================================================
     -- ==============================================================
