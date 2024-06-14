@@ -28,7 +28,9 @@ if [ $(id -nu) == "bbl" ] ; then
               curl -s https://raw.githubusercontent.com/89luca89/distrobox/main/install | sh -s -- --prefix ~/.local'
         fi
     }
-    cat < /dev/null > /dev/tcp/google.com/80 2>&1 > /dev/null && do_bb_init_updates &
+    if cat < /dev/null > /dev/tcp/google.com/80 2>&1 > /dev/null ; then
+	    do_bb_init_updates &
+    fi
 else
 	echo "## Switching to user 'bbl'"
 	sudo -u bbl "$0" "$*"
