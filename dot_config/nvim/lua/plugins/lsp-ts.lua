@@ -140,15 +140,15 @@ return {
     -- ==============================================================
     -- Toggle diagnostics on/off
     -- ==============================================================
-    {
-        'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
-      keys = {
-        { "<Leader>xD", "<cmd>lua require('toggle_lsp_diagnostics').toggle_diagnostics()<cr>", desc = "Toggle All Diagnostic display" },
-        { "<Leader>xT", "<cmd>lua require('toggle_lsp_diagnostics').toggle_virtual_text()<cr>", desc = "Toggle Diagnostic Texts display" },
-        { "<Leader>xS", "<cmd>lua require('toggle_lsp_diagnostics').toggle_virtual_signs()<cr>", desc = "Toggle Diagnostic Signs display" },
-        { "<Leader>xR", "<cmd>lua require('toggle_lsp_diagnostics').turn_on_default_diagnostics()<cr>", desc = "Reset Diagnostics display" },
-      },
-    },
-    -- ==============================================================
-    -- ==============================================================
+    -- {
+    --     'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim',
+    --   keys = {
+    --    { "<Leader>xD", "<cmd>lua require('toggle_lsp_diagnostics').toggle_diagnostics()<cr>", desc = "Toggle All Diagnostic display" },
+    --     { "<Leader>xT", "<cmd>lua require('toggle_lsp_diagnostics').toggle_virtual_text()<cr>", desc = "Toggle Diagnostic Texts display" },
+    --     { "<Leader>xS", "<cmd>lua require('toggle_lsp_diagnostics').toggle_virtual_signs()<cr>", desc = "Toggle Diagnostic Signs display" },
+    --     { "<Leader>xR", "<cmd>lua require('toggle_lsp_diagnostics').turn_on_default_diagnostics()<cr>", desc = "Reset Diagnostics display" },
+    --   },
+    -- },
+    -- -- ==============================================================
+    -- -- ==============================================================
 }
