@@ -54,7 +54,7 @@ vim.keymap.set('v', '<leader>t', "<CMD>!column -t -s '|' -o '|'<CR>", { desc = "
 vim.keymap.set('n', '<leader>sG', ':set spelllang=en_gb<cr>', { desc = 'Set Spell Checker Language to en-GB' })
 vim.keymap.set('n', '<leader>sN', ':set spelllang=nl_nl<cr>', { desc = 'Set Spell Checker Language to nl-NL' })
 vim.keymap.set('n', '<leader>sU', ':set spelllang=en_us<cr>', { desc = 'Set Spell Checker Language to en-US' })
-vim.keymap.set('n', '<leader>sX', ':set spell!<cr>', { desc = 'Set Spell Checker Language to en-GB' })
+vim.keymap.set('n', '<leader>sX', ':set spell!<cr>', { desc = 'Toggle Spell checker on/off' })
 
 
 -- Toggle functions (between on/off)
