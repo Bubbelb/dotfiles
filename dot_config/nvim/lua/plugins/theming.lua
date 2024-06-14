@@ -160,7 +160,7 @@ return {
 
             require("ibl").setup({ indent = { highlight = highlight } })
             require "ibl".overwrite {
-                exclude = { filetypes = { 'man', 'dashboard' } }
+                exclude = { filetypes = { 'man', 'dashboard', 'help', 'markdown' } }
             }
         end,
         main = "ibl",
