@@ -7,8 +7,8 @@ vim.api.nvim_set_keymap('n', '<M-.>', ':bnext<CR>', { noremap = true, silent = t
 vim.api.nvim_set_keymap('n', '<M-/>', ':bmodified<CR>', { noremap = true, silent = true, desc = "Go to Next Modified Tab" })
 vim.api.nvim_set_keymap('n', '<Leader>q', ':q<CR>', { noremap = true, silent = true, desc = "Quit current buffer" })
 vim.api.nvim_set_keymap('n', '<Leader>Q', ':qa<CR>', { noremap = true, silent = true, desc = "Quit all buffers" })
-vim.api.nvim_set_keymap('n', '<Leader>x', ':x<CR>', { noremap = true, silent = true, desc = "Quit & Save current buffer" })
-vim.api.nvim_set_keymap('n', '<Leader>X', ':xa<CR>', { noremap = true, silent = true, desc = "Quit & Save all buffers" })
+vim.api.nvim_set_keymap('n', '<C-x>', ':x<CR>', { noremap = true, silent = true, desc = "Quit & Save current buffer" })
+vim.api.nvim_set_keymap('n', '<C-X>', ':xa<CR>', { noremap = true, silent = true, desc = "Quit & Save all buffers" })
 vim.api.nvim_set_keymap('n', '<Leader>sh', ':lua toggle_hlsearch()<CR>', { noremap = true, silent = true, desc = "Turn off Search highlight" })
 vim.api.nvim_set_keymap('n', '<Leader>sn', ':lua toggle_number()<CR>',
     { noremap = true, silent = true, desc = "Show/Hide Line Numbers" })
