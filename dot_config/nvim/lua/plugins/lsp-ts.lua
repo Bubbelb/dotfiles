@@ -100,7 +100,14 @@ return {
             "BufReadPre",
             "BufNewFile",
         },
-        config = function()
+        opts = {
+            linters = {
+                markdownlint = {
+                    args = { "--disable", "MD013", "--" },
+                },
+            },
+        },
+        config = function(_, opts)
             local lint = require("lint")
 
             lint.linters_by_ft = {
@@ -128,13 +135,6 @@ return {
                 lint.try_lint()
             end, { desc = "Trigger linting for current file" })
         end,
-        opts = {
-            linters = {
-                markdownlint = {
-                    args = { "--disable", "MD013", "--" },
-                },
-            },
-        },
         dependencies = {
             "rshkarin/mason-nvim-lint",
         },
