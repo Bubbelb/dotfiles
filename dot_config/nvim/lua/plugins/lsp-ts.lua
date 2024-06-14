@@ -107,8 +107,7 @@ return {
                 },
             },
         },
-        config = function(_, opts)
-            require("lint").setup(opts)
+        config = function()
             local lint = require("lint")
 
             lint.linters_by_ft = {
