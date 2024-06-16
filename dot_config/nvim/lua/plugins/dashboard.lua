@@ -26,7 +26,7 @@ return {
         --     }
         -- end,
         keys = {
-            { "<Leader>d", "<cmd>dashboard<cr>", desc = "Show Dashboard"
+            { "<Leader>d", "<cmd>Dashboard<cr>", desc = "Show Dashboard"
             },
         },
         dependencies = { { 'nvim-tree/nvim-web-devicons' } }
