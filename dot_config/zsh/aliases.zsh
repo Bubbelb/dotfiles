@@ -44,7 +44,7 @@ alias jssh='ssh -J bubbel.org'
 
 # Start Distrobox bbsh on ssh connection
 function essh() { ssh -t $1 '~/.local/bin/dbe' }
-function bsh() { [[ -x /bin/bash ]] && ssh -t $(hostname) /bin/bash $* || ssh -t $(hostname) /bin/sh $*)
+function bsh() { [[ -x /bin/bash ]] && ssh -t $(hostname) /bin/bash $* || ssh -t $(hostname) /bin/sh $* }
 
 if ( whence python > /dev/null || whence python3 > /dev/null ) ; then
     alias urldecode='python3 -c "import sys, urllib.parse as ul; print(ul.unquote_plus(sys.argv[1]))"'
