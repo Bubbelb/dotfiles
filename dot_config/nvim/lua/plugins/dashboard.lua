@@ -7,9 +7,10 @@ return {
                 shortcut = {
                     -- action can be a function type
                     { desc = '🏗️  Projects', group = 'DashboardFooter', key = 'P', action = 'Telescope neovim-project discover' },
-                    { desc = '⏻  Quit', group = 'DashboardFooter', key = 'q', action = 'qa' },
-                    { desc = '⚠️  Force Quit', group = 'DashboardFooter', key = 'Q', action = 'qa!' },
                     { desc = '⛑️  Update', group = 'DashboardFooter', key = 'U', action = 'Lazy sync | TSUpdateSync | MasonUpdate' },
+                    { desc = '📛 Quit Dashboard', group = 'DashboardFooter', key = 'x', action = 'bd' },
+                    { desc = '⏻  Quit Neovim', group = 'DashboardFooter', key = 'q', action = 'qa' },
+                    { desc = '⚠️  Force Quit Neovim', group = 'DashboardFooter', key = 'Q', action = 'qa!' },
                 },
                 packages = { enable = false }, -- show how many plugins neovim loaded
                 -- limit how many projects list, action when you press key or enter it will run this action.
