@@ -1,17 +1,31 @@
 #!/bin/sh
+if which distrobox >/dev/null 2>&1 ; then
+    DB_EXEC=distrobox
+else
+    for DB_PATHS in '~/.local/bin/distrobox' '/usr/local/bin/distrobox' '/usr/bin/distrobox' ; do
+        if [ -x "${DB_PATHS}" ] ; then
+            DB_EXEC="${DB_PATHS}"
+            break
+        fi
+    done
+    if [ -z "${DB_EXEC}" ] ; then
+        echo "Error: Distrobox program not found." >&2
+        exit 1
+    fi
+fi
 if [ -f '/etc/bbsh' ] ; then
     echo "ERROR: Already in bbsh!" >&2
 elif [ -f '/run/host/etc/passwd' ] ; then
     echo "ERROR: Already in a distrobox container!"
 elif [ -z "${1}" ] ; then
     if [ -z "${SSH_CONNECTION}" ] ; then
-        distrobox enter bbsh
+        eval "${DB_EXEC}" enter bbsh
     else
-        distrobox enter bbsh -- tmux new-session -A -D
+        eval "${DB_EXEC}" enter bbsh -- tmux new-session -A -D
     fi
     echo "...Back in host..."
 
 else
-    distrobox enter bbsh -- $*
+    eval "${DB_EXEC}" enter bbsh -- $*
     echo "...Back in host..."
 fi
