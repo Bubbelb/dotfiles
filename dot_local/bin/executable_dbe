@@ -3,7 +3,7 @@ if which distrobox >/dev/null 2>&1 ; then
     DB_EXEC=distrobox
 else
     for DB_PATHS in '~/.local/bin/distrobox' '/usr/local/bin/distrobox' '/usr/bin/distrobox' ; do
-        if [ -x "${DB_PATHS}" ] ; then
+        if [ -f "${DB_PATHS}" ] ; then
             DB_EXEC="${DB_PATHS}"
             break
         fi
