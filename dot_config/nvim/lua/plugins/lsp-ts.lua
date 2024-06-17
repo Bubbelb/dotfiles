@@ -116,8 +116,8 @@ return {
                 yaml = { "yamllint" },
                 json = { "jsonlint" },
             }
-        -- local yllint = require('lint').linters.yamllint
-        -- yllint.args = { "-d", '"{extends: default, rules: {line-length: disable}}"' }
+        local yllint = require('lint').linters.yamllint
+        yllint.args = { "-d", '"{extends: default, rules: {line-length: {max: 120}}}"' }
 
         local mdlint = require('lint').linters.markdownlint
         mdlint.args = { "--disable", "MD013", "--" }
