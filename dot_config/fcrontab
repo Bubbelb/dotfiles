@@ -1,0 +1,3 @@
+%weekly * 0-23 chezmoi -f update
+%weekly * 0-23 nvim --headless "+Lazy! sync" +qa ; nvim --headless "+MasonUpdate" +qa ; nvim --headless "+TSUpdateSync" +qa
+
