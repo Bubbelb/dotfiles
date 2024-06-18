@@ -21,7 +21,7 @@ elif [ -z "${1}" ] ; then
     if [ -z "${SSH_CONNECTION}" ] ; then
         eval "${DB_EXEC}" enter bbsh
     else
-        eval "${DB_EXEC}" enter bbsh -- tmux new-session -A -D
+        eval "${DB_EXEC}" enter bbsh -- tmux -u new-session -A -D
     fi
     echo "...Back in host..."
 
