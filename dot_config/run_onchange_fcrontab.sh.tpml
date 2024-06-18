@@ -1,0 +1,5 @@
+#!/bin/sh
+
+# fcrontab hash: {{ include "fcrontab" | sha256sum }}
+fcrontab -n "${HOME}/.config/fcrontab"
+
