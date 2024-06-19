@@ -56,6 +56,7 @@ vim.keymap.set('n', '<leader>sN', ':set spelllang=nl_nl<cr>', { desc = 'Set Spel
 vim.keymap.set('n', '<leader>sU', ':set spelllang=en_us<cr>', { desc = 'Set Spell Checker Language to en-US' })
 vim.keymap.set('n', '<leader>sX', ':set spell!<cr>', { desc = 'Toggle Spell checker' })
 vim.keymap.set('n', '<leader>sw', ':set wrap!<cr>', { desc = 'Toggle Line Wrap' })
+vim.keymap.set('n', '<leader>ss', ':%s/\\s\\+$//', { desc = 'Remove all training spaces' })
 
 
 -- Toggle functions (between on/off)
