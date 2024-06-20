@@ -15,6 +15,13 @@ if [ -f "/run/host/etc/hostname" ] && [ -f "/etc/bbsh" ] && shopt -q login_shell
     exec /bin/zsh -l
 fi
 
+# Check if Path needs to be augmented with ~/.local/bin
+if [[ -d "${HOME}/.local/bin" ]] ; then
+    if ! [[ "${PATH}" =~ "${HOME}/.local/bin" ]] ; then
+        export PATH="${HOME}/.local/bin"
+    fi
+fi
+
 # Set vi/vim keybindings
 set -o vi
 bind '"\e."':yank-last-arg
