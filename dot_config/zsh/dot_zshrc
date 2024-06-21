@@ -2,14 +2,13 @@
 export ZSH_APPDIR="${HOME}/.local/share/zsh"
 mkdir -p "${ZSH_APPDIR}"
 
-# If inside bbsh distrobox, start cron
-# if [[ -f /etc/bbsh ]] && \
-#     [[ -x /usr/bin/supercronic ]] && \
-#     [[ -f "${HOME}/.config/crontab" ]] &&
-#     ! pgrep -U ${UID} supercronic >/dev/null
-# then
-#     ( exec /bin/zsh -c '/usr/bin/supercronic -quiet '"${HOME}/.config/crontab"' & disown' )
-# fi
+# If inside bbsh distrobox, configure fcron
+if [[ -f /etc/bbsh ]] && \
+    [[ -x /usr/bin/fcontab ]] && \
+    [[ -f "${HOME}/.config/cfrontab" ]] &&
+then
+    fcrontab "${HOME}/.config/fcrontab" >/dev/null 2>&1
+fi
 
 #Update path with user bindir
 typeset -U path
