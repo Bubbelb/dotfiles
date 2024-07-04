@@ -11,20 +11,24 @@ if [ -f '/run/host/etc/passwd' ] ; then
 fi
 
 # Check, and optionally install Distrobox.
-if ! which distrobox > /dev/null 2>&1 && ! [ -f ~/.local/bin/distrobox ] ; then
-    echo -n "Distrobox not installed. Install (Y/N)? " ; read REPLY
-    if [ "${REPLY}" = "Y" ] || [ "${REPLY}" = "y" ] ; then
-        if which curl > /dev/null 2>&1 ; then
-            curl -s "${DB_INSTALL_URL}" | sh -s -- --prefix ~/.local
-        elif which wget > /dev/null 2>&1 ; then
-            wget -qO- "${DB_INSTALL_URL}" | sh -s -- --prefix ~/.local
-        else
-            echo "No wget or curl. Unable to download distrobox."
-            exit 2
-        fi
+if ! which distrobox > /dev/null 2>&1 ; then
+    if [ -f "${HOME}/.local/bin/distrobox" ] ; then
+        export PATH="${PATH}:${HOME}/.local/bin"
     else
-        echo "Not installing distrobox."
-        exit 3
+        echo -n "Distrobox not installed. Install (Y/N)? " ; read REPLY
+        if [ "${REPLY}" = "Y" ] || [ "${REPLY}" = "y" ] ; then
+            if which curl > /dev/null 2>&1 ; then
+                curl -s "${DB_INSTALL_URL}" | sh -s -- --prefix ~/.local
+            elif which wget > /dev/null 2>&1 ; then
+                wget -qO- "${DB_INSTALL_URL}" | sh -s -- --prefix ~/.local
+            else
+                echo "No wget or curl. Unable to download distrobox."
+                exit 2
+            fi
+        else
+            echo "Not installing distrobox."
+            exit 3
+        fi
     fi
 fi
 if [ -f "${INI_PATH}" ] ; then
