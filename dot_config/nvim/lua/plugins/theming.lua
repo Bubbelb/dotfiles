@@ -55,6 +55,12 @@ return {
                 config = function()
                     -- vim.cmd.colorscheme('NeoSolarized')
                     vim.g.gruvbox_material_enable_italic = true
+                    vim.g.gruvbox_material_enable_bold = true
+		    vim.g.gruvbox_material_background = 'hard'  -- Options: soft, medium, hard
+		    vim.g.gruvbox_material_foreground = 'mix'  -- Options: material, mix, original
+		    vim.g.gruvbox_material_statusline_style = 'mix'  -- Options: material, mix, original
+		    vim.g.gruvbox_material_better_performance = 1
+		    vim.g.gruvbox_material_dim_inactive_windows = true
                     vim.cmd.colorscheme('gruvbox-material')
                 end,
             },
@@ -71,7 +77,7 @@ return {
         opts = {
             options = {
                 icons_enabled = true,
-                theme = 'NeoSolarized',
+                theme = 'gruvbox-material',
                 component_separators = { left = '', right = '' },
                 section_separators = { left = '', right = '' },
                 disabled_filetypes = {}
