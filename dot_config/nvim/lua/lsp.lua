@@ -1,6 +1,8 @@
+-- Configure the LSP (Language Servers. Run Mason to get it working. This makes use of
+-- the plugins installed in the plugins/ directory.
+--
 -- LSP client config
 local lsp_zero = require('lsp-zero')
-
 lsp_zero.on_attach(function(client, bufnr)
     -- see :help lsp-zero-keybindings
     -- to learn the available actions
