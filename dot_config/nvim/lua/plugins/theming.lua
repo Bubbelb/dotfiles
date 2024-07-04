@@ -1,5 +1,5 @@
 -- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
--- Theming, colors
+-- Theming, colours
 -- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 return {
     -- ==============================================================
@@ -30,37 +30,19 @@ return {
             longitude = 4.66164,   -- east is positive, west is negative
             sunrise_offset = 1200, -- offset the sunrise by this many seconds
             sunset_offset = -1200, -- offset the sunset by this many seconds
-            -- day_callback = function()
-            --     vim.o.background = 'light'
-            --     require('NeoSolarized').setup({ style = 'light', transparent = false, terminal_colors = true })
-            --     vim.cmd.colorscheme('NeoSolarized')
-            -- end,
-            -- night_callback = function()
-            --     vim.o.background = 'dark'
-            --     require('NeoSolarized').setup({ style = 'dark', transparent = false, terminal_colors = true })
-            --     vim.cmd.colorscheme('NeoSolarized')
-            -- end,
-
-
         },
         dependencies = {
             {
                 'sainnhe/gruvbox-material', -- Gruvbox theme set
                 lazy = false,
-                -- opts = {
-                --     style = 'dark',
-                --     transparent = false,
-                --     terminal_colors = true,
-                -- },
                 config = function()
-                    -- vim.cmd.colorscheme('NeoSolarized')
                     vim.g.gruvbox_material_enable_italic = true
                     vim.g.gruvbox_material_enable_bold = true
-		    vim.g.gruvbox_material_background = 'hard'  -- Options: soft, medium, hard
-		    vim.g.gruvbox_material_foreground = 'mix'  -- Options: material, mix, original
-		    vim.g.gruvbox_material_statusline_style = 'mix'  -- Options: material, mix, original
-		    vim.g.gruvbox_material_better_performance = 1
-		    vim.g.gruvbox_material_dim_inactive_windows = true
+                    vim.g.gruvbox_material_background = 'hard'  -- Options: soft, medium, hard
+                    vim.g.gruvbox_material_foreground = 'mix'  -- Options: material, mix, original
+                    vim.g.gruvbox_material_statusline_style = 'mix'  -- Options: material, mix, original
+                    vim.g.gruvbox_material_better_performance = 1
+                    vim.g.gruvbox_material_dim_inactive_windows = true
                     vim.cmd.colorscheme('gruvbox-material')
                 end,
             },
