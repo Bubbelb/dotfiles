@@ -12,8 +12,8 @@ fi
 
 # Check, and optionally install Distrobox.
 if ! which distrobox > /dev/null 2>&1 ; then
-    read -p "Distrobox not installed. Install (Y/N)? " -N 1 -T 20
-    if [ "${REPLY}" == 'Y' ] || [ "${REPLY}" == 'y' ] ; then
+    echo -n "Distrobox not installed. Install (Y/N)? " ; read REPLY
+    if [ "${REPLY}" = "Y" ] || [ "${REPLY}" = "y" ] ; then
         if which curl > /dev/null 2>&1 ; then
             curl -s "${DB_INSTALL_URL}" | sh -s -- --prefix ~/.local
         elif which wget > /dev/null 2>&1 ; then
