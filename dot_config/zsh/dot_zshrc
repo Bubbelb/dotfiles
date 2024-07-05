@@ -3,11 +3,10 @@ export ZSH_APPDIR="${HOME}/.local/share/zsh"
 mkdir -p "${ZSH_APPDIR}"
 
 # If inside bbsh distrobox, configure fcron
-if [[ -f /etc/bbsh ]] && \
-    [[ -x /usr/bin/fcontab ]] && \
-    [[ -f "${HOME}/.config/cfrontab" ]] &&
-then
-    fcrontab "${HOME}/.config/fcrontab" >/dev/null 2>&1
+if [[ -f /etc/bbsh ]] || [[ -f /etc/beets ]] ; then
+    if [[ -x /usr/bin/fcrontab ]] && [[ -f "${HOME}/.config/fcrontab" ]] ; then
+        fcrontab "${HOME}/.config/fcrontab" >/dev/null 2>&1
+    fi
 fi
 
 #Update path with user bindir
