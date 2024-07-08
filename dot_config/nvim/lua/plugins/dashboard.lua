@@ -7,8 +7,8 @@ return {
                 header = {'Bubbel',''},
                 shortcut = {
                     -- action can be a function type
-                    { desc = '🏗️  Projects', group = 'DashboardFooter', key = 'P', action = 'Telescope neovim-project discover' },
-                    { desc = '⏳  Latest (Most recent accessed) Project', group = 'DashboardFooter', key = 'L', action = 'NeovimProjectLoadRecent' },
+                    { desc = '🏗️  Projects', group = 'DashboardHeader', key = 'P', action = 'Telescope neovim-project discover' },
+                    { desc = '⏳  Latest (Most recent accessed) Project', group = 'DashboardHeader', key = 'L', action = 'NeovimProjectLoadRecent' },
                     { desc = '⛑️  Update', group = 'DashboardFooter', key = 'U', action = 'Lazy sync | TSUpdateSync | MasonUpdate' },
                     { desc = '📛 Quit Dashboard', group = 'DashboardFooter', key = 'x', action = 'bd' },
                     { desc = '⏻  Quit Neovim', group = 'DashboardFooter', key = 'q', action = 'qa' },
