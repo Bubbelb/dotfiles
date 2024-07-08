@@ -4,6 +4,7 @@ return {
         event = 'VimEnter',
         opts = {
             config = {
+                header = {},
                 shortcut = {
                     -- action can be a function type
                     { desc = '🏗️  Projects', group = 'DashboardFooter', key = 'P', action = 'Telescope neovim-project discover' },
@@ -17,7 +18,7 @@ return {
                 -- limit how many projects list, action when you press key or enter it will run this action.
                 -- action can be a functino type, e.g.
                 -- action = func(path) vim.cmd('Telescope find_files cwd=' .. path) end
-                project = { enable = false },
+                project = { enable = true },
                 mru = { limit = 10, icon = '⏳', label = '  Recent files', cwd_only = false },
                 footer = {}, -- footer
             },
