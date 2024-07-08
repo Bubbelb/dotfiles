@@ -4,7 +4,7 @@ return {
         event = 'VimEnter',
         opts = {
             config = {
-                header = {'Bubbel'},
+                header = {'Bubbel',''},
                 shortcut = {
                     -- action can be a function type
                     { desc = '🏗️  Projects', group = 'DashboardFooter', key = 'P', action = 'Telescope neovim-project discover' },
