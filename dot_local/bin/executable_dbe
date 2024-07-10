@@ -15,7 +15,7 @@ else
 fi
 if [ -f '/etc/bbsh' ] ; then
     echo "ERROR: Already in bbsh!" >&2
-elif [ -f '/run/host/etc/passwd' ] ; then
+elif [ -f '/run/.containerenv' ] ; then
     echo "ERROR: Already in a distrobox container!"
 elif [ -z "${1}" ] ; then
     if [ -z "${SSH_CONNECTION}" ] ; then

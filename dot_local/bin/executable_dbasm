@@ -5,7 +5,7 @@ INI_URL='https://raw.githubusercontent.com/Bubbelb/dotfiles/main/dot_config/dist
 DB_INSTALL_URL='https://raw.githubusercontent.com/89luca89/distrobox/main/install'
 
 # Check if we're not running inside Distrobox.
-if [ -f '/run/host/etc/passwd' ] ; then
+if [ -f '/run/.containerenv' ] ; then
     echo "This can only run outside distrobox."
     exit 1
 fi
