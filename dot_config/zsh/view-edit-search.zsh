@@ -2,7 +2,7 @@
 ## Like neovim, grep, less and bat.
 
 # Set default editor
-for EDITEM (lvim nvim vim vi nano) ; do
+for EDITEM (nvim vim vi nano) ; do
     if whence ${EDITEM} >/dev/null ; then
         VISUAL=$(whence ${EDITEM})
         break
@@ -19,6 +19,7 @@ if which nvim > /dev/null ; then
     alias nvimdiff='/usr/bin/nvim -d'
 fi
 
+# Set Less to RAW. i.e. do not escape control characters, like colour, etc.
 export LESS=' -R '
 
 # Man highlighting with color
@@ -40,4 +41,8 @@ if [[ "$(readlink $(which grep 2>/dev/null) | sed 's_.*/__')" != 'busybox' ]] ; 
 fi
 readlink diff >/dev/null 2>&1 && alias diff='diff --color'
 
+# Systemd Journal options (set bat as pager)
+export SYSTEMD_COLORS="false"
+export SYSTEMD_PAGERSECURE="true"
+export SYSTEMD_PAGER="bat -l syslog -p"
 
