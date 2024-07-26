@@ -1,3 +1,7 @@
 [[ -f /etc/profile ]] && source /etc/profile
 export ZDOTDIR="${HOME}/.config/zsh"
 [[ "${FORCE_TMUX:-0}" == "1" ]] && exec /usr/bin/tmux -u new-session -A -D
+mkdir -p "${ZDOTDIR}/completions"
+fpath=(${ZDOTDIR}/completions $fpath)
+export fpath
+
