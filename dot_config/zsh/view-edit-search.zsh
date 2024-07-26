@@ -12,7 +12,7 @@ done
 export EDITOR=${VISUAL}
 export VISUAL
 
-#Neovim options
+# Neovim options
 if which nvim > /dev/null ; then
     alias nv=/usr/bin/nvim
     alias nvdiff='/usr/bin/nvim -d'
@@ -42,7 +42,7 @@ fi
 readlink diff >/dev/null 2>&1 && alias diff='diff --color'
 
 # Systemd Journal options (set bat as pager)
-export SYSTEMD_COLORS="false"
-export SYSTEMD_PAGERSECURE="true"
-export SYSTEMD_PAGER="bat -l syslog -p"
+export SYSTEMD_COLORS='false'
+export SYSTEMD_PAGERSECURE='true'
+export SYSTEMD_PAGER='bat -l syslog -p'
 
