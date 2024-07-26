@@ -2,7 +2,14 @@
 export ZDOTDIR="${HOME}/.config/zsh"
 [[ "${FORCE_TMUX:-0}" == "1" ]] && exec /usr/bin/tmux -u new-session -A -D
 mkdir -p "${ZDOTDIR}/completions"
-[[ -d /run/host/usr/share/zsh/vendor-completions ]] && mount --bind -o ro /run/host/usr/share/zsh/vendor-completions ${ZDOTDIR}/completions
+if [[ -d /run/host/usr/share/zsh/vendor-completions ]] ; then
+    for LAPP in $(ls /usr/local/bin/*) ; do
+        if [[ "$(readlink -f ${LAPP})" == "/usr/bin/distrobox-host-exec" ]] && [[ -f "/run/host/usr/share/zsh/vendor-completions/_$(basename ${LAPP})" ]] ; then
+            cp -u -t "${ZDOTDIR}/completions" "/run/host/usr/share/zsh/vendor-completions/_$(basename ${LAPP})"
+        fi
+    done
+fi
+
 fpath=(${ZDOTDIR}/completions $fpath)
 export fpath
 
