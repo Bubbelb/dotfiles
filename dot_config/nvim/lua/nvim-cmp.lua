@@ -7,6 +7,9 @@
         require('luasnip').lsp_expand(args.body)
       end,
     },
+    completion = {
+      keyword_length = 4,
+    },
     window = {
       -- completion = cmp.config.window.bordered(),
       -- documentation = cmp.config.window.bordered(),
