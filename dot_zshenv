@@ -1,5 +1,10 @@
 [[ -f /etc/profile ]] && source /etc/profile
 export ZDOTDIR="${HOME}/.config/zsh"
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
 [[ "${FORCE_TMUX:-0}" == "1" ]] && exec /usr/bin/tmux -u new-session -A -D
 mkdir -p "${ZDOTDIR}/completions"
 if [[ -d /run/host/usr/share/zsh/vendor-completions ]] ; then
