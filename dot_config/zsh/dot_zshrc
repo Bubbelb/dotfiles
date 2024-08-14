@@ -2,6 +2,12 @@
 export ZSH_APPDIR="${HOME}/.local/share/zsh"
 mkdir -p "${ZSH_APPDIR}"
 
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+
 # If inside bbsh distrobox, configure fcron
 if [[ -f /etc/bbsh ]] || [[ -f /etc/beets ]] ; then
     if [[ -x /usr/bin/fcrontab ]] && [[ -f "${HOME}/.config/fcrontab" ]] ; then
