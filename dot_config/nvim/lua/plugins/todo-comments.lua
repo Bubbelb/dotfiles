@@ -8,4 +8,6 @@ return {
             -- refer to the configuration section below
         }
     },
+    { "Djancyp/better-comments.nvim",
+    }
 }
