@@ -9,5 +9,8 @@ return {
         }
     },
     { "Djancyp/better-comments.nvim",
+    lazy = false
     }
 }
+-- ! asd
+-- TODO
