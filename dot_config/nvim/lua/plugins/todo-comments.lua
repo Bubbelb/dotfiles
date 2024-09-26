@@ -8,9 +8,8 @@ return {
             -- refer to the configuration section below
         }
     },
-    { "Djancyp/better-comments.nvim",
-    lazy = false
+    {
+        "Djancyp/better-comments.nvim",
+        lazy = false
     }
 }
--- ! asd
--- TODO
