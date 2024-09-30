@@ -2,7 +2,7 @@ return {
     {
         "NeogitOrg/neogit",
         keys = {
-            { "<Leader>go", "<cmd>Neogit<cr>",           desc = "Open the Neogit status buffer." },
+            { "<Leader>go", "<cmd>Neogit kind=auto<cr>",           desc = "Open the Neogit status buffer." },
             { "<Leader>gf", "<cmd>Neogit cwd=%:p:h<cr>", desc = "Uses the repository of the current file." },
             { "<Leader>gc", "<cmd>Neogit commit<cr>",    desc = "Open commit popup." },
         },
