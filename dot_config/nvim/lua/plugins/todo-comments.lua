@@ -37,7 +37,7 @@ return {
                     },
                     {
                         name = "?",
-                        fg = "lightblue",
+                        fg = "blue",
                         bg = "",
                         bold = true,
                         virtual_text = "",
