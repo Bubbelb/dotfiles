@@ -36,6 +36,13 @@ return {
                         virtual_text = "This is virtual Text from WARNING",
                     },
                     {
+                        name = "?",
+                        fg = "lightblue",
+                        bg = "",
+                        bold = true,
+                        virtual_text = "",
+                    },
+                    {
                         name = "!",
                         fg = "#f44747",
                         bg = "",
