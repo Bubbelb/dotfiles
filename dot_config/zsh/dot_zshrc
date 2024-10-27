@@ -8,10 +8,11 @@ case $- in
 esac
 
 
-# If inside bbsh distrobox, configure fcron
+# If inside bbsh distrobox, configure fcron and set Neovim to full
 if [[ -f /etc/bbsh ]] || [[ -f /etc/beets ]] ; then
     if [[ -x /usr/bin/fcrontab ]] && [[ -f "${HOME}/.config/fcrontab" ]] ; then
         fcrontab "${HOME}/.config/fcrontab" >/dev/null 2>&1
+        export NVIM_APPNAME=nvim-bbsh
     fi
 fi
 
