@@ -5,7 +5,6 @@ vim.opt.hlsearch = true
 vim.opt.langremap = false
 vim.opt.shada = "'50,/200,:200,<500,s500,:200,h"
 vim.opt.mouse = 'a'
-vim.opt.undofile = true
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 vim.opt.smarttab = true
@@ -14,7 +13,6 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.termguicolors = true
 vim.opt.modeline = true
-vim.opt.undofile = true
 vim.opt.breakindent = true
 vim.opt.linebreak = true
 vim.opt.wrap = false
@@ -25,6 +23,31 @@ vim.opt.completeopt = {'menuone', 'noinsert', 'noselect'}
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 vim.g.completion_enable_auto_popup = 0
+
+-- Undo/Swap/Backup
+SWAPDIR = "~/.local/share/nvim/swap/"
+BACKUPDIR = "~/.local/share/nvim/backup/"
+UNDODIR = "~/.local/share/nvim/undo/"
+
+if vim.fn.isdirectory(SWAPDIR) == 0 then
+	vim.fn.mkdir(SWAPDIR, "p", "0o700")
+end
+
+if vim.fn.isdirectory(BACKUPDIR) == 0 then
+	vim.fn.mkdir(BACKUPDIR, "p", "0o700")
+end
+
+if vim.fn.isdirectory(UNDODIR) == 0 then
+	vim.fn.mkdir(UNDODIR, "p", "0o700")
+end
+
+vim.opt.directory = SWAPDIR
+vim.opt.backupdir = BACKUPDIR
+vim.opt.undodir = UNDODIR
+vim.opt.swapfile = true
+vim.opt.backup = true
+vim.opt.undofile = true
+
 
 -- Remove trailing whitespaces upon save
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
