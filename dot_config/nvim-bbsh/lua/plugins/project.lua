@@ -3,8 +3,8 @@ return {
         "coffebar/neovim-project",
         opts = {
             projects = { -- define project roots
-                os.getenv("HOME") .. "~/Projects.priv/*",
-                os.getenv("HOME") .. "~/Projects.umcu/*",
+                "~/Projects.priv/*",
+                "~/Projects.umcu/*",
            },
         dashboard_mode = true,
         },
