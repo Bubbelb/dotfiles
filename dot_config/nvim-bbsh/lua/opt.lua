@@ -25,9 +25,10 @@ vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.g.completion_enable_auto_popup = 0
 
 -- Undo/Swap/Backup
-SWAPDIR = "~/.local/share/nvim/swap/"
-BACKUPDIR = "~/.local/share/nvim/backup/"
-UNDODIR = "~/.local/share/nvim/undo/"
+
+SWAPDIR = os.getenv("HOME") .. "/.local/share/nvim/swap/"
+BACKUPDIR = os.getenv("HOME") .. "/.local/share/nvim/backup/"
+UNDODIR = os.getenv("HOME") .. "/.local/share/nvim/undo/"
 
 if vim.fn.isdirectory(SWAPDIR) == 0 then
 	vim.fn.mkdir(SWAPDIR, "p", "0o700")
