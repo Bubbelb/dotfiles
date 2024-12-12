@@ -43,14 +43,14 @@ return {
         config = function(_, opts)
             require('nvim-treesitter.configs').setup(opts)
         end,
-        -- dependencies = {
-        --     'HiPhish/rainbow-delimiters.nvim',
-        -- },
+        dependencies = {
+            'HiPhish/rainbow-delimiters.nvim',
+        },
     },
     { 'nvim-treesitter/nvim-treesitter-refactor' }, -- Refactor (Highlighting, smart rename, navigation)
-    -- {
-    --     'HiPhish/rainbow-delimiters.nvim',          -- Highlight paranthesis pairs in their own colour.
-    -- },
+    {
+        'HiPhish/rainbow-delimiters.nvim',          -- Highlight paranthesis pairs in their own colour.
+    },
     {
         'cuducos/yaml.nvim',
         opts = {
