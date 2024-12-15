@@ -89,6 +89,12 @@ end
 
 vim.api.nvim_set_keymap('n', '<leader>xD', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
 
-if not ( vim.env.NVIM_SHELL == '' ) then
-    vim.o.shell=vim.env.NVIM_SHELL
-end
+-- Reserve a space in the gutter
+-- This will avoid an annoying layout shift in the screen
+vim.opt.signcolumn = 'yes'
+
+
+
+-- if vim.env.NVIM_SHELL == 'debian' then
+--     vim.o.shell="distrobox-host-exec distrobox enter debian"
+-- end
