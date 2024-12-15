@@ -36,6 +36,9 @@ opts = {
         notify = true, -- get a notification when new updates are found
         frequency = 259200, -- check for updates ecery 3 days
   },
+  rocks = {
+      enabled = false,
+  },
 }
 require("lazy").setup("plugins", opts)
 require('opt')
