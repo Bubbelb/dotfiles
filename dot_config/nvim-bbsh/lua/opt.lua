@@ -88,3 +88,7 @@ function _G.toggle_diagnostics()
 end
 
 vim.api.nvim_set_keymap('n', '<leader>xD', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
+
+if not ( vim.env.NVIM_SHELL == '' ) then
+    vim.o.shell=vim.env.NVIM_SHELL
+end
