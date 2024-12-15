@@ -3,7 +3,6 @@
 -- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 return {
     -- LSP, DAP installer
-    { 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
     { 'williamboman/mason.nvim',
       dependencies = {
         'WhoIsSethDaniel/mason-tool-installer.nvim',
