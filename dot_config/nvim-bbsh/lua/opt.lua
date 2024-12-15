@@ -25,7 +25,6 @@ vim.opt.shortmess = vim.opt.shortmess + { c = true }
 vim.g.completion_enable_auto_popup = 0
 
 -- Undo/Swap/Backup
-
 SWAPDIR = os.getenv("HOME") .. "/.local/share/nvim/swap/"
 BACKUPDIR = os.getenv("HOME") .. "/.local/share/nvim/backup/"
 UNDODIR = os.getenv("HOME") .. "/.local/share/nvim/undo/"
