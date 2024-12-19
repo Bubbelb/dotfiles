@@ -15,24 +15,6 @@ vim.api.nvim_set_keymap('n', '<Leader>sn', ':lua toggle_number()<CR>',
 vim.api.nvim_set_keymap('n', '<Leader>sr', ':lua toggle_relativenumber()<CR>',
     { noremap = true, silent = true, desc = "Show/Hide Relative Line Numbers" })
 
--- LSP Client mappings
--- This is where you enable features that only work if there is a language server active in the file
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(event)
-    vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { noremap = true, silent = true, desc = "Keyword Help", buffer = event.buf })
-    -- vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', { noremap = true, silent = true, desc = "Go to Definition", buffer = event.buf })
-    -- vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', { noremap = true, silent = true, desc = "go to Declaration", buffer = event.buf })
-    -- vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', { noremap = true, silent = true, desc = "Go to Implementation", buffer = event.buf })
-    -- vim.api.nvim_set_keymap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', { noremap = true, silent = true, desc = "Go to Type definition", buffer = event.buf })
-    -- vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', { noremap = true, silent = true, desc = "Go to Reference", buffer = event.buf })
-    -- vim.api.nvim_set_keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', { noremap = true, silent = true, desc = "Show Function Signature Help", buffer = event.buf })
-    -- vim.api.nvim_set_keymap('n', 'ge', '<cmd>lua vim.lsp.diagnostic.setloclist()<cr>', { noremap = true, silent = true, desc = "Show QuickFix", buffer = event.buf })
-    -- vim.api.nvim_set_keymap({'n', 'v'}, '<Leader>F', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { noremap = true, silent = true, desc = "Reformat", buffer = event.buf })
-    -- vim.api.nvim_set_keymap('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { noremap = true, silent = true, desc = "Rename definition", buffer = event.buf })
-    -- vim.api.nvim_set_keymap('x', '<Leader>a', '<cmd>lua vim.lsp.buf.code_action()<cr>', { silent = true, desc = "Select Code Action", buffer = event.buf })
-  end,
-})
-
 -- Telescope Support
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = "Show/Search files below CWD" })
