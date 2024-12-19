@@ -125,6 +125,7 @@ lspconfig_defaults.capabilities = vim.tbl_deep_extend(
 -- This is where you enable features that only work if there is a language server active in the file
 vim.api.nvim_create_autocmd('LspAttach', {
   callback = function(event)
+    local opts = {buffer = event.buf}
     vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { noremap = true, silent = true, desc = "Keyword Help", buffer = event.buf })
     vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', { noremap = true, silent = true, desc = "Go to Definition", buffer = event.buf })
     vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', { noremap = true, silent = true, desc = "go to Declaration", buffer = event.buf })
