@@ -131,7 +131,8 @@ vim.api.nvim_set_keymap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>',
 vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', { noremap = true, silent = true, desc = "Go to Reference" })
 vim.api.nvim_set_keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', { noremap = true, silent = true, desc = "Show Function Signature Help" })
 vim.api.nvim_set_keymap('n', 'ge', '<cmd>lua vim.lsp.diagnostic.setloclist()<cr>', { noremap = true, silent = true, desc = "Show QuickFix" })
-vim.api.nvim_set_keymap({'n', 'v'}, '<Leader>F', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { noremap = true, silent = true, desc = "Reformat" })
+vim.api.nvim_set_keymap('n', '<Leader>F', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { noremap = true, silent = true, desc = "Reformat Buffer" })
+vim.api.nvim_set_keymap('v', '<Leader>F', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { noremap = true, silent = true, desc = "Reformat Visual" })
 vim.api.nvim_set_keymap('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { noremap = true, silent = true, desc = "Rename definition" })
 vim.api.nvim_set_keymap('x', '<Leader>a', '<cmd>lua vim.lsp.buf.code_action()<cr>', { silent = true, desc = "Select Code Action" })
 
@@ -146,7 +147,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', { noremap = true, silent = true, desc = "Go to Reference", opts })
     vim.api.nvim_set_keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', { noremap = true, silent = true, desc = "Show Function Signature Help", opts })
     vim.api.nvim_set_keymap('n', 'ge', '<cmd>lua vim.lsp.diagnostic.setloclist()<cr>', { noremap = true, silent = true, desc = "Show QuickFix", opts })
-    vim.api.nvim_set_keymap({'n', 'v'}, '<Leader>F', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { noremap = true, silent = true, desc = "Reformat", opts })
+    vim.api.nvim_set_keymap('n', '<Leader>F', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { noremap = true, silent = true, desc = "Reformat Buffer", opts })
+    vim.api.nvim_set_keymap('v', '<Leader>F', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { noremap = true, silent = true, desc = "Reformat Visual", opts })
     vim.api.nvim_set_keymap('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { noremap = true, silent = true, desc = "Rename definition", opts })
     vim.api.nvim_set_keymap('x', '<Leader>a', '<cmd>lua vim.lsp.buf.code_action()<cr>', { silent = true, desc = "Select Code Action", opts })
   end,
