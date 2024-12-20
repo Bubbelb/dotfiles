@@ -50,3 +50,18 @@ end
 function toggle_hlsearch()
     vim.o.hlsearch = not vim.o.hlsearch
 end
+
+-- LSP Client mappings
+vim.api.nvim_set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>', { noremap = true, silent = true, desc = "Keyword Help" })
+vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>', { noremap = true, silent = true, desc = "Go to Definition" })
+vim.api.nvim_set_keymap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>', { noremap = true, silent = true, desc = "go to Declaration" })
+vim.api.nvim_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>', { noremap = true, silent = true, desc = "Go to Implementation" })
+vim.api.nvim_set_keymap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>', { noremap = true, silent = true, desc = "Go to Type definition" })
+vim.api.nvim_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>', { noremap = true, silent = true, desc = "Go to Reference" })
+vim.api.nvim_set_keymap('n', 'gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>', { noremap = true, silent = true, desc = "Show Function Signature Help" })
+vim.api.nvim_set_keymap('n', 'ge', '<cmd>lua vim.lsp.diagnostic.setloclist()<cr>', { noremap = true, silent = true, desc = "Show QuickFix" })
+vim.api.nvim_set_keymap('n', '<Leader>F', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { noremap = true, silent = true, desc = "Reformat Buffer" })
+vim.api.nvim_set_keymap('v', '<Leader>F', '<cmd>lua vim.lsp.buf.format({async = true})<cr>', { noremap = true, silent = true, desc = "Reformat Visual" })
+vim.api.nvim_set_keymap('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<cr>', { noremap = true, silent = true, desc = "Rename definition" })
+vim.api.nvim_set_keymap('x', '<Leader>a', '<cmd>lua vim.lsp.buf.code_action()<cr>', { silent = true, desc = "Select Code Action" })
+
