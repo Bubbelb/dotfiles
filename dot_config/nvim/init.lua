@@ -4,7 +4,7 @@ function file_exists(name)
    if f~=nil then io.close(f) return true else return false end
 end
 
-if file_exists("/etc/bbsh") or file_exists("/etc/beets") then
+if file_exists("/etc/nvimhost") then
     -- Remove unused plugins
     local disabled_built_ins = {
         "netrw",
