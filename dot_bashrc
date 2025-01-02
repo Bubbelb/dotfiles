@@ -77,38 +77,38 @@ fi
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 if [ -n "${SUDO_USER}" ] ; then
-    sudo_state='\033[97;1;101mS\033[m'
+    sudo_state='\[\e[97;1;101m\]S\[\e[m\]'
 else
     sudo_state=''
 fi
 
 if [ "$(id -u)" -eq 0 ] ; then
-    user_state='\033[91;100;1m\u\033[0m' # Root Colour (uid = 0)
+    user_state='\[\e[91;100;1m\]\u\[\e[m\]' # Root Colour (uid = 0)
 elif [ "$(id -u)" -lt 1000 ] ; then
-    user_state='\033[92;100;1m\u\033[0m' # System Account Colour (0 < uid < 1000)
+    user_state='\[\e[92;100;1m\]\u\[\e[m\]' # System Account Colour (0 < uid < 1000)
 else
-    user_state='\033[92;100;1m\u\033[0m' # Normal User Colour
+    user_state='\[\e[92;100;1m\]\u\[\e[m\]' # Normal User Colour
 fi
 
 if [ -f "/run/host/etc/hostname" ] ; then # when this file exists, distrobox is used
-    host_state="\033[97;1;44m$(cat /run/host/etc/hostname)\033[0m"
-    phost_state='\033[0m📦'
+    host_state="\[\e[97;1;44m\]$(cat /run/host/etc/hostname)\[\e[m\]"
+    phost_state='\[\e[m\]📦'
 else
-    host_state="\033[97;44m\h\033[0m"
+    host_state="\[\e[97;44m\]\h\[\e[m\]"
     phost_state=''
 fi
 
-PS1="${phost_state}${sudo_state}${user_state}@${host_state} [\033[01;34m\]\w\[\033[00m]\$ "
+PS1="${phost_state}${sudo_state}${user_state}@${host_state} [\[\e[01;34m\]\w\[\e[m\]]\$ "
 
 unset phost_state sudo_state user_state host_state
 
-case "$TERM" in
-xterm*|rxvt*)
-    PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-    ;;
-*)
-    ;;
-esac
+# case "$TERM" in
+# xterm*|rxvt*)
+#     PROMPT_COMMAND='echo -ne "\e]0;${USER}@${HOSTNAME}: ${PWD}\007"'
+#     ;;
+# *)
+#     ;;
+# esac
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
