@@ -23,6 +23,23 @@ if [[ -d "${HOME}/.local/bin" ]] ; then
     fi
 fi
 
+# CD Commands
+alias -- -='cd -'
+alias ...=../..
+alias ....=../../..
+alias .....=../../../..
+alias ......=../../../../..
+alias 1='cd -1'
+alias 2='cd -2'
+alias 3='cd -3'
+alias 4='cd -4'
+alias 5='cd -5'
+alias 6='cd -6'
+alias 7='cd -7'
+alias 8='cd -8'
+alias 9='cd -9'
+shopt -s autocd
+
 # Set vi/vim keybindings
 set -o vi
 bind '"\e."':yank-last-arg
@@ -83,40 +100,47 @@ else
 fi
 
 if [ "$(id -u)" -eq 0 ] ; then
-    user_state='\[\e[91;100;1m\]\u\[\e[m\]' # Root Colour (uid = 0)
+    user_state='\[\e[91;100;1m\]\u\[\e[m\]@' # Root Colour (uid = 0)
 elif [ "$(id -u)" -lt 1000 ] ; then
-    user_state='\[\e[92;100;1m\]\u\[\e[m\]' # System Account Colour (0 < uid < 1000)
+    user_state='\[\e[92;100;1m\]\u\[\e[m\]@' # System Account Colour (0 < uid < 1000)
 else
-    user_state='\[\e[92;100;1m\]\u\[\e[m\]' # Normal User Colour
+    user_state='\[\e[92;100;1m\]\u\[\e[m\]@' # Normal User Colour
 fi
 
-if [ -f "/run/host/etc/hostname" ] ; then # when this file exists, distrobox is used
-    host_state="\[\e[97;1;44m\]$(cat /run/host/etc/hostname)\[\e[m\]"
+if [ -f "/run/.containerenv" ] ; then # when this file exists, distrobox is used
+    case $(grep '^name=' /run/.containerenv | sed -e 's/^name="\?//' -e 's/"#\?\s*$//') in
+        bbsh )
+            host_state="\[\e[97;1;41m\]BBSH\[\e[m\]"
+            ;;
+        Azure-TF )
+            user_state=''
+            host_state="\[\e[97;1;43m\]AZURE-TF\[\e[m\]"
+            [[ -f "${HOME}/.local/bin/az.completion.sh" ]] && source "${HOME}/.local/bin/az.completion.sh"
+            alias tf='az account set --subscription "$(basename ${PWD})" && terraform'
+            cd "${HOME}/Projects.umcu"
+            ;;
+        * )
+            host_state="\[\e[97;1;44m\]$(cat /run/host/etc/hostname)\[\e[m\]"
+            ;;
+    esac
+
     phost_state='\[\e[m\]📦'
 else
     host_state="\[\e[97;44m\]\h\[\e[m\]"
     phost_state=''
 fi
 
-PS1="${phost_state}${sudo_state}${user_state}@${host_state} [\[\e[01;34m\]\w\[\e[m\]]\$ "
+path_state=" [\[\e[1;44;97;7m\]\w\[\e[m\]]\$ "
 
-unset phost_state sudo_state user_state host_state
+PS1="${phost_state}${sudo_state}${user_state}${host_state}${path_state}"
 
-# case "$TERM" in
-# xterm*|rxvt*)
-#     PROMPT_COMMAND='echo -ne "\e]0;${USER}@${HOSTNAME}: ${PWD}\007"'
-#     ;;
-# *)
-#     ;;
-# esac
+unset phost_state sudo_state user_state host_state path_state
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
 fi
 
 # some more ls aliases
@@ -127,14 +151,3 @@ alias l='ls -CF'
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-if [ -f /run/.containerenv ] ; then
-    if grep -q '^\s*name\s*=\s*"debian"' /run/.containerenv ; then
-        alias tf='az account set --subscription "$(basename ${PWD})" && terraform'
-
-        alias nvim='distrobox-host-exec distrobox enter bbsh -a "--env NVIM_APPNAME=nvim-bbsh" -- nvim'
-        alias nv='distrobox-host-exec distrobox enter bbsh -a "--env NVIM_APPNAME=nvim-bbsh" -- nvim'
-        alias nvimdiff='distrobox-host-exec distrobox enter bbsh -a "--env NVIM_APPNAME=nvim-bbsh" -- nvim -d'
-        alias nvdiff='distrobox-host-exec distrobox enter bbsh -a "--env NVIM_APPNAME=nvim-bbsh" -- nvim -d'
-        cd "${HOME}/Projects.umcu"
-    fi
-fi

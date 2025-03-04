@@ -1,20 +1,20 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
-"               
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 "               ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
 "               ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
-"               ██║   ██║██║██╔████╔██║██████╔╝██║     
-"               ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║     
+"               ██║   ██║██║██╔████╔██║██████╔╝██║
+"               ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║
 "                ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
 "                 ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
-"               
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
-"   	     __          ___ _             _           
-" 		  /\ \ \___     / _ \ |_   _  __ _(_)_ __  ___ 
+"
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"   	     __          ___ _             _
+" 		  /\ \ \___     / _ \ |_   _  __ _(_)_ __  ___
 " 		 /  \/ / _ \   / /_)/ | | | |/ _` | | '_ \/ __|
 "		/ /\  / (_) | / ___/| | |_| | (_| | | | | \__ \
 "		\_\ \/ \___/  \/    |_|\__,_|\__, |_|_| |_|___/
-"                                    |___/             
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
+"                                    |___/
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 "------------------SETTINGS------------------
@@ -56,13 +56,13 @@
 	syntax on
 
 " Add numbers to the file.
-	set number 
+	set number
 
 " Mouse functionality
 	set mouse=a
 
 " Color scheme
-	colorscheme peachpuff 
+	colorscheme peachpuff
 
 " Highlight cursor line underneath the cursor horizontally.
 	set cursorline
@@ -78,7 +78,9 @@
 	autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
 
 " Do not save backup files.
-	set nobackup
+    silent !mkdir ~/.local/share/nvim/backup > /dev/null 2>&1
+    set backupdir=~/.local/share/nvim/backup
+	set backup
 
 " Do wrap lines.
 	set wrap
@@ -112,13 +114,11 @@
 " Wild menu will ignore files with these extensions.
 	set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
-" If Vim version is equal to or greater than 7.3 enable undo file.
 " This allows you to undo changes to a file even after saving it.
-	if version >= 703
-    	set undodir=~/.vim/backup
-    	set undofile
-    	set undoreload=10000
-	endif
+    silent !mkdir ~/.local/share/nvim/undo > /dev/null 2>&1
+    set undodir=~/.local/share/nvim/undo
+    set undofile
+    set undoreload=10000
 
 
 " File Browsing settings
@@ -130,7 +130,7 @@
 
 " Auto Completion - Enable Omni complete features
 	set omnifunc=syntaxcomplete#Complete
-	
+
 
 " Enable Spelling Suggestions for Auto-Completion:
 	set complete+=k
@@ -146,9 +146,9 @@
 	        return "\<Tab>"
 	    endif
 	endfun
-	
 
-" Minimalist-Autocomplete 
+
+" Minimalist-Autocomplete
 	inoremap <expr> <CR> pumvisible() ? "\<C-Y>" : "\<CR>"
 	autocmd InsertCharPre * call AutoComplete()
 	fun! AutoComplete()
@@ -157,7 +157,7 @@
 	        \ && getline('.')[col('.') - 3] =~ '\K'
 	        \ && getline('.')[col('.') - 2] =~ '\K' " last char
 	        \ && getline('.')[col('.') - 1] !~ '\K'
-	
+
 	        call feedkeys("\<C-N>", 'n')
 	    end
 	endfun
@@ -258,19 +258,19 @@ endfunction
 	set statusline=
 	set statusline+=%2*
 	set statusline+=%{StatuslineMode()}
-	set statusline+=\ 
+	set statusline+=\
 	set statusline+=%{SpellCheckStatus()}
 	set statusline+=%1*
-	set statusline+=\ 
+	set statusline+=\
 	set statusline+=%3*
 	set statusline+=<
 	set statusline+=-
-	set statusline+=\ 
+	set statusline+=\
 	set statusline+=%f
-	set statusline+=\ 
+	set statusline+=\
 	set statusline+=-
 	set statusline+=>
-	set statusline+=\ 
+	set statusline+=\
 	set statusline+=%4*
 	set statusline+=%m
 	set statusline+=%=
@@ -282,18 +282,18 @@ endfunction
 	set statusline+=%l
 	set statusline+=/
 	set statusline+=%L
-	set statusline+=\ 
+	set statusline+=\
 	set statusline+=%1*
 	set statusline+=|
 	set statusline+=%y
-	set statusline+=\ 
+	set statusline+=\
 	set statusline+=%4*
 	set statusline+=%P
-	set statusline+=\ 
+	set statusline+=\
 	set statusline+=%3*
 	set statusline+=t:
 	set statusline+=%n
-	set statusline+=\ 
+	set statusline+=\
 
 
 " Colors
@@ -330,18 +330,18 @@ endfunction
 		  return "VIM"
 	  endif
 	endfunction
-	
+
 
 " Spell Check Status
 	function! SpellCheckStatus()
-		if &spell 
+		if &spell
 			return " [SPELL]"
 		else
 			return ''
-		endif	
+		endif
 	endfunction
 
-	
+
 
 
 "------------------KEY_BINDINGS------------------
@@ -362,12 +362,12 @@ endfunction
 " Set the space  as the leader key.
 	let mapleader = " "
 
-	
+
 " Select all the text
 	nnoremap <leader>a ggVG
 
 
-" Opening a file explore 
+" Opening a file explore
 	map <leader>e :Lex<CR>
 
 " Opening a file from explorer
@@ -378,7 +378,7 @@ endfunction
 " Closing the terminal window
 	tnoremap <c-t> exit<CR>
 " CTRL+I OR Esc to make the terminal scrollable and I to input mode
-	tnoremap <c-i> <c-w><s-n> 
+	tnoremap <c-i> <c-w><s-n>
 	tnoremap <Esc> <C-\><C-n>
 
 
