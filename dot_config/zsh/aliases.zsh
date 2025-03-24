@@ -62,3 +62,14 @@ if [[ -f /etc/bbsh ]] ; then
     alias hspacman='distrobox-host-exec sudo pacman'
 fi
 
+# Bat additions
+if [[ -x /usr/bin/bat ]] ; then
+    alias batl='/usr/bin/bat -l log'
+    alias batx='/usr/bin/bat -l xml'
+    alias batj='/usr/bin/bat -l json'
+elif [[ -x /usr/bin/batcat ]] ; then
+    alias batl='/usr/bin/batcat -l log'
+    alias batx='/usr/bin/batcat -l xml'
+    alias batj='/usr/bin/batcat -l json'
+fi
+
