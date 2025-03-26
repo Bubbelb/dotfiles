@@ -66,10 +66,16 @@ fi
 if [[ -x /usr/bin/bat ]] ; then
     alias batl='/usr/bin/bat -l log'
     alias batx='/usr/bin/bat -l xml'
+    alias baty='/usr/bin/bat -l yaml'
     alias batj='/usr/bin/bat -l json'
+    alias batt='/usr/bin/bat -l toml'
+    alias bati='/usr/bin/bat -l ini'
 elif [[ -x /usr/bin/batcat ]] ; then
     alias batl='/usr/bin/batcat -l log'
     alias batx='/usr/bin/batcat -l xml'
+    alias baty='/usr/bin/batcat -l yaml'
     alias batj='/usr/bin/batcat -l json'
+    alias batt='/usr/bin/batcat -l toml'
+    alias bati='/usr/bin/batcat -l ini'
 fi
 
