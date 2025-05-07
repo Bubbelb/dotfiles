@@ -3,12 +3,12 @@
 -- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 return {
     -- LSP, DAP installer
-    { 'williamboman/mason.nvim',
-      dependencies = {
-        'WhoIsSethDaniel/mason-tool-installer.nvim',
-    },
+    { 'mason-org/mason.nvim',
+    --   dependencies = {
+    --     'WhoIsSethDaniel/mason-tool-installer.nvim',
+    -- },
 },
-    { 'williamboman/mason-lspconfig.nvim' },
+    { 'mason-lsp/mason-lspconfig.nvim' },
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
