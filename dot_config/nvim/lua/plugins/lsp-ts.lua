@@ -9,6 +9,7 @@ return {
     -- },
 },
     { 'mason-org/mason-lspconfig.nvim' },
+    	opts = { automatic_enable = true },
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
