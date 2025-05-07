@@ -8,7 +8,7 @@ return {
     --     'WhoIsSethDaniel/mason-tool-installer.nvim',
     -- },
 },
-    { 'mason-lsp/mason-lspconfig.nvim' },
+    { 'mason-org/mason-lspconfig.nvim' },
     { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
