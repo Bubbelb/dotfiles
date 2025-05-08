@@ -130,7 +130,7 @@ else
     phost_state=''
 fi
 
-path_state=" [\[\e[1;44;97;7m\]\w\[\e[m\]]\$ "
+path_state=" [\[\e[1;44;97;7m\]\w\[\e[m\]]\\$ "
 
 PS1="${phost_state}${sudo_state}${user_state}${host_state}${path_state}"
 
