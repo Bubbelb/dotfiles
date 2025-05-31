@@ -3,21 +3,23 @@
 -- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 return {
     -- LSP, DAP installer
-    { 'williamboman/mason.nvim',
-    version = "1.11.0",
+    { 'mason-org/mason-lspconfig.nvim',
       dependencies = {
-        'WhoIsSethDaniel/mason-tool-installer.nvim',
+        { "mason-org/mason.nvim",
+          opts = {},
+          dependencies = {
+            'WhoIsSethDaniel/mason-tool-installer.nvim',
+          },
+        },
+        "neovim/nvim-lspconfig",
+      },
     },
-},
-    { 'williamboman/mason-lspconfig.nvim',
-      version = "1.32.0", },
-    { 'neovim/nvim-lspconfig' },
     { 'hrsh7th/cmp-nvim-lsp' },
     { 'hrsh7th/nvim-cmp' },
     {
-        'L3MON4D3/LuaSnip',
-        build = 'make install_jsregexp',
-        dependencies = { "rafamadriz/friendly-snippets" },
+      'L3MON4D3/LuaSnip',
+      build = 'make install_jsregexp',
+      dependencies = { "rafamadriz/friendly-snippets" },
     },
     { 'hrsh7th/cmp-buffer' },
     { 'hrsh7th/cmp-path' },
