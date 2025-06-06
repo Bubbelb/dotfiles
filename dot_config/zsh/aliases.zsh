@@ -79,6 +79,15 @@ elif [[ -x /usr/bin/batcat ]] ; then
     alias bati='/usr/bin/batcat -l ini'
 fi
 
-if grep -qxsF 'NAME="Manjaro Linux"' /etc/os-release /run/host/etc/os-release ; then
-    alias pum='pamac update --no-confirm ; flatpak update --assumeyes ; flatpak uninstall --unused'
+if grep -qxsF 'NAME="Manjaro Linux"' /run/host/etc/os-release ; then
+    whence pamac > /dev/null || sudo ln -s /usr/bin/distrobox-host-exec /usr/local/bin/pamac
+    whence flatpak > /dev/null || sudo ln -s /usr/bin/distrobox-host-exec /usr/local/bin/flatpak
+fi
+
+if whence pamac > /dev/null ; then
+    if whence flatpak > /dev/null ; then
+        alias pum='pamac update --no-confirm ; flatpak update --assumeyes ; flatpak uninstall --unused'
+    else
+        alias pum='pamac update --no-confirm'
+    fi
 fi
