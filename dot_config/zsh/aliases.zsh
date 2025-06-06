@@ -79,3 +79,6 @@ elif [[ -x /usr/bin/batcat ]] ; then
     alias bati='/usr/bin/batcat -l ini'
 fi
 
+if grep -qxsF 'NAME="Manjaro Linux"' /etc/os-release /run/host/etc/os-release ; then
+    alias pum='pamac update --no-confirm ; flatpak update --assumeyes ; flatpak uninstall --unused'
+fi
