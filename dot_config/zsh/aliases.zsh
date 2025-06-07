@@ -85,9 +85,20 @@ if grep -qxsF 'NAME="Manjaro Linux"' /run/host/etc/os-release ; then
 fi
 
 if whence pamac > /dev/null ; then
-    if whence flatpak > /dev/null ; then
-        alias pum='pamac update --no-confirm ; flatpak update --assumeyes ; flatpak uninstall --unused'
+    whence flatpak > /dev/null && PUMEXFP='; flatpak update --assumeyes ; flatpak uninstall --unused' || PUMEXFP=""
+    if [[ -v CONTAINER_ID ]] ; then
+        PUMEXDB='; /usr/bin/distrobox-host-exec distrobox-upgrade --all'
+    elif whence distrobox-upgrade > /dev/null ; then
+        PUMEXDB='; distrobox-upgrade --all'
     else
-        alias pum='pamac update --no-confirm'
+        PUMEXDB=''
     fi
+    alias pum="pamac update --no-confirm${PUMEXFP}${PUMEXDB}"
+    fi
+fi
+
+if [[ -v CONTAINER_ID ]] ; then
+    alias dbu='/usr/bin/distrobox-host-exec distrobox-upgrade --all'
+elif whence distrobox-upgrade > /dev/null ; then
+    alias dbu='; distrobox-upgrade --all'
 fi
