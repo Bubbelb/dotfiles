@@ -94,7 +94,6 @@ if whence pamac > /dev/null ; then
         PUMEXDB=''
     fi
     alias pum="pamac update --no-confirm${PUMEXFP}${PUMEXDB}"
-    fi
 fi
 
 if [[ -v CONTAINER_ID ]] ; then
