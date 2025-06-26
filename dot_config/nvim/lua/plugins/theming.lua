@@ -57,7 +57,7 @@ return {
             --       vim.g.everforest_sign_column_background = 'grey'
             --       vim.cmd.colorscheme('everforest')
             --     end
-            -- },
+            },
         },
     },
     -- ==============================================================
