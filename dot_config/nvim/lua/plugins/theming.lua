@@ -32,32 +32,32 @@ return {
             sunset_offset = -1200, -- offset the sunset by this many seconds
         },
         dependencies = {
-                -- {
-                -- 'sainnhe/gruvbox-material', -- Gruvbox theme set
-                -- lazy = false,
-                -- config = function()
-                --     vim.g.gruvbox_material_enable_italic = true
-                --     vim.g.gruvbox_material_enable_bold = true
-                --     vim.g.gruvbox_material_background = 'hard'  -- Options: soft, medium, hard
-                --     vim.g.gruvbox_material_foreground = 'mix'  -- Options: material, mix, original
-                --     vim.g.gruvbox_material_statusline_style = 'mix'  -- Options: material, mix, original
-                --     vim.g.gruvbox_material_better_performance = 1
-                --     vim.g.gruvbox_material_dim_inactive_windows = true
-                --     vim.cmd.colorscheme('gruvbox-material')
-                -- end,
-            {
-                'sainnhe/everforest',
+                {
+                'sainnhe/gruvbox-material', -- Gruvbox theme set
                 lazy = false,
                 config = function()
-                  -- Optionally configure and load the colorscheme
-                  -- directly inside the plugin declaration.
-                  vim.g.everforest_enable_italic = true
-                  vim.g.everforest_background = 'hard' -- 'hard', 'medium', or 'soft'
-                  vim.g.everforest_dim_inactive_windows = true
-                  vim.g.everforest_sign_column_background = 'grey'
-                  vim.cmd.colorscheme('everforest')
-                end
-            },
+                    vim.g.gruvbox_material_enable_italic = true
+                    vim.g.gruvbox_material_enable_bold = true
+                    vim.g.gruvbox_material_background = 'hard'  -- Options: soft, medium, hard
+                    vim.g.gruvbox_material_foreground = 'original'  -- Options: material, mix, original
+                    vim.g.gruvbox_material_statusline_style = 'original'  -- Options: material, mix, original
+                    vim.g.gruvbox_material_better_performance = 1
+                    vim.g.gruvbox_material_dim_inactive_windows = true
+                    vim.cmd.colorscheme('gruvbox-material')
+                end,
+            -- {
+            --     'sainnhe/everforest',
+            --     lazy = false,
+            --     config = function()
+            --       -- Optionally configure and load the colorscheme
+            --       -- directly inside the plugin declaration.
+            --       vim.g.everforest_enable_italic = true
+            --       vim.g.everforest_background = 'hard' -- 'hard', 'medium', or 'soft'
+            --       vim.g.everforest_dim_inactive_windows = true
+            --       vim.g.everforest_sign_column_background = 'grey'
+            --       vim.cmd.colorscheme('everforest')
+            --     end
+            -- },
         },
     },
     -- ==============================================================
