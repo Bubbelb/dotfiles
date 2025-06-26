@@ -18,6 +18,7 @@ return {
             default = true,
         },
     }, -- Colors and icons to use
+
     -- ==============================================================
     -- Switch dark/light theme on light/day times
     -- ==============================================================
