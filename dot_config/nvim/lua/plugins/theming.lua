@@ -71,8 +71,8 @@ return {
         opts = {
             options = {
                 icons_enabled = true,
-                theme = 'everforest',
-                -- theme = 'gruvbox-material',
+                -- theme = 'everforest',
+                theme = 'gruvbox-material',
                 component_separators = { left = '', right = '' },
                 section_separators = { left = '', right = '' },
                 disabled_filetypes = {}
