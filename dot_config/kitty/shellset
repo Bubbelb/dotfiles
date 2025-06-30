@@ -1,0 +1,73 @@
+#!/usr/bin/env sh
+
+# ShellSet: Sets the correct Shell implementation, based on environment and platform.
+
+SSFORCE=0
+SUBSHELL="none"
+command -v tmux 2>&1 >/dev/null && SSTMUX=1 || SSTMUX=0
+SSREMOTE=-1
+
+eecho() {
+    echo -e "${*}" >&2
+} # eecho
+
+help() {
+    eecho 'shellset - set correct login shell for kitty'
+    eecho ''
+    eecho 'Creates a login shell session with specific configurations set for specific purposes.'
+    eecho ''
+    eecho 'Usage: sset [-fFhzbastTrl]'
+    eecho ''
+    eecho '   -h     Show this help.'
+    eecho '   -z     Set preferred shell to zsh.'
+    eecho '   -b     Set preferred shell to bash.'
+    eecho '   -a     Set preferred shell to ash.'
+    eecho '   -s     Set preferred shell to sh.'
+    eecho '   -T     Don'\''t start a new Tmux session, or attach to existing.'
+    eecho '   -l     Start as a local session. E.g. no ssh remote session.'
+    eecho '   -r     Start as a remote session. E.g. an ssh remote session.'
+    eecho ''
+    eecho 'Notes:'
+    eecho ' - Per default, $SHELL executed as login shell in a tmux session, if available.'
+    eecho ' - When a preferred shell is provided (-z, -b, -a, or -s), this shell is executed,'
+    eecho '    if found. When not found (in /etc/shells), $SHELL is used.'
+    eecho ' - Remote and local set tmux behaviour. Especially for nested tmux sessions.'
+    eecho ' - Shell availability is read from /etc/shells.'
+    eecho ' - Tmux is automatically started, unless -T is used.'
+} # helpmsg
+
+
+while getopts ':hzbasTrl' ; do
+    case ${OPTARG} in
+        h )  helpmsg
+             exit 0
+             ;;
+        z )  SUBSHELL='zsh' ;;
+        b )  SUBSHELL='bash' ;;
+        a )  SUBSHELL='ash' ;;
+        s )  SUBSHELL='sh' ;;
+        T )  SSTMUX=0 ;;
+        r )  SSREMOTE=1 ;;
+        l )  SSREMOTE=0 ;;
+        \? )
+             eecho "Invalid parameter -${OPTARG}. See -h for help."
+             exit 1
+             ;;
+    esac
+done
+
+if [ "${SUBSHELL}" == "none" ] ; then
+    SUBSHELL="${SHELL}"
+else
+    _TSHELL="$(grep '^[^#]\+\/'${SUBSHELL}'\(\s#.*\)\?$' /etc/shells | head -n 1 | sed 's/\s#.*$//')"
+    if [ -x "${_TSHELL}" ] ; then
+        SUBSHELL="${_TSHELL}"
+    else
+        SUBSHELL="${SHELL}"
+    fi
+fi
+
+if [ "${SSTMUX}" == "1" ] ; then
+    if ! tmux list-sessions 2>&1 >/dev/null ; then
+        tmux new-session -c 
+
