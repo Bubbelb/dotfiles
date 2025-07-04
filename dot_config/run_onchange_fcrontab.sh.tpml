@@ -1,5 +1,8 @@
 #!/bin/sh
 
 # fcrontab hash: {{ include "fcrontab" | sha256sum }}
-command -v fcrontab 2>&1 > /dev/null && fcrontab -n "${HOME}/.config/fcrontab"
+if command -v fcrontab 2>&1 > /dev/null
+then
+    fcrontab -n "${HOME}/.config/fcrontab"
+fi
 
