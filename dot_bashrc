@@ -136,7 +136,7 @@ PS1="${phost_state}${sudo_state}${user_state}${host_state}${path_state}"
 
 unset phost_state sudo_state user_state host_state path_state
 
-[[ -f "${$HOME}/.bash_aliases" ]] && . "${$HOME}/.bash_aliases"
+[[ -f "${HOME}/.bash_aliases" ]] && . "${HOME}/.bash_aliases"
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
