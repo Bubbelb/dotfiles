@@ -1,6 +1,5 @@
 # set ft=zsh
 
-
 # use a whitespace char or anchors don't work
 _FZF_COMPLETION_SEP=$'\u00a0'
 _FZF_COMPLETION_SPACE_SEP=$'\v'
