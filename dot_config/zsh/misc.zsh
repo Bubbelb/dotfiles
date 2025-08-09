@@ -114,7 +114,7 @@ function _ssh {
 
 compdef _ssh ssh
 
-if command -p fzf >/dev/null 2>&1 ; then
+if [[ -x $(which fzf) ]] ; then
     # Options to fzf command
     export FZF_COMPLETION_OPTS=''
 
