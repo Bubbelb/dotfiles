@@ -171,7 +171,6 @@ fi
 bindkey -s '^S' '~/.config/zsh/os_data.zsh\n'
 
 # Goldwarden integration
-if [[ -d /home/$USER/.var/app/com.quexten.Goldwarden/data ]] ; then
-  alias goldwarden='flatpak run --command=goldwarden com.quexten.Goldwarden'
-  SSH_AUTH_SOCK=~/.var/app/com.quexten.Goldwarden/data/ssh-auth-sock
+if [[ -S "${HOME}/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock" ]] ; then
+    export SSH_AUTH_SOCK="${HOME}/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock"
 fi
