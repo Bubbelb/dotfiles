@@ -22,7 +22,7 @@ require('mason').setup({})
 require('mason-lspconfig').setup({
     handlers = {
         function(server_name)
-            require('lspconfig')[server_name].setup({})
+            vim.lsp.config(server_name).setup({})
         end,
     }
 })
@@ -77,15 +77,16 @@ vim.fn.sign_define("LspDiagnosticsSignHint", { text = "🟢", texthl = "LspDiagn
 
 -- LuaSnip Friendly Snippet support
 require("luasnip.loaders.from_vscode").lazy_load()
-require('lspconfig').lua_ls.setup({
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = {'vim'}
-      }
-    }
-  }
-})
+-- require('lspconfig').lua_ls.setup({
+-- vim.lsp.config({
+--   settings = {
+--     Lua = {
+--       diagnostics = {
+--         globals = {'vim'}
+--       }
+--     }
+--   }
+-- })
 
 -- Add cmp_nvim_lsp capabilities settings to lspconfig
 -- This should be executed before you configure any language server
