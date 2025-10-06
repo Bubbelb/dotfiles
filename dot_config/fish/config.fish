@@ -1,4 +1,4 @@
-source /usr/share/cachyos-fish-config/cachyos-config.fish
+source $__fish_config_dir/c-config.fish
 
 # overwrite greeting
 # potentially disabling fastfetch
