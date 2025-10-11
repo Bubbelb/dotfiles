@@ -8,5 +8,10 @@ use = "boydaihungst/gvfs"
 rev = "cca805a"
 hash = "34ecb3100eb08fcf8365e03b94555397"
 
+[[plugin.deps]]
+use = "uhs-robert/recycle-bin"
+rev = "03f6c4a"
+hash = "f14a951bf376d7fe73033c4a48aa5fa4"
+
 [flavor]
 deps = []

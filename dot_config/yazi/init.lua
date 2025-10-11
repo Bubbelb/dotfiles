@@ -36,3 +36,4 @@ require("gvfs"):setup({
   -- Use command `ps aux | grep gvfs` to search for gvfs process and get the mountpoint path.
   -- root_mountpoint = (os.getenv("XDG_RUNTIME_DIR") or ("/run/user/" .. ya.uid())) .. "/gvfs"
 })
+require("recycle-bin"):setup()
