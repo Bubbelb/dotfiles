@@ -1,0 +1,12 @@
+[[plugin.deps]]
+use = "boydaihungst/mediainfo"
+rev = "2093ab7"
+hash = "16a10359fc2a3cd8cc8bcfbe00f744d3"
+
+[[plugin.deps]]
+use = "boydaihungst/gvfs"
+rev = "cca805a"
+hash = "34ecb3100eb08fcf8365e03b94555397"
+
+[flavor]
+deps = []
