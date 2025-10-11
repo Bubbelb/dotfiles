@@ -170,7 +170,7 @@ fi
 #OS Data
 bindkey -s '^S' '~/.config/zsh/os_data.zsh\n'
 
-# Goldwarden integration
+# Bitwarden SSH integration
 if [[ -S "${HOME}/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock" ]] ; then
     export SSH_AUTH_SOCK="${HOME}/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock"
 fi
