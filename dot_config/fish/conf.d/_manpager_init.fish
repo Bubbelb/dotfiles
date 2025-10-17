@@ -1,3 +1,6 @@
 if type -q batman
-    batman --export-env | source
+  set --erase -U MANPAGER
+  set -Ux MANPAGER env\ BATMAN_IS_BEING_MANPAGER=yes\ bash\ /usr/bin/batman
+  set -Ux MANROFFOPT -c
+  set --erase -U MANROFFOPT
 end
