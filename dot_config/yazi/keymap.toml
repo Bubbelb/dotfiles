@@ -5,12 +5,10 @@
 [mgr]
 
 prepend_keymap = [
-  { on   = "!", for  = "unix", run  = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
-  { on   = "t", run  = "plugin smart-tab", desc = "Create a tab and enter the hovered directory" },
-  { on = ["R","b"], run = "plugin recycle-bin",              desc = "Open Recycle Bin menu" },
-    # Mount
-#    { on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount", desc = "Select device then mount" },
-    # or this if you want to jump to mountpoint after mounted
+    { on = "!", for = "unix", run  = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
+    { on = "t", run = "plugin smart-tab", desc = "Create a tab and enter the hovered directory" },
+    { on = ["R","b"], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
+    { on = "l", run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
     { on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount --jump", desc = "Select device to mount and jump to its mount point" },
 
     # This will remount device under current working directory (cwd)
