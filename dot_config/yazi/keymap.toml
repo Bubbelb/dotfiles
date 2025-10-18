@@ -13,6 +13,7 @@ prepend_keymap = [
     { on = ["R","b"], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
     { on = "l", run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
     { on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount --jump", desc = "Select device to mount and jump to its mount point" },
+    { on = "F", run  = "plugin jump-to-char", desc = "Jump to char" },
 
     # This will remount device under current working directory (cwd)
     #   -> cwd = /run/user/1000/gvfs/DEVICE_1/FOLDER_A
