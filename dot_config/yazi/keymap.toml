@@ -5,6 +5,8 @@
 [mgr]
 
 prepend_keymap = [
+  { on   = "!", for  = "unix", run  = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
+
   { on = ["R","b"], run = "plugin recycle-bin",              desc = "Open Recycle Bin menu" },
     # Mount
 #    { on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount", desc = "Select device then mount" },
@@ -413,8 +415,3 @@ keymap = [
 	{ on = "f", run = "filter", desc = "Filter help items" },
 ]
 
-[[mgr.prepend_keymap]]
-on   = "!"
-for  = "unix"
-run  = 'shell "$SHELL" --block'
-desc = "Open $SHELL here"
