@@ -29,6 +29,25 @@
   # Just add file's MIME type to `previewers`, `preloaders` above.
   # https://mediaarea.net/en/MediaInfo/Support/Formats
 
+# Rich-cli previewer
+    { name = "*.csv", run = "rich-preview"}, # for csv files
+    { name = "*.log", run = "rich-preview"}, # for log files
+    { name = "*.md", run = "rich-preview" }, # for markdown (.md) files
+    { name = "*.rst", run = "rich-preview"}, # for restructured text (.rst) files
+    { name = "*.ipynb", run = "rich-preview"}, # for jupyter notebooks (.ipynb)
+    { name = "*.json", run = "rich-preview"}, # for json (.json) files
+    { name = "*.yaml", run = "rich-preview"}, # for yaml files
+    { name = "*.yml", run = "rich-preview"}, # for yaml files
+    { name = "*.toml", run = "rich-preview"}, # for toml files
+    { name = "*.ini", run = "rich-preview"}, # for ini files
+    { name = "*.lua", run = "rich-preview"}, # for lua files
+    { name = "*.py", run = "rich-preview"}, # for python files
+    { name = "*.sh", run = "rich-preview"}, # for sh/bash files
+    { name = "*.zsh", run = "rich-preview"}, # for zsh files
+    { name = "*.fish", run = "rich-preview"}, # for fish files
+#    { name = "*.lang_type", run = "rich-preview"} # for particular language files eg. .py, .go., .lua, etc.
+]
+
 # For a large file like Adobe Illustrator, Adobe Photoshop, etc
 # you may need to increase the memory limit if no image is rendered.
 # https://yazi-rs.github.io/docs/configuration/yazi#tasks
