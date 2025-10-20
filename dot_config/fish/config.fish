@@ -1,4 +1,4 @@
-source $__fish_config_dir/c-config.fish
+# source $__fish_config_dir/c-config.fish
 
 # overwrite greeting
 # potentially disabling fastfetch
