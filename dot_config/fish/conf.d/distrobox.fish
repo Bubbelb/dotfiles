@@ -1,4 +1,4 @@
-if status --is-interactive and grep -q -s 'name="bbsh"' /run/.containerenv
+if status --is-interactive and and test -f /run/.containerenv and grep -q 'name="bbsh"' /run/.containerenv
 	test -z "$USER" && set -gx USER (id -un 2> /dev/null)
 	test -z "$UID"  && set -gx UID (id -ur 2> /dev/null)
 	test -z "$EUID" && set -gx EUID (id -u  2> /dev/null)
