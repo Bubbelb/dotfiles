@@ -4,8 +4,8 @@ if status --is-interactive and and test -f /run/.containerenv and grep -q 'name=
 	test -z "$EUID" && set -gx EUID (id -u  2> /dev/null)
 	set -gx SHELL (getent passwd "$USER" | cut -f 7 -d :)
 
-	test -z "$XDG_RUNTIME_DIR && set -gx XDG_RUNTIME_DIR /run/user/(id -ru)
-	test -z "$DBUS_SESSION_BUS_ADDRESS && set -gx DBUS_SESSION_BUS_ADDRESS unix:path=/run/user/(id -ru)/bus
+	test -z "$XDG_RUNTIME_DIR" && set -gx XDG_RUNTIME_DIR /run/user/(id -ru)
+	test -z "$DBUS_SESSION_BUS_ADDRESS" && set -gx DBUS_SESSION_BUS_ADDRESS unix:path=/run/user/(id -ru)/bus
 
 	# Ensure we have these two variables from the host, so that graphical apps
 	# also work in case we use a login session
