@@ -12,7 +12,6 @@ prepend_keymap = [
     { on = "t", run = "plugin smart-tab", desc = "Create a tab and enter the hovered directory" },
     { on = ["R","b"], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
     { on = "l", run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
-    { on = [ "M", "m" ], run = "plugin gvfs -- select-then-mount --jump", desc = "Select device to mount and jump to its mount point" },
     { on = "F", run  = "plugin jump-to-char", desc = "Jump to char" },
 
 #
@@ -20,30 +19,7 @@ prepend_keymap = [
     { on = [ "'" ], run = "plugin bookmarks jump", desc = "Jump to a bookmark" },
     { on = [ "b", "d" ], run = "plugin bookmarks delete", desc = "Delete a bookmark" },
     { on = [ "b", "D" ], run = "plugin bookmarks delete_all", desc = "Delete all bookmarks" },
-
-    { on = [ "M", "u" ], run = "plugin gvfs -- select-then-unmount", desc = "Select device then unmount" },
-    { on = [ "M", "U" ], run = "plugin gvfs -- select-then-unmount --eject --force", desc = "Select device then force to eject/unmount" },
-
-    # Add Scheme/Mount URI:
-    #   -> Available schemes: mtp, gphoto2, smb, sftp, ftp, nfs, dns-sd, dav, davs, dav+sd, davs+sd, afp, afc, sshfs
-    #   -> Read more about the schemes here: https://wiki.gnome.org/Projects(2f)gvfs(2f)schemes.html
-    { on = [ "M", "a" ], run = "plugin gvfs -- add-mount", desc = "Add a GVFS mount URI" },
-
-    # Edit a Scheme/Mount URI
-    #   -> Will clear saved passwords for that mount URI.
-    { on = [ "M", "e" ], run = "plugin gvfs -- edit-mount", desc = "Edit a GVFS mount URI" },
-
-    # Remove a Scheme/Mount URI
-    #   -> Will clear saved passwords for that mount URI.
-    { on = [ "M", "r" ], run = "plugin gvfs -- remove-mount", desc = "Remove a GVFS mount URI" },
-
-    # Jump
-    { on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device", desc = "Select device then jump to its mount point" },
-    # If you use `x-systemd.automount` in /etc/fstab or manually added automount unit,
-    # then you can use `--automount` argument to auto mount device before jump.
-    # Otherwise it won't show up in the jump list.
-#    { on = [ "g", "m" ], run = "plugin gvfs -- jump-to-device --automount", desc = "Automount then select device to jump to its mount point" },
-    { on = [ "`", "`" ], run = "plugin gvfs -- jump-back-prev-cwd", desc = "Jump back to the position before jumped to device" },
+    { on = ["M","s"], run = "plugin sshfs -- menu",            desc = "Open SSHFS options" },
 ]
 
 keymap = [

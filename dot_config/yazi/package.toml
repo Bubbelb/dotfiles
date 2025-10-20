@@ -4,11 +4,6 @@ rev = "2093ab7"
 hash = "16a10359fc2a3cd8cc8bcfbe00f744d3"
 
 [[plugin.deps]]
-use = "boydaihungst/gvfs"
-rev = "cca805a"
-hash = "34ecb3100eb08fcf8365e03b94555397"
-
-[[plugin.deps]]
 use = "uhs-robert/recycle-bin"
 rev = "03f6c4a"
 hash = "f14a951bf376d7fe73033c4a48aa5fa4"
@@ -47,6 +42,11 @@ hash = "92fbb5483657fa7976cdf4e0104e18e0"
 use = "ndtoan96/ouch"
 rev = "0742fff"
 hash = "2bd799b42b8e42b8ef100310be71f8d1"
+
+[[plugin.deps]]
+use = "uhs-robert/sshfs"
+rev = "0d6e699"
+hash = "458a404b1b9d6e72ee27812629782a0b"
 
 [flavor]
 deps = []
