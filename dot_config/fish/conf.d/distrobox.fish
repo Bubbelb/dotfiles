@@ -1,5 +1,6 @@
 if status --is-interactive
-    if test -f /run/.containerenv and grep -q 'name="bbsh"' /run/.containerenv
+    if test -f /run/.containerenv
+        if grep -q 'name="bbsh"' /run/.containerenv
         test -z "$USER" && set -gx USER (id -un 2> /dev/null)
         test -z "$UID"  && set -gx UID (id -ur 2> /dev/null)
         test -z "$EUID" && set -gx EUID (id -u  2> /dev/null)
@@ -37,4 +38,5 @@ if status --is-interactive
             trap - INT
         end
     end
+end
 end
