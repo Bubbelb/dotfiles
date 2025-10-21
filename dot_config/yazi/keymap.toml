@@ -32,6 +32,7 @@ prepend_keymap = [
 # Fzf search
   { on = ["f", "r"], run = "plugin fr rg", desc = "Search file by content (rg)" },
   { on = ["f", "a"], run = "plugin fr rga", desc = "Search file by content (rga)" },
+  { on = ["f", "f"], run = "plugin fr fzf", desc = "Search file by name (fzf)" },
 ]
 
 keymap = [
