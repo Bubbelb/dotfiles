@@ -36,4 +36,4 @@ function tconf
                     --icons='Many icons' \
                     --transient=No
 end
-
+zoxide init fish | source
