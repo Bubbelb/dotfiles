@@ -33,3 +33,5 @@ alias jctl="journalctl -p 3 -xb"
 
 # Abbrevations for chezmoi
 abbr --add ched chezmoi edit
+abbr --add chst chezmoi status
+abbr --add chad chezmoi add
