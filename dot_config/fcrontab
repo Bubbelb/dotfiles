@@ -1,4 +1,4 @@
 %daily * 0-23 chezmoi --force update
 %daily * 0-23 ya pkg update
-%daily * 0-23 fisher update
+%daily * 0-23 /usr/bin/fish -c 'fisher update'
 %daily * 0-23 /bin/sh -c 'nvim --headless "+Lazy! sync" +qa ; nvim --headless "+MasonUpdate" +qa ; nvim --headless "+TSUpdateSync" +qa'
