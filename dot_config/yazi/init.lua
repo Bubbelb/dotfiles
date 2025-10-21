@@ -1,6 +1,8 @@
 require("recycle-bin"):setup()
 require("sshfs"):setup()
-
+require("fg"):setup({
+    default_action = "menu", -- nvim, jump
+})
 
 Status:children_add(function(self)
 	local h = self._current.hovered
