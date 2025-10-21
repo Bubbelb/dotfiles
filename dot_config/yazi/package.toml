@@ -48,5 +48,10 @@ use = "uhs-robert/sshfs"
 rev = "0d6e699"
 hash = "458a404b1b9d6e72ee27812629782a0b"
 
+[[plugin.deps]]
+use = "DreamMaoMao/fg"
+rev = "c201a3e"
+hash = "a1c22d0c004714fe97b22b0a77345792"
+
 [flavor]
 deps = []
