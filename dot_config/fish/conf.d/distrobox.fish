@@ -38,5 +38,9 @@ if status --is-interactive ; and test -f /run/.containerenv ; and grep -q 'name=
 end
 
 if test -f /run/.containerenv ; and grep -q 'name="bbsh"'; and fcrontab -l 2>&1 | grep -Fq "INFO user $USER has no fcrontab." ; and type -q fcrontab
-    VISUAL=$(type -p edfcrontab.sh) fcrontab -e
+    function edfc
+        sleep 1
+        cat $HOME/.config/fcrontab > $argv
+    end
+    VISUAL=edfc fcrontab -e
 end
