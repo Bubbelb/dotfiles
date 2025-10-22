@@ -10,7 +10,7 @@ prepend_keymap = [
     { on = ["R"], run  = "plugin rotate-image", desc = "Rotate images" },
     { on = "!", for = "unix", run  = 'shell "$SHELL" --block', desc = "Open $SHELL here" },
     { on = "t", run = "plugin smart-tab", desc = "Create a tab and enter the hovered directory" },
-    { on = ["R","b"], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
+    { on = ["T"], run = "plugin recycle-bin", desc = "Open Recycle Bin menu" },
     { on = "l", run  = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
     { on = "F", run  = "plugin jump-to-char", desc = "Jump to char" },
 
