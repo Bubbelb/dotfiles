@@ -55,7 +55,7 @@ function history
 end
 
 if not test -f $HOME/.config/fish/functions/fisher.fish
-    wget -q -4 --no-dns-cache -Q- https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+    wget -q -4 --no-dns-cache -O- https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 end
 
 theme_gruvbox dark medium
