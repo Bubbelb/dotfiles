@@ -54,7 +54,8 @@ function history
     builtin history --show-time='%F %T '
 end
 
-if not test -f $HOME/.config/fish/functions/fisher.fish
+if not test -f $HOME/.config/fish/functions/fisher.fish ; and not set -q running_fisher_install
+    set --local -x running_fisher_install on
     curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 end
 
