@@ -36,7 +36,3 @@ if status --is-interactive ; and test -f /run/.containerenv ; and grep -q 'name=
         trap - INT
     end
 end
-
-if test -f /run/.containerenv ; and grep -q 'name="bbsh"' /run/.containerenv ; and fcrontab -l 2>&1 | grep -Fq "INFO user $USER has no fcrontab." ; and type -q fcrontab
-    fcrontab $HOME/.config/fcrontab 2>/dev/null
-end
