@@ -53,5 +53,7 @@ use = "DreamMaoMao/fg"
 rev = "c201a3e"
 hash = "a1c22d0c004714fe97b22b0a77345792"
 
-[flavor]
-deps = []
+[[flavor.deps]]
+use = "bennyyip/gruvbox-dark"
+rev = "e5e1aef"
+hash = "eb88137cf13a796225254344bf6def2c"
