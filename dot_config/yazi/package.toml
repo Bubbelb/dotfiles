@@ -58,6 +58,11 @@ use = "AnirudhG07/rich-preview"
 rev = "831234e"
 hash = "ed3363e256e210593f0f8e4cec3e36a9"
 
+[[plugin.deps]]
+use = "yazi-rs/plugins:smart-filter"
+rev = "8f1d971"
+hash = "bcda8eeb3f4013bae156aecabfc745e8"
+
 [[flavor.deps]]
 use = "bennyyip/gruvbox-dark"
 rev = "e5e1aef"
