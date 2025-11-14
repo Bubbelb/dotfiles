@@ -36,7 +36,7 @@
     { name = "*.yml", run = "rich-preview"}, # for yaml files
     { name = "*.toml", run = "rich-preview"}, # for toml files
     { name = "*.ini", run = "rich-preview"}, # for ini files
-    { name = "*.lua", run = "rich-preview"}, # for lua files
+    { name = "*.lua", run = 'piper -- bat -p --color-always "$1"' }, # for lua files
     { name = "*.py", run = "rich-preview"}, # for python files
     { name = "*.sh", run = "rich-preview"}, # for sh/bash files
     { name = "*.zsh", run = "rich-preview"}, # for zsh files
