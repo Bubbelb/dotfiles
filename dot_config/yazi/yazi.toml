@@ -28,7 +28,7 @@
 # Piper previewer
     { name = "*.csv", run = "rich-preview"}, # for csv files
     { name = "*.log", run = "rich-preview"}, # for log files
-    { name = "*.md", run = 'piper -- bat -p --color=always "$1"' }, # for markdown (.md) files
+    { name = "*.md", run = 'piper -- bat -p --color always "$1"' }, # for markdown (.md) files
     { name = "*.rst", run = "rich-preview"}, # for restructured text (.rst) files
     { name = "*.ipynb", run = "rich-preview"}, # for jupyter notebooks (.ipynb)
     { name = "*.json", run = "rich-preview"}, # for json (.json) files
@@ -36,7 +36,7 @@
     { name = "*.yml", run = "rich-preview"}, # for yaml files
     { name = "*.toml", run = "rich-preview"}, # for toml files
     { name = "*.ini", run = "rich-preview"}, # for ini files
-    { name = "*.lua", run = 'piper -- bat -p --color-always "$1"' }, # for lua files
+    { name = "*.lua", run = 'piper -- bat -p --color=always "$1"' }, # for lua files
     { name = "*.py", run = "rich-preview"}, # for python files
     { name = "*.sh", run = "rich-preview"}, # for sh/bash files
     { name = "*.zsh", run = "rich-preview"}, # for zsh files
