@@ -1,4 +1,7 @@
 #!/usr/bin/env sh
 
 # package.toml hash: {{ include "dot_config/yazi/package.toml" | sha256sum }}
-ya pkg install
+if command -v ya
+then
+  ya pkg install
+fi

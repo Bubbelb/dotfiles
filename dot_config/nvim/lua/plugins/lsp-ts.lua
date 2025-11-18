@@ -110,7 +110,6 @@ return {
                 kotlin = { "ktlint" },
                 terraform = { "tflint" },
                 markdown = { "markdownlint" },
-                yaml = { "yamllint" },
                 json = { "jsonlint" },
             }
         local mdlint = require('lint').linters.markdownlint

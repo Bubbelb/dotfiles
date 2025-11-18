@@ -24,23 +24,31 @@
 	{ mime = "application/x-zstd",          run = "ouch" },
 	{ mime = "application/zstd",            run = "ouch" },
 	{ mime = "application/java-archive",    run = "ouch" },
-# Rich-cli previewer
-    { name = "*.csv", run = "rich-preview"}, # for csv files
-    { name = "*.log", run = "rich-preview"}, # for log files
-    { name = "*.md", run = "rich-preview" }, # for markdown (.md) files
-    { name = "*.rst", run = "rich-preview"}, # for restructured text (.rst) files
-    { name = "*.ipynb", run = "rich-preview"}, # for jupyter notebooks (.ipynb)
-    { name = "*.json", run = "rich-preview"}, # for json (.json) files
-    { name = "*.yaml", run = "rich-preview"}, # for yaml files
-    { name = "*.yml", run = "rich-preview"}, # for yaml files
-    { name = "*.toml", run = "rich-preview"}, # for toml files
-    { name = "*.ini", run = "rich-preview"}, # for ini files
-    { name = "*.lua", run = "rich-preview"}, # for lua files
-    { name = "*.py", run = "rich-preview"}, # for python files
-    { name = "*.sh", run = "rich-preview"}, # for sh/bash files
-    { name = "*.zsh", run = "rich-preview"}, # for zsh files
-    { name = "*.fish", run = "rich-preview"}, # for fish files
-#    { name = "*.lang_type", run = "rich-preview"} # for particular language files eg. .py, .go., .lua, etc.
+
+# Piper previewer
+    { name = "*.csv",      run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.log",      run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.md",       run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.json",     run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.yaml",     run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.yml",      run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.toml",     run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.conf",     run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.ini",      run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.service",  run = 'piper -- bat --plain --color always --type ini "$1"' },
+    { name = "*.mount",    run = 'piper -- bat --plain --color always --type ini "$1"' },
+    { name = "*.socket",   run = 'piper -- bat --plain --color always --type ini "$1"' },
+    { name = "*.network",  run = 'piper -- bat --plain --color always --type ini "$1"' },
+    { name = "*.ini",      run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.lua",      run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.py",       run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.rs",       run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.c",        run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.cpp",      run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.sh",       run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.zsh",      run = 'piper -- bat --plain --color always "$1"' },
+    { name = "*.fish",     run = 'piper -- bat --plain --color always "$1"' },
+    { url  = "*/",         run = 'piper -- eza -TL=3 --color=always --icons=always --group-directories-first --no-quotes "$1"' },
 ]
 
 # For a large file like Adobe Illustrator, Adobe Photoshop, etc
