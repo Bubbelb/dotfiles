@@ -106,20 +106,20 @@ if [[ ${DO_NATIVE} -eq 0 ]] && [[ ${DO_FLATPAK} -eq 0 ]] ; then
 fi
 
 if [[ ${#INCL_BROWSERS[@]} -lt 1 ]] ; then
-    INCL_BROWSERS=(${!BROWSER_TITLES[@]})
+    INCL_BROWSERS=("${!BROWSER_TITLES[@]}")
 else
-    for I in (${INCL_BROWSERS[@]}) ; do
+    for I in "${INCL_BROWSERS[@]}" ; do
         if [[ -z ${BROWSER_TITLES[${I}]} ]] ; then
             echo "Warning, included browser name ${I} not found. Skipping." >&2
-            INCL_BROWSERS=(${INCL_BROWSERS[@]/${I}})
+            INCL_BROWSERS=("${INCL_BROWSERS[@]/${I}}")
         fi
     done
 fi
-for I in (${EXCL_BROWSERS[@]})i ; do
-    if [[ -z ${BROWSER_TITLES[${I}]} ]] ; then
+for I in "${EXCL_BROWSERS[@]}" ; do
+    if [[ -z "${BROWSER_TITLES[${I}]}" ]] ; then
         echo "Warning, excluded browser name ${I} not found. Skipping." >&2
     else
-        INCL_BROWSERS=(${INCL_BROWSERS[@]/${I}})
+        INCL_BROWSERS=("${INCL_BROWSERS[@]/${I}}")
     fi
 done
 
@@ -130,13 +130,13 @@ fi
 
 BROWSERLIST=()
 BROWSERLISTTITLES=()
-for I in (${INCL_BROWSERS[@]}) ; do
+for I in "${INCL_BROWSERS[@]}" ; do
     if [[ ${DO_NATIVE} -eq 1 ]] ; then
-        BROWSERLIST+=(${BROWSERS_NATIVE[${I}]})
+        BROWSERLIST+=("${BROWSERS_NATIVE[${I}]}")
         BROWSERLISTTITLES+=("${BROWSER_TITLES[${I}]}")
     fi
     if [[ ${DO_FLATPAK} -eq 1 ]] ; then
-        BROWSERLIST+=(${BROWSERS_FLATPAK[${I}]})
+        BROWSERLIST+=("${BROWSERS_FLATPAK[${I}]}")
         BROWSERLISTTITLES+=("${BROWSER_TITLES[${I}]} (Flatpak)")
     fi
 done
