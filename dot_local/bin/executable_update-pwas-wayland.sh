@@ -36,7 +36,6 @@ BROWSERS_FLATPAK=(
                  ['opera']='com.opera.Opera.flextop' \
              )
 
-
 function getinival() {
     infile="${1}"
     key="${2}"
@@ -96,7 +95,9 @@ while getopts ":vFnN:b:B" arg ; do
         N ) DO_NATIVE=0 ;;
         b ) INCL_BROWSERS+=($(echo "${OPTARG}" | sed -e 's/\s\+//g' -e 's/,/ /g')) ;;
         B ) EXCL_BROWSERS+=($(echo "${OPTARG}" | sed -e 's/\s\+//g' -e 's/,/ /g')) ;;
-        ? ) echo "Invalid parameter: '-${OPTARG}'" >&2 ;;
+        h ) help_show ;;
+        ? ) echo "Invalid parameter: '-${OPTARG}'" >&2
+            help_show ;;
     esac
 done
 
