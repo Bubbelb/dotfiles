@@ -3,7 +3,7 @@
 # Update all browser shortcuts in ~/.local/share/applications/<browser name>.desktop
 # Update the StartWMClass value to the same as the Icon value.
 
-delcare -A BROWSER_TITLES
+declare -A BROWSER_TITLES
 BROWSER_TITLES=(
                  ['chrome']='Google Chrome' \
                  ['chromium']='Chromium' \
@@ -11,7 +11,7 @@ BROWSER_TITLES=(
                  ['brave']='Brave' \
                  ['edge']='MS Edge' \
                  ['vivaldi']='Vivaldi' \
-                 ['opera']='Opera' \
+                 ['opera']='Opera'
              )
 
 declare -A BROWSERS_NATIVE
