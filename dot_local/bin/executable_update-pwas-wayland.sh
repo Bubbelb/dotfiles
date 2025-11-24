@@ -74,7 +74,7 @@ function help_show() {
     echo
     echo "Available browsers:"
     for I in "${!BROWSER_TITLES[@]}" ; do
-        printf "  - %s (%s)\n" "${I}" "${BROWSER_TITLES[${I}]"}
+        printf "  - %s (%s)\n" "${I}" "${BROWSER_TITLES[${I}]}"
     done
 
     exit
