@@ -73,7 +73,7 @@ function help_show() {
     echo "    -b/-B Select/Deselect specific browsers. List is comma-separated. Deselection takes precedence."
     echo
     echo "Available browsers:"
-    for I in ${!BROWSER_TITLES[@]} ; do
+    for I in "${!BROWSER_TITLES[@]}" ; do
         printf "  - %s (%s)\n" ${I} ${BROWSER_TITLES[${I}]}
     done
 
