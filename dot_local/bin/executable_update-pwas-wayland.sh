@@ -146,7 +146,15 @@ for J in $(seq 0 $((${#BROWSERLIST[@]}-1)) ) ; do
     if compgen -G ~/.local/share/applications/${BROWSERLIST[${J}]}-*.desktop > /dev/null ; then
         for dtfile in ~/.local/share/applications/${BROWSERLIST[${J}]}-*.desktop ; do
             name_ln="$(getinival "${dtfile}" "Name")"
-            icon_ln="$(getinival "${dtfile}" "Icon")"
+                case "${BROWSERLIST[${J}]}" in
+                    'edge' )
+                        icon_ln="$(getinival "${dtfile}" "Icon" | sed 's/msedge-/msedge-_/')"
+                        ;;
+                    *      )
+                        icon_ln="$(getinival "${dtfile}" "Icon")"
+                        ;;
+                esac
+
             wmclass_ln="$(getinival "${dtfile}" "StartupWMClass")"
             nodis_ln="$(getinival "${dtfile}" "NoDisplay")"
             if [[ "${icon_ln}" == "${wmclass_ln}" ]] ; then
