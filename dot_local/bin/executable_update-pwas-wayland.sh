@@ -63,7 +63,7 @@ function help_show() {
 
     echo "$(basename $0 .sh) - Update Desktop registrations for Browser Shortcuts/PWA's."
     echo
-    echo "Usage: $(basename $0 .sh) [-f|-F] [-n|-N] [-b|-B <...>]"
+    echo "Usage: $(basename $0) [-f|-F] [-n|-N] [-b|-B <...>]"
     echo
     echo "Note: Lowercase parameter enables, Uppercase disables parameter."
     echo "Note: Per default all browsers and variants are selected."
@@ -74,7 +74,7 @@ function help_show() {
     echo
     echo "Available browsers:"
     for I in "${!BROWSER_TITLES[@]}" ; do
-        printf "  - %s (%s)\n" ${I} ${BROWSER_TITLES[${I}]}
+        printf "  - %s (%s)\n" "${I}" "${BROWSER_TITLES[${I}]"}
     done
 
     exit
