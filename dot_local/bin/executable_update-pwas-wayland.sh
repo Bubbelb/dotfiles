@@ -60,9 +60,6 @@ function getinival() {
     #      sed  -- Show only the value
 }
 
-function show_browser_list() {
-}
-
 function help_show() {
 
     echo "$(basename $0 .sh) - Update Desktop registrations for Browser Shortcuts/PWA's."
