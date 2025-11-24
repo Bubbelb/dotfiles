@@ -129,14 +129,17 @@ if [[ ${#INCL_BROWSERS[@]} -lt 1 ]] ; then
     exit 1
 fi
 
+BROWSER_BASENAMES=()
 BROWSERLIST=()
 BROWSERLISTTITLES=()
 for I in "${INCL_BROWSERS[@]}" ; do
     if [[ ${DO_NATIVE} -eq 1 ]] ; then
+        BROWSER_BASENAMES+=("${I}")
         BROWSERLIST+=("${BROWSERS_NATIVE[${I}]}")
         BROWSERLISTTITLES+=("${BROWSER_TITLES[${I}]}")
     fi
     if [[ ${DO_FLATPAK} -eq 1 ]] ; then
+        BROWSER_BASENAMES+=("${I}")
         BROWSERLIST+=("${BROWSERS_FLATPAK[${I}]}")
         BROWSERLISTTITLES+=("${BROWSER_TITLES[${I}]} (Flatpak)")
     fi
@@ -146,8 +149,7 @@ for J in $(seq 0 $((${#BROWSERLIST[@]}-1)) ) ; do
     if compgen -G ~/.local/share/applications/${BROWSERLIST[${J}]}-*.desktop > /dev/null ; then
         for dtfile in ~/.local/share/applications/${BROWSERLIST[${J}]}-*.desktop ; do
             name_ln="$(getinival "${dtfile}" "Name")"
-            echo "BBBBBBBBBBBBBBBBBBBB: ${BROWSERLIST[${J}]}"
-            case "${BROWSERLIST[${J}]}" in
+            case "${BROWSER_BASENAMES[${J}]}" in
                 'edge' )
                     icon_ln="$(getinival "${dtfile}" "Icon" | sed 's/msedge-/msedge-_/')"
                     ;;
