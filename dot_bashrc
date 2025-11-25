@@ -24,7 +24,7 @@ function tmux_at_login() {
         echo "Tmux start at login was ${SSWITCH_TXT[${CURR_TMUX}]}."
         echo "Now set to ${SSWITCH_TXT[${SSWITCH[${CURR_TMUX}]}]}."
     else
-        echo "export START_TMUX_ON_LOGIN=1" >> "${HOME}/.profile}"
+        echo "export START_TMUX_ON_LOGIN=1" >> "${HOME}/.profile"
         echo "No TMUX autostart found. Created and set to ON"
     fi
 }
