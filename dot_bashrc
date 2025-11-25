@@ -20,7 +20,7 @@ function tmux_at_login() {
             echo "Current value in .profile for START_TMUX_ON_LOGIN wrong. Shoud be 0, or 1. Assuming 0."
             CURR_TMUX=0
         fi
-        sed -iE "s/^(\s*export START_TMUX_ON_LOGIN=)\S+(\s+#.*)?/\1${SSWITCH[${CURR_TMUX}]}\2/" "${HOME}/.profile"
+        sed -iE "s/^(\s*export START_TMUX_ON_LOGIN=)\S+/\1${SSWITCH[${CURR_TMUX}]}/" "${HOME}/.profile"
         echo "Tmux start at login was ${SSWITCH_TXT[${CURR_TMUX}]}."
         echo "Now set to ${SSWITCH_TXT[${SSWITCH[${CURR_TMUX}]}]}."
     else
