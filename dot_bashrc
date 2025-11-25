@@ -5,7 +5,7 @@ case $- in
       *) return;;
 esac
 
-function chezmoi_install() {
+function chezmoi_oneline() {
     if [[ "${1}" == "-l" ]] ; then
         echo "Showing one-liner to rin for the first time:"
         echo
