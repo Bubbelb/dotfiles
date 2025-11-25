@@ -166,3 +166,4 @@ elif [[ -x /usr/bin/batcat ]] ; then
     alias bati='/usr/bin/batcat -l ini'
 fi
 
+[[ -x /usr/bin/zoxide ]] && alias z='/usr/bin/zoxide'
