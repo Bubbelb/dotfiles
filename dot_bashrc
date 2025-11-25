@@ -5,8 +5,8 @@ case $- in
       *) return;;
 esac
 
-if [[ "${START_TMUX_ON_LOGIN}" == 1 ]] && [[ -z "${TMUX}" ]] ; then
-    tmux new-session -A
+if grep -qE '^\s*export\s+START_TMUX_ON_LOGIN=1(\s+#.*)?$' "${HOME}/.profile" || [[ "${START_TMUX_ON_LOGIN}" == 1 ]] ; then
+    [[ -z "${TMUX}" ]] && exec tmux new-session -A
 fi
 
 function tmux_at_login() {
