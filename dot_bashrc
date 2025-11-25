@@ -5,6 +5,30 @@ case $- in
       *) return;;
 esac
 
+if [[ "${START_TMUX_ON_LOGIN}" == 1 ]] && [[ -z "${TMUX}" ]] ; then
+    tmux new-session -A
+fi
+
+function tmux_at_login() {
+    SSWITCH=(1 0)
+    SSWITCH_TXT=(off on)
+
+    if grep -qE '^\s*export\s+START_TMUX_ON_LOGIN=\S+(\s+#.*)?$' "${HOME}/.profile" ; then
+        # Line 'export START_TMUX_ON_LOGIN=...' found. Will go with it.
+        CURR_TMUX="$(sed -E 's/^\s*export\s+START_TMUX_ON_LOGIN=(\S+)(\s+#.*)?$/\1/' "${HOME}/.profile")"
+        if [[ "${CURR_TMUX}" != "1" ]] && [[ "${CURR_TMUX}" != "1" ]] ; then
+            echo "Current value in .profile for START_TMUX_ON_LOGIN wrong. Shoud be 0, or 1. Assuming 0."
+            CURR_TMUX=0
+        fi
+        sed -iE "s/^(\s*export START_TMUX_ON_LOGIN=)\S+(\s+#.*)?/\1${SSWITCH[${CURR_TMUX}]}\2" "${HOME}/.profile"
+        echo "Tmux start at login was ${SSWITCH_TXT[${CURR_TMUX}]}."
+        echo "Now set to ${SSWITCH_TXT[${SSWITCH[${CURR_TMUX}]}]}."
+    else
+        echo "export START_TMUX_ON_LOGIN=1" >> "${HOME}/.profile}"
+        echo "No TMUX autostart found. Created and set to ON"
+    fi
+}
+
 function chezmoi_onetime() {
     if [[ "${1}" == "-l" ]] ; then
         echo "Showing one-liner to rin for the first time:"
