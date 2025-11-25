@@ -5,6 +5,8 @@ case $- in
       *) return;;
 esac
 
+alias chezmoi_install='sh -c "$(curl -fsLS get.chezmoi.io)" -- init --one-shot Bubbelb'
+
 # Change default shell, if we're running distrobox
 if [[ -f /run/.containerenv ]] && grep -q 'name="bbsh"' /run/.containerenv && [[ "${SHELL##*/}" == "bash" ]] ; then
     echo "Changing shell to FISH"
