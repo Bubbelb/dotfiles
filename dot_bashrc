@@ -6,7 +6,12 @@ case $- in
 esac
 
 function chezmoi_install() {
-    if command -v chezmoi > /dev/null ; then
+    if [[ "${1}" == "-l" ]] ; then
+        echo "Showing one-liner to rin for the first time:"
+        echo
+        echo 'sh -c "$(curl -fsLS get.chezmoi.io)" -- init --one-shot Bubbelb'
+        echo
+    elif command -v chezmoi > /dev/null ; then
         echo "Error: Chezmoi is already installed. Will not execute."
     else
         read -p "Initialize one-time Chezmoi? " -n 1 ANSWER
