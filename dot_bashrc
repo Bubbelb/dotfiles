@@ -5,7 +5,19 @@ case $- in
       *) return;;
 esac
 
-alias chezmoi_install='sh -c "$(curl -fsLS get.chezmoi.io)" -- init --one-shot Bubbelb'
+function chezmoi_install() {
+    if command -v chezmoi > /dev/null ; then
+        echo "Error: Chezmoi is already installed. Will not execute."
+    else
+        read -p "Initialize one-time Chezmoi? " -n 1 ANSWER
+        echo
+        if [[ "${ANSWER^}" == "Y" ]] ; then
+            echo "Starting Chezmoi one-time init."
+            echo "==============================="
+            sh -c "$(curl -fsLS get.chezmoi.io)" -- init --one-shot Bubbelb
+        fi
+    fi
+}
 
 # Change default shell, if we're running distrobox
 if [[ -f /run/.containerenv ]] && grep -q 'name="bbsh"' /run/.containerenv && [[ "${SHELL##*/}" == "bash" ]] ; then
