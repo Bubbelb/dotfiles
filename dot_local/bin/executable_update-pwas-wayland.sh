@@ -36,6 +36,12 @@ BROWSERS_FLATPAK=(
                  ['opera']='com.opera.Opera.flextop' \
              )
 
+DO_FLATPAK=${DO_FLATPAK:-1}     # Process files for Flatpak installs
+DO_NATIVE=${DO_NATIVE:-0}       # Process files for native installs
+INCL_BROWSERS=()
+EXCL_BROWSERS=()
+
+
 function getinival() {
     infile="${1}"
     key="${2}"
@@ -66,10 +72,10 @@ function help_show() {
     echo "Usage: $(basename $0) [-f|-F] [-n|-N] [-b|-B <...>]"
     echo
     echo "Note: Lowercase parameter enables, Uppercase disables parameter."
-    echo "Note: Per default all browsers and variants are selected."
+    echo "Note: Per default all Flatpak browsers are selected."
     echo
-    echo "    -f/-F Enable/Disable Flatpak browsers"
-    echo "    -n/-N Enable/Disable native (OS installed) browsers"
+    echo "    -f/-F Enable*/Disable Flatpak browsers"
+    echo "    -n/-N Enable/Disable* native (OS installed) browsers"
     echo "    -b/-B Select/Deselect specific browsers. List is comma-separated. Deselection takes precedence."
     echo
     echo "Available browsers:"
@@ -81,11 +87,6 @@ function help_show() {
 }
 
 # MAIN
-
-DO_FLATPAK=1
-DO_NATIVE=1
-INCL_BROWSERS=()
-EXCL_BROWSERS=()
 
 while getopts ":vFnN:b:B" arg ; do
     case ${arg} in
