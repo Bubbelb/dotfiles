@@ -1,7 +1,17 @@
 #!/usr/bin/env sh
 
-# package.toml hash: {{ include "dot_config/yazi/package.toml" | sha256sum }}
+# package.toml hash: {{ include "dot_config/yazi/installed_plugins" | sha256sum }}
+
+YAZI_PLUGIN_LIST="${YAZI_PLUGIN_LIST:-~/.config/yazi/installed_plugins}"
+
 if command -v ya
 then
-  ya pkg install
+  PKGCURRENT="$(ya pkg list | grep -vE '(Plugins:|Flavors:)' | sed -e 's/^\s\+//' -e 's/\s\+(\w\+)\s*$//' | sort)"
+  PKGLIST="$(cat "${YAZI_PLUGIN_LIST}|sort -u")
+  for PKGREM in $(comm -13 <(echo "${PKGLIST}") <(echo "${PKGCURRENT")) ; do
+      ya pkg delete "${PKGREM}"
+  done
+  for PKGADD in $(comm -23 <(echo "${PKGLIST}") <(echo "${PKGCURRENT")) ; do
+      ya pkg add "${PKGADD}"
+  done
 fi
