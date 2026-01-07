@@ -11,7 +11,7 @@ then
   for PKGREM in $(comm -13 <(echo "${PKGLIST}") <(echo "${PKGCURRENT}")) ; do
       ya pkg delete "${PKGREM}"
   done
-  for PKGADD in $(comm -23 <(echo "${PKGLIST}") <(echo "${PKGCURRENT")) ; do
+  for PKGADD in $(comm -23 <(echo "${PKGLIST}") <(echo "${PKGCURRENT}")) ; do
       ya pkg add "${PKGADD}"
   done
 fi
