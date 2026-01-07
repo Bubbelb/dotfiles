@@ -2,9 +2,9 @@
 
 # package.toml hash: {{ include "dot_config/yazi/installed_plugins" | sha256sum }}
 
-YAZI_PLUGIN_LIST="${YAZI_PLUGIN_LIST:-~/.config/yazi/installed_plugins}"
+YAZI_PLUGIN_LIST="${YAZI_PLUGIN_LIST:-${HOME}/.config/yazi/installed_plugins}"
 
-if command -v ya
+if command -v ya > /dev/null
 then
   PKGCURRENT="$(ya pkg list | grep -vE '(Plugins:|Flavors:)' | sed -e 's/^\s\+//' -e 's/\s\+(\w\+)\s*$//' | sort)"
   PKGLIST="$(cat "${YAZI_PLUGIN_LIST}" | sort -u)"
