@@ -33,6 +33,16 @@ prepend_keymap = [
   { on = ["f", "g"], run = "plugin fg", desc = "Find files by content (fuzzy)" },
   { on = ["f", "G"], run = "plugin fg -- rg", desc = "Find files by content (ripgrep)" },
   { on = ["f", "f"], run = "plugin fg -- fzf", desc = "Find files by name (fzf)" },
+
+# Toggle Pane
+  { on = ["E","p"], run = "plugin toggle-pane min-parent"     desc = "Preview: Hide/Show panel" },
+  { on = ["E","P"], run = "plugin toggle-pane max-parent"     desc = "Preview: Toggle Maximize panel" },
+  { on = ["E","c"], run = "plugin toggle-pane min-current"    desc = "Preview: Hide/Show Current view" },
+  { on = ["E","C"], run = "plugin toggle-pane max-current"    desc = "Preview: Maximize Current view" },
+  { on = ["E","v"], run = "plugin toggle-pane min-preview"    desc = "Preview: Hide/Show preview" },
+  { on = ["E","V"], run = "plugin toggle-pane max-preview"    desc = "Preview: Maximize preview" },
+  { on = ["E","r"], run = "plugin toggle-pane reset"          desc = "Preview: Reset preview layout" },
+
 ]
 
 keymap = [
@@ -50,7 +60,7 @@ keymap = [
 	{ on = "<Up>",   run = "arrow prev", desc = "Previous file" },
 	{ on = "<Down>", run = "arrow next", desc = "Next file" },
 
-	{ on = "<C-u>", run = "arrow -50%",  desc = "Move cursor up half page" },
+/	{ on = "<C-u>", run = "arrow -50%",  desc = "Move cursor up half page" },
 	{ on = "<C-d>", run = "arrow 50%",   desc = "Move cursor down half page" },
 	{ on = "<C-b>", run = "arrow -100%", desc = "Move cursor up one page" },
 	{ on = "<C-f>", run = "arrow 100%",  desc = "Move cursor down one page" },
