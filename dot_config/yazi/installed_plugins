@@ -11,4 +11,5 @@ yazi-rs/plugins:jump-to-char
 yazi-rs/plugins:piper
 yazi-rs/plugins:smart-enter
 yazi-rs/plugins:smart-filter
+yazi-rs/plugins:toggle-pane
 yazi-rs/plugins:zoom
