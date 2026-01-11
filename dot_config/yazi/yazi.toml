@@ -57,3 +57,13 @@
 [tasks]
   image_alloc      = 1073741824        # = 1024*1024*1024 = 1024MB
 
+[mgr]
+sort_by = "natural"
+sort_sensitive = false
+sort_dir_first = true
+sort_translit = true
+linemode = "size"
+show_hidden = false
+show_symlink = true
+scrolloff = 3
+
