@@ -13,6 +13,9 @@ if test -f ~/.fish_profile
   source ~/.fish_profile
 end
 
+# Set VI keybindings
+set -g fish_key_bindings fish_vi_key_bindings
+
 # Add ~/.local/bin to PATH
 if test -d ~/.local/bin
     if not contains -- ~/.local/bin $PATH
@@ -70,7 +73,8 @@ function y
 end
 
 function tconf
-    tide configure  --auto \
+  tide configure  \
+                    --auto \
                     --style=Rainbow \
                     --prompt_colors='True color' \
                     --show_time='24-hour format' \
