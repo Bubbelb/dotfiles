@@ -154,8 +154,8 @@ keymap = [
 	{ on = "N", run = "find_arrow --previous",   desc = "Previous found" },
 
     # Archive compress/uncompress
-    { on = [ "\", "z" ], run = "plugin archives -- compress", desc = "📦 Compress selection" },
-    { on = [ "\", "x" ], run = "plugin archives -- extract", desc = "📂 Extract archive" },
+    { on = [ "\\", "z" ], run = "plugin archives -- compress", desc = "📦 Compress selection" },
+    { on = [ "\.", "x" ], run = "plugin archives -- extract", desc = "📂 Extract archive" },
 
 	# Sorting
 	{ on = [ ",", "m" ], run = [ "sort mtime --reverse=no", "linemode mtime" ], desc = "Sort by modified time" },
