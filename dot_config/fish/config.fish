@@ -44,7 +44,7 @@ set -U tide_yazi_icon '🦆'
 funcsave -q _tide_item_yazi
 
 if ! contains 'yazi' $tide_left_prompt_items
-    set -Up tide_left_prompt_items
+    set -Up tide_left_prompt_items 'yazi'
 end
 
 ## Functions
