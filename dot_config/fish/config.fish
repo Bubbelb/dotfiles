@@ -27,6 +27,7 @@ end
 set -U tide_yazi_bg_color CCFFE5
 set -U tide_yazi_color CCFF00
 set -U tide_yazi_icon '🦆'
+string match -rq ' syazi distrobox ' "$tide_right_prompt_items" || set -U tide_right_prompt_items (string replace -r ' distrobox ' ' yazi distrobox ' "$tide_right_prompt_items")
 # Note: There is also a yazi function file (copied through chezmoi), called _tide_item_yazi.fish
 
 ## Functions
