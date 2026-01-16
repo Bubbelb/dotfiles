@@ -1,4 +1,4 @@
-if status --is-interactive ; and set -q SSH_TTY ; and test $TMUX_AT_LOGIN != 0 ; and ! set -q TMUX
+if status --is-interactive ; and set -q SSH_TTY ; and ! test $TMUX_AT_LOGIN = 0 ; and ! set -q TMUX
     exec tmux
 end
 
