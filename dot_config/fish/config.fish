@@ -1,5 +1,5 @@
 if status --is-interactive ; and set -q SSH_TTY ; and ! test "$TMUX_AT_LOGIN" = 0 ; and ! set -q TMUX
-    exec tmux
+    exec tmux new -A -s Default
 end
 
 ## Run fastfetch as welcome message
@@ -29,20 +29,23 @@ end
 
 # Setup yazi prompt plugin specs for fish. Based on Tide prompt.
 function _tide_item_yazi
-  set -l upid (string trim (ps -o ppid= $fish_pid))
-  while ps -o comm= $upid | string match -qr '^.*/?fish$'
-    set upid (string trim (ps -o ppid= $upid))
-  end
-  if ps -o comm= $upid | string match -qr '^.*/?yazi$'
-    _tide_print_item yazi $tide_yazi_icon
-  end
+    set -l upid (cat /proc/$fish_pid/status | string match -er '^PPid:' | string replace -r '^.*:\s+' '' | string trim)
+    while cat /proc/$upid/comm | string match -qr '^.*/?fish$'
+      set upid (cat /proc/$upid/status | string match -er '^PPid:' | string replace -r '^.*:\s+' '' | string trim)
+    end
+    if cat /proc/$upid/comm | string match -qr '^.*/?yazi$'
+      _tide_print_item yazi $tide_yazi_icon
+    end
 end
 
 set -U tide_yazi_bg_color CCFFE5
 set -U tide_yazi_color CCFF00
 set -U tide_yazi_icon '🦆'
-string match -rq ' yazi distrobox ' "$tide_right_prompt_items" || set -U tide_right_prompt_items (string replace -r ' distrobox ' ' yazi distrobox ' "$tide_right_prompt_items")
-# Note: There is also a yazi function file (copied through chezmoi), called _tide_item_yazi.fish
+funcsave -q _tide_item_yazi
+
+if ! contains 'yazi' $tide_left_prompt_items
+    set -Up tide_left_prompt_items
+end
 
 ## Functions
 # Functions needed for !! and !$ https://github.com/oh-my-fish/plugin-bang-bang
