@@ -30,7 +30,6 @@ end
 # Setup yazi prompt plugin specs for fish. Based on Tide prompt.
 function _tide_item_yazi
   set -l upid (string trim (ps -o ppid= $fish_pid))
-  basename (ps -o comm= $upid) >> $HOME/FFF
   while ps -o comm= $upid | string match -qr '^.*/?fish$'
     set upid (string trim (ps -o ppid= $upid))
   end
