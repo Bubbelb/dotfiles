@@ -1,5 +1,5 @@
 if status --is-interactive ; and set -q SSH_TTY ; and ! test "$TMUX_AT_LOGIN" = 0 ; and ! set -q TMUX
-    exec tmux new -A -s Default
+    exec tmux new-session -ADs Default
 end
 
 ## Run fastfetch as welcome message
