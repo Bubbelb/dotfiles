@@ -96,7 +96,7 @@ function y
         end
         rm -f -- "$tmp"
     else
-        echo "Yazi already running. Just exit this shell. >&2
+        echo "Yazi already running. Just exit this shell." >&2
     end
 end
 
