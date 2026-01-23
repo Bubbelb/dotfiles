@@ -2,7 +2,7 @@ if type -q most
   set -Ux MANPAGER "most"
   set -Ux MANROFFOPT "-c"
   function man
-      MANWIDTH=(tput cols) man $argv
+      MANWIDTH=(tput cols) /usr/bin/man $argv
   end
 end
 
