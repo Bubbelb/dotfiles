@@ -20,6 +20,6 @@ function install_bat_extras() {
 
 # Main
 
-install_bat_extras && \
+# install_bat_extras && \
 install_ouch && \
 touch /etc/bbsh_post_install.done
