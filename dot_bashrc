@@ -5,6 +5,13 @@ case $- in
       *) return;;
 esac
 
+# Change default shell, if we're running distrobox
+if [[ -f /run/.containerenv ]] && grep -q 'name="bbsh"' /run/.containerenv && [[ "${SHELL##*/}" == "bash" ]] ; then
+    echo "Changing shell to FISH"
+    chsh -s /usr/bin/fish
+    exec /usr/bin/fish -l
+fi
+
 if grep -qE '^\s*export\s+START_TMUX_ON_LOGIN=1(\s+#.*)?$' "${HOME}/.profile" 2>/dev/null || [[ "${START_TMUX_ON_LOGIN}" == 1 ]] ; then
     command -v tmux >/dev/null && [[ -z "${TMUX}" ]] && exec tmux new-session -A
 fi
@@ -47,13 +54,6 @@ function chezmoi_onetime() {
         fi
     fi
 }
-
-# Change default shell, if we're running distrobox
-if [[ -f /run/.containerenv ]] && grep -q 'name="bbsh"' /run/.containerenv && [[ "${SHELL##*/}" == "bash" ]] ; then
-    echo "Changing shell to FISH"
-    chsh -s /usr/bin/fish
-    exec /usr/bin/fish -l
-fi
 
 # Check if Path needs to be augmented with ~/.local/bin
 if [[ -d "${HOME}/.local/bin" ]] ; then
