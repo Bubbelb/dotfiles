@@ -12,7 +12,7 @@ if [[ -f /run/.containerenv ]] && grep -q 'name="bbsh"' /run/.containerenv && [[
     exec /usr/bin/fish -l
 fi
 
-if grep -qE '^\s*export\s+START_TMUX_ON_LOGIN=1(\s+#.*)?$' "${HOME}/.profile" 2>/dev/null || [[ "${START_TMUX_ON_LOGIN}" == 1 ]] ; then
+if grep -qE '^\s*export\s+START_TMUX_ON_LOGIN=1(\s+#.*)?$' "${HOME}/.profile" 2>/dev/null ; then
     command -v tmux >/dev/null && [[ -z "${TMUX}" ]] && exec tmux new-session -A
 fi
 
