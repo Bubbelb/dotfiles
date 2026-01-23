@@ -1,12 +1,12 @@
 #!/bin/sh
 
-function install_ouch() {
-	if ! [[ -f /usr/local/bin/ouch ]] ; then 
-		wget -qO- "$(wget -qO- https://api.github.com/repos/ouch-org/ouch/releases/latest \
-			| jq -r '.assets[] | select( .name | match("'$(uname -m)'-unknown-linux-musl\\.tar\\.gz$") | .browser_download_url')" \
-		    | tar xz -C /usr/local/bin/ --strip-components=2
-	fi
-}
+# function install_ouch() {
+#	if ! [[ -f /usr/local/bin/ouch ]] ; then 
+#		wget -qO- "$(wget -qO- https://api.github.com/repos/ouch-org/ouch/releases/latest \
+#			| jq -r '.assets[] | select( .name | match("'$(uname -m)'-unknown-linux-musl\\.tar\\.gz$") | .browser_download_url')" \
+#		    | tar xz -C /usr/local/bin/ --strip-components=2
+#	fi
+#}
 
 function install_bat_extras() {
 	if ! [[ -f /usr/local/bin/batman ]] ; then
