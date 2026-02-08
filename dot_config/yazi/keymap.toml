@@ -180,6 +180,9 @@ keymap = [
 	{ on = [ "g", "f" ],       run = "follow",           desc = "Follow hovered symlink" },
     { on = [ "g", "F" ],       run  = "plugin first-non-directory", desc = "Jumps to the first file" },
 
+	# Lazygit
+	{ on = ["g", "i" ], run = "plugin lazygit", desc = "run lazygit" },
+
 	# Tabs
 	{ on = "t", run = "tab_create --current", desc = "Create a new tab with CWD" },
 
