@@ -46,18 +46,6 @@ return {
                     vim.g.gruvbox_material_dim_inactive_windows = true
                     vim.cmd.colorscheme('gruvbox-material')
                 end,
-            -- {
-            --     'sainnhe/everforest',
-            --     lazy = false,
-            --     config = function()
-            --       -- Optionally configure and load the colorscheme
-            --       -- directly inside the plugin declaration.
-            --       vim.g.everforest_enable_italic = true
-            --       vim.g.everforest_background = 'hard' -- 'hard', 'medium', or 'soft'
-            --       vim.g.everforest_dim_inactive_windows = true
-            --       vim.g.everforest_sign_column_background = 'grey'
-            --       vim.cmd.colorscheme('everforest')
-            --     end
             },
         },
     },
@@ -81,7 +69,13 @@ return {
             sections = {
                 lualine_a = { 'mode' },
                 lualine_b = { 'branch' },
-                lualine_c = { { 'filename', file_status = true, path = 2 } },
+                lualine_c = { { function()
+                                if require("auto-save").enabled() then
+                                    return "󰆓"
+                                else
+                                    return "󱙄"
+                                end
+                            end }, { 'filename', file_status = true, path = 2 } },
                 lualine_x = { 'fileformat', 'filetype' },
                 lualine_y = { 'progress' },
                 lualine_z = { 'location' }
