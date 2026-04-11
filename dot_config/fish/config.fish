@@ -2,6 +2,9 @@ if status --is-interactive ; and set -q SSH_TTY ; and ! test "$TMUX_AT_LOGIN" = 
     exec tmux new-session -ADs Default
 end
 
+## Set the theme
+fish_config theme choose "Gruvbox Medium"
+
 ## Run fastfetch as welcome message
 function fish_greeting
     fastfetch
@@ -86,7 +89,6 @@ if not test -f $HOME/.config/fish/functions/fisher.fish ; and not set -q running
     curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
 end
 
-theme_gruvbox dark medium
 function y
     if ! set -q YAZI_LEVEL ; or test $YAZI_LEVEL -lt 1
         set tmp (mktemp -t "yazi-cwd.XXXXXX")
