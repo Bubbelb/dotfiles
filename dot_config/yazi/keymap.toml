@@ -146,6 +146,9 @@ keymap = [
 	{ on = [ "m", "o" ], run = "linemode owner",       desc = "Linemode: owner" },
 	{ on = [ "m", "n" ], run = "linemode none",        desc = "Linemode: none" },
 
+    # linemode-plus plugin
+    { on = [ "m", "c" ], run = "linemode size_mtime", desc = "Linemode: size+mtime" },
+
 	# Copy
 	{ on = [ "c", "c" ], run = "copy path",             desc = "Copy the file path" },
 	{ on = [ "c", "d" ], run = "copy dirname",          desc = "Copy the directory path" },
