@@ -15,3 +15,6 @@ yazi-rs/plugins:smart-enter
 yazi-rs/plugins:smart-filter
 yazi-rs/plugins:toggle-pane
 yazi-rs/plugins:zoom
+yazi-rs/plugins:diff
+pirafrank/what-size
+barbanevosa/linemode-plus
