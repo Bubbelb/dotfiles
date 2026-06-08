@@ -19,3 +19,30 @@ Header:children_add(function()
 	end
 	return ui.Span(ya.user_name() .. "@" .. ya.host_name() .. ":"):fg("blue")
 end, 500, Header.LEFT)
+
+require("bookmarks"):setup({
+	last_directory = { enable = false, persist = false, mode="dir" },
+	persist = "vim",
+	desc_format = "full",
+	file_pick_mode = "hover",
+	custom_desc_input = false,
+	show_keys = true,
+	notify = {
+		enable = false,
+		timeout = 1,
+		message = {
+			new = "New bookmark '<key>' -> '<folder>'",
+			delete = "Deleted bookmark in '<key>'",
+			delete_all = "Deleted all bookmarks",
+		},
+	},
+})
+
+require("linemode-plus"):setup {
+  date_mode = "custom",
+  custom = {
+    order = { "day", "month", "year" },
+    separator = "-",
+    year_digits = 4,
+  }
+}
