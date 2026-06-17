@@ -1,5 +1,9 @@
 require("recycle-bin"):setup()
-require("sshfs"):setup()
+require("sshfs"):setup({
+    host_paths = {
+        homeassistant = { "/homeassistant", "/" },
+    },
+})
 require("fg"):setup({
     default_action = "menu", -- nvim, jump
 })
