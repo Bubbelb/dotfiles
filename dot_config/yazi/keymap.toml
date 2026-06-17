@@ -54,7 +54,7 @@ prepend_keymap = [
   { on   = [ "c", "m" ], run  = "plugin chmod", desc = "Chmod on selected files" },
 
 # What-size
-  { on = [ ".", "s" ], run  = "plugin what-size", desc = "Calc size of selection or cwd" },
+  { on = [ "c", "s" ], run  = "plugin what-size", desc = "Calc size of selection or cwd" },
 
 ]
 
