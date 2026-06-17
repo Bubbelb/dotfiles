@@ -1,7 +1,7 @@
 require("recycle-bin"):setup()
 require("sshfs"):setup({
     host_paths = {
-        homeassistant = { "/homeassistant", "/" },
+        homeassistant = "/homeassistant",
     },
 })
 require("fg"):setup({
