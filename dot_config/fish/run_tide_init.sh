@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 tide configure --auto \
                --style=Rainbow \
                --prompt_colors='True color' \
