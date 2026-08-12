@@ -34,6 +34,11 @@ function arch-install-pkg() {
     if [[ "${#MLIST[@]}" -gt 0 ]] ; then
         echo "Missing packages. Installing them."
         sudo pacman -S --noconfirm ${MLIST[@]}
+		MLIST=($(comm -23 <(echo "${PKGS_ARCH[@]}" | tr -s ' ' $'\n' | sort -u) <(pacman -Qsq | sort)))
+		if [[ "${#MLIST[@]}" -gt 0 ]] ; then
+			echo "Not all packages installed as planed."
+			return 1
+		fi
     else
         echo "All packages are accounted for."
     fi
@@ -65,6 +70,11 @@ function alpine-install-pkg() {
             else
                 apk add --no-cache --repository="${AREPO}" ${MLIST[@]}
             fi
+			MLIST=($(comm -23 <(echo "${ALIST[@]}" | tr -s ' ' $'\n' | sort -u) <(apk list -q | sort)))
+			if [[ "${#MLIST[@]}" -gt 0 ]] ; then
+				echo "Not all packages installed as planed."
+				return 1
+			fi
         else
             echo "All packages are accounted for."
         fi
@@ -76,21 +86,31 @@ function deb-install-pkg() {
 }
 
 function main() {
-    if command -v pacman 2>/dev/null ; then
-        arch-install-pkg
-    elif command -v apt-get 2>/dev/null ; then
-        deb-install-pkg
-    elif command -v apk 2>/dev/null ; then
-        alpine-install-pkg
-    fi
+	if echo "$*" | grep -qw 'ot_init' ; then
+		sh -c "$(curl -fsLS https://get.chezmoi.io)" -- init --apply Bubbelb
+	else
 
-    if [[ -f "${HOME}/.local/share/chezmoi/.git/index" ]] ; then
-        echo "Chezmoi already initialized. Only updating."
-        chezmoi update --apply
-    else
-        echo "Chezmoi needs to be initialized."
-        chezmoi init --apply Bubbelb
-    fi
+		ran_ok=0
+		if command -v pacman 2>/dev/null ; then
+			arch-install-pkg && ran_ok=1
+		elif command -v apt-get 2>/dev/null ; then
+			deb-install-pkg && ran_ok=1
+		elif command -v apk 2>/dev/null ; then
+			alpine-install-pkg && ran_ok=1
+		fi
+
+		if [[ "${ran_ok}" == "1" ]] && [[ ! -f /etc/term-config ]] ; then
+			sudo touch /etc/term-config
+		fi
+
+		if [[ -f "${HOME}/.local/share/chezmoi/.git/index" ]] ; then
+			echo "Chezmoi already initialized. Only updating."
+			chezmoi update --apply
+		else
+			echo "Chezmoi needs to be initialized."
+			chezmoi init --apply Bubbelb
+		fi
+	fi
 }
 
 main $*
