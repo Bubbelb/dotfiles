@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 PKGS_ARCH=( \
     bat eza fd ripgrep trash-cli rsync file sshfs yazi yazi-cli curl most ouch \
-    mediainfo ffmpeg poppler poppler-utils 7zip zoxide imagemagick chafa chafa-fish-completion \
+    mediainfo ffmpeg poppler poppler-utils 7zip zoxide imagemagick chafa \
     btop ncurses fastfetch chezmoi cosign lazygit \
     fzf fzf-tmux fzf-fish-plugin \
     neovim github-cli py3-pynvim tree-sitter-cli \
@@ -9,7 +9,7 @@ PKGS_ARCH=( \
     python3 py3-pip \
     clipboard wl-clipboard wlroots libnotify \
     fish jq shfmt \
-    docker-zsh-completion docker-cli docker-cli-compose openssl socat drill mosh kitty-terminfo \
+    docker openssl socat drill mosh kitty-terminfo \
     bzip2 gzip zstd unzip yq )
 
 PKGS_ALPINE=( \
