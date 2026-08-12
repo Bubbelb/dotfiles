@@ -50,7 +50,7 @@ return {
             'HiPhish/rainbow-delimiters.nvim',
         },
     },
-    { 'nvim-treesitter/nvim-treesitter-refactor' }, -- Refactor (Highlighting, smart rename, navigation)
+    --    { 'nvim-treesitter/nvim-treesitter-refactor' }, -- Refactor (Highlighting, smart rename, navigation)
     {
         'HiPhish/rainbow-delimiters.nvim',          -- Highlight paranthesis pairs in their own colour.
     },
