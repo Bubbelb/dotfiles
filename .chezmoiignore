@@ -1,0 +1,8 @@
+{{- if glob "/etc/term-config" }}
+.config/nvim/init.vim
+{{- else }}
+.config/nvim/**
+!.config/nvim/init.vim
+.config/yazi
+.config/fish
+{{- end }}
