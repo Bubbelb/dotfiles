@@ -30,7 +30,7 @@ PKGS_ALPINE_EDGE_TESTING=( ouch )
 
 function arch-install-pkg() {
     echo "Checking missing packages and installing them..."
-    MLIST=$(comm -23 <(echo "${PKGS_ARCH[@]}" | tr -s ' ' $'\n' | sort -u) <(pacman -Qlq | sort))
+    MLIST=($(comm -23 <(echo "${PKGS_ARCH[@]}" | tr -s ' ' $'\n' | sort -u) <(pacman -Qlq | sort)))
     if [[ "${#MLIST[@]}" -gt 0 ]] ; then
         echo "Missing packages. Installing them."
         sudo pacman -S --noconfirm ${MLIST[@]}
@@ -57,7 +57,7 @@ function alpine-install-pkg() {
                 AREPO="https://dl-cdn.alpinelinux.org/alpine/edge/testing" ;;
         esac
 
-        MLIST=$(comm -23 <(echo "${ALIST[@]}" | tr -s ' ' $'\n' | sort -u) <(apk list -q | sort))
+        MLIST=($(comm -23 <(echo "${ALIST[@]}" | tr -s ' ' $'\n' | sort -u) <(apk list -q | sort)))
         if [[ "${#MLIST[@]}" -gt 0 ]] ; then
             echo "Missing packages from repo '${ANAME}'. Installing them."
             if [[ -z "${AREPO}" ]] ; then
