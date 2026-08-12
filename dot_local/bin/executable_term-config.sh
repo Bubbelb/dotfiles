@@ -84,13 +84,13 @@ function main() {
         alpine-install-pkg
     fi
 
-#    if [[ -f "${HOME}/.local/share/chezmoi/.git/index" ]] ; then
-#        echo "Chezmoi already initialized. Only updating."
-#        chezmoi update --apply
-#    else
-#        echo "Chezmoi needs to be initialized."
-#        chezmoi init --apply Bubbelb
-#    fi
+    if [[ -f "${HOME}/.local/share/chezmoi/.git/index" ]] ; then
+        echo "Chezmoi already initialized. Only updating."
+        chezmoi update --apply
+    else
+        echo "Chezmoi needs to be initialized."
+        chezmoi init --apply Bubbelb
+    fi
 }
 
 main $*
