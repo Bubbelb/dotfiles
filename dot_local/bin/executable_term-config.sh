@@ -3,11 +3,11 @@ PKGS_ARCH=( \
     bat eza fd ripgrep trash-cli rsync file sshfs yazi yazi-cli curl most ouch \
     mediainfo ffmpeg poppler poppler-utils 7zip zoxide imagemagick chafa \
     btop ncurses fastfetch chezmoi cosign lazygit \
-    fzf fzf-tmux fzf-fish-plugin \
+    fzf \
     neovim github-cli py3-pynvim tree-sitter-cli \
-    gcc make nodejs npm yarn dotnet-host dotnet8-runtime \
+    gcc make nodejs npm yarn dotnet-host dotnet-runtime \
     python3 py3-pip \
-    clipboard wl-clipboard wlroots libnotify \
+    wl-clipboard wlroots libnotify \
     fish jq shfmt \
     docker openssl socat drill mosh kitty-terminfo \
     bzip2 gzip zstd unzip yq )
