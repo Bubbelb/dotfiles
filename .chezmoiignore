@@ -10,5 +10,6 @@
 {{- if ne .chezmoi.osRelease.idLike "alpine" }}
 .fcrontab
 .fcrontab.sh
+.config/fish/conf.d/fcron.fish
 {{- end }}
 
