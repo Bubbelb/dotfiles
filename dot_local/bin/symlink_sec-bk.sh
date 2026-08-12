@@ -1,1 +1,1 @@
-../../.config/common-ui/bin/sec-bk.sh
+../share/CommonUI/bin/sec-bk.sh
