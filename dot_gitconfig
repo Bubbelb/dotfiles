@@ -1,0 +1,22 @@
+[user]
+	name = Bas Bleeker
+	email = 1848081+Bubbelb@users.noreply.github.com
+[credential "github.com"]
+	username = Bubbelb
+[mergetool "nvimdiff"]
+  layout = "LOCAL,BASE,REMOTE"
+[diff]
+    tool = nvimdiff
+    guitool = nvimdiff
+[merge]
+    tool = nvimdiff
+    conflictstyle = diff3
+[mergetool]
+    keepBackup = false
+    trustExitCode = false
+    prompt = true
+[difftool]
+    prompt = false
+[core]
+    editor = nvim
+    pager = bat
