@@ -30,7 +30,7 @@ PKGS_ALPINE_EDGE_TESTING=( ouch )
 
 function arch-install-pkg() {
     echo "Checking missing packages and installing them..."
-    MLIST=($(comm -23 <(echo "${PKGS_ARCH[@]}" | tr -s ' ' $'\n' | sort -u) <(pacman -Qlq | sort)))
+    MLIST=($(comm -23 <(echo "${PKGS_ARCH[@]}" | tr -s ' ' $'\n' | sort -u) <(pacman -Qsq | sort)))
     if [[ "${#MLIST[@]}" -gt 0 ]] ; then
         echo "Missing packages. Installing them."
         sudo pacman -S --noconfirm ${MLIST[@]}
