@@ -8,7 +8,7 @@ PKGS_ARCH=( \
     gcc make nodejs npm yarn dotnet-host dotnet-runtime \
     python python-pip \
     wl-clipboard libnotify \
-    fish jq shfmt \
+    fish fisher jq shfmt \
     docker openssl socat ldns mosh kitty-terminfo \
     bzip2 gzip zstd unzip yq )
 
