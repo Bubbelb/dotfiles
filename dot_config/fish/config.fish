@@ -41,6 +41,7 @@ function _tide_item_yazi
     end
 end
 
+set -U tide_context_always_display true
 set -U tide_yazi_bg_color CCFFE5
 set -U tide_yazi_color CCFF00
 set -U tide_yazi_icon '🦆'
