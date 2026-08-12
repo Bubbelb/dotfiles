@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 PKGS_ARCH=( \
-    bat eza fd ripgrep trash-cli rsync file sshfs yazi yazi-cli curl most ouch \
-    mediainfo ffmpeg poppler poppler-utils 7zip zoxide imagemagick chafa \
+    bat eza fd ripgrep trash-cli rsync file sshfs yazi curl most ouch \
+    mediainfo ffmpeg poppler 7zip zoxide imagemagick chafa \
     btop ncurses fastfetch chezmoi cosign lazygit \
     fzf \
-    neovim github-cli py3-pynvim tree-sitter-cli \
+    neovim github-cli python-pynvim tree-sitter-cli \
     gcc make nodejs npm yarn dotnet-host dotnet-runtime \
-    python3 py3-pip \
-    wl-clipboard wlroots libnotify \
+    python python-pip \
+    wl-clipboard libnotify \
     fish jq shfmt \
     docker openssl socat drill mosh kitty-terminfo \
     bzip2 gzip zstd unzip yq )
