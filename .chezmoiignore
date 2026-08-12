@@ -7,7 +7,7 @@
 .config/fish
 .config/distrobox
 {{- end }}
-{{- if ne .chezmoi.os.osRelease.idLike "alpine" }}
+{{- if ne .chezmoi.osRelease.idLike "alpine" }}
 .fcrontab
 .fcrontab.sh
 {{- end }}
