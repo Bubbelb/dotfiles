@@ -9,7 +9,7 @@ PKGS_ARCH=( \
     python python-pip \
     wl-clipboard libnotify \
     fish jq shfmt \
-    docker openssl socat drill mosh kitty-terminfo \
+    docker openssl socat ldns mosh kitty-terminfo \
     bzip2 gzip zstd unzip yq )
 
 PKGS_ALPINE=( \
