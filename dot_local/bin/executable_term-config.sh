@@ -91,5 +91,6 @@ function main() {
         echo "Chezmoi needs to be initialized."
         chezmoi init --apply Bubbelb
     fi
+}
 
-
+main $*
