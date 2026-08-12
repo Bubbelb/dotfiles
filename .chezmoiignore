@@ -5,4 +5,10 @@
 !.config/nvim/init.vim
 .config/yazi
 .config/fish
+.config/distrobox
 {{- end }}
+{{- if ne .chezmoi.os.idLike "alpine" }}
+.fcrontab
+.fcrontab.sh
+{{- end }}
+
