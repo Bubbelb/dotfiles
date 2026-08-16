@@ -10,6 +10,11 @@ function fish_greeting
     fastfetch
 end
 
+## Set editor to neovim
+set -Ux EDITOR /usr/bin/nvim
+set -Ux VISUAL $EDITOR
+set -Ux SUDO_EDITOR $EDITOR
+
 # Set settings for https://github.com/franciscolourenco/done
 set -U __done_min_cmd_duration 10000
 set -U __done_notification_urgency_level low
