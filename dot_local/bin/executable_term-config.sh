@@ -136,7 +136,8 @@ function install-pkg() {
     then
         sudo touch /etc/term-config
     fi
-    return [[ "${ran_ok}" == 1 ]]
+    [[ "${ran_ok}" == "1" ]]
+    return $?
 }
 
 function chezmoi_regular() {
