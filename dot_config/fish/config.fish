@@ -8,6 +8,7 @@ fish_config theme choose "Gruvbox Medium"
 ## Run fastfetch as welcome message
 function fish_greeting
     fastfetch
+    term-config.sh -r
 end
 
 ## Set editor to neovim
