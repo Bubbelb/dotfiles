@@ -33,7 +33,6 @@ ONLY_REPORT=0
 CHEZMOI_REPO=Bubbelb
 
 function arch-install-pkg() {
-    echo "Checking missing packages and installing them..."
     MLIST=($(comm -23 <(echo "${PKGS_ARCH[@]}" | tr -s ' ' $'\n' | sort -u) <(pacman -Qsq | sort)))
     if [[ "${ONLY_REPORT}" == 0 ]] ; then
         if [[ "${#MLIST[@]}" -gt 0 ]] ; then
@@ -53,7 +52,6 @@ function arch-install-pkg() {
 }
 
 function alpine-install-pkg() {
-    echo "Checking missing packages and installing them..."
     REPORTCOUNT=0
     for cnt in {1..4} ; do
         case ${cnt} in
@@ -100,6 +98,7 @@ function alpine-install-pkg() {
 
 function deb-install-pkg() {
     echo "Not yet implemented."
+    return 1
 }
 
 function chezmoi_oneshot() {
@@ -112,6 +111,9 @@ function chezmoi_init() {
 }
 
 function install-pkg() {
+    if [[ "${ONLY_REPORT}" == "0" ]] ; then
+        echo "Checking missing packages and installing them..."
+    fi
     ran_ok=0
     if command -v pacman >/dev/null  ; then
         arch-install-pkg && ran_ok=1
@@ -119,6 +121,13 @@ function install-pkg() {
         deb-install-pkg && ran_ok=1
     elif command -v apk >/dev/null ; then
         alpine-install-pkg && ran_ok=1
+    else
+        if [[ "${ONLY_REPORT}" == "0" ]] ; then
+            echo "Error, no package manager found. (apt-get, apk, pacman). Can't continue."
+            echo "Consider using '-o', or '-i'."
+        else
+            echo "Package manager not found."
+        fi
     fi
 
     if [[ "${ran_ok}" == "1" ]] \
@@ -127,10 +136,11 @@ function install-pkg() {
     then
         sudo touch /etc/term-config
     fi
+    return [[ "${ran_ok}" == 1 ]]
 }
 
 function chezmoi_regular() {
-    if command -v chezmoi 2>/dev/null ; then
+    if command -v chezmoi >/dev/null ; then
 		if [[ -f "${HOME}/.local/share/chezmoi/.git/index" ]] ; then
 			echo "Chezmoi already initialized. Only updating."
 			chezmoi update --apply
