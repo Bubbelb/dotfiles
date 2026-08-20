@@ -110,7 +110,6 @@ function chezmoi_init() {
     sh -c "$(curl -fsLS https://get.chezmoi.io)" -- -b ${HOME}/.local/bin init --apply ${CHEZMOI_REPO}
 }
 
-
 function install-pkg() {
     ran_ok=0
     if command -v pacman 2>/dev/null ; then
@@ -192,6 +191,7 @@ else
         p ) print_header ; ONLY_REPORT=0 ; install-pkg ;;
         c ) print_header ; chezmoi_regular ;;
         r ) ONLY_REPORT=1 ; install-pkg ;;
+        h ) show_help ;;
         * ) print_header ; echo "Unknown parameter." ;;
     esac
 fi
