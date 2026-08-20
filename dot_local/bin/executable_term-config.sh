@@ -187,12 +187,12 @@ if [[ -z "$1" ]] ; then
     fi
 else
     case "$1" in
-        -o ) print_header ; chezmoi_oneshot ;;
-        -i ) print_header ; chezmoi_init ;;
-        -p ) print_header ; ONLY_REPORT=0 ; install-pkg ;;
-        -c ) print_header ; chezmoi_regular ;;
-        -r ) ONLY_REPORT=1 ; install-pkg ;;
-        -h ) show_help ;;
+        '-o' ) print_header ; chezmoi_oneshot ;;
+        '-i' ) print_header ; chezmoi_init ;;
+        '-p' ) print_header ; ONLY_REPORT=0 ; install-pkg ;;
+        '-c' ) print_header ; chezmoi_regular ;;
+        '-r' ) ONLY_REPORT=1 ; install-pkg ;;
+        '-h' ) show_help ;;
         * ) print_header ; echo "Unknown parameter." ;;
     esac
 fi
