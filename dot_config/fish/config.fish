@@ -109,6 +109,8 @@ function y
     end
 end
 
+abbr -a --command chezmoi edit 'edit --apply'
+
 function tconf
   tide configure  \
                     --auto \
