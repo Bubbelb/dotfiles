@@ -186,7 +186,7 @@ if [[ -z "$1" ]] ; then
         echo -e "No\n"
     fi
 else
-    case "$1" in
+    case $1 in
         '-o' ) print_header ; chezmoi_oneshot ;;
         '-i' ) print_header ; chezmoi_init ;;
         '-p' ) print_header ; ONLY_REPORT=0 ; install-pkg ;;
