@@ -4,7 +4,7 @@ PKGS_ARCH=( \
     bat eza fd ripgrep trash-cli rsync file sshfs yazi curl most ouch \
     mediainfo ffmpeg poppler 7zip zoxide imagemagick chafa \
     btop ncurses fastfetch chezmoi cosign lazygit \
-    fzf \
+    fzf ncdu\
     neovim github-cli python-pynvim tree-sitter-cli \
     gcc make nodejs npm yarn dotnet-host dotnet-runtime \
     python python-pip \
