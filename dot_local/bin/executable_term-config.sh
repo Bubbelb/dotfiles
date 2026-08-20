@@ -127,7 +127,6 @@ function install-pkg() {
     then
         sudo touch /etc/term-config
     fi
-    return [[ "${ran_ok}" == "1" ]]
 }
 
 function chezmoi_regular() {
@@ -186,25 +185,14 @@ if [[ -z "$1" ]] ; then
     else
         echo -e "No\n"
     fi
-elif [[ "$1" == "-h" ]] ; then
-    show_help
-elif [[ "$1" == "-r" ]] ; then
-    ONLY_REPORT=1
-    install-pkg
-elif [[ "$1" == "-o" ]] ; then
-    print_header
-    chezmoi_oneshot
-elif [[ "$1" == "-i" ]] ; then
-    print_header
-    chezmoi_init
-elif [[ "$1" == "-p" ]] ; then
-    print_header
-    ONLY_REPORT=0
-    install-pkg
-elif [[ "$1" == "-c" ]] ; then
-    print_header
-    chezmoi_regular
 else
-    print_header
-    echo "Unknown parameter."
+    case "$1" in
+        '-o' ) print_header ; chezmoi_oneshot ;;
+        '-i' ) print_header ; chezmoi_init ;;
+        '-p' ) print_header ; ONLY_REPORT=0 ; install-pkg ;;
+        '-c' ) print_header ; chezmoi_regular ;;
+        '-r' ) ONLY_REPORT=1 ; install-pkg ;;
+        '-h' ) show_help ;;
+        * ) print_header ; echo "Unknown parameter." ;;
+    esac
 fi
