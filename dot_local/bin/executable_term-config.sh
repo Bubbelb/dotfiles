@@ -113,7 +113,7 @@ function chezmoi_init() {
 
 function install-pkg() {
     ran_ok=0
-    if command -v pacman >/dev/null 2>&1 ; then
+    if command -v pacman >/dev/null  ; then
         arch-install-pkg && ran_ok=1
     elif command -v apt-get >/dev/null ; then
         deb-install-pkg && ran_ok=1
