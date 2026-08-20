@@ -4,7 +4,7 @@ PKGS_ARCH=( \
     bat eza fd ripgrep trash-cli rsync file sshfs yazi curl most ouch \
     mediainfo ffmpeg poppler 7zip zoxide imagemagick chafa \
     btop ncurses fastfetch chezmoi cosign lazygit \
-    fzf ncdu\
+    fzf \
     neovim github-cli python-pynvim tree-sitter-cli \
     gcc make nodejs npm yarn dotnet-host dotnet-runtime \
     python python-pip \
@@ -147,7 +147,7 @@ function chezmoi_regular() {
 			chezmoi update --apply
 		else
 			echo "Chezmoi needs to be initialized."
-			chezmoi init --apply Bubbelb
+			chezmoi init --ssh --apply Bubbelb
 		fi
     else
         echo "Error: Chezmoi not found. Consider -i, -o, pr -p" >&2
