@@ -113,11 +113,11 @@ function chezmoi_init() {
 
 function install-pkg() {
     ran_ok=0
-    if command -v pacman 2>/dev/null ; then
+    if command -v pacman >/dev/null ; then
         arch-install-pkg && ran_ok=1
-    elif command -v apt-get 2>/dev/null ; then
+    elif command -v apt-get >/dev/null ; then
         deb-install-pkg && ran_ok=1
-    elif command -v apk 2>/dev/null ; then
+    elif command -v apk >/dev/null ; then
         alpine-install-pkg && ran_ok=1
     fi
 
