@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 PKGS_ARCH=( \
     bat eza fd ripgrep trash-cli rsync file sshfs yazi curl most ouch \
     mediainfo ffmpeg poppler 7zip zoxide imagemagick chafa \
