@@ -16,19 +16,20 @@ TIMERS_TEST=( chezmoi-update.timer \
               neovim-plugin-update.timer \
               yazi-pkg-update.timer )
 
-systemctl --user daemon-reload
+if command -v systemctl >/dev/null ; then
+    systemctl --user daemon-reload
 
-for TIMER_TEST in ${TIMERS_TEST[@]} ; do
-    if [[ "$(systemctl --user is-enabled ${TIMER_TEST})" != "enabled" ]]
-    then
-        systemctl --user enable --quiet ${TIMER_TEST}
-    fi
+    for TIMER_TEST in ${TIMERS_TEST[@]} ; do
+        if [[ "$(systemctl --user is-enabled ${TIMER_TEST})" != "enabled" ]]
+        then
+            systemctl --user enable --quiet ${TIMER_TEST}
+        fi
 
-    if [[ "$(systemctl --user is-active ${TIMER_TEST})" == "active" ]]
-    then
-        systemctl --user restart --quiet ${TIMER_TEST}
-    else
-        systemctl --user start --quiet ${TIMER_TEST}
-    fi
-done
-
+        if [[ "$(systemctl --user is-active ${TIMER_TEST})" == "active" ]]
+        then
+            systemctl --user restart --quiet ${TIMER_TEST}
+        else
+            systemctl --user start --quiet ${TIMER_TEST}
+        fi
+    done
+fi
