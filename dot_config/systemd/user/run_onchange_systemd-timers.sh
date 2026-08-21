@@ -19,16 +19,16 @@ TIMERS_TEST=( chezmoi-update.timer \
 systemctl --user daemon-reload
 
 for TIMER_TEST in ${TIMERS_TEST[@]} ; do
-    if [[ "$(systemctl is-enabled ${TIMER_TEST})" != "enabled" ]]
+    if [[ "$(systemctl --user is-enabled ${TIMER_TEST})" != "enabled" ]]
     then
-        systemctl enable --quiet ${TIMER_TEST}
+        systemctl --user enable --quiet ${TIMER_TEST}
     fi
 
-    if [[ "$(systemctl is-active ${TIMER_TEST})" == "active" ]]
+    if [[ "$(systemctl --user is-active ${TIMER_TEST})" == "active" ]]
     then
-        systemctl restart --quiet ${TIMER_TEST}
+        systemctl --user restart --quiet ${TIMER_TEST}
     else
-        systemctl start --quiet ${TIMER_TEST}
+        systemctl --user start --quiet ${TIMER_TEST}
     fi
 done
 
