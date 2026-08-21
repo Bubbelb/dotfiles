@@ -11,5 +11,14 @@
 .fcrontab
 .fcrontab.sh
 .config/fish/conf.d/fcron.fish
+{{- else }}
+.config/systemd/user/chezmoi-update.service
+.config/systemd/user/chezmoi-update.timer
+.config/systemd/user/fish-plugin-update.service
+.config/systemd/user/fish-plugin-update.timer
+.config/systemd/user/neovim-plugin-update.service
+.config/systemd/user/neovim-plugin-update.timer
+.config/systemd/user/yazi-pkg-update.service
+.config/systemd/user/yazi-pkg-update.timer
 {{- end }}
 
