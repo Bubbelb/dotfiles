@@ -1,0 +1,14 @@
+[Unit]
+Description=Update Neovim Plugins, Mason, and TreeSitter
+StartLimitIntervalSec=1d
+StartLimitBurst=5
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/nvim --headless "+Lazy! sync" +qa
+ExecStart=/usr/bin/nvim --headless "+MasonUpdate" +qa
+ExecStart=/usr/bin/nvim --headless "+TSUpdateSync" +qa
+Restart=on-failure
+RestartSec=60s
+RestartSteps=2
+RestartMaxDelaySec=600s

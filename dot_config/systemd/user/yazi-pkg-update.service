@@ -1,0 +1,13 @@
+[Unit]
+Description=Update Yazy packages (plugins)
+StartLimitIntervalSec=1d
+StartLimitBurst=5
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/ya pkg upgrade
+Restart=on-failure
+RestartSec=60s
+RestartSteps=2
+RestartMaxDelaySec=600s
+

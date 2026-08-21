@@ -1,0 +1,11 @@
+[Unit]
+Description=Update plugins for Fish Shell dauly
+
+[Timer]
+OnCalendar=daily
+AccuracySec=1min
+Persistent=true
+RandomizedDelaySec=2min
+
+[Install]
+WantedBy=timers.target

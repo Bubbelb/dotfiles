@@ -1,0 +1,13 @@
+[Unit]
+Description=Update plugins for Fish Shell
+StartLimitIntervalSec=1d
+StartLimitBurst=5
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/env fish -c 'fisher update'
+Restart=on-failure
+RestartSec=60s
+RestartSteps=2
+RestartMaxDelaySec=600s
+

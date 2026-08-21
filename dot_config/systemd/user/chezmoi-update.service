@@ -1,0 +1,13 @@
+[Unit]
+Description=Update and apply Chezmoi terminal config
+StartLimitIntervalSec=1d
+StartLimitBurst=5
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/chezmoi update --apply --force
+Restart=on-failure
+RestartSec=60s
+RestartSteps=2
+RestartMaxDelaySec=600s
+
