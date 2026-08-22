@@ -20,16 +20,19 @@ if command -v systemctl >/dev/null ; then
     systemctl --user daemon-reload
 
     for TIMER_TEST in ${TIMERS_TEST[@]} ; do
-        if [[ "$(systemctl --user is-enabled ${TIMER_TEST})" != "enabled" ]]
+        if [[ -f "${HOME}/.config/systemd/user/${TIMER_TEST}.timer" ]]
         then
-            systemctl --user enable --quiet ${TIMER_TEST}
-        fi
+            if [[ "$(systemctl --user is-enabled ${TIMER_TEST})" != "enabled" ]]
+            then
+                systemctl --user enable --quiet ${TIMER_TEST}
+            fi
 
-        if [[ "$(systemctl --user is-active ${TIMER_TEST})" == "active" ]]
-        then
-            systemctl --user restart --quiet ${TIMER_TEST}
-        else
-            systemctl --user start --quiet ${TIMER_TEST}
+            if [[ "$(systemctl --user is-active ${TIMER_TEST})" == "active" ]]
+            then
+                systemctl --user restart --quiet ${TIMER_TEST}
+            else
+                systemctl --user start --quiet ${TIMER_TEST}
+            fi
         fi
     done
 fi
