@@ -1,0 +1,8 @@
+--extended
+--exclude-kernfs
+--graph-style eigth-block
+--color dark-bg
+--enable-natsort
+--group-directories-first
+--show-percent
+--delete-command trash-put
