@@ -168,7 +168,7 @@ function chezmoi_regular() {
 	fi
 }
 
-funtion print_dist() {
+function print_dist() {
     if command -v pacman >/dev/null  ; then
         echo "arch"
     elif command -v apt-get >/dev/null ; then
