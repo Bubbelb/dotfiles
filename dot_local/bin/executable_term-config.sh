@@ -219,12 +219,12 @@ function print_header() {
 
 # Main routine
 
-if [[ "$1" == '-P' ]] && [[ $UID -ne 0 ]]
+if [[ "$1" == "-P" ]] && [[ $UID -ne 0 ]]
 then
     print_header
     echo "Error: The -P option requires that this script be run as root." >&2
     exit 2
-elif [[ $UID -lt 1000 ]]
+elif [[ "$1" != "-P" ]] && [[ $UID -lt 1000 ]]
 then
     print_header
     echo "Error: This option only works as a generic user. See -h for help." >&2
