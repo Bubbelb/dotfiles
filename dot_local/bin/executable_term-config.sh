@@ -37,7 +37,11 @@ function arch-install-pkg() {
     if [[ "${ONLY_REPORT}" == 0 ]] ; then
         if [[ "${#MLIST[@]}" -gt 0 ]] ; then
             echo "Missing packages. Installing them."
-            sudo pacman -S --noconfirm ${MLIST[@]}
+            if [[ ${DO_SUDO} -eq 1 ]] ; then
+                sudo pacman -S --noconfirm ${MLIST[@]}
+            else
+                pacman -S --noconfirm ${MLIST[@]}
+            fi
             MLIST=($(comm -23 <(echo "${PKGS_ARCH[@]}" | tr -s ' ' $'\n' | sort -u) <(pacman -Qsq | sort)))
             if [[ "${#MLIST[@]}" -gt 0 ]] ; then
                 echo "Not all packages installed as planed."
@@ -74,9 +78,17 @@ function alpine-install-pkg() {
             if [[ "${#MLIST[@]}" -gt 0 ]] ; then
                 echo "Missing packages from repo '${ANAME}'. Installing them."
                 if [[ -z "${AREPO}" ]] ; then
-                    sudo apk add ${MLIST[@]}
+                    if [[ ${DO_SUDO} -eq 1 ]] ; then
+                        sudo apk add ${MLIST[@]}
+                    else
+                        apk add ${MLIST[@]}
+                    fi
                 else
-                    apk add --no-cache --repository="${AREPO}" ${MLIST[@]}
+                    if [[ ${DO_SUDO} -eq 1 ]] ; then
+                        sudo apk add --no-cache --repository="${AREPO}" ${MLIST[@]}
+                    else
+                        apk add --no-cache --repository="${AREPO}" ${MLIST[@]}
+                    fi
                 fi
                 MLIST=($(comm -23 <(echo "${ALIST[@]}" | tr -s ' ' $'\n' | sort -u) <(apk list -q | sort)))
                 if [[ "${#MLIST[@]}" -gt 0 ]] ; then
@@ -115,20 +127,22 @@ function install-pkg() {
         echo "Checking missing packages and installing them..."
     fi
     ran_ok=0
-    if command -v pacman >/dev/null  ; then
-        arch-install-pkg && ran_ok=1
-    elif command -v apt-get >/dev/null ; then
-        deb-install-pkg && ran_ok=1
-    elif command -v apk >/dev/null ; then
-        alpine-install-pkg && ran_ok=1
-    else
-        if [[ "${ONLY_REPORT}" == "0" ]] ; then
-            echo "Error, no package manager found. (apt-get, apk, pacman). Can't continue."
-            echo "Consider using '-o', or '-i'."
-        else
-            echo "Package manager not found."
-        fi
-    fi
+    case "$(print_dist)" in
+        arch )
+            arch-install-pkg && ran_ok=1 ;;
+        debian )
+            deb-install-pkg && ran_ok=1 ;;
+        alpine )
+            alpine-install-pkg && ran_ok=1 ;;
+        * )
+            if [[ "${ONLY_REPORT}" == "0" ]] ; then
+                echo "Error, no package manager found. (apt-get, apk, pacman). Can't continue."
+                echo "Consider using '-o', or '-i'."
+            else
+                echo "Package manager not found."
+            fi
+            ;;
+    esac
 
     if [[ "${ran_ok}" == "1" ]] \
             && [[ "${ONLY_REPORT}" == "0" ]] \
@@ -154,6 +168,20 @@ function chezmoi_regular() {
 	fi
 }
 
+funtion print_dist() {
+    if command -v pacman >/dev/null  ; then
+        echo "arch"
+    elif command -v apt-get >/dev/null ; then
+        echo "debian"
+    elif command -v apk >/dev/null ; then
+        echo "alpine"
+    elif command -v rpm >/dev/null ; then
+        echo "rpm"
+    else
+        echo "unknown"
+    fi
+}
+
 function show_help() {
     cat << EOF
     Terminal Configurer. Setup everything for desired terminal beviour.
@@ -165,6 +193,7 @@ function show_help() {
         -o  Do a one-shot Chezmoi sync, without installing Chezmoi
         -i  Install and initialize Chezmoi into homedir (~/.local/bin)
         -p  Package Install (Needs sudo)
+        -P  Package Install as root (Without sudo)
         -c  Initialize/Update Chezmoi, using installed package
         -r  Report about missing packages
         -h  Show this help.
@@ -176,6 +205,7 @@ function show_help() {
         the complete set of packages is installed and the full set of configurations
         can be applied.
      - Only the option with no parameters will ask for confirmation to proceed.
+     - For '-P', user must be root. For any other option, a normal user (UID>=1000) is required.
 EOF
 }
 
@@ -184,6 +214,18 @@ function print_header() {
 }
 
 # Main routine
+
+if [[ "$1" == '-P' ]] && [[ $UID -ne 0 ]]
+then
+    print_header
+    echo "Error: The -P option requires that this script be run as root." >&2
+    exit 2
+elif [[ $UID -lt 1000 ]]
+then
+    print_header
+    echo "Error: This option only works as a generic user. See -h for help." >&2
+    exit 3
+fi
 
 if [[ -z "$1" ]] ; then
     print_header
@@ -200,7 +242,8 @@ else
     case "$1" in
         '-o' ) print_header ; chezmoi_oneshot ;;
         '-i' ) print_header ; chezmoi_init ;;
-        '-p' ) print_header ; ONLY_REPORT=0 ; install-pkg ;;
+        '-p' ) print_header ; DO_SUDO=1 ; ONLY_REPORT=0 ; install-pkg ;;
+        '-P' ) print_header ; DO_SUDO=0 ; ONLY_REPORT=0 ; install-pkg ;;
         '-c' ) print_header ; chezmoi_regular ;;
         '-r' ) ONLY_REPORT=1 ; install-pkg ;;
         '-h' ) show_help ;;
