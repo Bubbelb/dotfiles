@@ -32,6 +32,8 @@ PKGS_ALPINE_EDGE_TESTING=( ouch )
 ONLY_REPORT=0
 CHEZMOI_REPO=Bubbelb
 
+SCRIPT_NAME=term_config.sh
+
 function arch-install-pkg() {
     MLIST=($(comm -23 <(echo "${PKGS_ARCH[@]}" | tr -s ' ' $'\n' | sort -u) <(pacman -Qsq | sort)))
     if [[ "${ONLY_REPORT}" == 0 ]] ; then
@@ -51,7 +53,7 @@ function arch-install-pkg() {
             echo "All packages are accounted for."
         fi
     elif [[ "${#MLIST[@]}" -gt 0 ]] ; then
-        echo "Warning. Missing packages for complete shell experience. Run $(basename $0) to update."
+        echo "Warning. Missing packages for complete shell experience. Run ${SCRIPT_NAME} to update."
     fi
 }
 
@@ -104,7 +106,7 @@ function alpine-install-pkg() {
     done
 
     if [[ "${ONLY_REPORT}" == 0 ]] && [[ "${REPORTCOUNT}" -gt 0 ]] ; then
-        echo "Warning. Missing packages for complete shell experience. Run $(basename $0) to update."
+        echo "Warning. Missing packages for complete shell experience. Run ${SCRIPT_NAME} to update."
     fi
 }
 
@@ -210,7 +212,7 @@ EOF
 }
 
 function print_header() {
-    echo -e "$(basename $0) - Terminal configuration. '$(basename $0) -h' for help.\n" >&2
+    echo -e "${SCRIPT_NAME} - Terminal configuration. '${SCRIPT_NAME} -h' for help.\n" >&2
 }
 
 # Main routine
