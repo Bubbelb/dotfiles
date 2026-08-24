@@ -7,11 +7,11 @@
 .config/fish
 .config/distrobox
 {{- end }}
-{{- if (or (not (glob "/etc/term-config")) (ne .chezmoi.osRelease.id "alpine")) }}
+{{- if (and (not (glob "/.dockerenv")) (glob "/etc/term-config") (ne .chezmoi.osRelease.id "alpine")) }}
 .fcrontab
 .fcrontab.sh
 .config/fish/conf.d/fcron.fish
 {{- end }}
-{{- if (or (not (glob "/etc/term-config")) (eq .chezmoi.osRelease.id "alpine")) }}
+{{- if (or (glob "/.dockerenv") (not (glob "/etc/term-config")) (eq .chezmoi.osRelease.id "alpine")) }}
 .config/systemd/user/*
 {{- end }}
