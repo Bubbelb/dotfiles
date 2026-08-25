@@ -249,7 +249,7 @@ else
         '-o' ) print_header ; chezmoi_oneshot ;;
         '-i' ) print_header ; chezmoi_init ;;
         '-p' ) print_header ; DO_SUDO=1 ; ONLY_REPORT=0 ; install-pkg ;;
-        '-P' ) print_header ; DO_SUDO=0 ; ONLY_REPORT=0 ; install-pkg ;;
+        '-P' ) DO_SUDO=0 ; ONLY_REPORT=0 ; install-pkg ;;
         '-c' ) print_header ; chezmoi_regular ;;
         '-r' ) ONLY_REPORT=1 ; install-pkg ;;
         '-h' ) show_help ;;
