@@ -34,8 +34,6 @@ CHEZMOI_REPO=Bubbelb
 
 SCRIPT_NAME=term_config.sh
 
-echo "PARAMETERS: '$*'"
-
 function arch-install-pkg() {
     MLIST=($(comm -23 <(echo "${PKGS_ARCH[@]}" | tr -s ' ' $'\n' | sort -u) <(pacman -Qsq | sort)))
     if [[ "${ONLY_REPORT}" == 0 ]] ; then
