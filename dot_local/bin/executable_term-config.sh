@@ -152,7 +152,11 @@ function install-pkg() {
             && [[ "${ONLY_REPORT}" == "0" ]] \
             && [[ ! -f /etc/term-config ]]
     then
-        sudo touch /etc/term-config
+        if [[ ${DO_SUDO} -eq 1 ]] ; then
+            sudo touch /etc/term-config
+        else
+            touch /etc/term-config
+        fi
     fi
     [[ "${ran_ok}" == "1" ]]
     return $?
