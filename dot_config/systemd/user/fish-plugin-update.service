@@ -2,6 +2,8 @@
 Description=Update plugins for Fish Shell
 StartLimitIntervalSec=1d
 StartLimitBurst=5
+Requires=network-online.target
+After=network-online.target
 
 [Service]
 Type=oneshot
