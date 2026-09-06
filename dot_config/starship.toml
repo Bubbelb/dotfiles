@@ -1,6 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+[╭─](fg:base1)\
 [](sol_orange)\
 $os\
 [](bg:sol_yellow fg:sol_orange)\
@@ -18,7 +19,9 @@ $username\
 [](fg:base2 bg:base2)\
 $time\
 [ ](fg:base2)\
-$line_break$character"""
+$line_break\
+[╰─](fg:base1)\
+$character"""
 
 #add_newline = true
 
@@ -93,12 +96,13 @@ truncation_length = 3
 truncation_symbol = "…/"
 
 [directory.substitutions]
-"Documents" = "󰈙 "
-"Downloads" = " "
-"Music" = "󰝚 "
-"Pictures" = " "
-"Code" = "󰲋 "
-"workspace" = "󰲋 "
+"Documents" = "󰈙 ~/Documents"
+"Downloads" = " ~/Downloads"
+"Music" = "󰝚 ~/Music"
+"Pictures" = " ~/Pictures"
+"Code" = "󰲋 ~/Code"
+"Projects" = "󰲋 ~/Projects"
+"~" = " ~"
 
 [git_branch]
 symbol = ""
@@ -114,18 +118,18 @@ symbol = ' '
 
 [time]
 disabled = false
-time_format = "%R"
+time_format = "%T"
 style = "bg:base3"
-format = '[[  $time ](fg:base00 bg:base2)]($style)'
+format = '[[  $time ](bold fg:base02 bg:base2)]($style)'
 
 [line_break]
 disabled = false
 
 [character]
 disabled = false
-success_symbol = '[>](bold fg:sol_green)'
-error_symbol = '[>](bold fg:sol_red)'
-vimcmd_symbol = '[<](bold fg:sol_green)'
-vimcmd_replace_one_symbol = '[<](bold fg:sol_violet)'
-vimcmd_replace_symbol = '[<](bold fg:sol_violet)'
-vimcmd_visual_symbol = '[<](bold fg:sol_yellow)'
+success_symbol = '[❯](bold fg:sol_green)'
+error_symbol = '[❯](bold fg:sol_red)'
+vimcmd_symbol = '[❮](bold fg:sol_green)'
+vimcmd_replace_one_symbol = '[❮](bold fg:sol_violet)'
+vimcmd_replace_symbol = '[❮](bold fg:sol_violet)'
+vimcmd_visual_symbol = '[❮](bold fg:sol_yellow)'
