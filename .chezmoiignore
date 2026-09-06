@@ -6,6 +6,7 @@
 .config/yazi
 .config/fish
 .config/distrobox
+.config/startship.toml
 {{- end }}
 {{- if (and (not (glob "/.dockerenv")) (glob "/etc/term-config") (ne .chezmoi.osRelease.id "alpine")) }}
 .fcrontab
