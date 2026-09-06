@@ -26,6 +26,32 @@ $time\
 [ ](fg:base2)\
 $line_break$character"""
 
+right_format = """
+[](sol_orange)\
+$os\
+$username\
+[](bg:sol_yellow fg:sol_orange)\
+$directory\
+[](fg:sol_yellow bg:sol_cyan)\
+$git_branch\
+$git_status\
+[](fg:sol_cyan bg:sol_blue)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:sol_blue bg:base2)\
+$docker_context\
+[](fg:base2 bg:base2)\
+$time\
+[ ](fg:base2)\
+$line_break$character"""
+
 palette = 'solarized_light'
 
 [palettes.solarized_light]
@@ -76,6 +102,7 @@ CentOS = ""
 Debian = "󰣚"
 Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
+CachyOS = ""
 
 [username]
 show_always = true
