@@ -3,7 +3,6 @@
 format = """
 [](sol_orange)\
 $os\
-$username\
 [](bg:sol_yellow fg:sol_orange)\
 $directory\
 [](fg:sol_yellow bg:sol_cyan)\
@@ -30,23 +29,6 @@ right_format = """
 [](sol_orange)\
 $os\
 $username\
-[](bg:sol_yellow fg:sol_orange)\
-$directory\
-[](fg:sol_yellow bg:sol_cyan)\
-$git_branch\
-$git_status\
-[](fg:sol_cyan bg:sol_blue)\
-$c\
-$rust\
-$golang\
-$nodejs\
-$php\
-$java\
-$kotlin\
-$haskell\
-$python\
-[](fg:sol_blue bg:base2)\
-$docker_context\
 [](fg:base2 bg:base2)\
 $time\
 [ ](fg:base2)\
@@ -104,11 +86,11 @@ Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 CachyOS = ""
 
-[username]
+[user_at_host]
 show_always = true
 style_user = "bg:sol_orange fg:base3"
 style_root = "bg:sol_orange fg:base3"
-format = '[ $user ]($style)'
+format = '[ $user ]($style)@$host'
 
 [directory]
 style = "bg:sol_yellow fg:base3"
