@@ -90,7 +90,7 @@ CachyOS = ""
 show_always = true
 style_user = "bg:sol_orange fg:base3"
 style_root = "bg:sol_orange fg:base3"
-format = '[ $user ]($style)@$hostname'
+format = '[ $user ]($style)@[ $hostname ]'
 
 [directory]
 style = "bg:sol_yellow fg:base3"
