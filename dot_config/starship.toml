@@ -3,36 +3,24 @@
 format = """
 [](sol_orange)\
 $os\
-[](bg:sol_yellow fg:sol_orange)\
+[](bg:sol_yellow fg:sol_orange)\
 $directory\
 [](fg:sol_yellow bg:sol_cyan)\
 $git_branch\
 $git_status\
 [](fg:sol_cyan bg:sol_blue)\
-$c\
-$rust\
-$golang\
-$nodejs\
-$php\
-$java\
-$kotlin\
-$haskell\
-$python\
-[](fg:sol_blue bg:base2)\
-$docker_context\
+[](fg:base2 bg:base2)\
+[ ](fg:base2)\
+$fill\
+[](sol_orange)\
+$username\
+[@](bg:sol_orange fg:base3)$hostname\
 [](fg:base2 bg:base2)\
 $time\
 [ ](fg:base2)\
 $line_break$character"""
 
-right_format = """
-[](sol_orange)\
-$os\
-$username\
-[](fg:base2 bg:base2)\
-$time\
-[ ](fg:base2)\
-$line_break$character"""
+#add_newline = true
 
 palette = 'solarized_light'
 
@@ -63,6 +51,7 @@ sol_green     = '#859900'
 [os]
 disabled = false
 style = "bg:sol_orange fg:base3"
+format = '[ $symbol ]($style)'
 
 [os.symbols]
 Macos = ""
@@ -86,11 +75,16 @@ Redhat = "󱄛"
 RedHatEnterprise = "󱄛"
 CachyOS = ""
 
-[user_at_host]
+[username]
 show_always = true
-style_user = "bg:sol_orange fg:base3"
-style_root = "bg:sol_orange fg:base3"
-format = '[ $user ]($style)@[ $hostname ]'
+style_user = "bg:sol_orange fg:base3 bold"
+style_root = "bg:sol_red fg:base3 bold"
+format = '[ $user]($style)'
+
+[hostname]
+ssh_only = false
+style = "bg:sol_orange fg:base2 bold"
+format = '[$hostname $ssh_symbol ]($style)'
 
 [directory]
 style = "bg:sol_yellow fg:base3"
@@ -115,55 +109,8 @@ format = '[[ $symbol $branch ](fg:base3 bg:sol_cyan)]($style)'
 style = "bg:sol_cyan"
 format = '[[($all_status$ahead_behind )](fg:base3 bg:sol_cyan)]($style)'
 
-[nodejs]
-symbol = ""
-style = "bg:sol_blue"
-format = '[[ $symbol( $version) ](fg:base3 bg:sol_blue)]($style)'
-
-[c]
-symbol = " "
-style = "bg:sol_blue"
-format = '[[ $symbol( $version) ](fg:base3 bg:sol_blue)]($style)'
-
-[rust]
-symbol = ""
-style = "bg:sol_blue"
-format = '[[ $symbol( $version) ](fg:base3 bg:sol_blue)]($style)'
-
-[golang]
-symbol = ""
-style = "bg:sol_blue"
-format = '[[ $symbol( $version) ](fg:base3 bg:sol_blue)]($style)'
-
-[php]
-symbol = ""
-style = "bg:sol_blue"
-format = '[[ $symbol( $version) ](fg:base3 bg:sol_blue)]($style)'
-
-[java]
-symbol = " "
-style = "bg:sol_blue"
-format = '[[ $symbol( $version) ](fg:base3 bg:sol_blue)]($style)'
-
-[kotlin]
-symbol = ""
-style = "bg:sol_blue"
-format = '[[ $symbol( $version) ](fg:base3 bg:sol_blue)]($style)'
-
-[haskell]
-symbol = ""
-style = "bg:sol_blue"
-format = '[[ $symbol( $version) ](fg:base3 bg:sol_blue)]($style)'
-
-[python]
-symbol = ""
-style = "bg:sol_blue"
-format = '[[ $symbol( $version) ](fg:base3 bg:sol_blue)]($style)'
-
-[docker_context]
-symbol = ""
-style = "bg:base2"
-format = '[[ $symbol( $context) ](fg:#83a598 bg:base2)]($style)'
+[fill]
+symbol = ' '
 
 [time]
 disabled = false
