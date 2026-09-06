@@ -2,11 +2,10 @@
 Description=Update Neovim Plugins, Mason, and TreeSitter
 StartLimitIntervalSec=1d
 StartLimitBurst=5
-Requires=network-online.target
-After=network-online.target
 
 [Service]
 Type=oneshot
+ExecStartPre=/bin/sh -c 'while [[ "$(systemctl is-active network-online.target)" != "active" ]] ; do echo "Waiting for network to come online." >&2 ; sleep 30 ; done'
 ExecStart=/usr/bin/nvim --headless "+Lazy! sync" +qa
 ExecStart=/usr/bin/nvim --headless "+MasonUpdate" +qa
 ExecStart=/usr/bin/nvim --headless "+TSUpdate" +qa
