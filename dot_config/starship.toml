@@ -1,6 +1,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+$custom.yazi
 [╭─](fg:base1)\
 [](sol_orange)\
 $os\
@@ -133,3 +134,7 @@ vimcmd_symbol = '[❮](bold fg:sol_green)'
 vimcmd_replace_one_symbol = '[❮](bold fg:sol_violet)'
 vimcmd_replace_symbol = '[❮](bold fg:sol_violet)'
 vimcmd_visual_symbol = '[❮](bold fg:sol_yellow)'
+
+[custom.yazi]
+when = ''' pstree -s $(cat /proc/self/status | sed -n '/^PPid:/ s/^PPid:\s*//p') | sed -n 's/\(-[-+]-\|^\)yazi\(-[-+]-\|$\)/true/p' '''
+format = 'YAZI'
