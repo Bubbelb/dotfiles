@@ -3,23 +3,23 @@
 format = """
 [╭─](fg:base1)\
 ${custom.yazi}\
-[](sol_orange)\
+[](base02)\
 $os\
-[](bg:sol_yellow fg:sol_orange)\
 $directory\
-[](fg:sol_yellow bg:sol_cyan)\
+[](fg:sol_blue)\
 $git_branch\
 $git_status\
-[](fg:sol_cyan bg:sol_blue)\
-[](fg:base2 bg:base2)\
-[ ](fg:base2)\
+[ ](bg:base02)\
+[](fg:base02)\
 $fill\
+$cmd_duration\
+$status\
 [](sol_orange)\
 $username\
 [@](bg:sol_orange fg:base3)$hostname\
 [](fg:base2 bg:base2)\
 $time\
-[ ](fg:base2)\
+[](fg:base2)\
 $line_break\
 [╰─](fg:base1)\
 $character"""
@@ -54,7 +54,7 @@ sol_green     = '#859900'
 
 [os]
 disabled = false
-style = "bg:sol_orange fg:base3"
+style = "bg:base02 fg:base3"
 format = '[ $symbol ]($style)'
 
 [os.symbols]
@@ -91,7 +91,7 @@ style = "bg:sol_orange fg:base2 bold"
 format = '[$hostname $ssh_symbol ]($style)'
 
 [directory]
-style = "bg:sol_yellow fg:base3"
+style = "bold bg:sol_blue fg:base3"
 format = "[ $path ]($style)"
 truncation_length = 3
 truncation_symbol = "…/"
@@ -107,12 +107,12 @@ truncation_symbol = "…/"
 
 [git_branch]
 symbol = ""
-style = "bg:sol_cyan"
-format = '[[ $symbol $branch ](fg:base3 bg:sol_cyan)]($style)'
+style = "fg:base3 bg:sol_green"
+format = '[ $symbol $branch ]($style)'
 
 [git_status]
-style = "bg:sol_cyan"
-format = '[[($all_status$ahead_behind )](fg:base3 bg:sol_cyan)]($style)'
+style = "fg:base3 bg:sol_green"
+format = '[($all_status$ahead_behind )]($style)'
 
 [fill]
 symbol = ' '
@@ -120,8 +120,8 @@ symbol = ' '
 [time]
 disabled = false
 time_format = "%T"
-style = "bg:base3"
-format = '[[  $time ](bold fg:base02 bg:base2)]($style)'
+style = "bold fg:base02 bg:base3"
+format = '[ $time ]($style)'
 
 [line_break]
 disabled = false
@@ -137,4 +137,17 @@ vimcmd_visual_symbol = '[❮](bold fg:sol_yellow)'
 
 [custom.yazi]
 when = ''' pstree -s $(cat /proc/self/status | sed -n '/^PPid:/ s/^PPid:\s*//p') | grep -q '\(-[-+]-\|^\)yazi\(-[-+]-\|$\)' '''
-format = '[ 🦆 ](bg:sol_cyan)'
+style = "bg:sol_cyan"
+format = '[[](fg:sol_cyan)🦆[](fg:sol_cyan)]($style)'
+
+[status]
+style = 'bg:sol_red fg:base03'
+format = '[[](fg:sol_red)$symbol$common_meaning$signal_name$maybe_int[](fg:sol_red)]($style) '
+symbol = '✖️'
+map_symbol = true
+disabled = false
+
+[cmd_duration]
+min_time = 5000
+style = 'bold bg:sol_yellow fg:base02'
+format = '[[](fg:sol_yellow) ⧖ $duration[](fg:sol_yellow)]($style)'
