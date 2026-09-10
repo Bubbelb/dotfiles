@@ -6,7 +6,7 @@ PKGS_ARCH=( \
     btop ncurses fastfetch chezmoi lazygit \
     fzf ncdu \
     neovim github-cli python-pynvim tree-sitter-cli \
-    gcc make nodejs npm yarn dotnet-host dotnet-runtime \
+    gcc make nodejs npm yarn \
     python python-pip \
     wl-clipboard libnotify \
     fish fisher jq shfmt \
@@ -19,7 +19,7 @@ PKGS_ALPINE=( \
     btop ncurses fastfetch chezmoi cosign lazygit \
     fzf fzf-tmux fzf-fish-plugin \
     neovim github-cli py3-pynvim tree-sitter-cli \
-    gcc make nodejs npm yarn musl-dev dotnet-zsh-completion dotnet-host dotnet8-runtime \
+    gcc make nodejs npm yarn musl-dev \
     python3 py3-pip \
     clipboard wl-clipboard wlroots libnotify \
     fish jq shfmt \
