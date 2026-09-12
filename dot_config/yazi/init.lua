@@ -24,24 +24,6 @@ Header:children_add(function()
 	return ui.Span(ya.user_name() .. "@" .. ya.host_name() .. ":"):fg("blue")
 end, 500, Header.LEFT)
 
-require("bookmarks"):setup({
-	last_directory = { enable = false, persist = false, mode="dir" },
-	persist = "vim",
-	desc_format = "full",
-	file_pick_mode = "hover",
-	custom_desc_input = false,
-	show_keys = true,
-	notify = {
-		enable = false,
-		timeout = 1,
-		message = {
-			new = "New bookmark '<key>' -> '<folder>'",
-			delete = "Deleted bookmark in '<key>'",
-			delete_all = "Deleted all bookmarks",
-		},
-	},
-})
-
 require("linemode-plus"):setup {
   date_mode = "custom",
   custom = {
@@ -49,4 +31,18 @@ require("linemode-plus"):setup {
     separator = "-",
     year_digits = 4,
   }
+}
+
+require("yamb"):setup {
+  -- Optional, the path ending with path seperator represents folder.
+ --  bookmarks = bookmarks,
+  -- Optional, recieve notification everytime you jump.
+  jump_notify = true,
+  -- Optional, the cli of fzf.
+  cli = "fzf",
+  -- Optional, a string used for randomly generating keys, where the preceding characters have higher priority.
+  keys = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  -- Optional, the path of bookmarks
+  path = (ya.target_family() == "windows" and os.getenv("APPDATA") .. "\\yazi\\config\\bookmark") or
+        (os.getenv("HOME") .. "/.config/yazi/bookmark"),
 }
