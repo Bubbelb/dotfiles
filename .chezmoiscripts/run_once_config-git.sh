@@ -5,7 +5,7 @@ CMDIR="$(chezmoi data | yq -r '.chezmoi.sourceDir')"
 GITPULLURL="$(git -C ${CMDIR} remote get-url origin)"
 GITPUSHURL="$(git -C ${CMDIR} remote get-url --push origin)"
 
-if echo "{GITPULLURL}" | grep -q '^https:' ; then
+if echo "${GITPULLURL}" | grep -q '^https:' ; then
     GITUSER="$(echo "${GITPULLURL}" | sed 's_^https\?://.*/\([^/]\+\)/[^/]\+\.git$_\1_')"
     GITREPO="$(echo "${GITPULLURL}" | sed 's_^https\?://.*/[^/]\+/\([^/]\+\)\.git$_\1_')"
     GITHOST="$(echo "${GITPULLURL}" | sed 's_^https\?://\([^/]\+\)/.*\.git$_\1_')"
