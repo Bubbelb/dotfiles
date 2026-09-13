@@ -19,7 +19,7 @@ return {
         },
     },
     {
-        'gorbit99/codewindow.nvim',
+        'starbaser/codewindow.nvim',
         keys = {
           { "<Leader>mo", "<cmd>lua require('codewindow').open_minimap()<cr>", desc = "Open MiniMap" },
           { "<Leader>mc", "<cmd>lua require('codewindow').close_minimap()<cr>", desc = "Close MiniMap" },
