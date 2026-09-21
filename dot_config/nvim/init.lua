@@ -33,6 +33,7 @@ opts = {
 	-- automatically check for plugin updates
 		enabled = true,
 		concurrency = 6, ---@type number? set to 1 to check for updates very slowly
+        notify = false,
   },
   rocks = {
 	  enabled = false,
