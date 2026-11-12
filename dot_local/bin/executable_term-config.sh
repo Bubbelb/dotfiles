@@ -10,7 +10,7 @@ PKGS_ARCH=( \
     python python-pip \
     wl-clipboard libnotify \
     fish fisher jq shfmt \
-    docker openssl socat ldns mosh kitty-terminfo \
+    openssl socat ldns mosh kitty-terminfo \
     bzip2 gzip zstd unzip yq )
 
 PKGS_ALPINE=( \
@@ -23,7 +23,7 @@ PKGS_ALPINE=( \
     python3 py3-pip \
     clipboard wl-clipboard wlroots libnotify \
     fish jq shfmt \
-    docker-zsh-completion docker-cli docker-cli-compose openssl socat drill mosh libcap-utils libcap-setcap kitty-terminfo \
+    openssl socat drill mosh libcap-utils libcap-setcap kitty-terminfo \
     bzip2 gzip zstd unzip yq musl-locales )
 PKGS_ALPINE_EDGE_MAIN=( lua5.5-libs )
 PKGS_ALPINE_EDGE_COMMUNITY=( yazi yazi-cli )
